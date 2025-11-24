@@ -1,0 +1,346 @@
+Projektzusammenfassung – „Global Trend Analyzer (Reddit + Web)“
+
+ein System, das automatisch Trends im Internet erkennt, speziell aus:
+
+✅ Reddit
+✅ Webseiten (News, Blogs, Tech-Portale) (extra feature falls zeit übrig)
+
+Das System kombiniert:
+
+Daten sammeln
+
+Text verstehen (Topic Modeling)
+
+Trends erkennen (Zeitreihen)
+
+Stimmung messen (Sentiment)
+
+ML-Vorhersage („Wird ein Thema ein Trend?“) (extra feature falls zeit übrig)
+
+
+LLM-Zusammenfassungen (Llama 3.3 70B)
+
+Damit entsteht ein AI-gestütztes Trend-Überwachungssystem, das wie ein echter Research-Analyst arbeitet.
+
+✅ 🔷 1. Ziel des Projektes
+
+Das Ziel ist:
+
+✅ Erkennen, welche Themen im Internet gerade wichtig werden
+✅ Messen, wie stark Trends wachsen oder fallen
+✅ Verstehen, wie Nutzer darüber sprechen (positiv/negativ)
+✅ Vorhersagen, ob ein Thema wahrscheinlich ein Trend wird (extra feature falls zeit übrig)
+✅ Zusammenfassen, was der Kern jeder Diskussion ist 
+
+Also:
+
+Ein System, das automatisch erkennt „Was geht gerade viral und warum?“
+
+✅ 🔷 2. Datenquellen
+✅ (A) Reddit (Hauptquelle)
+
+Du sammelst aus Subreddits wie zb:
+
+r/artificial
+
+r/technology
+
+r/machinelearning
+
+r/worldnews
+
+r/OpenAI
+
+r/Tesla
+
+r/investing
+
+Reddit liefert dir:
+
+✅ Upvotes
+✅ Downvotes
+✅ Kommentare
+✅ Zeitstempel
+✅ Subreddit
+✅ Text
+
+→ Sehr gut für Community-Trends.
+
+✅ (B) Firecrawl (zweite Quelle) (extra feature falls zeit übrig)
+
+scrapy scannt automatisch:
+
+Tech-News (The Verge, Wired, TechCrunch, Golem, Heise …)
+
+Blogs (OpenAI blog, Nvidia blog, Meta AI blog …)
+
+Artikel
+
+Webseiten mit aktuellen Themen
+
+scrapy liefert:
+
+✅ saubere extrahierte Texte
+✅ automatische Struktur
+✅ News-Daten außerhalb von Reddit
+
+→ Sehr gut für globale Trends, nicht nur Reddit.
+
+✅ 🔷 3. Datenbank (MongoDB)
+
+Du speicherst alles lokal, getrennt nach Collections:
+
+reddit_posts
+
+web_articles (Firecrawl) (extra feature falls zeit übrig)
+
+topics
+
+trends
+
+sentiments
+
+ml_features(extra feature falls zeit übrig)
+
+ml_predictions (extra feature falls zeit übrig)
+
+MongoDB ist ideal, weil die Inhalte flexibel sind.
+
+✅ 🔷 4. Processing Pipeline
+✅ 4.1 Preprocessing
+
+Alle Texte werden:
+
+gereinigt
+
+normalisiert
+
+auf Sprache geprüft
+
+in Embeddings umgewandelt
+
+✅ 4.2 Topic Modeling (BERTopic)
+
+Du erzeugst automatisch Themen (Topics) für:
+
+✅ Reddit
+✅ Web-Artikel (Firecrawl)
+✅ Kombinierte Topics → „Internet-weite Themen“
+
+Beispiele:
+
+„OpenAI neue Modelle“
+
+„Nvidia GPU Preise“
+
+„KI-Regulierung in der EU“
+
+„Tesla FSD Safety“
+
+„Gaming Releases 2025“
+
+✅ 4.3 Zeitreihen pro Topic
+
+Du misst:
+
+Posts pro Tag
+
+Web-Artikel pro Tag
+
+Wachstum
+
+Beschleunigung
+
+Trend-Signal
+
+Damit weißt du:
+
+✅ welche Themen steigen
+✅ welche Themen fallen
+✅ wie stark
+✅ wie lange
+
+✅ 🔷 5. Sentiment-Analyse
+
+Du misst die Stimmung für:
+
+✅ jeden Reddit-Post
+✅ jedes Firecrawl-Dokument
+✅ jedes Topic insgesamt
+
+Das zeigt dir:
+
+ist der Trend positiv?
+
+ist er negativ?
+
+ist er kontrovers?
+
+Sentiment macht die Trendberichte viel wertvoller.
+
+✅ 🔷 6. ML-Modell: „Trend Forecasting“
+
+Dein ML-Modell sagt:
+
+„Wird dieses Topic in den nächsten 24h ein echter Trend?“
+
+Für jedes Topic nutzt du Features wie:
+
+✅ Wachstum
+✅ Upvote-Ratio
+✅ Kommentar-Zahl
+✅ Sentiment
+✅ Anzahl neuer Autoren
+✅ Anzahl neuer Webseiten
+✅ Firecrawl-Artikel-Dichte
+✅ Momentum
+✅ Beschleunigung
+✅ mehrere historische Punkte
+
+Das ist dein „Trend Prediction Model“.
+
+✅ 🔷 7. LLM-Schicht (Llama 3.3 70B)
+
+Das LLM erzeugt:
+
+✅ kurze Zusammenfassungen pro Trend
+✅ Erklärungen, warum der Trend entsteht
+✅ Sentiment-Zusammenfassungen
+✅ Vergleiche zwischen Trends
+✅ „Top 5 Trends heute“
+✅ „Wichtigste Themen der Woche“
+
+Das macht dein System wie ein echter Analyst.
+
+✅ 🔷 8. Ergebnisse / Output
+
+Am Ende kann dein System automatisch Ausgaben produzieren wie:
+
+🔥 Trend: „OpenAI kündigt neues Modell an“
+
+Trendrichtung: +57 % Wachstum
+Stimmung: überwiegend positiv
+Aktivität: 14 Webseiten / 230 Reddit-Posts
+Prognose: 83 % Chance, Trend in den nächsten 24h
+Zusammenfassung:
+„Die Community diskutiert über das neue Modell. Viele freuen sich über längere Kontextfenster. Kritisch wird Datenschutz erwähnt.“
+
+🔥 Trend: „Nvidia GPU Preisexplosion“
+
+Trendrichtung: stark fallend
+Stimmung: 90 % negativ
+Web-Artikel: 9 Newsartikel
+Prognose: 21 % Trendchance
+Zusammenfassung:
+„Die Preise steigen stark. Hohe Kritik in Foren und News. Trend ebbt jedoch ab.“
+
+✅ 🔷 9. Gesamt-Architektur (einfach erklärt)
+            **+-----------+**
+
+            **| Firecrawl |**
+
+            **+-----------+**
+
+                   **|**
+
+                   **v**
+
+          **+------------------+**
+
+          **|  WEB ARTICLES    |**
+
+          **+------------------+**
+
+                   **|**
+
+                   **v**
+
++---------+      Processing     +---------+
+| Reddit  |  →  Embedding  →    |  Topics |
+|  API    |  →  Sentiment  →    |         |
++---------+  →  Zeitreihen →    +---------+
+       **|                                 |**
+
+       **+---------------------------------+**
+
+                   **|**
+
+                   **v**
+
+        **+------------------------+**
+
+        **| ML Trend Prediction    |**
+
+        **+------------------------+**
+
+                   **|**
+
+                   **v**
+
+        **+------------------------+**
+
+        **|  LLM Trend Summary     |**
+
+        **+------------------------+**
+
+                   **|**
+
+                   **v**
+
+             **Trend Reports**
+
+
+
+
+✅ 🔷 10. Was dein System am Ende leisten kann
+
+✅ Trends automatisch finden
+✅ Trends bewertet nach Stimmung
+✅ Trends bewertet nach Web- und Reddit-Signalen
+✅ Trends vorhersagen (ML)
+✅ Trends erklären (LLM)
+✅ News + Reddit kombiniert analysieren
+✅ Vollständig automatisch laufen (täglich / stündlich)
+
+✅ 🔷 11. Warum dein Projekt sehr stark ist
+
+verbindet Scraping + NLP + ML + LLM
+
+analysiert Social Media + News gleichzeitig
+
+professionelle Trendanalyse
+
+sehr gutes Portfolio-Projekt
+
+reale Anwendung, die Firmen nutzen könnten
+
+
+
+
+Global Trend Analyzer – Aufgabenaufteilung (ohne Webscraping, ohne Modelltraining)
+
+Ziel (MVP)
+- Reddit-Daten ziehen, bereinigen, speichern.
+- Topics + einfache Trend-Signale aus Scores/Kommentaren ableiten.
+- LLM-Report als Markdown/JSON erzeugen.
+
+Person A – Ingestion, Datenmodell, Persistenz
+- Setup: Grundstruktur, requirements, `.env`/`config/settings.yaml`, Logging.
+- Reddit-Client/Fetch: PRAW-Client, Fetch-Modi (top/hot/new, time_filter), Kommentar-Fetch (limit/smart), Retry/Fehlerhandling.
+- Filter/Sort/Dedupe: Score-/Recency-Filter, Dedupe, Sortierung (score/recency), Top-N.
+- Schema & Persistenz: Post/Comment-Dataclasses (id, title, subreddit, score, num_comments, created_utc, url, selftext, link_flair, category, comments[]), Upsert in Mongo (posts/comments + historische Metriken), Export/Import als JSON.
+- Runner/CLI: Befehle “fetch” und “store” (config-gesteuert), kleines Log-Feedback.
+- Smoke-Tests: Offline-Fetch-Mock, Upsert-Test gegen Test-DB, Linter/Format.
+
+Person B – Processing, Analyse, LLM-Reporting
+- Preprocessing: Text-Cleaning, Dedup (Text/SHA), optionale Feld-Normalisierung.
+- Sentiment & Embeddings: HF-Sentiment-Pipeline; SentenceTransformer-Embeddings für title/selftext/clean_text (modellkonfigurierbar).
+- Topics/Trends: BERTopic (oder leichter) auf Texten; Zeitreihen-Metriken auf Score/Comments (Slope/Momentum/Anomalien) → Trending-Flag.
+- LLM/Reports: Prompt-Templates + OpenRouter-Client; Generator baut Tabellen (Trending/Weekly/Monthly) aus DB/JSON und erzeugt Markdown + JSON; Fallback ohne API-Key (Stub-Text).
+- Outputs/Tests: Reports nach `reports/`, Mock-LLM für Offline-Tests, Mini-Datasets für Topic/Timeseries-Pfade.
+
+Gemeinsame Schnittstellen & Milestones
+- Gemeinsames JSON-Schema für Posts/Comments (siehe oben) + Export aus A (z. B. `data/raw/posts.json`) als Input für B.
+- M1: Schema/Config fixieren; A liefert ersten Fetch-Dump; B validiert Preprocessing/Topics darauf.
+- M2: End-to-End-Minimum: fetch → store → process → topic/trend → report.
+- M3: Robustheit: Logging, Fehlerpfade, Config-Checks, Smoke-Tests; kurze CLI-Doku.
