@@ -1,0 +1,13 @@
+# Byte-compiled / generated
+__pycache__/
+*.pyc
+
+# Data
+data/
+.env
+
+# Virtual environments
+venv/
+
+# IDE files
+.vscode/
