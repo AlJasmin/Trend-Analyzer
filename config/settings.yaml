@@ -1,0 +1,91 @@
+# API Credentials
+reddit:
+  client_id: XCnVe87cDVFbnkuHo1GIKQ
+  client_secret: y7jV9PpsvZksT26-Oe71-oS5DA_-Kw
+  user_agent: global_trend_analyzer by u/No-Biscotti8980
+
+# Database
+mongodb:
+  uri: mongodb://localhost:27017/
+  database: global_trend_analyzer
+
+# Processing
+embeddings:
+  model: all-MiniLM-L6-v2
+  batch_size: 32
+
+# Paths
+data_dir: data
+raw_dir: data/raw
+processed_dir: data/processed
+reports_dir: reports
+
+# Scheduling
+update_interval: 3600  # seconds
+max_items_per_source: 100
+
+# meme-Prediction
+predict:
+  checkpoint_file: models/Trained/model-v6.ckpt
+  clip_variant: ViT-L-14
+  class_names:
+    - not_meme
+    - is_meme
+  model:
+    feature_dim: 768
+    map_dim: 768
+    num_mapping_layers: 1
+    num_pre_output_layers: 1
+    drop_probs:
+      - 0.0
+      - 0.0
+      - 0.0
+    ratio: 0.5
+    lr: 0.0001
+    weight_decay: 0.01
+    pos_label: 1
+    label_smoothing: 0.0
+    scale: 30
+
+# Reddit ingestion
+#hot means 
+#Score: upvotes minus downvotes (with some weighting). Recency: newer posts get a boost so hot stays fresh. Activity/engagement: fast-growing vote counts or comment bursts help. Anti-spam adjustments: automod flags, duplicate detection, etc.
+
+
+
+reddit_pipeline:
+  subreddit_list_file: config/subreddits.txt
+  fetch_defaults:
+    feed: hot          # top, hot, new
+    time_filter: day
+    limit: 25
+  subreddits: []
+
+  filters:
+    min_score: 0
+    recent_days: 7
+    allowed_categories: []
+    excluded_categories: []
+    sort_by: score        # score, recency, none
+    descending: true
+    top_n: 50
+
+  comments:
+    enabled: true
+    fetch_mode: smart     # true, false, smart
+    limit: 2
+    log_count: true
+
+  logging:
+    show_post_timestamp: true
+    show_comment_timestamp: true
+    comment_preview_count: 2
+
+
+
+
+  enrichers:
+    images:
+      enabled: false
+      embedder_model: clip
+

@@ -15,7 +15,7 @@ class ImageEnricher:
     """Enriches posts with image analysis."""
 
     def __init__(self, db_client=None, embedder_model='clip'):
-        from processing.image_embeddings import ImageEmbedder
+        from processing.no_meme_VLM import ImageEmbedder
         from modeling.image_topic_model import ImageTopicModeler
         from database.image_analysis import ImageAnalysisDB
         self.embedder = ImageEmbedder(model_name=embedder_model)

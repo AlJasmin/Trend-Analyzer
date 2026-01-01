@@ -1,0 +1,17 @@
+# Format: subreddit_name (category)
+# Lines starting with # are ignored. Category defaults to "general" if omitted.
+
+memes (memes)
+coding (coding)
+technology (tech)
+programming (coding)
+python (coding)
+MachineLearning (ai)
+datascience (ai)
+computing (tech)
+tech (tech)
+gadgets (tech)
+hardware (tech)
+software (tech)
+webdev (coding)
+opensource (coding)
