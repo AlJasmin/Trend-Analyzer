@@ -1,373 +1,186 @@
 from __future__ import annotations
 
 import os
-import hashlib
 from datetime import datetime, timezone
-from typing import Any, Dict, List, Optional, Tuple
+from typing import Any, Dict, List, Optional
 
 from pymongo import MongoClient, ASCENDING, DESCENDING
 from pymongo.collection import Collection
-from pymongo.database import Database
 
-
-# -------------------------
-# Utils
-# -------------------------
 
 def utc_now() -> datetime:
     return datetime.now(timezone.utc)
 
-def sha256_str(s: str) -> str:
-    return hashlib.sha256(s.encode("utf-8")).hexdigest()
 
-def make_source_ref(type_: str, id_: str, field: Optional[str] = None) -> Dict[str, Any]:
-    ref = {"type": type_, "id": id_}
-    if field:
-        ref["field"] = field
-    return ref
+def snapshot_week_from_created_utc(created_utc: int) -> str:
+    dt = datetime.fromtimestamp(int(created_utc), tz=timezone.utc)
+    year, week, _ = dt.isocalendar()  # ISO week
+    return f"{year}-W{week:02d}"
 
-
-# -------------------------
-# Mongo wrapper
-# -------------------------
 
 class MongoStore:
     """
-    Single entry-point for all scripts:
-    - Reddit ingester writes to reddit_posts (+ images links)
-    - Web scraper writes to web_articles (+ images links)
-    - Sentiment script writes to sentiments
-    - Topic modeling writes to topics + trend_daily
-    etc.
+    Minimal DB:
+    - posts
+    - comments
     """
 
-    def __init__(self, uri: str, db_name: str):
+    def __init__(self, uri: str = "mongodb://localhost:27017", db_name: str = "trend_analyzer"):
         self.client = MongoClient(uri)
-        self.db: Database = self.client[db_name]
+        self.db = self.client[db_name]
 
-        # Collections
-        self.reddit_posts: Collection = self.db["reddit_posts"]
-        self.web_articles: Collection = self.db["web_articles"]
-        self.images: Collection = self.db["images"]
-        self.text_embeddings: Collection = self.db["text_embeddings"]
-        self.image_embeddings: Collection = self.db["image_embeddings"]
-        self.ocr_texts: Collection = self.db["ocr_texts"]
-        self.topics: Collection = self.db["topics"]
-        self.sentiments: Collection = self.db["sentiments"]
-        self.llm_outputs: Collection = self.db["llm_outputs"]
-        self.ml_predictions: Collection = self.db["ml_predictions"]
-        self.trend_daily: Collection = self.db["trend_daily"]
-
-    # -------------------------
-    # Indexes (call once at start)
-    # -------------------------
+        self.posts: Collection = self.db["posts"]
+        self.comments: Collection = self.db["comments"]
 
     def ensure_indexes(self) -> None:
-        # reddit_posts
-        self.reddit_posts.create_index([("subreddit", ASCENDING), ("created_utc", DESCENDING)])
-        self.reddit_posts.create_index([("created_utc", DESCENDING)])
-        self.reddit_posts.create_index([("permalink", ASCENDING)], unique=False)
+        # posts
+        self.posts.create_index([("post_id", ASCENDING)], unique=True)
+        self.posts.create_index([("subreddit", ASCENDING), ("created_utc", DESCENDING)])
+        self.posts.create_index([("snapshot_week", ASCENDING)])
+        self.posts.create_index([("topic_id", ASCENDING), ("snapshot_week", ASCENDING)])
 
-        # web_articles
-        self.web_articles.create_index([("url", ASCENDING)], unique=True)
-        self.web_articles.create_index([("domain", ASCENDING), ("published_at", DESCENDING)])
-        self.web_articles.create_index([("published_at", DESCENDING)])
-
-        # images
-        self.images.create_index([("image_url", ASCENDING)], unique=True)
-        self.images.create_index([("source_ref.type", ASCENDING), ("source_ref.id", ASCENDING)])
-        self.images.create_index([("kind", ASCENDING)])
-
-        # embeddings
-        self.text_embeddings.create_index([("source_ref.type", ASCENDING), ("source_ref.id", ASCENDING)])
-        self.image_embeddings.create_index([("image_id", ASCENDING)])
-
-        # ocr
-        self.ocr_texts.create_index([("image_id", ASCENDING)])
-
-        # topics, sentiments, llm, ml
-        self.topics.create_index([("source_ref.type", ASCENDING), ("source_ref.id", ASCENDING)])
-        self.topics.create_index([("topic_id", ASCENDING), ("created_at", DESCENDING)])
-
-        self.sentiments.create_index([("source_ref.type", ASCENDING), ("source_ref.id", ASCENDING)])
-        self.sentiments.create_index([("created_at", DESCENDING)])
-
-        self.llm_outputs.create_index([("source_ref.type", ASCENDING), ("source_ref.id", ASCENDING)])
-        self.llm_outputs.create_index([("output_type", ASCENDING), ("created_at", DESCENDING)])
-
-        self.ml_predictions.create_index([("source_ref.type", ASCENDING), ("source_ref.id", ASCENDING)])
-        self.ml_predictions.create_index([("model", ASCENDING), ("created_at", DESCENDING)])
-
-        # trend_daily
-        self.trend_daily.create_index([("topic_id", ASCENDING), ("date", ASCENDING)], unique=True)
-        self.trend_daily.create_index([("date", ASCENDING)])
+        # comments
+        self.comments.create_index([("comment_id", ASCENDING)], unique=True)
+        self.comments.create_index([("post_id", ASCENDING), ("created_utc", DESCENDING)])
+        self.comments.create_index([("snapshot_week", ASCENDING)])
+        self.comments.create_index([("sentiment_label", ASCENDING), ("snapshot_week", ASCENDING)])
+        self.comments.create_index([("stance_label", ASCENDING), ("snapshot_week", ASCENDING)])
 
     # -------------------------
-    # Insert / Upsert: Reddit + Web
+    # POSTS
     # -------------------------
 
-    def upsert_reddit_post(self, post: Dict[str, Any]) -> str:
+    def upsert_post_base(self, post: Dict[str, Any]) -> None:
         """
-        Expects post dict with at least:
-          id, subreddit, created_utc, title, selftext, url/permalink
-        Uses _id = post["id"] (string).
+        Insert/Update basic post fields.
+        Required: post_id, subreddit, created_utc
         """
-        _id = str(post["id"])
-        doc = {**post}
-        doc["_id"] = _id
-        doc.setdefault("source", "reddit")
-        doc.setdefault("ingested_at", utc_now())
+        post_id = str(post["post_id"])
+        created_utc = int(post["created_utc"])
 
-        self.reddit_posts.update_one({"_id": _id}, {"$set": doc}, upsert=True)
-        return _id
+        doc = {
+            "post_id": post_id,
+            "subreddit": post.get("subreddit"),
+            "title": post.get("title", ""),
+            "selftext": post.get("selftext", ""),
+            "created_utc": created_utc,
+            "score": int(post.get("score", 0)),
+            "num_comments": int(post.get("num_comments", 0)),
+            "snapshot_week": post.get("snapshot_week") or snapshot_week_from_created_utc(created_utc),
+            "updated_at": utc_now(),
+        }
 
-    def upsert_web_article(self, article: Dict[str, Any]) -> str:
+        # keep created_at stable
+        self.posts.update_one(
+            {"post_id": post_id},
+            {
+                "$set": doc,
+                "$setOnInsert": {"created_at": utc_now()},
+            },
+            upsert=True,
+        )
+
+    def set_post_topic_and_embedding(
+        self,
+        post_id: str,
+        topic_text: Optional[str] = None,
+        embedding: Optional[List[float]] = None,
+        topic_id: Optional[str] = None,
+        topic_name: Optional[str] = None,
+        topic_description: Optional[str] = None,
+    ) -> None:
         """
-        Expects article with at least url.
-        Uses _id = sha256(url) for stable ID.
+        For topic modeling / embedding script.
         """
-        url = article["url"]
-        _id = sha256_str(url)
-        doc = {**article}
-        doc["_id"] = _id
-        doc.setdefault("source", "web")
-        doc.setdefault("ingested_at", utc_now())
-        doc.setdefault("domain", self._extract_domain(url))
+        update: Dict[str, Any] = {"updated_at": utc_now()}
+        if topic_text is not None:
+            update["topic_text"] = topic_text
+        if embedding is not None:
+            update["embedding"] = embedding
+        if topic_id is not None:
+            update["topic_id"] = topic_id
+        if topic_name is not None:
+            update["topic_name"] = topic_name
+        if topic_description is not None:
+            update["topic_description"] = topic_description
 
-        self.web_articles.update_one({"_id": _id}, {"$set": doc}, upsert=True)
-        return _id
+        self.posts.update_one({"post_id": str(post_id)}, {"$set": update})
 
-    def _extract_domain(self, url: str) -> str:
-        # simple domain extraction (no external deps)
-        url2 = url.replace("https://", "").replace("http://", "")
-        return url2.split("/")[0].lower()
-
-    # -------------------------
-    # Images
-    # -------------------------
-
-    def upsert_image_link(
+    def set_post_aggregates(
         self,
-        source_ref: Dict[str, Any],
-        image_url: str,
-        kind: str = "unknown",
-        meta: Optional[Dict[str, Any]] = None,
-    ) -> str:
+        post_id: str,
+        stance_dist_weighted: Optional[Dict[str, float]] = None,
+        sentiment_dist_weighted: Optional[Dict[str, float]] = None,
+        polarization_score: Optional[float] = None,
+        snapshot_week: Optional[str] = None,
+    ) -> None:
         """
-        Stores image metadata + link. Keeps images separate.
-        _id = sha256(image_url)
+        For aggregation script (after comments are processed).
         """
-        _id = sha256_str(image_url)
-        doc = {
-            "_id": _id,
-            "source_ref": source_ref,
-            "image_url": image_url,
-            "kind": kind,
-            "download_status": "pending",
-            "created_at": utc_now(),
-        }
-        if meta:
-            doc.update(meta)
+        update: Dict[str, Any] = {"updated_at": utc_now()}
+        if stance_dist_weighted is not None:
+            update["stance_dist_weighted"] = stance_dist_weighted
+        if sentiment_dist_weighted is not None:
+            update["sentiment_dist_weighted"] = sentiment_dist_weighted
+        if polarization_score is not None:
+            update["polarization_score"] = float(polarization_score)
+        if snapshot_week is not None:
+            update["snapshot_week"] = snapshot_week
 
-        self.images.update_one({"_id": _id}, {"$set": doc}, upsert=True)
-        return _id
+        self.posts.update_one({"post_id": str(post_id)}, {"$set": update})
 
     # -------------------------
-    # OCR
+    # COMMENTS
     # -------------------------
 
-    def upsert_ocr_text(
-        self,
-        image_id: str,
-        text: str,
-        engine: str,
-        language: str = "en",
-        confidence_avg: Optional[float] = None,
-        version: str = "1",
-    ) -> str:
-        _id = sha256_str(f"{image_id}|{engine}|{version}")
-        doc = {
-            "_id": _id,
-            "image_id": image_id,
-            "engine": engine,
-            "version": version,
-            "text": text,
-            "language": language,
-            "confidence_avg": confidence_avg,
-            "created_at": utc_now(),
-        }
-        self.ocr_texts.update_one({"_id": _id}, {"$set": doc}, upsert=True)
-        return _id
-
-    # -------------------------
-    # Embeddings
-    # -------------------------
-
-    def upsert_text_embedding(
-        self,
-        source_ref: Dict[str, Any],
-        model: str,
-        vector: List[float],
-    ) -> str:
-        dim = len(vector)
-        key = f"{source_ref['type']}|{source_ref['id']}|{source_ref.get('field','')}|{model}"
-        _id = sha256_str(key)
-        doc = {
-            "_id": _id,
-            "source_ref": source_ref,
-            "model": model,
-            "dim": dim,
-            "vector": vector,
-            "created_at": utc_now(),
-        }
-        self.text_embeddings.update_one({"_id": _id}, {"$set": doc}, upsert=True)
-        return _id
-
-    def upsert_image_embedding(
-        self,
-        image_id: str,
-        model: str,
-        vector: List[float],
-    ) -> str:
-        dim = len(vector)
-        _id = sha256_str(f"{image_id}|{model}")
-        doc = {
-            "_id": _id,
-            "image_id": image_id,
-            "model": model,
-            "dim": dim,
-            "vector": vector,
-            "created_at": utc_now(),
-        }
-        self.image_embeddings.update_one({"_id": _id}, {"$set": doc}, upsert=True)
-        return _id
-
-    # -------------------------
-    # Topics / Sentiment / LLM / ML
-    # -------------------------
-
-    def upsert_topic_result(
-        self,
-        source_ref: Dict[str, Any],
-        method: str,
-        version: str,
-        topic_id: str,
-        topic_label: Optional[str] = None,
-        topic_prob: Optional[float] = None,
-        keywords: Optional[List[str]] = None,
-        extra: Optional[Dict[str, Any]] = None,
-    ) -> str:
-        _id = sha256_str(f"{source_ref['type']}|{source_ref['id']}|{source_ref.get('field','')}|{method}|{version}")
-        doc = {
-            "_id": _id,
-            "source_ref": source_ref,
-            "method": method,
-            "version": version,
-            "topic_id": topic_id,
-            "topic_label": topic_label,
-            "topic_prob": topic_prob,
-            "keywords": keywords or [],
-            "created_at": utc_now(),
-        }
-        if extra:
-            doc.update(extra)
-
-        self.topics.update_one({"_id": _id}, {"$set": doc}, upsert=True)
-        return _id
-
-    def upsert_sentiment(
-        self,
-        source_ref: Dict[str, Any],
-        model: str,
-        version: str,
-        label: str,
-        score: float,
-        extra: Optional[Dict[str, Any]] = None,
-    ) -> str:
-        _id = sha256_str(f"{source_ref['type']}|{source_ref['id']}|{source_ref.get('field','')}|{model}|{version}")
-        doc = {
-            "_id": _id,
-            "source_ref": source_ref,
-            "model": model,
-            "version": version,
-            "label": label,
-            "score": float(score),
-            "created_at": utc_now(),
-        }
-        if extra:
-            doc.update(extra)
-
-        self.sentiments.update_one({"_id": _id}, {"$set": doc}, upsert=True)
-        return _id
-
-    def upsert_llm_output(
-        self,
-        source_ref: Dict[str, Any],
-        model: str,
-        prompt_hash: str,
-        output_type: str,
-        text: str,
-        json_data: Optional[Dict[str, Any]] = None,
-    ) -> str:
-        _id = sha256_str(f"{source_ref['type']}|{source_ref['id']}|{source_ref.get('field','')}|{model}|{prompt_hash}|{output_type}")
-        doc = {
-            "_id": _id,
-            "source_ref": source_ref,
-            "model": model,
-            "prompt_hash": prompt_hash,
-            "output_type": output_type,
-            "text": text,
-            "json": json_data,
-            "created_at": utc_now(),
-        }
-        self.llm_outputs.update_one({"_id": _id}, {"$set": doc}, upsert=True)
-        return _id
-
-    def upsert_ml_prediction(
-        self,
-        source_ref: Dict[str, Any],
-        model: str,
-        version: str,
-        prediction: Dict[str, Any],
-        features: Optional[Dict[str, Any]] = None,
-    ) -> str:
-        _id = sha256_str(f"{source_ref['type']}|{source_ref['id']}|{source_ref.get('field','')}|{model}|{version}")
-        doc = {
-            "_id": _id,
-            "source_ref": source_ref,
-            "model": model,
-            "version": version,
-            "prediction": prediction,
-            "features": features or {},
-            "created_at": utc_now(),
-        }
-        self.ml_predictions.update_one({"_id": _id}, {"$set": doc}, upsert=True)
-        return _id
-
-    # -------------------------
-    # Trend time-series (daily)
-    # -------------------------
-
-    def inc_trend_daily(self, topic_id: str, date_str: str, inc: int = 1, sources: Optional[Dict[str, int]] = None) -> None:
+    def upsert_comment_base(self, comment: Dict[str, Any]) -> None:
         """
-        date_str: "2026-01-03" etc.
-        Upsert counter doc and increment count.
+        Insert/Update base comment fields.
+        Required: comment_id, post_id, created_utc
         """
-        update = {
-            "$inc": {"count": int(inc)},
-            "$set": {"updated_at": utc_now()},
-            "$setOnInsert": {"topic_id": topic_id, "date": date_str, "count": 0},
+        comment_id = str(comment["comment_id"])
+        post_id = str(comment["post_id"])
+        created_utc = int(comment["created_utc"])
+
+        doc = {
+            "comment_id": comment_id,
+            "post_id": post_id,
+            "body_clean": comment.get("body_clean", ""),
+            "score": int(comment.get("score", 0)),
+            "created_utc": created_utc,
+            "snapshot_week": comment.get("snapshot_week") or snapshot_week_from_created_utc(created_utc),
+            "updated_at": utc_now(),
         }
-        if sources:
-            for k, v in sources.items():
-                update["$inc"][f"sources.{k}"] = int(v)
 
-        self.trend_daily.update_one({"topic_id": topic_id, "date": date_str}, update, upsert=True)
+        self.comments.update_one(
+            {"comment_id": comment_id},
+            {"$set": doc, "$setOnInsert": {"created_at": utc_now()}},
+            upsert=True,
+        )
 
+    def set_comment_labels(
+        self,
+        comment_id: str,
+        sentiment_label: Optional[str] = None,
+        stance_label: Optional[str] = None,
+        weight: Optional[float] = None,
+        snapshot_week: Optional[str] = None,
+    ) -> None:
+        """
+        For sentiment/stance script.
+        """
+        update: Dict[str, Any] = {"updated_at": utc_now()}
+        if sentiment_label is not None:
+            update["sentiment_label"] = sentiment_label
+        if stance_label is not None:
+            update["stance_label"] = stance_label
+        if weight is not None:
+            update["weight"] = float(weight)
+        if snapshot_week is not None:
+            update["snapshot_week"] = snapshot_week
 
-# -------------------------
-# Factory (ENV-friendly)
-# -------------------------
+        self.comments.update_one({"comment_id": str(comment_id)}, {"$set": update})
+
 
 def connect_from_env() -> MongoStore:
     uri = os.getenv("MONGO_URI", "mongodb://localhost:27017")
