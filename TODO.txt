@@ -1,6 +1,3 @@
-- mehr subbredits hinzufügen + reddit scraper laufen lassen --> wenn cluster nicht "gut genug" aussehen tage auf 30 erhöhen
-- embeddings richtig speichern in db 
-- LLM prompt schreiben fürs Topic erstellung / openrouter client code einrichten 
 - LLM erst nach dem Clustering: pro Cluster einige repräsentative Posts nehmen → Topic‑Name + Description.
 - sentiment + stance angucken (modell trainieren ? LLM benutzen ? LLM benutzen um daten zu labeln und damit modell trainieren ? modell für beide oder nur eins davon ?)
 - aggregationene definieren stance_dist_weighted, polarization_score usw usw
