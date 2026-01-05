@@ -11,3 +11,13 @@ math
 technology
 computerscience
 cscareerquestions
+chemistry
+biology
+ChemicalEngineering
+QuantumComputing
+geography
+Biochemistry
+environmental_science
+statistics
+MachineLearning
+electronics

@@ -1,0 +1,4 @@
+- mehr subbredits hinzufügen + reddit scraper laufen lassen --> wenn cluster nicht "gut genug" aussehen tage auf 30 erhöhen
+- embeddings richtig speichern in db 
+- LLM erst nach dem Clustering: pro Cluster einige repräsentative Posts nehmen → Topic‑Name + Description.
+- 
