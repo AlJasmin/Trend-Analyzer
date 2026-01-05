@@ -93,6 +93,7 @@ def main() -> None:
             "topic_id": {"bsonType": STRING_OR_NULL},
             "topic_name": {"bsonType": STRING_OR_NULL},
             "topic_description": {"bsonType": STRING_OR_NULL},
+            "confidence": {"bsonType": NUMERIC_OR_NULL},
             "stance_dist_weighted": {"bsonType": OBJECT_OR_NULL},
             "sentiment_dist_weighted": {"bsonType": OBJECT_OR_NULL},
             "polarization_score": {"bsonType": NUMERIC_OR_NULL},
@@ -133,5 +134,4 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-
 
