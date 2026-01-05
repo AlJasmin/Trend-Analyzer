@@ -15,10 +15,11 @@ class ImageEnricher:
     """Enriches posts with image analysis."""
 
     def __init__(self, db_client=None, embedder_model='clip'):
-        from processing.image_embeddings import ImageEmbedder
+        from processing.no_meme_VLM import ImageEmbedder
         from modeling.image_topic_model import ImageTopicModeler
         from database.image_analysis import ImageAnalysisDB
         self.embedder = ImageEmbedder(model_name=embedder_model)
+        self.model_id = getattr(self.embedder, "model_id", None) or getattr(self.embedder, "model_name", "clip")
         self.topic_modeler = ImageTopicModeler()
         self.db = db_client or ImageAnalysisDB()
         self.stats = {"analyzed": 0, "cached": 0}
@@ -29,7 +30,7 @@ class ImageEnricher:
             return False
         if url in self._processed_urls:
             return True
-        if hasattr(self.db, "has_embedding") and self.db.has_embedding(url):
+        if hasattr(self.db, "has_embedding") and self.db.has_embedding(url, model=self.model_id):
             self._processed_urls.add(url)
             return True
         return False
@@ -59,7 +60,14 @@ class ImageEnricher:
             embedding = self.embedder.get_embedding(post.url)
             # For batch topic assignment, collect all embeddings and run topic model periodically
             topic = None  # Topic assignment deferred to batch
-            self.db.save_embedding(post_id=post.post_id, image_url=post.url, embedding=embedding, topic=topic, timestamp=post.created_utc)
+            self.db.save_embedding(
+                post_id=post.post_id,
+                image_url=post.url,
+                embedding=embedding,
+                topic=topic,
+                timestamp=post.created_utc,
+                model=self.model_id,
+            )
             post.photo_parse = embedding  # Optionally store embedding in post
             self.stats["analyzed"] += 1
             self._mark_processed(post.url)

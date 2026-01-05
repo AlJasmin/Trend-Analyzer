@@ -46,6 +46,26 @@ class PostFilter:
         self.logger.info("Filtered %s posts to %s from last %s days", len(posts), len(filtered), days)
         return filtered
 
+    def filter_by_num_comments(self, posts: List[RedditPost], min_comments: int = 0) -> List[RedditPost]:
+        """
+        Filter posts by minimum comment count.
+
+        Args:
+            posts: List of RedditPost objects
+            min_comments: Minimum number of comments
+
+        Returns:
+            Filtered list of posts
+        """
+        filtered = [post for post in posts if post.num_comments >= min_comments]
+        self.logger.info(
+            "Filtered %s posts to %s with num_comments >= %s",
+            len(posts),
+            len(filtered),
+            min_comments,
+        )
+        return filtered
+
     def filter_by_category(self, posts: List[RedditPost], categories: List[str]) -> List[RedditPost]:
         """
         Filter posts by category.

@@ -1,0 +1,13 @@
+# Format: subreddit_name (category)
+# Lines starting with # are ignored. Category defaults to "general" if omitted.
+
+medicine
+science
+ArtificialInteligence
+Physics
+artificial
+mathematics
+math
+technology
+computerscience
+cscareerquestions
