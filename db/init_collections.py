@@ -99,7 +99,7 @@ def main() -> None:
             "snapshot_week": {"bsonType": "string"},
         },
     )
-
+    
     comments_validator = build_validator(
         ["comment_id", "post_id", "created_utc", "snapshot_week"],
         {

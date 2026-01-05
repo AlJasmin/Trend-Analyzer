@@ -59,6 +59,18 @@ def parse_args() -> argparse.Namespace:
         default=0,
         help="Embed N posts and plot without storing to MongoDB",
     )
+    parser.add_argument(
+        "--plot-method",
+        choices=["pca", "umap", "tsne"],
+        default="pca",
+        help="Dimensionality reduction method for plotting",
+    )
+    parser.add_argument("--plot-seed", type=int, default=42, help="Random seed for plot projection")
+    parser.add_argument("--umap-n-neighbors", type=int, default=30, help="UMAP n_neighbors")
+    parser.add_argument("--umap-min-dist", type=float, default=0.1, help="UMAP min_dist")
+    parser.add_argument("--umap-metric", default="cosine", help="UMAP distance metric")
+    parser.add_argument("--tsne-perplexity", type=float, default=30.0, help="t-SNE perplexity")
+    parser.add_argument("--tsne-metric", default="cosine", help="t-SNE distance metric")
     parser.add_argument("--plot-output", default=None, help="Optional path to save plot image")
     return parser.parse_args()
 
@@ -168,16 +180,18 @@ def plot_embeddings(
     embeddings: List[np.ndarray],
     labels: List[str],
     output_path: Optional[str],
+    method: str,
+    seed: int,
+    umap_n_neighbors: int,
+    umap_min_dist: float,
+    umap_metric: str,
+    tsne_perplexity: float,
+    tsne_metric: str,
 ) -> None:
     try:
         import matplotlib.pyplot as plt
     except ImportError as exc:
         raise SystemExit("matplotlib is required for plotting. Install it first.") from exc
-
-    try:
-        from sklearn.decomposition import PCA
-    except ImportError as exc:
-        raise SystemExit("scikit-learn is required for plotting. Install it first.") from exc
 
     if not embeddings:
         logger.info("No embeddings to plot.")
@@ -187,7 +201,38 @@ def plot_embeddings(
     if matrix.shape[0] < 2:
         coords = np.zeros((matrix.shape[0], 2))
     else:
-        coords = PCA(n_components=2).fit_transform(matrix)
+        if method == "pca":
+            try:
+                from sklearn.decomposition import PCA
+            except ImportError as exc:
+                raise SystemExit("scikit-learn is required for plotting. Install it first.") from exc
+            coords = PCA(n_components=2).fit_transform(matrix)
+        elif method == "umap":
+            try:
+                import umap
+            except ImportError as exc:
+                raise SystemExit("umap-learn is required for plotting. Install it first.") from exc
+            reducer = umap.UMAP(
+                n_components=2,
+                n_neighbors=umap_n_neighbors,
+                min_dist=umap_min_dist,
+                metric=umap_metric,
+                random_state=seed,
+            )
+            coords = reducer.fit_transform(matrix)
+        else:
+            try:
+                from sklearn.manifold import TSNE
+            except ImportError as exc:
+                raise SystemExit("scikit-learn is required for plotting. Install it first.") from exc
+            perplexity = min(tsne_perplexity, max(2.0, matrix.shape[0] - 1))
+            coords = TSNE(
+                n_components=2,
+                perplexity=perplexity,
+                metric=tsne_metric,
+                init="random",
+                random_state=seed,
+            ).fit_transform(matrix)
 
     unique_labels = sorted({label or "unknown" for label in labels})
     cmap = plt.get_cmap("tab10", max(len(unique_labels), 1))
@@ -201,12 +246,14 @@ def plot_embeddings(
         for label in unique_labels
     ]
     plt.legend(handles=handles, title="subreddit", bbox_to_anchor=(1.02, 1), loc="upper left")
-    plt.title("Topic text embeddings (PCA)")
+    plt.title(f"Topic text embeddings ({method.upper()})")
     plt.tight_layout()
 
     if output_path:
-        plt.savefig(output_path, dpi=150)
-        logger.info("Plot saved to %s", output_path)
+        out_path = Path(output_path)
+        out_path.parent.mkdir(parents=True, exist_ok=True)
+        plt.savefig(out_path, dpi=150)
+        logger.info("Plot saved to %s", out_path)
     else:
         plt.show()
 
@@ -223,6 +270,13 @@ def run_test_plot(
     overlap: int,
     batch_size: int,
     normalize: bool,
+    plot_method: str,
+    plot_seed: int,
+    umap_n_neighbors: int,
+    umap_min_dist: float,
+    umap_metric: str,
+    tsne_perplexity: float,
+    tsne_metric: str,
     output_path: Optional[str],
 ) -> None:
     docs = list(iter_posts(store.posts, query, limit, skip))
@@ -278,7 +332,18 @@ def run_test_plot(
         labels.append(label)
 
     progress.close()
-    plot_embeddings(embeddings, labels, output_path)
+    plot_embeddings(
+        embeddings,
+        labels,
+        output_path,
+        method=plot_method,
+        seed=plot_seed,
+        umap_n_neighbors=umap_n_neighbors,
+        umap_min_dist=umap_min_dist,
+        umap_metric=umap_metric,
+        tsne_perplexity=tsne_perplexity,
+        tsne_metric=tsne_metric,
+    )
 
 
 def main() -> None:
@@ -320,6 +385,13 @@ def main() -> None:
                 overlap=overlap,
                 batch_size=batch_size,
                 normalize=normalize,
+                plot_method=args.plot_method,
+                plot_seed=args.plot_seed,
+                umap_n_neighbors=args.umap_n_neighbors,
+                umap_min_dist=args.umap_min_dist,
+                umap_metric=args.umap_metric,
+                tsne_perplexity=args.tsne_perplexity,
+                tsne_metric=args.tsne_metric,
                 output_path=args.plot_output,
             )
             return
