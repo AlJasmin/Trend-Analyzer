@@ -12,3 +12,5 @@ venv/
 # IDE files
 .vscode/
 TODO.txt
+
+.\config\settings.yaml

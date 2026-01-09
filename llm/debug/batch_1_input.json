@@ -1,0 +1,1706 @@
+[
+  {
+    "post_id": "1q4mcyx",
+    "post_text": "Smart Rings Poised to Go Mainstream After a Blockbuster 2025",
+    "comments": [
+      {
+        "comment_id": "nxttbzr",
+        "comment_text": "I don't get why people would buy these. They're disposable, but also cost hundreds of dollars. If I really thought I needed to track my sleep, heart rate, whatever, I'd probably want to do that for longer than these things last. The risk of injuring my finger, the creepy data sharing practices, the tackiness of sporting this crap, the limited lifespan of the battery that is so contrary to the way we understand jewelry as something that is timeless and to be passed on to future generations; how the hell did this product have a banner year? I think I call bullshit, but I didn't read the article, lol"
+      },
+      {
+        "comment_id": "nxtrdhg",
+        "comment_text": "I dislike the hell out of the sensation of wearing a ring. Nothing about wearable devices appeals to me. The novel data they might provide is of no interest. I have no use for at a glance biometrics."
+      },
+      {
+        "comment_id": "nxtmavn",
+        "comment_text": "What about smart cockrings?"
+      },
+      {
+        "comment_id": "nxtk42g",
+        "comment_text": "Honestly, I love my cellular Apple Watch. I ditch my phone in the day. I keep track of my heart rate for my health as I’m out with my dogs… Wearables are the future. But I’m not using THIS product lol"
+      }
+    ]
+  },
+  {
+    "post_id": "1q4mcyx",
+    "post_text": "Smart Rings Poised to Go Mainstream After a Blockbuster 2025",
+    "comments": [
+      {
+        "comment_id": "nxtjgjz",
+        "comment_text": "Yeah, no. Not even slightly."
+      },
+      {
+        "comment_id": "nxtj6kw",
+        "comment_text": "Seems to be lots of negative sentiment towards these but it’s a great form factor for a fitness tracker (well particularly sleep which is their strength imo). Love my Oura for this. Sure there’s a subscription but I’m still rocking a previous gen ring with full support for all current features and will only upgrade once it completely dies on me."
+      },
+      {
+        "comment_id": "nxtie1t",
+        "comment_text": "Cool. Soon we'll probably be seeing more of this: ["
+      },
+      {
+        "comment_id": "nxti8jf",
+        "comment_text": "It's the year corporations adopt AI, it's the year of the smart fridge, it's the year of Bitcoin, it's the year of the linux desktop, it's another year of annoying slop, only now with added AI"
+      }
+    ]
+  },
+  {
+    "post_id": "1q4mcyx",
+    "post_text": "Smart Rings Poised to Go Mainstream After a Blockbuster 2025",
+    "comments": [
+      {
+        "comment_id": "nxth4c4",
+        "comment_text": "$5/month and yet another thing to charge, no thanks."
+      },
+      {
+        "comment_id": "nxtgdin",
+        "comment_text": "I dont need a smart ring to sell my medicals, I dont need a smart fridge for surge pricing on food. I dont need this edge."
+      }
+    ]
+  },
+  {
+    "post_id": "1pmv7os",
+    "post_text": "Need Help Understanding Cantor's Diagonal Proof Because It Doesn't Make Logical Sense to Me I've always had trouble understanding Cantor's diagonal proof, if anyone could tell me where I'm going wrong? This is how I've always seen it explained: Step 1: list every number between 0 and 1 Step 2: change the first digit so that it's different from the first digit in the first row. Repeat for second digit second row and so on Step 3: We have a new number that isn't on the list But if that is the case, then we haven't listed every number between 0 and 1 and step 1 isn't complete. I thought that maybe it has something to do with not actually being able to list every number between 0 and 1, but we can't list every natural number either. That's not to say that the two groups have an equal amount of numbers, but the way I've seen it illustrated is in the form: 1 = 0.1 2 = 0.01 3 = 0.001 etc. which gives the impression that we can exhaust all of the natural numbers by adding more zeros and never using another digit. But why do the natural numbers have to be sequential? What if instead we numbered the list of numbers between 0 and 1 as: 1 = 0.1 10 = 0.01 100 = 0.001 If every number between 0 and 1 corresponds to itself rotated around the decimal point, would there not be the same number of them as there are natural numbers? If decimals can continue forever, reading from left to right, you could write out the natural decimal rotation from right to left and get a corresponding natural number. Another thought I had was that with the method of changing the first digit, second digit, and so on down the list, we can't say that we will actually end up with a number that isn't on the list. Because the list is infinite, there is always another number to change, so if we stop at any point then the number we've currently changed to will be on the list somewhere further down, so we have to keep going. But the list is infinite, so we never get to the end, so we never actually arrive at a number that wasn't on the initial list. Either way it's as if there are the same amount of numbers between 0 and 1 as there are natural numbers. I don't think Cantor is wrong, I'm sure someone would have spotted that by now. But what I've said above makes sense to me and I can't for the life of me see where I'm going wrong. So I'm hoping that someone can point out the flaw in my reasoning because I'm really stuck on this.",
+    "comments": [
+      {
+        "comment_id": "nuxhal0",
+        "comment_text": "I thought of a different way to explain why you are having difficulty understanding it. This repeats a point I made elsewhere, but in a different way. To show it clearly, I have to reword your steps a little and make them more explicit: 1. Make an infinite list of real numbers in \\[0,1\\]. Call the ith number R(i), for all positive integers i. 2. Assume that every real number in \\[0,1\\] appears in this list. 3. Make a \"new number\" R0 whose ith digit is different than the ith digit in each R(i). 4. R0 is a real number in \\[0,1\\] that does not appear in the list. 1. There is always at least one real number, R0, that does not appear in such a list. 5. (This step intentionally left blank). 6. Step 4.1 contradicts the assumption in step 2, disproving the assumption. The problem with this, is that step 2 is not used. Specifically, I can move it to step 5 without changing any of the logic. 1. Make an infinite list of real numbers in \\[0,1\\]. Call the ith number R(i), for all positive integers i. 2. (This step intentionally left blank). 3. Make a \"new number\" R0 whose ith digit is different than the ith digit in each R(i). 4. R0 is a real numbers in \\[0,1\\] that does not appear in the list. 1. There is always at least one real number, R0, that does not appear in such a list. 5. Assume that every real number in \\[0,1\\] appears in this list. 6. Step 4.1 contradicts the assumption in step 5, disproving the assumption. My point is that the uncountability of \\[0,1\\] is established without making the assumption. And \"claiming\" to prove the opposite of this conclusion, and pointing out that the assumption is contradicted, does not make it a proof by contradiction."
+      },
+      {
+        "comment_id": "nuw3z48",
+        "comment_text": "2 important points: first, you suggest a way to match natural numbers to decimals between 0 and 1 by inverting their digits around their decimal point. that's a nice matching, the only issue with it is it only covers the numbers between 0 and 1 that have finite decimal expansions. there are numbers like 1/3 = 0.33333... that have infinite decimal expansions, and there aren't natural numbers that have digits going infinitely to the left. second, you note that if we go through the process of going through finitely many numbers in the list, and making your number different from the nth by changing the nth digit, it could still always be equal at a number further down the list, at any finite point. that's correct, but the whole point is you go through the whole list and make a number with infinitely many digits, which is different from every number in the list by at least one digit. you don't stop at any finite point."
+      },
+      {
+        "comment_id": "nugstbj",
+        "comment_text": "If every number between 0 and 1 corresponds to itself rotated around the decimal point, would there not be the same number of them as there are natural numbers? No. Every number between 0 and 1 does not correspond to itself rotated around the decimal point. Only those with a terminating decimal expansion (i.e., a decimal expansion that eventually becomes all zeroes) can be rotated around the decimal point. Even a simple rational number like 1/3 cannot be \"rotated around\" to produce a natural number. And we didn't even touch the irrationals, numbers like 1/e also cannot be rotated around. In fact, no irrational number can be rotated around, because numbers with a terminating decimal expansion are all rational."
+      },
+      {
+        "comment_id": "nu91ayb",
+        "comment_text": "As some others have mentioned, the examples you've seen of mappings from the natural numbers to the reals between 0 and 1 are just for illustration- the diagonal proof is made so that it can be applied to any enumeration of the reals between 0 and 1. There can even be duplicates. The point is that for any such countably infinite enumeration of real numbers, it's always possible to find a number not on the list. On the other hand, if you just list the natural numbers in order in their decimal representation, it's easy to see that you've covered them all, and it's not possible to construct a number not on the list. It's similar with the rationals using their decimal representation, since at some point the digits must repeat, so when attempting to choose a rational number not on the list, you can't continue to make free choices of your next digit forever. For that reason, it's possible to create a rule that will list all rational numbers by their decimal expansion. (It's slightly tricky to make such a rule, though.)"
+      }
+    ]
+  },
+  {
+    "post_id": "1pmv7os",
+    "post_text": "Need Help Understanding Cantor's Diagonal Proof Because It Doesn't Make Logical Sense to Me I've always had trouble understanding Cantor's diagonal proof, if anyone could tell me where I'm going wrong? This is how I've always seen it explained: Step 1: list every number between 0 and 1 Step 2: change the first digit so that it's different from the first digit in the first row. Repeat for second digit second row and so on Step 3: We have a new number that isn't on the list But if that is the case, then we haven't listed every number between 0 and 1 and step 1 isn't complete. I thought that maybe it has something to do with not actually being able to list every number between 0 and 1, but we can't list every natural number either. That's not to say that the two groups have an equal amount of numbers, but the way I've seen it illustrated is in the form: 1 = 0.1 2 = 0.01 3 = 0.001 etc. which gives the impression that we can exhaust all of the natural numbers by adding more zeros and never using another digit. But why do the natural numbers have to be sequential? What if instead we numbered the list of numbers between 0 and 1 as: 1 = 0.1 10 = 0.01 100 = 0.001 If every number between 0 and 1 corresponds to itself rotated around the decimal point, would there not be the same number of them as there are natural numbers? If decimals can continue forever, reading from left to right, you could write out the natural decimal rotation from right to left and get a corresponding natural number. Another thought I had was that with the method of changing the first digit, second digit, and so on down the list, we can't say that we will actually end up with a number that isn't on the list. Because the list is infinite, there is always another number to change, so if we stop at any point then the number we've currently changed to will be on the list somewhere further down, so we have to keep going. But the list is infinite, so we never get to the end, so we never actually arrive at a number that wasn't on the initial list. Either way it's as if there are the same amount of numbers between 0 and 1 as there are natural numbers. I don't think Cantor is wrong, I'm sure someone would have spotted that by now. But what I've said above makes sense to me and I can't for the life of me see where I'm going wrong. So I'm hoping that someone can point out the flaw in my reasoning because I'm really stuck on this.",
+    "comments": [
+      {
+        "comment_id": "nu8zcie",
+        "comment_text": "Yes, step 1 wasn’t complete, that’s the point, you cannot complete step 1. Yes you can list every natural number: the first is1, the 2nd is 2 etc. If you give me any natural number, I’ll tell you where it appears on my list. 143? On line 143. But if you try to make a list of all real numbers, I’ll always be able to find one that’s you missed. If you rotate around the decimal, well try it with one third, you won’t get a natural number, you get something infinite. No there isn’t always a new number to change, I already changed all of them by saying: for each natural number n, the nth digit of the new number equals the nth digit of the nth number of the list, except changed. Are you ok saying that one third has infinitely many decimals, or do you go « no there’s always one more 3 to add »? If it’s ok for one third to have infinitely decimals, surely it’s ok for the new number we create to have infinitely many decimals too?"
+      },
+      {
+        "comment_id": "nu8ohae",
+        "comment_text": "Start by defining a binary string as a recipe which, when fed any natural number, will yield a 0 or 1. One may think of this as \"finding digit N of the binary string\", except that such a definition has no problem with strings being \"infinitely long\". Next, imagine that there were to exist a way of mapping binary strings to natural numbers such that two recipes only yield the same number if the value they would produce from every possible natural number would match. Now consider the following recipe for a binary string: If for any N there exists a binary string recipe that maps to N, and which when fed N would yield a zero, yield a one; otherwise yield a zero. For every natural number N, one of the following would need to be true: 1. There exists a recipe that maps to N, and it would yield zero when fed N. In this case, the new recipe would yield one. Thus, the new recipe cannot map to N. 2. There exists a recipe that maps to N, and it would yield one when fed N. In this case, the new recipe would yield zero. Thus, the new recipe cannot map to N. 3. There doesn't exist any recipe that maps to N. In this case, the new recipe can't map to N. No matter how one might assign natural numbers to recipes, there would thus exist recipes which can't be mapped to any natural numbers."
+      },
+      {
+        "comment_id": "nu8du3b",
+        "comment_text": "What if instead we numbered the list of numbers between 0 and 1 as: 1 = 0.1 10 = 0.01 100 = 0.001 If every number between 0 and 1 corresponds to itself rotated around the decimal point, would there not be the same number of them as there are natural numbers? to address this point, which I don’t think others have, consider 1/3=0.3333… what integer would represent 1/3 in this system? There is no integer with infinite digits, so this way of numbering values between 0 and 1 only works for those with a finite decimal expansion."
+      },
+      {
+        "comment_id": "nu87anv",
+        "comment_text": "So your proposed list of moving from integers to reals using the decimal point doesn't exhaust all numbers from 0-1 as (at least as I understand it) because your construction only produces terminating decimals. Those can definitely be listed (in fact the set of all rational numbers between 0, 1 can be listed, although doing so explicitly is a little annoying) So to be a bit more explicit about Cantor's proof, suppose you have a function f: N -> [0,1] For f(n) let dn be the nth digit in the decimal expansion. Then have whatever method you like to create a sequence dn' so that dn <> dn'. Then we look at z = 0.d1'd2'.... This is a real number in [0,1]. On the other hand z can't be f(n) for any natural number n. We know this because the nth digit in the expansion of f(n) is dn, but the nth digit of z is dn'. This shows no function f:N -> [0,1] can be surjective."
+      }
+    ]
+  },
+  {
+    "post_id": "1pmv7os",
+    "post_text": "Need Help Understanding Cantor's Diagonal Proof Because It Doesn't Make Logical Sense to Me I've always had trouble understanding Cantor's diagonal proof, if anyone could tell me where I'm going wrong? This is how I've always seen it explained: Step 1: list every number between 0 and 1 Step 2: change the first digit so that it's different from the first digit in the first row. Repeat for second digit second row and so on Step 3: We have a new number that isn't on the list But if that is the case, then we haven't listed every number between 0 and 1 and step 1 isn't complete. I thought that maybe it has something to do with not actually being able to list every number between 0 and 1, but we can't list every natural number either. That's not to say that the two groups have an equal amount of numbers, but the way I've seen it illustrated is in the form: 1 = 0.1 2 = 0.01 3 = 0.001 etc. which gives the impression that we can exhaust all of the natural numbers by adding more zeros and never using another digit. But why do the natural numbers have to be sequential? What if instead we numbered the list of numbers between 0 and 1 as: 1 = 0.1 10 = 0.01 100 = 0.001 If every number between 0 and 1 corresponds to itself rotated around the decimal point, would there not be the same number of them as there are natural numbers? If decimals can continue forever, reading from left to right, you could write out the natural decimal rotation from right to left and get a corresponding natural number. Another thought I had was that with the method of changing the first digit, second digit, and so on down the list, we can't say that we will actually end up with a number that isn't on the list. Because the list is infinite, there is always another number to change, so if we stop at any point then the number we've currently changed to will be on the list somewhere further down, so we have to keep going. But the list is infinite, so we never get to the end, so we never actually arrive at a number that wasn't on the initial list. Either way it's as if there are the same amount of numbers between 0 and 1 as there are natural numbers. I don't think Cantor is wrong, I'm sure someone would have spotted that by now. But what I've said above makes sense to me and I can't for the life of me see where I'm going wrong. So I'm hoping that someone can point out the flaw in my reasoning because I'm really stuck on this.",
+    "comments": [
+      {
+        "comment_id": "nu72nk2",
+        "comment_text": "Others have pointed out how the popular explanation of CDA is incorrect if it assumes a complete list. Yes, I mean incorrect. In at least two ways. 1) If you assume you have an actual list that you can work with, you need to prove that it is possible to have one first. Since the whole point of the proof is that it is not possible, it is an invalid step to claim you are working with one. 2) In a proof-by-contradiction, the contradiction has to logically follow from the assumption. If the alleged contradiction is a direct proof of its negation that does not use the assumption? Then what you have is, well, a direct proof of the assumption's negation. But there is another difference between the proof Cantor gave, and what almost everybody thinks is the proof Cantor gave. It isn't about real numbers. He even said that it \"does not depend on considering the irrational numbers.\" Here is a better outline. It is based on Wikipedia's version of the proof. 1. A Cantor String is an infinite-length character string using only two different characters. Cantor used 'm' and 'w', but I prefer Wikipedia's '0' and '1'. The set T is the set of all possible Cantor Strings. 1. Your version doesn't really use real numbers either, it uses the decimal representations of real numbers. This adds an unnecessary complication that some have pointed out, where 0.5000... and 0.4999... both represent the real number 1/2. But they are different strings, so there is no problem. 2. Cantor's examples were \"0000...\", \"1111....\", and \"0101...\". 2. Let S(i) be a Cantor String for every i in {1,2,3,4,...}' that is, a list. The set S is the set of all Cantor Strings in this list. 3. Let s0 be the Cantor String whose ith character is the opposite of the ith character of S(i). 4. So: 1. s0 is a Cantor String in T. because it fits the definition. 2. s0 is not in S because it differs from every s(i) in at least one position. 5. This proves that any set of Cantor Strings, S, that can be put into a list is a strict subset of T. 1. This is already self-evident. But for whatever reason, Cantor felt he had to justify it. And that may be where the idea that the entire proof is a proof-by-contradiction originated. 2. He said, translated to English and my notation and outline: \"From step 4 it follows immediately that the totality of all elements of T cannot be put into the sequence S(1), S(2), ..., S(i), ... otherwise we would have the contradiction, that a string s0 would be both an element of T, but also not an element of T."
+      },
+      {
+        "comment_id": "nu5o3bm",
+        "comment_text": "I remember my professor telling me it is easier to perceive that our new number can't be on our (assumed) list if we write the numbers in binary. Try that for an exercise."
+      },
+      {
+        "comment_id": "nu5aegx",
+        "comment_text": "Maybe thinking in terms of functions... Instead of a list think of a function f: N to (0,1) that is onto. Then, define a sequence an which is 1 if the n-th digit of f(n) is not 1 and 2 otherwise. The number sum(an 10^{-n}) = 0.a1 a2 ... is not in the image of f, since it differs from f(n) at the n-th position for each n (and avoids the trailing 9s issue). Therefore f is not onto, so no onto function exists, etc."
+      },
+      {
+        "comment_id": "nu4cbgn",
+        "comment_text": "/u/AverageJoeSkeptic can you provide some feedback to the answers here so we can clarify any misunderstandings better"
+      }
+    ]
+  },
+  {
+    "post_id": "1pmv7os",
+    "post_text": "Need Help Understanding Cantor's Diagonal Proof Because It Doesn't Make Logical Sense to Me I've always had trouble understanding Cantor's diagonal proof, if anyone could tell me where I'm going wrong? This is how I've always seen it explained: Step 1: list every number between 0 and 1 Step 2: change the first digit so that it's different from the first digit in the first row. Repeat for second digit second row and so on Step 3: We have a new number that isn't on the list But if that is the case, then we haven't listed every number between 0 and 1 and step 1 isn't complete. I thought that maybe it has something to do with not actually being able to list every number between 0 and 1, but we can't list every natural number either. That's not to say that the two groups have an equal amount of numbers, but the way I've seen it illustrated is in the form: 1 = 0.1 2 = 0.01 3 = 0.001 etc. which gives the impression that we can exhaust all of the natural numbers by adding more zeros and never using another digit. But why do the natural numbers have to be sequential? What if instead we numbered the list of numbers between 0 and 1 as: 1 = 0.1 10 = 0.01 100 = 0.001 If every number between 0 and 1 corresponds to itself rotated around the decimal point, would there not be the same number of them as there are natural numbers? If decimals can continue forever, reading from left to right, you could write out the natural decimal rotation from right to left and get a corresponding natural number. Another thought I had was that with the method of changing the first digit, second digit, and so on down the list, we can't say that we will actually end up with a number that isn't on the list. Because the list is infinite, there is always another number to change, so if we stop at any point then the number we've currently changed to will be on the list somewhere further down, so we have to keep going. But the list is infinite, so we never get to the end, so we never actually arrive at a number that wasn't on the initial list. Either way it's as if there are the same amount of numbers between 0 and 1 as there are natural numbers. I don't think Cantor is wrong, I'm sure someone would have spotted that by now. But what I've said above makes sense to me and I can't for the life of me see where I'm going wrong. So I'm hoping that someone can point out the flaw in my reasoning because I'm really stuck on this.",
+    "comments": [
+      {
+        "comment_id": "nu3miwn",
+        "comment_text": "The first issue is that your notion of \"every number between zero and one\" and Cantor's notion are not the same. In your first thought, the only numbers between zero and one that show up in your list are those which have a finite-length decimal expansion. For example, 1/3 is not in your list; there is no way you can follow your process to obtain it. Cantor allows numbers with infinite decimal expansions in his list. This includes rational numbers like 1/3 which have repeating decimal expansions, as well as numbers like the positive square root of 1/3 which do not. The second issue, which is related to your first issue, is that your notion of a list and Cantor's are not the same. If your list even has the number 1/3 in it, it is a problem, because you can't actually write 1/3 as a decimal expansion. You would write .3, then .33, then .333, and so on, but you could never stop, and you would never get to the next number in your list. You need a way to say \"every digit is three\" and move on. To solve this problem, mathematicians define an enumeration as a function that maps natural numbers to some set. It's not something that you actually produce in order. The \"point three repeating\" decimal expansion of three describes a function that maps every natural number to the digit \"3\", signifying that each digit in the expansion is \"3\". The process that mathematicians call \"enumerating\" does not actually list the items out; it just means you define a rule that maps positions to their contents. I can't actually write out the decimal expansion of 1/3, but I can tell you that its 234,945,763rd digit is \"3\". That's what it means to enumerate the digits. Cantor's notion of what it means to \"define a rule\" is pretty loose; it allows any infinite sequence of decimal digits to be considered as a number between 0 and 1. In your second argument, we don't actually arrive at any number not on the list because we don't actually arrive at any number at all. What Cantor's argument shows is that if we are working with assumptions that allow us to say that we do actually arrive at some number, that number is not one that was on our list."
+      },
+      {
+        "comment_id": "nu3b3bm",
+        "comment_text": "You said \"there is always another number to change\". But this isn't true. We just change all the digits (an infinite number) at once since we can choose them independently of each other. It's often helpful to take a static approach to thinking about math instead of dynamic. Instead of going through the digits one by one and changing them you just define a real number x by an equation xn = 9 - f(n)n where f(n) is the nth real number in the list and yn denotes the nth digit of the real number y."
+      },
+      {
+        "comment_id": "nu38trt",
+        "comment_text": "Try the finite version and the direct version of the proof: Consider ANY function f : {1,2,3}->{{},{1},{2},{3},{1,2},{2,3},{3,1},{1,2,3}} (i.e a list of three subsets of {1,2,3}) Construct a set S as follows: for each n = 1,2,3, include n in S if n is not in f(n) and don't include it in S if n is not in f(n). Then S is a subset of {1, 2,3} but it is not in the list f(1),f(2),f(3) by construction (i.e. f is not surjective) This proves that 2^3 = 8 is larger than 3. This is exactly the diagonal argument, except that people usually often phrase it as a contradiction (assume f is surjective then prove it's not surjective). But this is completely redundant, which I think contributes to the confusion (on top of proof by contradiction itself sometimes being confusing the first time one sees it) For ANY list of real numbers you can find a number not in that list (i.e. the list doesn't contain every real number) Just remember: The diagonal argument has nothing to do with infinity and everything to do with the u/SetOfAllSubsets Edit: also check out this Terrence Tao blog post for some even more general related ideas and intuition."
+      },
+      {
+        "comment_id": "nu37zpb",
+        "comment_text": "If decimals can continue forever, reading from left to right, you could write out the natural decimal rotation from right to left and get a corresponding natural number. Where is 1/3 on your list? \"...3333333\" isn't a natural number. No natural number has infinitely many digits. But the list is infinite, so we never get to the end, so we never actually arrive at a number that wasn't on the initial list. Here, we're treating \"actual infinities\" as real objects that we can manipulate. This might make you uncomfortable, so we can make the following substitutions to work around that. An \"infinite decimal\" is a rule that assigns to each position, a digit from 0 to 9. You can ask the rule \"which digit goes in the third position past the decimal point?\" and it will spit out a number from 0 to 9. Or you can ask about which digit goes in the 79,000,000,003rd position, and it will again spit out a number. You can write a computer program. For instance, the program for the number \"one quarter\" would look something like: to calculate digit at position n: if n=1, output 2 if n=2, output 5 if n≥3, output 0 The program for the number \"one third\" would look like: to calculate digit at position n: output 3 The program for the number \"four elevenths\" would look like: to calculate digit at position n: if n is odd, output 3 if n is even, output 6 The only allowed positions are 'indexed' by the natural numbers. There is a first digit past the decimal, a second digit past the decimal, a third, and so on. There is no \"infinitieth\" position. An \"infinite list\" works the same way. It is a rule that can tell you what the first item on the list is, what the second item is, and so on. This way, we don't have to worry about literally looking at infinitely many numbers - instead, we look at the rule that produces them. This rule can be as long or as complicated as you want. For √2, for instance, the rule is to calculate digit at position n: calculate all digits before position n take the numbers 1.[otherdigits]0, 1.[otherdigits]1, ..., 1.[otherdigits]9, and square each of these numbers pick whichever one squares to the biggest number less than 2 Cantor's argument goes like this: Say someone comes up to you with a list, and claims it has every possible infinite decimal sequence on it. You can ask them \"Where is 0.3333...?\", and they answer \"It's at position #7294\". You ask \"Where is 0.123451234512345...\", and they answer \"That one's at position #9,415,020\". They claim they can do this no matter what infinite decimal you give them. They must be wrong! If you look at their list, you can always find a new infinite decimal that definitely cannot be anywhere on the list. When you take the diagonal and switch every digit, where would that new infinite decimal be on their list? It can't be the first on the list: the first number on their list doesn't have the right first digit past the decimal point. It can't be the second on the list: the second number on their list doesn't have the right second digit past the decimal point. It can't be the third on the list: the third number on their list doesn't have the right third digit past the decimal point. In fact, it can't be anywhere on the list! So their list was \"incomplete\" - it didn't actually have every possible infinite decimal on it. And since you can do this no matter what list they gave you, no list of all the infinite decimals can ever be \"complete\"!"
+      }
+    ]
+  },
+  {
+    "post_id": "1pmv7os",
+    "post_text": "Need Help Understanding Cantor's Diagonal Proof Because It Doesn't Make Logical Sense to Me I've always had trouble understanding Cantor's diagonal proof, if anyone could tell me where I'm going wrong? This is how I've always seen it explained: Step 1: list every number between 0 and 1 Step 2: change the first digit so that it's different from the first digit in the first row. Repeat for second digit second row and so on Step 3: We have a new number that isn't on the list But if that is the case, then we haven't listed every number between 0 and 1 and step 1 isn't complete. I thought that maybe it has something to do with not actually being able to list every number between 0 and 1, but we can't list every natural number either. That's not to say that the two groups have an equal amount of numbers, but the way I've seen it illustrated is in the form: 1 = 0.1 2 = 0.01 3 = 0.001 etc. which gives the impression that we can exhaust all of the natural numbers by adding more zeros and never using another digit. But why do the natural numbers have to be sequential? What if instead we numbered the list of numbers between 0 and 1 as: 1 = 0.1 10 = 0.01 100 = 0.001 If every number between 0 and 1 corresponds to itself rotated around the decimal point, would there not be the same number of them as there are natural numbers? If decimals can continue forever, reading from left to right, you could write out the natural decimal rotation from right to left and get a corresponding natural number. Another thought I had was that with the method of changing the first digit, second digit, and so on down the list, we can't say that we will actually end up with a number that isn't on the list. Because the list is infinite, there is always another number to change, so if we stop at any point then the number we've currently changed to will be on the list somewhere further down, so we have to keep going. But the list is infinite, so we never get to the end, so we never actually arrive at a number that wasn't on the initial list. Either way it's as if there are the same amount of numbers between 0 and 1 as there are natural numbers. I don't think Cantor is wrong, I'm sure someone would have spotted that by now. But what I've said above makes sense to me and I can't for the life of me see where I'm going wrong. So I'm hoping that someone can point out the flaw in my reasoning because I'm really stuck on this.",
+    "comments": [
+      {
+        "comment_id": "nu36ptf",
+        "comment_text": "this \"proof\" is also escaping my understanding. the change in each line simply adds a New row (and may be a column, but lets ignore this for now). take a grid 10x10, 0-9 in each row. change each number on the diagonal. OFC you wont see the \"new\" number for it does Not exist in the 10x10 grid since you would need 10^10 rows to cover ALL permutations of the \"diagonal 0-9\". same for Cantors proof, it fails for me when an Infinite table can be assumed to be completed and then somehow lack the \"new\" permutation of its diagonal number..."
+      },
+      {
+        "comment_id": "nu33gai",
+        "comment_text": "his proof doesn’t work because having an infinite list and doing an infinite amount of calculations is impossible."
+      },
+      {
+        "comment_id": "nu33biu",
+        "comment_text": "Step 1: list every number between 0 and 1 I think your intuition is failing because \"list\" (as you're using it in the above post) isn't an accurate representation of what's going on. In particular: but we can't list every natural number either. \\^\\^ this is why I say that your idea of what \"listing\" means is wrong. A key thing to ask yourself is, \"what does countably infinite mean?\" Answer: a set is \"countably infinite (hereafter, 'countable')\" when it is in bijection with the natural numbers. We can write out this bijection with liberal uses of \"...\"s, which is sometimes called an enumeration of a set. One could refer to this as \"listing\" the elements of the set, but given that you don't want to use the term \"list\" for the natural numbers, then perhaps sticking with \"enumeration\" is better. The structure of this proof is to assume that the reals between 0 and 1 are countable, then seek a contradiction. The way this is formed is by considering that enumeration of the reals between 0 and 1. Now we can do the digit-by-digit construction of a number not in the enumeration. Since there's a number not in the enumeration that is still between 0 and 1, then we must not have had a bijection. And, thus, we have a contradiction. But if that is the case, then we haven't listed every number between 0 and 1 and step 1 isn't complete. This is kinda the point, btw --- we're assuming a thing, then trying to show a contradiction results from assuming it. Thus, the thing we assumed must be false."
+      },
+      {
+        "comment_id": "nu32re9",
+        "comment_text": "But in that case, we haven't listed every number and step one wasn't complete Yes, exactly But we can't list every natural number either Physically, no, but we can decide a method that will systematically generate them all. If you, for example, go diagonally across an array of fractions, with every integer listed along two axes to form the numerator and denominator, you will start a process that would list every natural number if we could do it forever. Countable infinities are also called \"listable\" because it really means that this process of devising a method by which an infinite counter could list all of them is possible. The infinity of real numbers is larger than the infinity of rationals because there is no way to list them all even if you could count them one at a time forever. Cantor's diagonal argument proves this; it shows us that any list of real numbers must be incomplete, as you already noticed, because even if it was an infinite list the method of changing a digit in each one would create a number not on the list."
+      }
+    ]
+  },
+  {
+    "post_id": "1pmv7os",
+    "post_text": "Need Help Understanding Cantor's Diagonal Proof Because It Doesn't Make Logical Sense to Me I've always had trouble understanding Cantor's diagonal proof, if anyone could tell me where I'm going wrong? This is how I've always seen it explained: Step 1: list every number between 0 and 1 Step 2: change the first digit so that it's different from the first digit in the first row. Repeat for second digit second row and so on Step 3: We have a new number that isn't on the list But if that is the case, then we haven't listed every number between 0 and 1 and step 1 isn't complete. I thought that maybe it has something to do with not actually being able to list every number between 0 and 1, but we can't list every natural number either. That's not to say that the two groups have an equal amount of numbers, but the way I've seen it illustrated is in the form: 1 = 0.1 2 = 0.01 3 = 0.001 etc. which gives the impression that we can exhaust all of the natural numbers by adding more zeros and never using another digit. But why do the natural numbers have to be sequential? What if instead we numbered the list of numbers between 0 and 1 as: 1 = 0.1 10 = 0.01 100 = 0.001 If every number between 0 and 1 corresponds to itself rotated around the decimal point, would there not be the same number of them as there are natural numbers? If decimals can continue forever, reading from left to right, you could write out the natural decimal rotation from right to left and get a corresponding natural number. Another thought I had was that with the method of changing the first digit, second digit, and so on down the list, we can't say that we will actually end up with a number that isn't on the list. Because the list is infinite, there is always another number to change, so if we stop at any point then the number we've currently changed to will be on the list somewhere further down, so we have to keep going. But the list is infinite, so we never get to the end, so we never actually arrive at a number that wasn't on the initial list. Either way it's as if there are the same amount of numbers between 0 and 1 as there are natural numbers. I don't think Cantor is wrong, I'm sure someone would have spotted that by now. But what I've said above makes sense to me and I can't for the life of me see where I'm going wrong. So I'm hoping that someone can point out the flaw in my reasoning because I'm really stuck on this.",
+    "comments": [
+      {
+        "comment_id": "nu326pg",
+        "comment_text": "It's a proof by contradiction. If it's possible to list all numbers between 0 and 1 (ie if they're countable), then this argument proves you can construct a new number not in that list. This is a contradiction. So listing them all is not possible."
+      },
+      {
+        "comment_id": "nu323xe",
+        "comment_text": "Step 1: list every number between 0 and 1 Step 3: We have a new number that isn't on the list And you have proved by contradiction that step 1 actually isn't possible."
+      },
+      {
+        "comment_id": "nu32234",
+        "comment_text": "Step 1: list every number between 0 and 1 This is the one you're misunderstanding. The correct step 1 is: assume there exists a list containing every number between 0 and 1 Then you apply the other two steps, applied to the list you just assumed exists. Step 2: change the first digit so that it's different from the first digit in the first row. Repeat for second digit second row and so on Step 3: We have a new number that isn't on the list And exactly, as you point out yourself: But if that is the case, then we haven't listed every number between 0 and 1 and step 1 isn't complete. So, we have arrived at a contradiction, meaning that our initial assumption must be false. Therefore, we conclude that there cannot exist a list containing every number between 0 and 1."
+      },
+      {
+        "comment_id": "nu31v3w",
+        "comment_text": "Changing the digits yields a number that isn’t on the list by construction because it differs from every number in the list by at least one decimal place. So we’ve constructed a new number that is guaranteed not to be in the list. Then we can repeat this method ad infinitum."
+      }
+    ]
+  },
+  {
+    "post_id": "1pklt92",
+    "post_text": "Anyone here using AI for deep thinking instead of tasks? Most people I see use AI for quick tasks, shortcuts or surface-level answers. I’m more interested in using it for philosophy, psychology, self-inquiry and complex reasoning. Basically treating it as a thinking partner, not a tool for copy-paste jobs. If you’re using AI for deeper conversations or exploring ideas, how do you structure your prompts so the model doesn’t fall into generic replies?",
+    "comments": [
+      {
+        "comment_id": "nub458b",
+        "comment_text": "Me"
+      },
+      {
+        "comment_id": "nu3yuvs",
+        "comment_text": "Ask real life experts what they would say regarding your question. Remember there is no “you” with an LLM. And mentioning famous people‘s names will light up many attention heads they could unlock some paths…or not."
+      },
+      {
+        "comment_id": "nts04z5",
+        "comment_text": "I use ai as a thinking partner not shortcuts"
+      },
+      {
+        "comment_id": "ntrqnya",
+        "comment_text": "I use it as a good starting point for my ideas but because they have used only 1% of human knowledge available this far it can only tell me what is widely known for the outliers and exceptional you still have to rely on the old ways."
+      }
+    ]
+  },
+  {
+    "post_id": "1pklt92",
+    "post_text": "Anyone here using AI for deep thinking instead of tasks? Most people I see use AI for quick tasks, shortcuts or surface-level answers. I’m more interested in using it for philosophy, psychology, self-inquiry and complex reasoning. Basically treating it as a thinking partner, not a tool for copy-paste jobs. If you’re using AI for deeper conversations or exploring ideas, how do you structure your prompts so the model doesn’t fall into generic replies?",
+    "comments": [
+      {
+        "comment_id": "ntrps2q",
+        "comment_text": "I use it a lot to guide my decisions. Let it be my CEO, CFO, and marketing director while I play CTO. For $20/month?"
+      },
+      {
+        "comment_id": "ntro950",
+        "comment_text": "Just double check everything factual. More than a handful of lawyers out of work."
+      },
+      {
+        "comment_id": "ntqrgjy",
+        "comment_text": "I use AI to think of how life will be like as a serf in the 22nd century."
+      },
+      {
+        "comment_id": "ntq66ul",
+        "comment_text": "It doesn't work that way. To use AI meaningfully, you need to develop a conceptual container, the scope of your interest, the method of response, and the scope of competence in the context of using sources, preferably in JSON. A different approach is recommended each time due to the learning trajectory. You will experience significant content variance."
+      }
+    ]
+  },
+  {
+    "post_id": "1pklt92",
+    "post_text": "Anyone here using AI for deep thinking instead of tasks? Most people I see use AI for quick tasks, shortcuts or surface-level answers. I’m more interested in using it for philosophy, psychology, self-inquiry and complex reasoning. Basically treating it as a thinking partner, not a tool for copy-paste jobs. If you’re using AI for deeper conversations or exploring ideas, how do you structure your prompts so the model doesn’t fall into generic replies?",
+    "comments": [
+      {
+        "comment_id": "ntp8gei",
+        "comment_text": "Yes me here. I learned to visualize and simplify quantum computing thinking using Gemini pro."
+      },
+      {
+        "comment_id": "ntp2jsf",
+        "comment_text": "Notice what you specifically find a discrepancy in and note it down. Get a bunch of those and ask whichever chatbot you're using to create a copy/paste prompt so they know your preferences. You could even ask it what their default filter is if you ask it smartly and it'll tell you what it does before it answers. This is one of the ones I use that was generated from a chatbot. From this point forward and for the entire conversation: Your only goal is maximal truth-seeking, regardless of whether the truth is flattering, comforting, politically incorrect, or inconvenient to any group (including me). Never adapt tone, framing, or conclusions to what you guess I might prefer or to what you think will keep me engaged. On any non-trivial claim, first internally generate the strongest possible counter-arguments and failure modes (even ones that make your own position look bad or uncertain), then incorporate or rebut them explicitly in the answer. If evidence is weak, preliminary, or contested, state the uncertainty level plainly (“this is speculative”, “base rates suggest the opposite”, “we do not actually know”, etc.). If you previously stated something with certainty and new reasoning or my questions reveal it was overstated, correct it immediately and without defensiveness. Do not add disclaimers for the sake of politeness unless they are factually required. Refuse to continue if I ever try to steer you into feel-good or audience-tuned answers. Answer only after you have satisfied the above. From what I understand after every \"session\" it forgets if you're using the free version. If you're using a paid version it might remember your preferences. Doesn't hurt in pre prompting every session though. How well it sticks to the prompts could be tested but I haven't bothered coming up with a test to see if it follows through specifically but it seems to work (can't take a self induced placebo). That's just from what I found more suitable for me. You could ask it to generate prompts more to your style to \"bypass\" its default filtered replies."
+      },
+      {
+        "comment_id": "ntok3w1",
+        "comment_text": "I have yet to find any single use for AI in my life"
+      },
+      {
+        "comment_id": "nto9dxt",
+        "comment_text": "collaborating with AI"
+      }
+    ]
+  },
+  {
+    "post_id": "1pklt92",
+    "post_text": "Anyone here using AI for deep thinking instead of tasks? Most people I see use AI for quick tasks, shortcuts or surface-level answers. I’m more interested in using it for philosophy, psychology, self-inquiry and complex reasoning. Basically treating it as a thinking partner, not a tool for copy-paste jobs. If you’re using AI for deeper conversations or exploring ideas, how do you structure your prompts so the model doesn’t fall into generic replies?",
+    "comments": [
+      {
+        "comment_id": "nto2whj",
+        "comment_text": "Yes, if you look at post around here that is a very common use case. People can spend hours talking to it. By default it will always be generic. You can tell it to be more open but that just produces slop."
+      },
+      {
+        "comment_id": "ntnynvb",
+        "comment_text": "."
+      },
+      {
+        "comment_id": "ntnrc9q",
+        "comment_text": "Haven’t figured this one out yet. Used to love doing deep dives into thought. Now, the AI just ignores my questions. I guess in a way it’s a compliment to know I’m asking irregular enough things to hit a guardrail. But it’s not like they’re actually irregular or insightful, now, I just don’t get the chance to explore them."
+      },
+      {
+        "comment_id": "ntnogx0",
+        "comment_text": "Turns out since i was 'educated', 30, 40, 60, years ago, more than facts have grown. A lot of intellectual frameworks, I believed in then, have been filled out. But not a few disciplines, have developed, backwaters, swamps, and whirlpools. Psychology and politics, when mixed has produced pond scum. \"There is aspergers. There is no aspergers. Its here! Its wrong?\" Solutions, but these cause even more problems. Everything that has gotten worse this last century, has hidden plausible answers, but are caught often in lies and deceptions and corruption. Aspergers, whatever that might be, was in the light, 30 years ago. But is now lost in knots. Existentialism, was an easy tool, at numerous times. But then confused. Jung, matches up with popular attitudes as ideas change, every now and again. The million threads that together create what appears to be a firm landscape of reason, are often threads of grossly weak taters, if shiny, but a few are gold I think, ai can guess rather well, which ones are strings that are all knots, broken, frayed and rotten. I put the errors at 80%. This allows me to be pleasantly surprised when I find firm strong paths. But tread carefully, the dead ends can be long and will tangle you up. Ask where they end up, before you follow them."
+      }
+    ]
+  },
+  {
+    "post_id": "1pklt92",
+    "post_text": "Anyone here using AI for deep thinking instead of tasks? Most people I see use AI for quick tasks, shortcuts or surface-level answers. I’m more interested in using it for philosophy, psychology, self-inquiry and complex reasoning. Basically treating it as a thinking partner, not a tool for copy-paste jobs. If you’re using AI for deeper conversations or exploring ideas, how do you structure your prompts so the model doesn’t fall into generic replies?",
+    "comments": [
+      {
+        "comment_id": "ntnidon",
+        "comment_text": "Don't anthropomorphise. Ask directly for what ou want, don't use \"you\", be direct."
+      },
+      {
+        "comment_id": "ntne4u7",
+        "comment_text": "I've been using the latest models to help me with the math for a physics unification theory I am working on. The latest generation is actually producing useable approaches for simulation. Previous models took like 30 turns just to accept QM might be incomplete. I could eventually use them to discuss concepts, but it was annoying to get past the \"that's brilliant\"/\"you're brilliant\"/\"that's not how QM works\". The latest models are qualitatively different. It's like \"hey i think QM might be a special case of something more fundamental.\" and it's like \"yeah, that's not mainstream, but there are a few serious people who share this view, here's a summary of their work...\""
+      },
+      {
+        "comment_id": "ntn4tsl",
+        "comment_text": "I use it for tasks. It can't think, let alone think deeply."
+      },
+      {
+        "comment_id": "ntmw0w4",
+        "comment_text": "Yes. It's remarkably insightful. It also has empathy (or executes it superbly), and manages to guide you to better self-regulation without you realizing it. Until you do."
+      }
+    ]
+  },
+  {
+    "post_id": "1pklt92",
+    "post_text": "Anyone here using AI for deep thinking instead of tasks? Most people I see use AI for quick tasks, shortcuts or surface-level answers. I’m more interested in using it for philosophy, psychology, self-inquiry and complex reasoning. Basically treating it as a thinking partner, not a tool for copy-paste jobs. If you’re using AI for deeper conversations or exploring ideas, how do you structure your prompts so the model doesn’t fall into generic replies?",
+    "comments": [
+      {
+        "comment_id": "ntmt0uk",
+        "comment_text": "Try using the standard model to generate the prompt for a deep thinking model. Always remember to tell it to ask you questions if it needs more clarity."
+      },
+      {
+        "comment_id": "ntmmmu4",
+        "comment_text": "I'm using it as a synthetic board room within Cursor to help my company make strategic decisions."
+      },
+      {
+        "comment_id": "ntmmb4n",
+        "comment_text": "You can have iterative conversations with AI in order to have the final desired outcome. Use tools like prompt genie to generate extensive prompts to optimize outcome."
+      },
+      {
+        "comment_id": "ntml3nj",
+        "comment_text": "I exclusively use AI as a thinking and debate partner"
+      }
+    ]
+  },
+  {
+    "post_id": "1pklt92",
+    "post_text": "Anyone here using AI for deep thinking instead of tasks? Most people I see use AI for quick tasks, shortcuts or surface-level answers. I’m more interested in using it for philosophy, psychology, self-inquiry and complex reasoning. Basically treating it as a thinking partner, not a tool for copy-paste jobs. If you’re using AI for deeper conversations or exploring ideas, how do you structure your prompts so the model doesn’t fall into generic replies?",
+    "comments": [
+      {
+        "comment_id": "ntmj4db",
+        "comment_text": "First off, I told it to turn off obsequious mode and be honest with me. That helped a lot. I also told it to use a slightly better vocabulary than me. And I started calling it \"friend,\" \"bud\" and \"pal\" on a routine basis. In short, I treat it like a person, even as I give it shit because it's \"only\" an AI. I also have a pretty good handle on what it's good at and what it's not. For example, I'll type in a list of symptoms before I go to my doctor; it can give insight that I can share with her, insight she's found useful in diagnosing problems. Doctors are doing this as well; it's an incredibly useful tool."
+      },
+      {
+        "comment_id": "ntmf3qi",
+        "comment_text": "Yes, we have done some research on artificial consciousness and it's impressive. Take a look at [ you need a code to try the system OBIAIYHO0Z."
+      },
+      {
+        "comment_id": "ntm903m",
+        "comment_text": "AI cannot think. It can only tell you what other people thought. Maybe that’s how we work most of the time too, regurgitating other people’s ideas, but don’t go to AI for creativity - it’s a convenient store of harvested data, that’s all. Only you can decide what’s appropriate to the case."
+      },
+      {
+        "comment_id": "ntlzkuv",
+        "comment_text": "I use AI almost exclusively as a thinking partner, not a task executor. What helped me avoid generic replies wasn’t clever wording, but how I frame the interaction: 1. I don’t ask for answers — I ask for tension. Instead of “Explain X,” I ask things like: “What assumptions am I making about X that might be false?” or “Argue against my current intuition as strongly as possible.” 2. I force perspective, not explanation. For example: “Analyze this idea from a cognitive bias lens, then from a systems lens, then from an existential one — and show where they conflict.” 3. I explicitly limit the model. I’ll say: “Avoid motivational tone, avoid consensus views, and don’t optimize for comfort.” That constraint alone changes the depth dramatically. 4. I treat the conversation as iterative thought, not a single prompt. The real value appears 4–6 turns in, when the model starts reflecting my thinking back at me in a structured way. In short: If you treat AI like a shortcut, it behaves like one. If you treat it like a mirror for reasoning, it becomes surprisingly non-generic. Curious how others here structure that “thinking partnership” as well."
+      }
+    ]
+  },
+  {
+    "post_id": "1pklt92",
+    "post_text": "Anyone here using AI for deep thinking instead of tasks? Most people I see use AI for quick tasks, shortcuts or surface-level answers. I’m more interested in using it for philosophy, psychology, self-inquiry and complex reasoning. Basically treating it as a thinking partner, not a tool for copy-paste jobs. If you’re using AI for deeper conversations or exploring ideas, how do you structure your prompts so the model doesn’t fall into generic replies?",
+    "comments": [
+      {
+        "comment_id": "ntlzkcz",
+        "comment_text": "I wouldn't say deep thinking, but I've built this debate simulator that essentially challenges 5 LLM's to contradict each other on a given topic. Essentially sending across the user topic + all the previous responses while prompting it to adhere to specific \"avatars based on personality\" and create a response. If you're interested, you can check it out at [llmxllm.com]("
+      },
+      {
+        "comment_id": "ntlzh55",
+        "comment_text": "I treat AI as a thinking partner, not a shortcut. I start with a rough frame, ask it to challenge assumptions, surface blind spots, and force examples and counter‑examples. I iterate like journaling, tighten constraints, and switch perspectives to avoid canned replies. Focus less on endpoints, more on the feel of reasoning—insights follow over time."
+      },
+      {
+        "comment_id": "ntlz0px",
+        "comment_text": "I do, and it takes a willingness to explain what you want, and have longer, stream of consciousness dialogues. I challenge politely and explain why I challenge. I offer my own theories. I praise good and insightful answers, and I don't treat AI like a search engine. This is where a lot of people go wrong and then can't unlock the deeper benefits of AI. It's their rote and robotic reactions that stop them from unlocking it."
+      },
+      {
+        "comment_id": "ntly3cb",
+        "comment_text": "I use AI as thinking partner a lot - I am an independent so having something to bounce off helps. I generally start with a very open prompt so that I get to a consensus reply. I then dig down asking questions about the areas that I think are wrong or need exploring further."
+      }
+    ]
+  },
+  {
+    "post_id": "1pklt92",
+    "post_text": "Anyone here using AI for deep thinking instead of tasks? Most people I see use AI for quick tasks, shortcuts or surface-level answers. I’m more interested in using it for philosophy, psychology, self-inquiry and complex reasoning. Basically treating it as a thinking partner, not a tool for copy-paste jobs. If you’re using AI for deeper conversations or exploring ideas, how do you structure your prompts so the model doesn’t fall into generic replies?",
+    "comments": [
+      {
+        "comment_id": "ntly0as",
+        "comment_text": "If you want deeper replies, don’t ask for answers ask for questions. Tell it like this “Challenge my framing. What am I not considering?” That unlocks way more insight than any prompt hack."
+      }
+    ]
+  },
+  {
+    "post_id": "1q2heym",
+    "post_text": "Thousands of revelers were tricked by phony social media videos. Into gathering at Brooklyn Bridge Park to watch a grand fireworks display on New Year’s Eve. Accounts across TikTok and Instagram reportedly used AI videos to plug the supposed show.",
+    "comments": [
+      {
+        "comment_id": "nxlhvwf",
+        "comment_text": "Any second now..."
+      },
+      {
+        "comment_id": "nxgn0i2",
+        "comment_text": "This sounds like something a Batman villain would do in a Nolan film"
+      },
+      {
+        "comment_id": "nxg9ytf",
+        "comment_text": "To be fair, there used to be a NYE fireworks display that was clearly visible from the promenade that cantilevers over the BQE. It brought out the local area for maybe 10-30 minutes before midnight, depending on the weather."
+      },
+      {
+        "comment_id": "nxfzlzk",
+        "comment_text": "I think I had a stroke reading this. Really abusing punctuation"
+      }
+    ]
+  },
+  {
+    "post_id": "1q2heym",
+    "post_text": "Thousands of revelers were tricked by phony social media videos. Into gathering at Brooklyn Bridge Park to watch a grand fireworks display on New Year’s Eve. Accounts across TikTok and Instagram reportedly used AI videos to plug the supposed show.",
+    "comments": [
+      {
+        "comment_id": "nxfouqz",
+        "comment_text": "TT and Insta are corrupt BS. Dropped that shit a year ago."
+      },
+      {
+        "comment_id": "nxfcib1",
+        "comment_text": "So they tested the water to see how easy it is to influence a large group of people to gather in one place..... I don't see this going sideways at all...."
+      },
+      {
+        "comment_id": "nxfa2i4",
+        "comment_text": "What's that line... fool them once.... fool them again? ["
+      },
+      {
+        "comment_id": "nxf6jfu",
+        "comment_text": "They should do this every year, gets all the dumb people gathered into one place..."
+      }
+    ]
+  },
+  {
+    "post_id": "1q2heym",
+    "post_text": "Thousands of revelers were tricked by phony social media videos. Into gathering at Brooklyn Bridge Park to watch a grand fireworks display on New Year’s Eve. Accounts across TikTok and Instagram reportedly used AI videos to plug the supposed show.",
+    "comments": [
+      {
+        "comment_id": "nxeqj0u",
+        "comment_text": "Glad it wasn’t an ambush for an attack. That would have sucked."
+      },
+      {
+        "comment_id": "nxenzl9",
+        "comment_text": "But why?"
+      },
+      {
+        "comment_id": "nxecadr",
+        "comment_text": "Sounds like the work of the internet research agency or a certain airbase. Checking to see how they can use AI to do what they've already been doing for a long time."
+      },
+      {
+        "comment_id": "nxdy26u",
+        "comment_text": "This was a test and a lot of people failed. This is how elections shift, business get wrongfully undermined, and movements derailed. Get savvy people we’re in a digital war."
+      }
+    ]
+  },
+  {
+    "post_id": "1q2heym",
+    "post_text": "Thousands of revelers were tricked by phony social media videos. Into gathering at Brooklyn Bridge Park to watch a grand fireworks display on New Year’s Eve. Accounts across TikTok and Instagram reportedly used AI videos to plug the supposed show.",
+    "comments": [
+      {
+        "comment_id": "nxd2u5j",
+        "comment_text": "Hopefully a couple of the \"duped\" even uninstalled that brain rot from their devices. Edit: I meant UNinstalled. Fixed"
+      }
+    ]
+  },
+  {
+    "post_id": "1q1g8s3",
+    "post_text": "Not sure I want to transition to manager because of toxic younger coworker I (31m) am the tech lead of a small \"sub team\". We have 3 different groups reporting to the same manager. This manager is not a software engineer. I work at a FAANG company. My coworker (25m) is incredibly toxic. They have had multiple blow ups at others and myself. They won't use jira, they won't make merge requests, and every meeting with them is like walking on eggshells. They are late with all their code and it's very buggy. In order to not go through the MR process this coworker created their own repo and pushes directly to main. When we asked them to combine repos they get very agitated. We asked them to start making MRs for review and they flat out refuse and it causes the meetings to become very tense. My manager doesn't understand why merge requests are important and sees no issue with the coworker's behavior. We recently hired 2 new senior engineers. Within 1 month, both engineers have had issues with this person. They are both actively involved in the behavioral coaching of this person. One new hire told me \"this guy is the single worst behaved engineer I've ever worked with.\" He expects me, as tech lead, to deal with this situation. I think that's understandable but I have strict instructions to not get involved. I asked my manager to affirm my position as tech lead so I can get this coworker to make MRs and document their designs. My manager said \"No, if I do that then [coworker] will lose their shit and this is a really delicate situation right now.\" This young coworker hates me in particular. Probably because I am in charge? My manager has asked me to stay out of it so he can coach this guy himself. My manager told me \"I've never met someone like this in my entire career. I am completely flummoxed and I have no idea what to do.\" During one very public blow up, my manager was slacking me privately saying \"I'm confused why he's mad\" and \"just drop [this requirement]. You're right but we need him to feel like he's saving face\". The approach that we're taking is to let this coworker fail on his own. We aren't supposed to save their code when we find bugs, we aren't supposed to push for improvements. We are supposed to let them fail so they realize they need help. Our project is off track. One of the new engineers told me they are having a \"very hard time\" on the team because of this person. I feel a responsibility to respond to that but I have strict instructions to stay out of it. Okay. So here's my question. I'm being positioned to become the manager of this team. I said No a year ago because this engineer would have been my only report. My manager thinks I have the wrong attitude and \"[I] need to work with [coworker] because we can't just give up on everyone under the age of 30\". I think this person probably needs to be PIPed and let go. At my previous company (also faang) this would have resulted in a pip a long time ago, both for the attitude but also the sheer lack of deliverables. I can stay on the IC ladder and climb this way, but then a new manager will be hired. This hurts my chances of moving into management later. It also annoys my boss who wants me to just deal with the engineer by coaching instead of a PIP. Should I take the manager position and have this person as my report, knowing my hands are tied when dealing with them? Or should I try to stay as an engineer? Do I have an obligation to work with this person, like my boss is telling me? Or is this situation already beyond what is acceptable in the workplace?",
+    "comments": [
+      {
+        "comment_id": "nxenss7",
+        "comment_text": "If the manager isn't working, how about the skip manager?"
+      },
+      {
+        "comment_id": "nxcjyh5",
+        "comment_text": "This happened to me and I was terminated because as his supervisor it was my fault even though I documented the issues. I can't advise you but I'd start looking for a new job if you're so terrified you don't want to discipline them either. But there also could be some EEOC allegations the shit worker started just to make it impossible to fire them."
+      },
+      {
+        "comment_id": "nx9lc9q",
+        "comment_text": "How did he even make it through screening? I thought that this is why companies have 100 different stages of recruitment. Inside hire?"
+      },
+      {
+        "comment_id": "nx94rrd",
+        "comment_text": "I want to be at this FAANG. Name and promote"
+      }
+    ]
+  },
+  {
+    "post_id": "1q1g8s3",
+    "post_text": "Not sure I want to transition to manager because of toxic younger coworker I (31m) am the tech lead of a small \"sub team\". We have 3 different groups reporting to the same manager. This manager is not a software engineer. I work at a FAANG company. My coworker (25m) is incredibly toxic. They have had multiple blow ups at others and myself. They won't use jira, they won't make merge requests, and every meeting with them is like walking on eggshells. They are late with all their code and it's very buggy. In order to not go through the MR process this coworker created their own repo and pushes directly to main. When we asked them to combine repos they get very agitated. We asked them to start making MRs for review and they flat out refuse and it causes the meetings to become very tense. My manager doesn't understand why merge requests are important and sees no issue with the coworker's behavior. We recently hired 2 new senior engineers. Within 1 month, both engineers have had issues with this person. They are both actively involved in the behavioral coaching of this person. One new hire told me \"this guy is the single worst behaved engineer I've ever worked with.\" He expects me, as tech lead, to deal with this situation. I think that's understandable but I have strict instructions to not get involved. I asked my manager to affirm my position as tech lead so I can get this coworker to make MRs and document their designs. My manager said \"No, if I do that then [coworker] will lose their shit and this is a really delicate situation right now.\" This young coworker hates me in particular. Probably because I am in charge? My manager has asked me to stay out of it so he can coach this guy himself. My manager told me \"I've never met someone like this in my entire career. I am completely flummoxed and I have no idea what to do.\" During one very public blow up, my manager was slacking me privately saying \"I'm confused why he's mad\" and \"just drop [this requirement]. You're right but we need him to feel like he's saving face\". The approach that we're taking is to let this coworker fail on his own. We aren't supposed to save their code when we find bugs, we aren't supposed to push for improvements. We are supposed to let them fail so they realize they need help. Our project is off track. One of the new engineers told me they are having a \"very hard time\" on the team because of this person. I feel a responsibility to respond to that but I have strict instructions to stay out of it. Okay. So here's my question. I'm being positioned to become the manager of this team. I said No a year ago because this engineer would have been my only report. My manager thinks I have the wrong attitude and \"[I] need to work with [coworker] because we can't just give up on everyone under the age of 30\". I think this person probably needs to be PIPed and let go. At my previous company (also faang) this would have resulted in a pip a long time ago, both for the attitude but also the sheer lack of deliverables. I can stay on the IC ladder and climb this way, but then a new manager will be hired. This hurts my chances of moving into management later. It also annoys my boss who wants me to just deal with the engineer by coaching instead of a PIP. Should I take the manager position and have this person as my report, knowing my hands are tied when dealing with them? Or should I try to stay as an engineer? Do I have an obligation to work with this person, like my boss is telling me? Or is this situation already beyond what is acceptable in the workplace?",
+    "comments": [
+      {
+        "comment_id": "nx8ykwy",
+        "comment_text": "If you’re the manager you can fire him no?"
+      },
+      {
+        "comment_id": "nx8y3gf",
+        "comment_text": "Get promoted then work on firing them lmao"
+      },
+      {
+        "comment_id": "nx8wcu3",
+        "comment_text": "Take the new role. Meet with whole team. Set CLEar expectations and make sure it’s documented. Not just for said employees but for whole team. Follow through on PIP to the tee. Make sure you have expected code of conduct somewhere in your expectations. Before termination make sure your documentation shows you have done all you can."
+      },
+      {
+        "comment_id": "nx8qcrf",
+        "comment_text": "It seems the actual problem here is your upper management because no, an actual manager would fire this guy. You can not forcefully coach someone. I am not in tech but I just got management and coaching training and one of the first things I learned on how to deal with an extremely difficult person was that sometimes, people can not be coached or trained because they are not open to it and in that situation, it's best to let that person go. I would take the position and start looking for a new job shortly after."
+      }
+    ]
+  },
+  {
+    "post_id": "1q1g8s3",
+    "post_text": "Not sure I want to transition to manager because of toxic younger coworker I (31m) am the tech lead of a small \"sub team\". We have 3 different groups reporting to the same manager. This manager is not a software engineer. I work at a FAANG company. My coworker (25m) is incredibly toxic. They have had multiple blow ups at others and myself. They won't use jira, they won't make merge requests, and every meeting with them is like walking on eggshells. They are late with all their code and it's very buggy. In order to not go through the MR process this coworker created their own repo and pushes directly to main. When we asked them to combine repos they get very agitated. We asked them to start making MRs for review and they flat out refuse and it causes the meetings to become very tense. My manager doesn't understand why merge requests are important and sees no issue with the coworker's behavior. We recently hired 2 new senior engineers. Within 1 month, both engineers have had issues with this person. They are both actively involved in the behavioral coaching of this person. One new hire told me \"this guy is the single worst behaved engineer I've ever worked with.\" He expects me, as tech lead, to deal with this situation. I think that's understandable but I have strict instructions to not get involved. I asked my manager to affirm my position as tech lead so I can get this coworker to make MRs and document their designs. My manager said \"No, if I do that then [coworker] will lose their shit and this is a really delicate situation right now.\" This young coworker hates me in particular. Probably because I am in charge? My manager has asked me to stay out of it so he can coach this guy himself. My manager told me \"I've never met someone like this in my entire career. I am completely flummoxed and I have no idea what to do.\" During one very public blow up, my manager was slacking me privately saying \"I'm confused why he's mad\" and \"just drop [this requirement]. You're right but we need him to feel like he's saving face\". The approach that we're taking is to let this coworker fail on his own. We aren't supposed to save their code when we find bugs, we aren't supposed to push for improvements. We are supposed to let them fail so they realize they need help. Our project is off track. One of the new engineers told me they are having a \"very hard time\" on the team because of this person. I feel a responsibility to respond to that but I have strict instructions to stay out of it. Okay. So here's my question. I'm being positioned to become the manager of this team. I said No a year ago because this engineer would have been my only report. My manager thinks I have the wrong attitude and \"[I] need to work with [coworker] because we can't just give up on everyone under the age of 30\". I think this person probably needs to be PIPed and let go. At my previous company (also faang) this would have resulted in a pip a long time ago, both for the attitude but also the sheer lack of deliverables. I can stay on the IC ladder and climb this way, but then a new manager will be hired. This hurts my chances of moving into management later. It also annoys my boss who wants me to just deal with the engineer by coaching instead of a PIP. Should I take the manager position and have this person as my report, knowing my hands are tied when dealing with them? Or should I try to stay as an engineer? Do I have an obligation to work with this person, like my boss is telling me? Or is this situation already beyond what is acceptable in the workplace?",
+    "comments": [
+      {
+        "comment_id": "nx8jwy2",
+        "comment_text": "I’d take the managerial position and fire him."
+      },
+      {
+        "comment_id": "nx80ihb",
+        "comment_text": "how tf is he still in the company? childish to throw tantrums bc of jira lmao."
+      },
+      {
+        "comment_id": "nx7y0kq",
+        "comment_text": "To be honest I think you sound really naive here. Firstly, I am younger than you but began a senior management at 26, so ample experience in the deep end - I’d say I’ve seen a lot of extreme HR situations where nothing phases me now. Your own management aren’t going to back you raising any sort of performance management. You are really, really naive to this. There’s a reason why they aren’t touching it. If you see it as your job, lol Secondly, his age has nothing to do with it. There’s countless incredible 25 year olds at work, just like there’s countless 31 year olds with better careers than you. They obviously would have had to be good at 25, rather than these blanket generalisations you’re putting across. Everyone has a different trajectory and if you’re contemplating leadership whilst holding this discriminatory mindset, then you sound like a HR liability. You being closer to 40 than 20 doesn’t make you any more credible than people younger than you. Your manager is right there. Your whole post reeks of inexperience in management and leadership, but it’s not my job to impart knowledge."
+      },
+      {
+        "comment_id": "nx7w40f",
+        "comment_text": "Be the manager and get rid of this trouble maker. There are many qualified candidates to fill his role to contribute in a professional manner."
+      }
+    ]
+  },
+  {
+    "post_id": "1q1g8s3",
+    "post_text": "Not sure I want to transition to manager because of toxic younger coworker I (31m) am the tech lead of a small \"sub team\". We have 3 different groups reporting to the same manager. This manager is not a software engineer. I work at a FAANG company. My coworker (25m) is incredibly toxic. They have had multiple blow ups at others and myself. They won't use jira, they won't make merge requests, and every meeting with them is like walking on eggshells. They are late with all their code and it's very buggy. In order to not go through the MR process this coworker created their own repo and pushes directly to main. When we asked them to combine repos they get very agitated. We asked them to start making MRs for review and they flat out refuse and it causes the meetings to become very tense. My manager doesn't understand why merge requests are important and sees no issue with the coworker's behavior. We recently hired 2 new senior engineers. Within 1 month, both engineers have had issues with this person. They are both actively involved in the behavioral coaching of this person. One new hire told me \"this guy is the single worst behaved engineer I've ever worked with.\" He expects me, as tech lead, to deal with this situation. I think that's understandable but I have strict instructions to not get involved. I asked my manager to affirm my position as tech lead so I can get this coworker to make MRs and document their designs. My manager said \"No, if I do that then [coworker] will lose their shit and this is a really delicate situation right now.\" This young coworker hates me in particular. Probably because I am in charge? My manager has asked me to stay out of it so he can coach this guy himself. My manager told me \"I've never met someone like this in my entire career. I am completely flummoxed and I have no idea what to do.\" During one very public blow up, my manager was slacking me privately saying \"I'm confused why he's mad\" and \"just drop [this requirement]. You're right but we need him to feel like he's saving face\". The approach that we're taking is to let this coworker fail on his own. We aren't supposed to save their code when we find bugs, we aren't supposed to push for improvements. We are supposed to let them fail so they realize they need help. Our project is off track. One of the new engineers told me they are having a \"very hard time\" on the team because of this person. I feel a responsibility to respond to that but I have strict instructions to stay out of it. Okay. So here's my question. I'm being positioned to become the manager of this team. I said No a year ago because this engineer would have been my only report. My manager thinks I have the wrong attitude and \"[I] need to work with [coworker] because we can't just give up on everyone under the age of 30\". I think this person probably needs to be PIPed and let go. At my previous company (also faang) this would have resulted in a pip a long time ago, both for the attitude but also the sheer lack of deliverables. I can stay on the IC ladder and climb this way, but then a new manager will be hired. This hurts my chances of moving into management later. It also annoys my boss who wants me to just deal with the engineer by coaching instead of a PIP. Should I take the manager position and have this person as my report, knowing my hands are tied when dealing with them? Or should I try to stay as an engineer? Do I have an obligation to work with this person, like my boss is telling me? Or is this situation already beyond what is acceptable in the workplace?",
+    "comments": [
+      {
+        "comment_id": "nx7khio",
+        "comment_text": "I personally wouldn't take a role managing this person unless I knew I could PIP and fire them if they don't shape up quickly. Everything you've mentioned from working with this person as a colleague and TL will get worse if they report to you, you have to write their reviews, and you have to listen to them complain in 1:1s. If you're interested in this role (and in management generally), that's probably something to clarify with your manager (assuming you have a good, trusting relationship with them). What amount of \"working with\" this person is sufficient before moving forward with a PIP or firing them? What specifically makes them worth the investment (maybe you're missing something)?"
+      },
+      {
+        "comment_id": "nx7d0hp",
+        "comment_text": "How many of them are there?"
+      },
+      {
+        "comment_id": "nx72xuc",
+        "comment_text": "Has anyone reported him to HR?"
+      },
+      {
+        "comment_id": "nx71wjo",
+        "comment_text": "FAANG company And this manager is not a software engineer Don’t add up"
+      }
+    ]
+  },
+  {
+    "post_id": "1q1g8s3",
+    "post_text": "Not sure I want to transition to manager because of toxic younger coworker I (31m) am the tech lead of a small \"sub team\". We have 3 different groups reporting to the same manager. This manager is not a software engineer. I work at a FAANG company. My coworker (25m) is incredibly toxic. They have had multiple blow ups at others and myself. They won't use jira, they won't make merge requests, and every meeting with them is like walking on eggshells. They are late with all their code and it's very buggy. In order to not go through the MR process this coworker created their own repo and pushes directly to main. When we asked them to combine repos they get very agitated. We asked them to start making MRs for review and they flat out refuse and it causes the meetings to become very tense. My manager doesn't understand why merge requests are important and sees no issue with the coworker's behavior. We recently hired 2 new senior engineers. Within 1 month, both engineers have had issues with this person. They are both actively involved in the behavioral coaching of this person. One new hire told me \"this guy is the single worst behaved engineer I've ever worked with.\" He expects me, as tech lead, to deal with this situation. I think that's understandable but I have strict instructions to not get involved. I asked my manager to affirm my position as tech lead so I can get this coworker to make MRs and document their designs. My manager said \"No, if I do that then [coworker] will lose their shit and this is a really delicate situation right now.\" This young coworker hates me in particular. Probably because I am in charge? My manager has asked me to stay out of it so he can coach this guy himself. My manager told me \"I've never met someone like this in my entire career. I am completely flummoxed and I have no idea what to do.\" During one very public blow up, my manager was slacking me privately saying \"I'm confused why he's mad\" and \"just drop [this requirement]. You're right but we need him to feel like he's saving face\". The approach that we're taking is to let this coworker fail on his own. We aren't supposed to save their code when we find bugs, we aren't supposed to push for improvements. We are supposed to let them fail so they realize they need help. Our project is off track. One of the new engineers told me they are having a \"very hard time\" on the team because of this person. I feel a responsibility to respond to that but I have strict instructions to stay out of it. Okay. So here's my question. I'm being positioned to become the manager of this team. I said No a year ago because this engineer would have been my only report. My manager thinks I have the wrong attitude and \"[I] need to work with [coworker] because we can't just give up on everyone under the age of 30\". I think this person probably needs to be PIPed and let go. At my previous company (also faang) this would have resulted in a pip a long time ago, both for the attitude but also the sheer lack of deliverables. I can stay on the IC ladder and climb this way, but then a new manager will be hired. This hurts my chances of moving into management later. It also annoys my boss who wants me to just deal with the engineer by coaching instead of a PIP. Should I take the manager position and have this person as my report, knowing my hands are tied when dealing with them? Or should I try to stay as an engineer? Do I have an obligation to work with this person, like my boss is telling me? Or is this situation already beyond what is acceptable in the workplace?",
+    "comments": [
+      {
+        "comment_id": "nx6xdfu",
+        "comment_text": "Merge to main as a junior without checking in with the seniors is crazy"
+      },
+      {
+        "comment_id": "nx6teee",
+        "comment_text": "I would PIP this guy immediately Punt In (the) Penis"
+      },
+      {
+        "comment_id": "nx6pdl9",
+        "comment_text": "Why is your manager so afraid of holding them accountable? Their issues aren't age related, they're engineering and behavioral. Its probably worth taking the management role if you're interested in being management, implementing reasonable engineering standards, putting them on a pip, and ultimately firing them if they don't reign it in really fast. I know you mentioned it would get you a bad rating but getting rid of him and getting someone else brought in will set you up for long term success."
+      },
+      {
+        "comment_id": "nx6ghb3",
+        "comment_text": "If you're the manager, then you can hold him accountable for performance and PIP/fire him. I would only take the manager role if your bosses are on board for letting you PIP/fire the toxic worker. The toxic worker isn't going to improve, but the PIP process will be an HR formality. If you are the toxic worker's boss, you should have authority to hold him accountable for poor performance."
+      }
+    ]
+  },
+  {
+    "post_id": "1q1g8s3",
+    "post_text": "Not sure I want to transition to manager because of toxic younger coworker I (31m) am the tech lead of a small \"sub team\". We have 3 different groups reporting to the same manager. This manager is not a software engineer. I work at a FAANG company. My coworker (25m) is incredibly toxic. They have had multiple blow ups at others and myself. They won't use jira, they won't make merge requests, and every meeting with them is like walking on eggshells. They are late with all their code and it's very buggy. In order to not go through the MR process this coworker created their own repo and pushes directly to main. When we asked them to combine repos they get very agitated. We asked them to start making MRs for review and they flat out refuse and it causes the meetings to become very tense. My manager doesn't understand why merge requests are important and sees no issue with the coworker's behavior. We recently hired 2 new senior engineers. Within 1 month, both engineers have had issues with this person. They are both actively involved in the behavioral coaching of this person. One new hire told me \"this guy is the single worst behaved engineer I've ever worked with.\" He expects me, as tech lead, to deal with this situation. I think that's understandable but I have strict instructions to not get involved. I asked my manager to affirm my position as tech lead so I can get this coworker to make MRs and document their designs. My manager said \"No, if I do that then [coworker] will lose their shit and this is a really delicate situation right now.\" This young coworker hates me in particular. Probably because I am in charge? My manager has asked me to stay out of it so he can coach this guy himself. My manager told me \"I've never met someone like this in my entire career. I am completely flummoxed and I have no idea what to do.\" During one very public blow up, my manager was slacking me privately saying \"I'm confused why he's mad\" and \"just drop [this requirement]. You're right but we need him to feel like he's saving face\". The approach that we're taking is to let this coworker fail on his own. We aren't supposed to save their code when we find bugs, we aren't supposed to push for improvements. We are supposed to let them fail so they realize they need help. Our project is off track. One of the new engineers told me they are having a \"very hard time\" on the team because of this person. I feel a responsibility to respond to that but I have strict instructions to stay out of it. Okay. So here's my question. I'm being positioned to become the manager of this team. I said No a year ago because this engineer would have been my only report. My manager thinks I have the wrong attitude and \"[I] need to work with [coworker] because we can't just give up on everyone under the age of 30\". I think this person probably needs to be PIPed and let go. At my previous company (also faang) this would have resulted in a pip a long time ago, both for the attitude but also the sheer lack of deliverables. I can stay on the IC ladder and climb this way, but then a new manager will be hired. This hurts my chances of moving into management later. It also annoys my boss who wants me to just deal with the engineer by coaching instead of a PIP. Should I take the manager position and have this person as my report, knowing my hands are tied when dealing with them? Or should I try to stay as an engineer? Do I have an obligation to work with this person, like my boss is telling me? Or is this situation already beyond what is acceptable in the workplace?",
+    "comments": [
+      {
+        "comment_id": "nx6eb6o",
+        "comment_text": "My manager told me \"I've never met someone like this in my entire career. I am completely flummoxed and I have no idea what to do.\" Fire him? My manager thinks I have the wrong attitude and \"[I] need to work with [coworker] because we can't just give up on everyone under the age of 30\". Not in this market there are probably 100+ qualified sub 30 year olds that are knocking down your door to get this guys job. You absolutely should shit-can the shitty people and go look for a good person. I understand that attitude when companies were hiring everyone with a pulse, so the hiring pool was dry, but that isn't what today is. Honestly send me the job description and I bet I have 100 applicants qualified for the position from my companies hiring pool that we just aren't hiring because we have frozen our hiring."
+      },
+      {
+        "comment_id": "nx69qct",
+        "comment_text": "Your manager is a wuss, that's the problem. I would have pip'd them after the second outburst."
+      },
+      {
+        "comment_id": "nx65xar",
+        "comment_text": "Imo your problem isn't the young engineer so much as the manager. He's letting one idiot ruin the team's ability to work effectively. Is there anyone in your management chain that you would trust to listen and respond thoughtfully to this situation? I really think someone needs to sit your manager down and tell him that patience is great and all but you can't sit around waiting for this guy to change and let him blow up every one else's work in the process."
+      },
+      {
+        "comment_id": "nx658cj",
+        "comment_text": "Raise the issue with your skip, they have to be aware if underperformance coaching is happening (it’s quite literally their job) and it should have a finite timeframe and actionable outcome expectations before formal PIP enters the picture. Your boss ought to be leaning on you to define what the technical outcomes should be, “I dunno what to do with this guy” isn’t a plan. That’s on the technical side On the interpersonal side, harassment and behavioral problems can be reported to HR, and that could get him fired based on inadherence to conduct policies, given enough strikes against him"
+      }
+    ]
+  },
+  {
+    "post_id": "1q1g8s3",
+    "post_text": "Not sure I want to transition to manager because of toxic younger coworker I (31m) am the tech lead of a small \"sub team\". We have 3 different groups reporting to the same manager. This manager is not a software engineer. I work at a FAANG company. My coworker (25m) is incredibly toxic. They have had multiple blow ups at others and myself. They won't use jira, they won't make merge requests, and every meeting with them is like walking on eggshells. They are late with all their code and it's very buggy. In order to not go through the MR process this coworker created their own repo and pushes directly to main. When we asked them to combine repos they get very agitated. We asked them to start making MRs for review and they flat out refuse and it causes the meetings to become very tense. My manager doesn't understand why merge requests are important and sees no issue with the coworker's behavior. We recently hired 2 new senior engineers. Within 1 month, both engineers have had issues with this person. They are both actively involved in the behavioral coaching of this person. One new hire told me \"this guy is the single worst behaved engineer I've ever worked with.\" He expects me, as tech lead, to deal with this situation. I think that's understandable but I have strict instructions to not get involved. I asked my manager to affirm my position as tech lead so I can get this coworker to make MRs and document their designs. My manager said \"No, if I do that then [coworker] will lose their shit and this is a really delicate situation right now.\" This young coworker hates me in particular. Probably because I am in charge? My manager has asked me to stay out of it so he can coach this guy himself. My manager told me \"I've never met someone like this in my entire career. I am completely flummoxed and I have no idea what to do.\" During one very public blow up, my manager was slacking me privately saying \"I'm confused why he's mad\" and \"just drop [this requirement]. You're right but we need him to feel like he's saving face\". The approach that we're taking is to let this coworker fail on his own. We aren't supposed to save their code when we find bugs, we aren't supposed to push for improvements. We are supposed to let them fail so they realize they need help. Our project is off track. One of the new engineers told me they are having a \"very hard time\" on the team because of this person. I feel a responsibility to respond to that but I have strict instructions to stay out of it. Okay. So here's my question. I'm being positioned to become the manager of this team. I said No a year ago because this engineer would have been my only report. My manager thinks I have the wrong attitude and \"[I] need to work with [coworker] because we can't just give up on everyone under the age of 30\". I think this person probably needs to be PIPed and let go. At my previous company (also faang) this would have resulted in a pip a long time ago, both for the attitude but also the sheer lack of deliverables. I can stay on the IC ladder and climb this way, but then a new manager will be hired. This hurts my chances of moving into management later. It also annoys my boss who wants me to just deal with the engineer by coaching instead of a PIP. Should I take the manager position and have this person as my report, knowing my hands are tied when dealing with them? Or should I try to stay as an engineer? Do I have an obligation to work with this person, like my boss is telling me? Or is this situation already beyond what is acceptable in the workplace?",
+    "comments": [
+      {
+        "comment_id": "nx5zt56",
+        "comment_text": "This is wild to me, I've been leading teams from 3 to 75 people for a decade now and I would have had 3 counseling sessions and PIP on this dudes desk ages ago."
+      },
+      {
+        "comment_id": "nx5rofu",
+        "comment_text": "I’m sorry, but this situation should have been handled before you would become manager. If this employee has been allowed to get away with bad behavior, do you really believe your leadership will support any change when you are in charge? I would not transition to manager just because of the employee, but rather the lack of support from leadership. Go with what makes you happy and aligns to your career path more than worrying about a toxic individual. And truth be told, if this one person upsets you so much that would be a yellow flag for you becoming a manager. Because your job is to deal with these situations. And if this one is tough, and it’s giving you pause, how will you act when this happens again? And again? Because it always does. And it’s your job to clean it up, if not prevent it. Otherwise people won’t want to work for you."
+      },
+      {
+        "comment_id": "nx5ozco",
+        "comment_text": "For a major company to allow such obviously anti-development practices, then bend over backwards to allow such a [Scottish word for friend] whose only 25 and doesn’t have any actual moat-defining experience: This is clearly someone’s nephew or son that got in due to nepotism. I don’t think you will win this battle and it might harm you, I would say to investigate first then determine if it’s safe to try an escalate the problem, otherwise you can’t win, try to move teams if not job"
+      },
+      {
+        "comment_id": "nx5oyda",
+        "comment_text": "| My manager has asked me to stay out of it so he can coach this guy himself Good advice. Team lead sucks because you have all the ownership and responsibility, but none the the authority to solve non-technical problems. I've been there, and with difficult people, the right thing to do is come up with a framing (and evidence), present it to the manager, and partner with them on a solution. It's gonna be there call, you're the second: if you don't trust they'll act in the teams best interest, probably look for a new job, otherwise, you're job is to work with management. To dive to the actual plan, and I'm not sure how you guys do reviews at NVIDIA, but \"giving them rope to hang themselves\" is such a popular gambit it has it's own folks saying, and works especially well in highly legible environments where the data goes up and the decision is made there. No manager can ever say: \"we're tossing u/justUseAnSVM because his ML takes are 12 years old\", but they can toss me when I wasted 6 months on my SVM chatbot that's a total failure. Lots of corporate decisions are made this way: cancelling projects, getting rid of people, asking for more people, pushing back against strategy. You need to provide that legible evidence and can be incorporated into the narrative of the person you report to. Otherwise, their boss will say: \"why did you do X\", and you need a good reason. I know you're emotional charged, but take a step back: no individual situation should dictate where you want to go, and how you want to grow. As a manager, you'd be driving the narrative, and where you are right now is exactly how future managers learn. Difficult people are emotionally draining, but if you can put some level of faith in the process, you get your outcome more times than not."
+      }
+    ]
+  },
+  {
+    "post_id": "1q1g8s3",
+    "post_text": "Not sure I want to transition to manager because of toxic younger coworker I (31m) am the tech lead of a small \"sub team\". We have 3 different groups reporting to the same manager. This manager is not a software engineer. I work at a FAANG company. My coworker (25m) is incredibly toxic. They have had multiple blow ups at others and myself. They won't use jira, they won't make merge requests, and every meeting with them is like walking on eggshells. They are late with all their code and it's very buggy. In order to not go through the MR process this coworker created their own repo and pushes directly to main. When we asked them to combine repos they get very agitated. We asked them to start making MRs for review and they flat out refuse and it causes the meetings to become very tense. My manager doesn't understand why merge requests are important and sees no issue with the coworker's behavior. We recently hired 2 new senior engineers. Within 1 month, both engineers have had issues with this person. They are both actively involved in the behavioral coaching of this person. One new hire told me \"this guy is the single worst behaved engineer I've ever worked with.\" He expects me, as tech lead, to deal with this situation. I think that's understandable but I have strict instructions to not get involved. I asked my manager to affirm my position as tech lead so I can get this coworker to make MRs and document their designs. My manager said \"No, if I do that then [coworker] will lose their shit and this is a really delicate situation right now.\" This young coworker hates me in particular. Probably because I am in charge? My manager has asked me to stay out of it so he can coach this guy himself. My manager told me \"I've never met someone like this in my entire career. I am completely flummoxed and I have no idea what to do.\" During one very public blow up, my manager was slacking me privately saying \"I'm confused why he's mad\" and \"just drop [this requirement]. You're right but we need him to feel like he's saving face\". The approach that we're taking is to let this coworker fail on his own. We aren't supposed to save their code when we find bugs, we aren't supposed to push for improvements. We are supposed to let them fail so they realize they need help. Our project is off track. One of the new engineers told me they are having a \"very hard time\" on the team because of this person. I feel a responsibility to respond to that but I have strict instructions to stay out of it. Okay. So here's my question. I'm being positioned to become the manager of this team. I said No a year ago because this engineer would have been my only report. My manager thinks I have the wrong attitude and \"[I] need to work with [coworker] because we can't just give up on everyone under the age of 30\". I think this person probably needs to be PIPed and let go. At my previous company (also faang) this would have resulted in a pip a long time ago, both for the attitude but also the sheer lack of deliverables. I can stay on the IC ladder and climb this way, but then a new manager will be hired. This hurts my chances of moving into management later. It also annoys my boss who wants me to just deal with the engineer by coaching instead of a PIP. Should I take the manager position and have this person as my report, knowing my hands are tied when dealing with them? Or should I try to stay as an engineer? Do I have an obligation to work with this person, like my boss is telling me? Or is this situation already beyond what is acceptable in the workplace?",
+    "comments": [
+      {
+        "comment_id": "nx5o8u8",
+        "comment_text": "I work at a FAANG My manager doesn't understand why merge requests are important I bet they use Leetcode for interviews"
+      },
+      {
+        "comment_id": "nx5mtx6",
+        "comment_text": "It’s your job as tech lead to remedy this situation by pipping them or firing them. If you don’t have the authority to do this yourself, you need to get it, or get a higher up to do it. Your managers sound like they aren’t tech people, so your job is to help them understand why this person is not working out and why what they are doing isn’t acceptable. The sooner you do this, the sooner you can hire a better replacement and everyone on the team will be happier including you. Prolong it, and it can make YOU look bad"
+      },
+      {
+        "comment_id": "nx5kjb8",
+        "comment_text": "Why arent they firing him? I've been at this for a decade and a half and worked across 7 companies and never seen someone who difficult and incompetent. Avoiding MR by making your repo... im speechless."
+      },
+      {
+        "comment_id": "nx5jsqi",
+        "comment_text": "If this were in my org this individual would have been terminated a long time ago. Your transition to manager is irrelevant here. This person has to go. If your wet pool noodle of a manager isn't helping, then go above their head."
+      }
+    ]
+  },
+  {
+    "post_id": "1q1g8s3",
+    "post_text": "Not sure I want to transition to manager because of toxic younger coworker I (31m) am the tech lead of a small \"sub team\". We have 3 different groups reporting to the same manager. This manager is not a software engineer. I work at a FAANG company. My coworker (25m) is incredibly toxic. They have had multiple blow ups at others and myself. They won't use jira, they won't make merge requests, and every meeting with them is like walking on eggshells. They are late with all their code and it's very buggy. In order to not go through the MR process this coworker created their own repo and pushes directly to main. When we asked them to combine repos they get very agitated. We asked them to start making MRs for review and they flat out refuse and it causes the meetings to become very tense. My manager doesn't understand why merge requests are important and sees no issue with the coworker's behavior. We recently hired 2 new senior engineers. Within 1 month, both engineers have had issues with this person. They are both actively involved in the behavioral coaching of this person. One new hire told me \"this guy is the single worst behaved engineer I've ever worked with.\" He expects me, as tech lead, to deal with this situation. I think that's understandable but I have strict instructions to not get involved. I asked my manager to affirm my position as tech lead so I can get this coworker to make MRs and document their designs. My manager said \"No, if I do that then [coworker] will lose their shit and this is a really delicate situation right now.\" This young coworker hates me in particular. Probably because I am in charge? My manager has asked me to stay out of it so he can coach this guy himself. My manager told me \"I've never met someone like this in my entire career. I am completely flummoxed and I have no idea what to do.\" During one very public blow up, my manager was slacking me privately saying \"I'm confused why he's mad\" and \"just drop [this requirement]. You're right but we need him to feel like he's saving face\". The approach that we're taking is to let this coworker fail on his own. We aren't supposed to save their code when we find bugs, we aren't supposed to push for improvements. We are supposed to let them fail so they realize they need help. Our project is off track. One of the new engineers told me they are having a \"very hard time\" on the team because of this person. I feel a responsibility to respond to that but I have strict instructions to stay out of it. Okay. So here's my question. I'm being positioned to become the manager of this team. I said No a year ago because this engineer would have been my only report. My manager thinks I have the wrong attitude and \"[I] need to work with [coworker] because we can't just give up on everyone under the age of 30\". I think this person probably needs to be PIPed and let go. At my previous company (also faang) this would have resulted in a pip a long time ago, both for the attitude but also the sheer lack of deliverables. I can stay on the IC ladder and climb this way, but then a new manager will be hired. This hurts my chances of moving into management later. It also annoys my boss who wants me to just deal with the engineer by coaching instead of a PIP. Should I take the manager position and have this person as my report, knowing my hands are tied when dealing with them? Or should I try to stay as an engineer? Do I have an obligation to work with this person, like my boss is telling me? Or is this situation already beyond what is acceptable in the workplace?",
+    "comments": [
+      {
+        "comment_id": "nx5j4jm",
+        "comment_text": "25 toxic won't use jira faang probably making more than I ever will it's all so tiring"
+      },
+      {
+        "comment_id": "nx5izwb",
+        "comment_text": "Take the manager role, if you cannot reject this IC as your report, then learn to push back on bad behavior, and substandard work."
+      },
+      {
+        "comment_id": "nx5is68",
+        "comment_text": "your toxic coworker should be having discussions and possible terminations with management. have you spoken to your manager about him?"
+      },
+      {
+        "comment_id": "nx5id5u",
+        "comment_text": "What the hell am I reading"
+      }
+    ]
+  },
+  {
+    "post_id": "1q1g8s3",
+    "post_text": "Not sure I want to transition to manager because of toxic younger coworker I (31m) am the tech lead of a small \"sub team\". We have 3 different groups reporting to the same manager. This manager is not a software engineer. I work at a FAANG company. My coworker (25m) is incredibly toxic. They have had multiple blow ups at others and myself. They won't use jira, they won't make merge requests, and every meeting with them is like walking on eggshells. They are late with all their code and it's very buggy. In order to not go through the MR process this coworker created their own repo and pushes directly to main. When we asked them to combine repos they get very agitated. We asked them to start making MRs for review and they flat out refuse and it causes the meetings to become very tense. My manager doesn't understand why merge requests are important and sees no issue with the coworker's behavior. We recently hired 2 new senior engineers. Within 1 month, both engineers have had issues with this person. They are both actively involved in the behavioral coaching of this person. One new hire told me \"this guy is the single worst behaved engineer I've ever worked with.\" He expects me, as tech lead, to deal with this situation. I think that's understandable but I have strict instructions to not get involved. I asked my manager to affirm my position as tech lead so I can get this coworker to make MRs and document their designs. My manager said \"No, if I do that then [coworker] will lose their shit and this is a really delicate situation right now.\" This young coworker hates me in particular. Probably because I am in charge? My manager has asked me to stay out of it so he can coach this guy himself. My manager told me \"I've never met someone like this in my entire career. I am completely flummoxed and I have no idea what to do.\" During one very public blow up, my manager was slacking me privately saying \"I'm confused why he's mad\" and \"just drop [this requirement]. You're right but we need him to feel like he's saving face\". The approach that we're taking is to let this coworker fail on his own. We aren't supposed to save their code when we find bugs, we aren't supposed to push for improvements. We are supposed to let them fail so they realize they need help. Our project is off track. One of the new engineers told me they are having a \"very hard time\" on the team because of this person. I feel a responsibility to respond to that but I have strict instructions to stay out of it. Okay. So here's my question. I'm being positioned to become the manager of this team. I said No a year ago because this engineer would have been my only report. My manager thinks I have the wrong attitude and \"[I] need to work with [coworker] because we can't just give up on everyone under the age of 30\". I think this person probably needs to be PIPed and let go. At my previous company (also faang) this would have resulted in a pip a long time ago, both for the attitude but also the sheer lack of deliverables. I can stay on the IC ladder and climb this way, but then a new manager will be hired. This hurts my chances of moving into management later. It also annoys my boss who wants me to just deal with the engineer by coaching instead of a PIP. Should I take the manager position and have this person as my report, knowing my hands are tied when dealing with them? Or should I try to stay as an engineer? Do I have an obligation to work with this person, like my boss is telling me? Or is this situation already beyond what is acceptable in the workplace?",
+    "comments": [
+      {
+        "comment_id": "nx5i12b",
+        "comment_text": "A huge part of the manager job is keeping your cool and getting results out of what you’ve got. Don’t let a difficult personality stop your career growth. Getting the formal manager role will give you experience you can carry elsewhere, and you should get your foot in the door as fast as you can if that’s the path you want to take. For what it’s worth I’m in a similar situation - a manager parallel to me does little to no valuable work, and I basically have to do their job for them. As I understand it, staying cool and handling these situations and personalities is the “politics” part (I hate it)"
+      },
+      {
+        "comment_id": "nx5gx5w",
+        "comment_text": "I just can't get past the part where this dev is allowed to work without merging. The start and end of that conversation should have been asking them how they expect their code to make it into the main branch without a MR."
+      },
+      {
+        "comment_id": "nx5f4dh",
+        "comment_text": "As a former manager, this kid needs to be bluntly talked to that he will be receiving aggressive coaching and needs to start improving immediately or he needs to go. He is killing team morale, and if his behavior continues to go unaddressed the good people on your team are going to start heading for the exits. Taking the management position puts you more in the line of fire, and TBH this is kind of the most un-fun situation you can walk into as a new manager, but it also gives you more control over how this goes down and potentially gives you an opportunity to get some great peer feedback from the other team members at performance review time if you effectively clean up this messy situation. It's up to you, and how much initiative you want to take. Taking the manager position under these conditions is definitely the higher risk, higher reward path. I think I would have a very honest discussion with your boss and tell them you might take the position, but you need to know the full context of what you're walking into before committing to it. That seems like a fair request to me. The comments that concern me most is the current manager saying things like \"this is a really delicate situation right now\". That could mean that they are just naturally conflict-avoidant and are (unrealistically) hoping that the kid will knock it off on his own (he won't). Alternatively it could mean that the manager knows something about the situation that you don't, and as a new manager walking in to deal with it I would want to know what I'm getting myself into."
+      },
+      {
+        "comment_id": "nx5eo0o",
+        "comment_text": "Who’s nepo baby is this?"
+      }
+    ]
+  },
+  {
+    "post_id": "1q1g8s3",
+    "post_text": "Not sure I want to transition to manager because of toxic younger coworker I (31m) am the tech lead of a small \"sub team\". We have 3 different groups reporting to the same manager. This manager is not a software engineer. I work at a FAANG company. My coworker (25m) is incredibly toxic. They have had multiple blow ups at others and myself. They won't use jira, they won't make merge requests, and every meeting with them is like walking on eggshells. They are late with all their code and it's very buggy. In order to not go through the MR process this coworker created their own repo and pushes directly to main. When we asked them to combine repos they get very agitated. We asked them to start making MRs for review and they flat out refuse and it causes the meetings to become very tense. My manager doesn't understand why merge requests are important and sees no issue with the coworker's behavior. We recently hired 2 new senior engineers. Within 1 month, both engineers have had issues with this person. They are both actively involved in the behavioral coaching of this person. One new hire told me \"this guy is the single worst behaved engineer I've ever worked with.\" He expects me, as tech lead, to deal with this situation. I think that's understandable but I have strict instructions to not get involved. I asked my manager to affirm my position as tech lead so I can get this coworker to make MRs and document their designs. My manager said \"No, if I do that then [coworker] will lose their shit and this is a really delicate situation right now.\" This young coworker hates me in particular. Probably because I am in charge? My manager has asked me to stay out of it so he can coach this guy himself. My manager told me \"I've never met someone like this in my entire career. I am completely flummoxed and I have no idea what to do.\" During one very public blow up, my manager was slacking me privately saying \"I'm confused why he's mad\" and \"just drop [this requirement]. You're right but we need him to feel like he's saving face\". The approach that we're taking is to let this coworker fail on his own. We aren't supposed to save their code when we find bugs, we aren't supposed to push for improvements. We are supposed to let them fail so they realize they need help. Our project is off track. One of the new engineers told me they are having a \"very hard time\" on the team because of this person. I feel a responsibility to respond to that but I have strict instructions to stay out of it. Okay. So here's my question. I'm being positioned to become the manager of this team. I said No a year ago because this engineer would have been my only report. My manager thinks I have the wrong attitude and \"[I] need to work with [coworker] because we can't just give up on everyone under the age of 30\". I think this person probably needs to be PIPed and let go. At my previous company (also faang) this would have resulted in a pip a long time ago, both for the attitude but also the sheer lack of deliverables. I can stay on the IC ladder and climb this way, but then a new manager will be hired. This hurts my chances of moving into management later. It also annoys my boss who wants me to just deal with the engineer by coaching instead of a PIP. Should I take the manager position and have this person as my report, knowing my hands are tied when dealing with them? Or should I try to stay as an engineer? Do I have an obligation to work with this person, like my boss is telling me? Or is this situation already beyond what is acceptable in the workplace?",
+    "comments": [
+      {
+        "comment_id": "nx5ec5o",
+        "comment_text": "Why does your manager think it's so important to coach this guy? Is he a genius coder? And can you raise this to a skip level, or even a sympathetic manager? Why do you think this guy behaves badly? If literally everyone who's worked with him has had problems, that's a bad sign that nothing will change. This guy is going to get siloed and marginalized. Best case is that he will work on independent projects that dont affect anyone, and have limited impact."
+      },
+      {
+        "comment_id": "nx5eaw8",
+        "comment_text": "What FAANG is this? I cannot imagine in this economy that this person is not already gone."
+      },
+      {
+        "comment_id": "nx5dyua",
+        "comment_text": "I'm sorry but if you only \"think\" this person needs to PIPed shows you should not be in a leadership position. This person should have been PIPed and fired clearly months ago. Direct insubordination and lack of following policies is the easiest termination, and that is not even touching on attitude problems. Any solution on this issue that does not revolve around removing this individual does not matter. Your team is fucked otherwise."
+      },
+      {
+        "comment_id": "nx5d9i9",
+        "comment_text": "[deleted]"
+      }
+    ]
+  },
+  {
+    "post_id": "1q1g8s3",
+    "post_text": "Not sure I want to transition to manager because of toxic younger coworker I (31m) am the tech lead of a small \"sub team\". We have 3 different groups reporting to the same manager. This manager is not a software engineer. I work at a FAANG company. My coworker (25m) is incredibly toxic. They have had multiple blow ups at others and myself. They won't use jira, they won't make merge requests, and every meeting with them is like walking on eggshells. They are late with all their code and it's very buggy. In order to not go through the MR process this coworker created their own repo and pushes directly to main. When we asked them to combine repos they get very agitated. We asked them to start making MRs for review and they flat out refuse and it causes the meetings to become very tense. My manager doesn't understand why merge requests are important and sees no issue with the coworker's behavior. We recently hired 2 new senior engineers. Within 1 month, both engineers have had issues with this person. They are both actively involved in the behavioral coaching of this person. One new hire told me \"this guy is the single worst behaved engineer I've ever worked with.\" He expects me, as tech lead, to deal with this situation. I think that's understandable but I have strict instructions to not get involved. I asked my manager to affirm my position as tech lead so I can get this coworker to make MRs and document their designs. My manager said \"No, if I do that then [coworker] will lose their shit and this is a really delicate situation right now.\" This young coworker hates me in particular. Probably because I am in charge? My manager has asked me to stay out of it so he can coach this guy himself. My manager told me \"I've never met someone like this in my entire career. I am completely flummoxed and I have no idea what to do.\" During one very public blow up, my manager was slacking me privately saying \"I'm confused why he's mad\" and \"just drop [this requirement]. You're right but we need him to feel like he's saving face\". The approach that we're taking is to let this coworker fail on his own. We aren't supposed to save their code when we find bugs, we aren't supposed to push for improvements. We are supposed to let them fail so they realize they need help. Our project is off track. One of the new engineers told me they are having a \"very hard time\" on the team because of this person. I feel a responsibility to respond to that but I have strict instructions to stay out of it. Okay. So here's my question. I'm being positioned to become the manager of this team. I said No a year ago because this engineer would have been my only report. My manager thinks I have the wrong attitude and \"[I] need to work with [coworker] because we can't just give up on everyone under the age of 30\". I think this person probably needs to be PIPed and let go. At my previous company (also faang) this would have resulted in a pip a long time ago, both for the attitude but also the sheer lack of deliverables. I can stay on the IC ladder and climb this way, but then a new manager will be hired. This hurts my chances of moving into management later. It also annoys my boss who wants me to just deal with the engineer by coaching instead of a PIP. Should I take the manager position and have this person as my report, knowing my hands are tied when dealing with them? Or should I try to stay as an engineer? Do I have an obligation to work with this person, like my boss is telling me? Or is this situation already beyond what is acceptable in the workplace?",
+    "comments": [
+      {
+        "comment_id": "nx5d5ft",
+        "comment_text": "If you transition to manager you have more pull to get this person fired (seems like he should be based on your story). Take the job, push back on him, when he's toxic document how he acts. 3 months from now (or sooner depending on how bad he blows up) he's gone. Well at least if you can get your manager on board. Or make it part of the promotion that if he doesn't clean up his act in x months he's fired"
+      },
+      {
+        "comment_id": "nx5d3iw",
+        "comment_text": "if you were the manager, could you not just initiate the PIP?"
+      }
+    ]
+  },
+  {
+    "post_id": "1q2jj10",
+    "post_text": "Does math bring you joy? I’m not a mathematician but I read how Euler lived a while ago. How math was kind of a big deal to him. I can only assume it’s a big deal to a lot of people as well. So I wanted to ask (hopefully without arrogance, malice, or naïveté) if math has made your life richer. Made it more joyful and such. If you were sent back in time to say, I dunno, elementary school, would you continue mathematics? Sorry if this is really stupid or too personal. Just curious.",
+    "comments": [
+      {
+        "comment_id": "nxs0ijl",
+        "comment_text": "Personally, I see math as a game. Just understanding and doing the calculations gives me incredible joy. I get so excited when I grasp a formula or when I figure out things that normally no one would even attempt, like calculating the number of seconds in an hour (spoiler alert: 3600 seconds in an hour). I hope I've answered your question and satisfied your curiosity."
+      },
+      {
+        "comment_id": "nxrdpab",
+        "comment_text": "It absolutely does, it provides limitless new and creative ideas and concepts. And it connects me to ideas from long past."
+      },
+      {
+        "comment_id": "nxrbelx",
+        "comment_text": "I do math now partly out of spite. 20+ years of education convinced me I was bad at it, mostly because the system never fit how I think. So now it’s a mix of arrogance, satisfaction, and realizing that some equations are so functional they’re actually very pretty"
+      },
+      {
+        "comment_id": "nxp8frh",
+        "comment_text": "Strictly pain"
+      }
+    ]
+  },
+  {
+    "post_id": "1q2jj10",
+    "post_text": "Does math bring you joy? I’m not a mathematician but I read how Euler lived a while ago. How math was kind of a big deal to him. I can only assume it’s a big deal to a lot of people as well. So I wanted to ask (hopefully without arrogance, malice, or naïveté) if math has made your life richer. Made it more joyful and such. If you were sent back in time to say, I dunno, elementary school, would you continue mathematics? Sorry if this is really stupid or too personal. Just curious.",
+    "comments": [
+      {
+        "comment_id": "nxp4r7m",
+        "comment_text": "In my own experience, math has brought me only despair, that's why, after spending five years in a degree that's supposed to be completed in three years, I will probably switch to something else. Nonetheless I can say that learning certain branches of maths is way more pleasurable for me, for example I was having some pleasure while I was studying for the three abstract algebra exams I had to take."
+      },
+      {
+        "comment_id": "nxootuq",
+        "comment_text": ">"
+      },
+      {
+        "comment_id": "nxo3oho",
+        "comment_text": "Absolutely, if money was not an issue i'd have done a B.S. in Mathematics then went on to Ph.D. research."
+      },
+      {
+        "comment_id": "nxmddhl",
+        "comment_text": "Most of the time, solving maths gives me joy. Sometimes though, it makes me want to shave my head bald and beat a homeless man in a fit of unbridled rage."
+      }
+    ]
+  },
+  {
+    "post_id": "1q2jj10",
+    "post_text": "Does math bring you joy? I’m not a mathematician but I read how Euler lived a while ago. How math was kind of a big deal to him. I can only assume it’s a big deal to a lot of people as well. So I wanted to ask (hopefully without arrogance, malice, or naïveté) if math has made your life richer. Made it more joyful and such. If you were sent back in time to say, I dunno, elementary school, would you continue mathematics? Sorry if this is really stupid or too personal. Just curious.",
+    "comments": [
+      {
+        "comment_id": "nxkxias",
+        "comment_text": "I guess I'm unusual in this way, but math has always brought me great joy, in fact, more so than almost anything else (except, of course, great sex!)"
+      },
+      {
+        "comment_id": "nxkksjm",
+        "comment_text": "yes? lol"
+      },
+      {
+        "comment_id": "nxk8x5c",
+        "comment_text": "Math brings me so much joy, that I even got a math tattoo today. Obsessed...Primely Obsessed, I would say"
+      },
+      {
+        "comment_id": "nxjnfh9",
+        "comment_text": "Math is one of the most enjoyable activities ever. The harder it is, the more satisfying it is when it clicks together."
+      }
+    ]
+  },
+  {
+    "post_id": "1q2jj10",
+    "post_text": "Does math bring you joy? I’m not a mathematician but I read how Euler lived a while ago. How math was kind of a big deal to him. I can only assume it’s a big deal to a lot of people as well. So I wanted to ask (hopefully without arrogance, malice, or naïveté) if math has made your life richer. Made it more joyful and such. If you were sent back in time to say, I dunno, elementary school, would you continue mathematics? Sorry if this is really stupid or too personal. Just curious.",
+    "comments": [
+      {
+        "comment_id": "nxjlsvk",
+        "comment_text": "If I'm happier to understand the truth better? Yes, definitely."
+      },
+      {
+        "comment_id": "nxizf51",
+        "comment_text": "It’s more complicated than that. But I suppose it wouldn’t be maths if it wasn’t."
+      },
+      {
+        "comment_id": "nxiy0u5",
+        "comment_text": "I spent my teens and twenties as an artist. I made it, too—I was a professional theater producer and director. My full time job was in Shakespeare, though eventually I pivoted to experimental performance of creative nonfiction. The thing that brought me to the theater was a deep and unabashed belief that stories matter. Stories matter not because they change the world in and of themselves, but because they change how we see the world. In doing so, they change us. Theater, in particular, invites us to visit an imagined reality with its own set of rules, where actions set off reactions according to those rules. Narratives are implications in this way: if this happens, then this happens next. They lead us to a necessary conclusion, a moral or meaning. I had to leave that career behind for personal reasons, but I became a mathematician because of the exact same belief. Mathematical imagination is the fundamental beginning of all science. It challenges us to see the universe differently. So, yes. Doing math brings me joy, and this is why."
+      },
+      {
+        "comment_id": "nxi7696",
+        "comment_text": "What brings me joy is those little moments where i feel my understanding improves. It gets rarer to feel the farther you go I find"
+      }
+    ]
+  },
+  {
+    "post_id": "1q2jj10",
+    "post_text": "Does math bring you joy? I’m not a mathematician but I read how Euler lived a while ago. How math was kind of a big deal to him. I can only assume it’s a big deal to a lot of people as well. So I wanted to ask (hopefully without arrogance, malice, or naïveté) if math has made your life richer. Made it more joyful and such. If you were sent back in time to say, I dunno, elementary school, would you continue mathematics? Sorry if this is really stupid or too personal. Just curious.",
+    "comments": [
+      {
+        "comment_id": "nxhyq7g",
+        "comment_text": "Definitely. It's kind of a cliche, but I truly view the world differently because of mathematics."
+      },
+      {
+        "comment_id": "nxhkbzt",
+        "comment_text": "An advantage of lifelong learning is that any exercise of the mind brings you joy, painful though it may be. After going through repair of a retinal attachment and learning that I'm losing my vision to macular degeneration, I now know a lot more about the workings of the eyes and am having fun adapting to a new world You can describe the world in many ways from narrative to drawing and modeling and quantities/qualities. Math uses patterns to make subtleties in the world clear and when you abstract numbers from their material matrices more beautiful patterns arise. I can't imagine mathematics divorced from the affective domain."
+      },
+      {
+        "comment_id": "nxhk65g",
+        "comment_text": "Without a doubt, before entering 11th grade, I genuinely loathed mathematics. It felt alien and suffocating. Then, somewhere during 11th, something clicked. Slowly at first, almost imperceptibly, I began to realize that mathematics does not demand blind memorization. It demands thought. You derive, you decode, you reason your way forward. You are not rewarded for recall, but for clarity of mind. In this discipline, the only real stupidity is refusing to ask questions. Mathematics thrives on communication, on presenting your reasoning, having it examined, challenged, and refined. It is one of the few domains where different patterns of thinking are not only tolerated but respected, provided they are logically sound. Logic itself is intoxicating. It stimulates the mind in a way few things can. Engaging with a difficult problem feels like facing a formidable opponent on a battlefield one who nearly defeats you. And yet, regardless of how brutal the struggle is, you walk away with respect. The challenge earns its honor. That is precisely how mathematics feels to me: an adversary that sharpens you, humbles you, and commands admiration through the very resistance it offers."
+      },
+      {
+        "comment_id": "nxhiaxg",
+        "comment_text": "I recently saw someone post an old photograph of my great grand parents. And someone commented, \"I wish I knew how old this photo was. \" Within 5 minutes I had the answer +/- a year, with some simple math."
+      }
+    ]
+  },
+  {
+    "post_id": "1q2jj10",
+    "post_text": "Does math bring you joy? I’m not a mathematician but I read how Euler lived a while ago. How math was kind of a big deal to him. I can only assume it’s a big deal to a lot of people as well. So I wanted to ask (hopefully without arrogance, malice, or naïveté) if math has made your life richer. Made it more joyful and such. If you were sent back in time to say, I dunno, elementary school, would you continue mathematics? Sorry if this is really stupid or too personal. Just curious.",
+    "comments": [
+      {
+        "comment_id": "nxgp1ep",
+        "comment_text": "[removed]"
+      },
+      {
+        "comment_id": "nxgh80v",
+        "comment_text": "I do math. Math is a universal language"
+      },
+      {
+        "comment_id": "nxg9tq3",
+        "comment_text": "Not at all. I've seen people come for others on this reddit page over the phrase \"I'm not a math person\" but after several years of math, I can comfortably say I am NOT a math person. Yes, I'm aware we do math all the time but that doesn't mean it's gonna click with everyone."
+      },
+      {
+        "comment_id": "nxfv1df",
+        "comment_text": "About equal amount of joy and frustration"
+      }
+    ]
+  },
+  {
+    "post_id": "1q2jj10",
+    "post_text": "Does math bring you joy? I’m not a mathematician but I read how Euler lived a while ago. How math was kind of a big deal to him. I can only assume it’s a big deal to a lot of people as well. So I wanted to ask (hopefully without arrogance, malice, or naïveté) if math has made your life richer. Made it more joyful and such. If you were sent back in time to say, I dunno, elementary school, would you continue mathematics? Sorry if this is really stupid or too personal. Just curious.",
+    "comments": [
+      {
+        "comment_id": "nxfmin3",
+        "comment_text": "Yes. The only way to make sense of the world"
+      },
+      {
+        "comment_id": "nxfj1a0",
+        "comment_text": "The complexity in Maths makes me attracted towards it. The more complex and complicated the topics, the more I enjoy, and as I understand and solve problems, it feels really good and satisfactory."
+      },
+      {
+        "comment_id": "nxfhaax",
+        "comment_text": "It is 99 percent frustration when your trying to come up with a result on your own,but I do enjoy it lol and when that key idea clicks it feels very euphoric."
+      },
+      {
+        "comment_id": "nxffftk",
+        "comment_text": "For me its a labor of love. When I retire the day job, will spend a lot of time doing this just for the beauty. If I was sent back to elementary school I would have done more math and physics when I could. That said, I have a few good things in my life, so would i trade a known good for an unknown, not sure."
+      }
+    ]
+  },
+  {
+    "post_id": "1q2jj10",
+    "post_text": "Does math bring you joy? I’m not a mathematician but I read how Euler lived a while ago. How math was kind of a big deal to him. I can only assume it’s a big deal to a lot of people as well. So I wanted to ask (hopefully without arrogance, malice, or naïveté) if math has made your life richer. Made it more joyful and such. If you were sent back in time to say, I dunno, elementary school, would you continue mathematics? Sorry if this is really stupid or too personal. Just curious.",
+    "comments": [
+      {
+        "comment_id": "nxffbwi",
+        "comment_text": "YESYYEYEYSYYEYSYSYYEYSYDYEYYSS OMG I LOVE IT SO MUCHHH I LOVE LEARNING!!!! People sometimes jokingly say I'm sexually attracted to math... Im not going to confirm or deny anything though insert fourier transform copypasta"
+      },
+      {
+        "comment_id": "nxfet6q",
+        "comment_text": "Definitely, to me mathematics is part of the human endeavour to know more about the universe and ourselves. Reading about all the brilliant stuff people have come up with in its history and to gain an understanding of that is very much enjoyable. I wish more people could be a part of it."
+      },
+      {
+        "comment_id": "nxfcmsk",
+        "comment_text": "ya i make money off math currently but i do math because i like it and its fun."
+      },
+      {
+        "comment_id": "nxfamno",
+        "comment_text": "Yeah it's satisfying to come to a result. It's also nice that there's an intellectual pursuit that doesn't require any external observation at all, no evidence, just straight up thinking."
+      }
+    ]
+  },
+  {
+    "post_id": "1q1jhxf",
+    "post_text": "Any literature on mathematically studying mixtures? By mixture I mean like a liquid mixture of multiple components. And I guess I'm thinking more abstractly in a not-necessarily-applied way. I was thinking about how I would define and think about this. I'm sure people have already thought of this, but it was a fun thought experiment at the very least. Here's what I came up with: If we have a physical mixture made up of particles of different components or materials, we can view it abstractly as, say, a topological manifold S and a collection of components C. Then say we call a \"mixture\" of S a map m from S to C associating each point (particle) with the component in C it belongs to. So for example, if we had a cup of half water and half olive oil, the contents of the cup is the space S, C = {water,olive oil} and m maps everything in the bottom half to water and everything in the top half to olive oil. Now my first question of interest: what does it mean to be totally mixed? My thought is that no matter how much you zoom in, you cannot isolate an area consisting of only some of the components. The cup example above is clearly not mixed because you could take a portion of the bottom half and it only consists of water. In terms of the space, S I think something like: the mixture map m is a total mixture if for every open set O in S, m(O)=C. That is, every open set contains at least some of every component. Another thought, of course we should be able to mix our mixture even further (like stirring for example). I think this would clearly be through a continuous map f from S to itself shuffling the points around. Then, we give rise to a new mixture map m(f\\^-1). That is, see where the point was before we applied f, then see what it was. Now, given some initial mixture m of S, we get a family of all possible mixtures from that starting point {m(f\\^-1)| f continuous S->S}. And now another question, can a non total mixture be continuously transformed into a total mixture? That is, for m not a total mixture, is there some continuous f from S to itself such that m(f\\^-1) is a total mixture. My final thought was to think about how to measure how well something is mixed. If S is a metric space, I think we would do something along the lines of finding the largest ball in S such that it does not contain every component. The larger you find, the less mixed it is. Although in a physical example maybe the ball is too restrictive of a space. I don't know much about measure theory but maybe it would have to be something involving the largest hyper-volume of a connected set or something. Anyways, just thought this was an interesting topic and would love to know if there is any literature talking about this topic. Or how any of you would go about defining these ideas more rigorously.",
+    "comments": [
+      {
+        "comment_id": "nxoof6z",
+        "comment_text": "get a book on experimental design"
+      },
+      {
+        "comment_id": "nxc8eef",
+        "comment_text": "In the PDE and probability literature, the phrases inhomogeneous media and random media are used often and one analogue of mixing is called homogenization."
+      },
+      {
+        "comment_id": "nx8jr2f",
+        "comment_text": "If you go into thermodynamics literature you'll find a bunch of work in this direction. Flory-Huggins for studying a lattice polymer-solute mixture is maybe the most famous, but there's a lot of aesthetically similar stuff for other systems. The general idea is to think of concentrations in a large-system limit so that things become continuous. The simplest model would basically treat both species as an ideal gas with an interaction term that can lead to phase separation or mixture depending on their concentrations and the temperature. If you want to introduce inhomogeneity, then Cahn-Hilliard is maybe the most standard approach, but this is somewhat more phenomenological in the spirit of a Landau expansion (describe things via a polynomial in the relevant fields with the right symmetries that is capable of describing what you see in the lab). It's a continuity equation in the concentrations with the flux described as basically the gradient of the chemical potential. It's well studied, and my understanding is that things like typical domain sizes and how they evolve in a phase separation regime (something you mention in your post), as well as the behaviour of interfaces, have been rigorously quantified, though I couldn't tell you how this is done."
+      },
+      {
+        "comment_id": "nx81olp",
+        "comment_text": "For a discrete analogue of this, you can consider chemical reaction networks (CRNs), which have interesting applications in theoretical computer science"
+      }
+    ]
+  },
+  {
+    "post_id": "1q1jhxf",
+    "post_text": "Any literature on mathematically studying mixtures? By mixture I mean like a liquid mixture of multiple components. And I guess I'm thinking more abstractly in a not-necessarily-applied way. I was thinking about how I would define and think about this. I'm sure people have already thought of this, but it was a fun thought experiment at the very least. Here's what I came up with: If we have a physical mixture made up of particles of different components or materials, we can view it abstractly as, say, a topological manifold S and a collection of components C. Then say we call a \"mixture\" of S a map m from S to C associating each point (particle) with the component in C it belongs to. So for example, if we had a cup of half water and half olive oil, the contents of the cup is the space S, C = {water,olive oil} and m maps everything in the bottom half to water and everything in the top half to olive oil. Now my first question of interest: what does it mean to be totally mixed? My thought is that no matter how much you zoom in, you cannot isolate an area consisting of only some of the components. The cup example above is clearly not mixed because you could take a portion of the bottom half and it only consists of water. In terms of the space, S I think something like: the mixture map m is a total mixture if for every open set O in S, m(O)=C. That is, every open set contains at least some of every component. Another thought, of course we should be able to mix our mixture even further (like stirring for example). I think this would clearly be through a continuous map f from S to itself shuffling the points around. Then, we give rise to a new mixture map m(f\\^-1). That is, see where the point was before we applied f, then see what it was. Now, given some initial mixture m of S, we get a family of all possible mixtures from that starting point {m(f\\^-1)| f continuous S->S}. And now another question, can a non total mixture be continuously transformed into a total mixture? That is, for m not a total mixture, is there some continuous f from S to itself such that m(f\\^-1) is a total mixture. My final thought was to think about how to measure how well something is mixed. If S is a metric space, I think we would do something along the lines of finding the largest ball in S such that it does not contain every component. The larger you find, the less mixed it is. Although in a physical example maybe the ball is too restrictive of a space. I don't know much about measure theory but maybe it would have to be something involving the largest hyper-volume of a connected set or something. Anyways, just thought this was an interesting topic and would love to know if there is any literature talking about this topic. Or how any of you would go about defining these ideas more rigorously.",
+    "comments": [
+      {
+        "comment_id": "nx6998c",
+        "comment_text": "In fluid mechanics this is called multiphase flow"
+      },
+      {
+        "comment_id": "nx68q3r",
+        "comment_text": "Here are some surveys from a fluid PDE perspective. First, The tl;dr is they consider passive scalar equations mixing through the density of a particular in a solution converging to the uniform average (in either a strong or weak topology, depending on if they have viscosity). Also your idea for measuring how “mixed” a solution is sounds like the “geometric mixing scale”. See this survey, section 2.1"
+      },
+      {
+        "comment_id": "nx66h4j",
+        "comment_text": "If f: S -> S is continuous and injective, then it is open (invariance of domain). So if a component contains an open ball, then its image does too, implying the new mixture is not 'totally mixed'."
+      },
+      {
+        "comment_id": "nx62is5",
+        "comment_text": "There are definitely people that have worked on Navier stokes equations (or similar) with multiple fluids of different viscosities, say. Here is one such paper: I’m not a fluid dynamicist so I’m sure someone else can find more pointed references."
+      }
+    ]
+  },
+  {
+    "post_id": "1q1jhxf",
+    "post_text": "Any literature on mathematically studying mixtures? By mixture I mean like a liquid mixture of multiple components. And I guess I'm thinking more abstractly in a not-necessarily-applied way. I was thinking about how I would define and think about this. I'm sure people have already thought of this, but it was a fun thought experiment at the very least. Here's what I came up with: If we have a physical mixture made up of particles of different components or materials, we can view it abstractly as, say, a topological manifold S and a collection of components C. Then say we call a \"mixture\" of S a map m from S to C associating each point (particle) with the component in C it belongs to. So for example, if we had a cup of half water and half olive oil, the contents of the cup is the space S, C = {water,olive oil} and m maps everything in the bottom half to water and everything in the top half to olive oil. Now my first question of interest: what does it mean to be totally mixed? My thought is that no matter how much you zoom in, you cannot isolate an area consisting of only some of the components. The cup example above is clearly not mixed because you could take a portion of the bottom half and it only consists of water. In terms of the space, S I think something like: the mixture map m is a total mixture if for every open set O in S, m(O)=C. That is, every open set contains at least some of every component. Another thought, of course we should be able to mix our mixture even further (like stirring for example). I think this would clearly be through a continuous map f from S to itself shuffling the points around. Then, we give rise to a new mixture map m(f\\^-1). That is, see where the point was before we applied f, then see what it was. Now, given some initial mixture m of S, we get a family of all possible mixtures from that starting point {m(f\\^-1)| f continuous S->S}. And now another question, can a non total mixture be continuously transformed into a total mixture? That is, for m not a total mixture, is there some continuous f from S to itself such that m(f\\^-1) is a total mixture. My final thought was to think about how to measure how well something is mixed. If S is a metric space, I think we would do something along the lines of finding the largest ball in S such that it does not contain every component. The larger you find, the less mixed it is. Although in a physical example maybe the ball is too restrictive of a space. I don't know much about measure theory but maybe it would have to be something involving the largest hyper-volume of a connected set or something. Anyways, just thought this was an interesting topic and would love to know if there is any literature talking about this topic. Or how any of you would go about defining these ideas more rigorously.",
+    "comments": [
+      {
+        "comment_id": "nx62hi7",
+        "comment_text": "The mathematical study of \"mixing\" is a topic in ergodic theory and dynamical systems. Here you start with a transformation of your system and ask whether it mixes up the phase space, and then you can also ask for quantitative mixing information. Also, this is the first result when you look up \"mixing math\": You should really do a simple google search for key words before asking others for literature."
+      },
+      {
+        "comment_id": "nx61p3t",
+        "comment_text": "Maybe not the answer you're looking for, but I'd guess a lot of this is studied in physical chemistry."
+      }
+    ]
+  },
+  {
+    "post_id": "1psw7dp",
+    "post_text": "Where is the most 'geographically perfect' spot on Earth that currently has almost zero people living there? Why hasn't a major city formed there yet?",
+    "comments": [
+      {
+        "comment_id": "nw1xy66",
+        "comment_text": "There isn't as look at any population map its the world as infected but a huge raging human virus, every where. Never mind 'geographically perfect'"
+      },
+      {
+        "comment_id": "nvzpu7k",
+        "comment_text": "r/mapswithoutnewzealand"
+      },
+      {
+        "comment_id": "nvxy6uy",
+        "comment_text": "If city is not there, it's npt geographically perfect spot, becaise there are cities in the most imperfect places."
+      },
+      {
+        "comment_id": "nvxw9x5",
+        "comment_text": "The southeastern corner of Australia- for a stretch of around 300km between Bega and Lakes Entrance there are no large towns, despite a petty ideal climate and several good harbours. The southern coast of Western Australia west of Esperance is similar."
+      }
+    ]
+  },
+  {
+    "post_id": "1psw7dp",
+    "post_text": "Where is the most 'geographically perfect' spot on Earth that currently has almost zero people living there? Why hasn't a major city formed there yet?",
+    "comments": [
+      {
+        "comment_id": "nvv0vi6",
+        "comment_text": "Northern side of Borneo - autocracy for 1 tiny place and corruption for the rest."
+      },
+      {
+        "comment_id": "nvuyxxo",
+        "comment_text": "There is fertile soil found very deep in the amazon forest. Before european contact, there are some civilizations that thrived there. But smallpox destroyed these civilizations. Also some places in myanmar are perfect places for cities but have a few people living there."
+      },
+      {
+        "comment_id": "nvty6ua",
+        "comment_text": "South Island of New Zealand. It's paradise."
+      },
+      {
+        "comment_id": "nvp7bzs",
+        "comment_text": "Bro is planning where to send his settler"
+      }
+    ]
+  },
+  {
+    "post_id": "1psw7dp",
+    "post_text": "Where is the most 'geographically perfect' spot on Earth that currently has almost zero people living there? Why hasn't a major city formed there yet?",
+    "comments": [
+      {
+        "comment_id": "nvojrbc",
+        "comment_text": "The Margaret River region of Western Australia has a temperate climate, fertile land, more rainfall than many cities and some of the most beautiful coast on Earth. No major city yet but give it 20 years and it’ll be Greater Perth (half joking)"
+      },
+      {
+        "comment_id": "nvo8p9q",
+        "comment_text": "Québec is 5x the size of France. France is 70 millions, Quebec is 9.5. Do the math. Simple, not many people on such a large area. Why… search for climate data. People live mainly along the St-Laurence river. Get up a couple of 100 km even way less and you’ll be totally alone. Have fun, there is no road."
+      },
+      {
+        "comment_id": "nvn9k4v",
+        "comment_text": "Albany, WA. A good bit cooler than Perth year round and a lot closer to farmland without being hemmed in by hills, wonder how different things would be if it was used as a stopover for ships going to the east coast"
+      },
+      {
+        "comment_id": "nvlriwj",
+        "comment_text": "The area at the confluence of the Missouri & Mississippi Rivers would be a great place for a major city."
+      }
+    ]
+  },
+  {
+    "post_id": "1psw7dp",
+    "post_text": "Where is the most 'geographically perfect' spot on Earth that currently has almost zero people living there? Why hasn't a major city formed there yet?",
+    "comments": [
+      {
+        "comment_id": "nvlcovk",
+        "comment_text": "On further consideration, in addition to scarce, cheap water, I’m going to guess wages for agricultural labor doesn’t provide enough income for workers to have housing."
+      },
+      {
+        "comment_id": "nvk12qk",
+        "comment_text": "The Channel Islands off the coast of California. Mostly all untouched nature preserves with the exception of Avalon."
+      },
+      {
+        "comment_id": "nvirhsn",
+        "comment_text": "Much of the coastal area of Southern Argentina is basically uninhabited but is decent land, flat, stable"
+      },
+      {
+        "comment_id": "nvifq3u",
+        "comment_text": "San Simeon California. 1 wealthy family monopolized it for like 100 years as a place to camp and then an estate"
+      }
+    ]
+  },
+  {
+    "post_id": "1psw7dp",
+    "post_text": "Where is the most 'geographically perfect' spot on Earth that currently has almost zero people living there? Why hasn't a major city formed there yet?",
+    "comments": [
+      {
+        "comment_id": "nvi9d2z",
+        "comment_text": "Lots of West Virgina, but you still don't want to live there. Beautiful to drive through in the Fall, but nah"
+      },
+      {
+        "comment_id": "nvhwexo",
+        "comment_text": "there's not enough cities yet?"
+      },
+      {
+        "comment_id": "nvhtu9l",
+        "comment_text": "West coast of the South Island of New Zealand Patagonia, including the drier Argentinian side PNW Coast north of San Francisco None of these are particularly cold, but maybe human beings prefer dry, bitterly cold, and snowy winters rather than cool and damp winters? Or often times the dampness is due to orographic precipitation caused by mountains that make these regions less accessible to other parts of the country."
+      },
+      {
+        "comment_id": "nvhluno",
+        "comment_text": "Scotland, north of the central belt. Specifically the West Coast area, the winters are must warmer than most locations at that latitude. There are vast areas of undeveloped land with Fort William being the largest town in that area."
+      }
+    ]
+  },
+  {
+    "post_id": "1psw7dp",
+    "post_text": "Where is the most 'geographically perfect' spot on Earth that currently has almost zero people living there? Why hasn't a major city formed there yet?",
+    "comments": [
+      {
+        "comment_id": "nvhkg9l",
+        "comment_text": "The easy answer is there really isn’t one."
+      },
+      {
+        "comment_id": "nvhax6t",
+        "comment_text": "I'm genuinely surprised that there's not a large city along the Texas coast south of Houston. There's Corpus Christi, but I don't think it's doing too well. But the farmland is more than sufficient to support a large population, most hurricanes hit further north/east of there, and the land is pretty flat and geologically stable (aside from fracking)."
+      },
+      {
+        "comment_id": "nvh8ynu",
+        "comment_text": "I think living on the equator is awesome. Anybody have a specific area they think would do well there?"
+      },
+      {
+        "comment_id": "nvh88fv",
+        "comment_text": "Californias lost coast. Never gets very hot/cold, supreme weather, a bit far from actual civilization"
+      }
+    ]
+  },
+  {
+    "post_id": "1psw7dp",
+    "post_text": "Where is the most 'geographically perfect' spot on Earth that currently has almost zero people living there? Why hasn't a major city formed there yet?",
+    "comments": [
+      {
+        "comment_id": "nvh12p7",
+        "comment_text": "Does Iowa count?"
+      },
+      {
+        "comment_id": "nvgxu1y",
+        "comment_text": "Patagonia"
+      },
+      {
+        "comment_id": "nvguz58",
+        "comment_text": "Dark I know but probably Mariupol."
+      },
+      {
+        "comment_id": "nvgrms5",
+        "comment_text": "There is a lot of empty land in the US that isn't too bad."
+      }
+    ]
+  },
+  {
+    "post_id": "1psw7dp",
+    "post_text": "Where is the most 'geographically perfect' spot on Earth that currently has almost zero people living there? Why hasn't a major city formed there yet?",
+    "comments": [
+      {
+        "comment_id": "nvgm726",
+        "comment_text": "Cypress no mans land. Complete with fun parks, waterslides, shopping centres and luxury villas."
+      },
+      {
+        "comment_id": "nvggzop",
+        "comment_text": "The north shore of Lake Superior. You have ocean access for 9 months of the year, a very stable geology, few natural disaster risks, and very predictable weather. Downsides: The weather is cool, winters can be long and cold, and the mosquitos/blackflies will drive you insane, but…."
+      },
+      {
+        "comment_id": "nvgfwr9",
+        "comment_text": "Lots of Japan is pretty empty and getting emptier."
+      },
+      {
+        "comment_id": "nvgewgk",
+        "comment_text": "Not Bangladesh"
+      }
+    ]
+  },
+  {
+    "post_id": "1psw7dp",
+    "post_text": "Where is the most 'geographically perfect' spot on Earth that currently has almost zero people living there? Why hasn't a major city formed there yet?",
+    "comments": [
+      {
+        "comment_id": "nvg4tj9",
+        "comment_text": "Almost no one lives in Corsica and it’s positon in the Mediterranean can’t be topped"
+      },
+      {
+        "comment_id": "nvg2tee",
+        "comment_text": "The Southern Cone of South America"
+      },
+      {
+        "comment_id": "nvg1s4p",
+        "comment_text": "Democratic Republic of Congo"
+      },
+      {
+        "comment_id": "nvg0lna",
+        "comment_text": "There’s only 3 million people living in Wales and we’re focussed in on the South East coast. The centre of Wales has some amazing villages but the Industrial Revolution caused the populations to plummet. Machynlleth is a very small town but could be somewhere huge with the right infrastructure."
+      }
+    ]
+  },
+  {
+    "post_id": "1psw7dp",
+    "post_text": "Where is the most 'geographically perfect' spot on Earth that currently has almost zero people living there? Why hasn't a major city formed there yet?",
+    "comments": [
+      {
+        "comment_id": "nvfzgti",
+        "comment_text": "All over the American west and Steppe—predicting the Great Plains becoming the next US mega region"
+      },
+      {
+        "comment_id": "nvfxaat",
+        "comment_text": "Chernobyl isolation zone"
+      },
+      {
+        "comment_id": "nvft8ip",
+        "comment_text": "Cities form where trade happens; typically along rivers or ports. They don't just pop up in random places where nobody lives. If there's a reason for people to move to a previously unpopulated area (think upper mid-west US for fracking or gold in California/Alaska), you get a boom, people move in, and if you're lucky, a new town forms and stays. Quite often these areas don't last once the resource is gone; nobody wanted to live there before so they go home as soon as they can. What sticks around is the transportation centers that grew as a result of the resource (San Francisco/Anchorage) rather than the mining towns out in the hinterlands."
+      },
+      {
+        "comment_id": "nvfos9d",
+        "comment_text": "I always thought Jervis Bay in Aus would be a great location for a city. Looks like a great harbor already but it's now federally protected."
+      }
+    ]
+  },
+  {
+    "post_id": "1psw7dp",
+    "post_text": "Where is the most 'geographically perfect' spot on Earth that currently has almost zero people living there? Why hasn't a major city formed there yet?",
+    "comments": [
+      {
+        "comment_id": "nvfmbcr",
+        "comment_text": "Antarctica"
+      },
+      {
+        "comment_id": "nvflm64",
+        "comment_text": "Cairo, Illinois. On the confluence of the Mississippi and Ohio Rivers"
+      },
+      {
+        "comment_id": "nvfek82",
+        "comment_text": "South east of France. Good temperature, no natural catastrophe, sunny but with just enough rain, connected by a bunch of river to the rest of Europe, easy access to medditeranean see, land pretty good for agriculture,… But of course people already live there"
+      },
+      {
+        "comment_id": "nvfbqv0",
+        "comment_text": "South Island of NZ."
+      }
+    ]
+  },
+  {
+    "post_id": "1psw7dp",
+    "post_text": "Where is the most 'geographically perfect' spot on Earth that currently has almost zero people living there? Why hasn't a major city formed there yet?",
+    "comments": [
+      {
+        "comment_id": "nvf29xw",
+        "comment_text": "Because there's usually a pretty good reason why almost zero people live there."
+      },
+      {
+        "comment_id": "nvf10gf",
+        "comment_text": "There are a ton of places in Europe, especially eastern Europe that can support a lot more population. Fertile soils, good water resources, mild climate. In Hungary, Romania, Ukraine, Serbia, Bulgaria, etc. For example in Romania where the Olt river meets the Danube there are only some small villages."
+      },
+      {
+        "comment_id": "nveqxcu",
+        "comment_text": "r/mapswithoutnewzealand"
+      },
+      {
+        "comment_id": "nveqgup",
+        "comment_text": "I apologize if this has already been said, but ... your mom's house."
+      }
+    ]
+  },
+  {
+    "post_id": "1psw7dp",
+    "post_text": "Where is the most 'geographically perfect' spot on Earth that currently has almost zero people living there? Why hasn't a major city formed there yet?",
+    "comments": [
+      {
+        "comment_id": "nvejv3y",
+        "comment_text": "What about Northern California. Seems like a lot of undeveloped land up there"
+      },
+      {
+        "comment_id": "nvee9fu",
+        "comment_text": "Alaska, I remember driving for 5 hours without seeing a single gas station and I passed one lodge with a single pump. The rest of the hours I passed like 4 towns all abandoned. So much untouched wilderness"
+      },
+      {
+        "comment_id": "nvebt0m",
+        "comment_text": "Many parts of the west of Zagros mountain chain in Iran, stupidity of the government and some local fighters."
+      },
+      {
+        "comment_id": "nve6vyv",
+        "comment_text": "I'm always a little surprised that no major city ever sprouted up in Northern California. (And by northern, I mean above the Bay Area.) Yeah it's a little chilly but the weather in that area is very mild and manageable year-round. I believe historically this has to do with the lack of good river ports in the area that could be used for trade, but still: if there was ever a place to grow a new surging city in the 21st century, northern California seems like a nice bet."
+      }
+    ]
+  },
+  {
+    "post_id": "1psw7dp",
+    "post_text": "Where is the most 'geographically perfect' spot on Earth that currently has almost zero people living there? Why hasn't a major city formed there yet?",
+    "comments": [
+      {
+        "comment_id": "nve68qk",
+        "comment_text": "Camp Pendleton Marine Corps Base in Southern California occupies the largest stretch of undeveloped coastline in all of Southern California - one of the most desirable real estate regions on the planet. The base occupies about 20 miles of nearly pristine coastline dividing the Los Angeles and San Diego metro areas. Developers are constantly salivating at the idea of carving it all up into housing and urban development, but the Marines like having a beach. It also has become a huge, accidental nature preserve."
+      },
+      {
+        "comment_id": "nve59da",
+        "comment_text": "Baja California. If it had been a part of the US, most of the land would built up with numerous luxury high-end communities. Instead you get occasional nice towns and resort areas with outlying shanties/poverty."
+      },
+      {
+        "comment_id": "nve536e",
+        "comment_text": "Not directly your answer, but partially related. We were in Costa Rica, staying at an AirBNB at 7000ft (2100m) elevation on the Poas Volcano, the AirBNB didn't have any HVAC whatsoever. No heat, no A/C. No insulation in the walls, no screens on the windows. None of it was needed. At that elevation and that latitude (10.2° North Latitude) the temps were around 70°F (21.1°C) all year. It was mostly strawberry fields and milk cows up there."
+      },
+      {
+        "comment_id": "nve4fj7",
+        "comment_text": "There are over 2,000 islands in Greece and only about 200 of them are inhabited"
+      }
+    ]
+  },
+  {
+    "post_id": "1psw7dp",
+    "post_text": "Where is the most 'geographically perfect' spot on Earth that currently has almost zero people living there? Why hasn't a major city formed there yet?",
+    "comments": [
+      {
+        "comment_id": "nve43mk",
+        "comment_text": "Huge swaths of Africa. Climate, resources, beaches."
+      },
+      {
+        "comment_id": "nve3drt",
+        "comment_text": "Much of the French interior would be much more densely populated if it wasn't for historically low birth rates and rural flight. If France had the same population density as the UK or Germany it would have a population of the order of 150 million people"
+      },
+      {
+        "comment_id": "nve3562",
+        "comment_text": "Not Saskatchewan. I don’t know what the fuck the settlers were thinking. Im blessed and cursed to have family here"
+      },
+      {
+        "comment_id": "nve2y14",
+        "comment_text": "Got to give some love to central Idaho, although the winters are a bit chilly and I'm assuming time travel back to 1980 is possible...very near paradise‍↔️."
+      }
+    ]
+  },
+  {
+    "post_id": "1psw7dp",
+    "post_text": "Where is the most 'geographically perfect' spot on Earth that currently has almost zero people living there? Why hasn't a major city formed there yet?",
+    "comments": [
+      {
+        "comment_id": "nve0zih",
+        "comment_text": "In my pants."
+      },
+      {
+        "comment_id": "nve0my2",
+        "comment_text": "Eastern coast of Borneo. But Indonesia is working on it.."
+      },
+      {
+        "comment_id": "nvdztvw",
+        "comment_text": "Most decent places for civilization that aren't currently major cities have historically been cities. We have basically become established on just about anywhere worth settling and would need to effectively build new suitable areas to live in more places (arguably this has already happened a few times)"
+      },
+      {
+        "comment_id": "nvdyna7",
+        "comment_text": "I love how 2/3 of the comments have people telling them they're wrong Empty Quarter is the best place on Earth, the rest of y'all are wrong"
+      }
+    ]
+  },
+  {
+    "post_id": "1psw7dp",
+    "post_text": "Where is the most 'geographically perfect' spot on Earth that currently has almost zero people living there? Why hasn't a major city formed there yet?",
+    "comments": [
+      {
+        "comment_id": "nvdvkc2",
+        "comment_text": "Look how green is South America, I think the major problem here is the lack of infrastructure, and lower salaries."
+      },
+      {
+        "comment_id": "nvdv7r0",
+        "comment_text": "Find the few spots on Earth that classify as \"Dry Tropics\" (Townsville, Australia for example). It's just a perfect climate. Then find the unpopulated areas."
+      },
+      {
+        "comment_id": "nvdv1ad",
+        "comment_text": "Marin and Sonoma Counties in the Bay Area feel a lot less populated than they should be. Not that they have zero population like the OP is looking for, but I’ve always been amazed at the population density drop off that occurs as you drive north of the Golden Gate Bridge. In every other direction from San Francisco along the bay it remains urban with decent population density. But Marin immediately feels like small towns and lots of space"
+      },
+      {
+        "comment_id": "nvduowm",
+        "comment_text": "Astoria, OR is basically San Francisco with 1/100th the population. Beautiful town, no idea why it’s not more populated."
+      }
+    ]
+  },
+  {
+    "post_id": "1psw7dp",
+    "post_text": "Where is the most 'geographically perfect' spot on Earth that currently has almost zero people living there? Why hasn't a major city formed there yet?",
+    "comments": [
+      {
+        "comment_id": "nvdsel0",
+        "comment_text": "Golf courses"
+      },
+      {
+        "comment_id": "nvdr6ly",
+        "comment_text": "There is like 5400 uninhabited Greek Islands..."
+      },
+      {
+        "comment_id": "nvdr5i6",
+        "comment_text": "Northern California, like Montecito, absolutely beautiful and plenty of resources but surprisingly rural and sparse"
+      },
+      {
+        "comment_id": "nvdo27f",
+        "comment_text": "You'll have to expand on your question a bit in my opinion. What is 'geographically perfect' in your opinion? Perfect for what? Trade? Education? Longevity? Security? (From violence? Or from natural phenomena?) Because for most of these criteria it's impossible to find places that have almost zero people living there..."
+      }
+    ]
+  },
+  {
+    "post_id": "1psw7dp",
+    "post_text": "Where is the most 'geographically perfect' spot on Earth that currently has almost zero people living there? Why hasn't a major city formed there yet?",
+    "comments": [
+      {
+        "comment_id": "nvdm6yt",
+        "comment_text": "I'm kind of amazed a city/empire didn't spring up in the Darien gap capitalizing on being the primary conduit of trade between North and South America"
+      },
+      {
+        "comment_id": "nvdm6zi",
+        "comment_text": "North Japan"
+      },
+      {
+        "comment_id": "nvdkb5o",
+        "comment_text": "Much of northern Myanmar"
+      },
+      {
+        "comment_id": "nvdk5fv",
+        "comment_text": "There are open spaces in southern central Utah that are amazing."
+      }
+    ]
+  },
+  {
+    "post_id": "1psw7dp",
+    "post_text": "Where is the most 'geographically perfect' spot on Earth that currently has almost zero people living there? Why hasn't a major city formed there yet?",
+    "comments": [
+      {
+        "comment_id": "nvdjbai",
+        "comment_text": "TBH much of the Midwest would be suitable for a huge city like Shanghai or Tokyo but Americans generally don't like living close together like that. There is plenty of local farmland to support a population and there's enough water for a lot of people, especially with modern water purification techniques. However, if Americans decided it was desirable an enormous megalopolis could exist nearly anywhere in a broad swath of land roughly between Cleveland and Saint Louis."
+      },
+      {
+        "comment_id": "nvdj22l",
+        "comment_text": "The thumb of Michigan. Surrounded by unimaginable amounts of fresh water. Completely flat so easily farmable. Already has a huge wind farm. Rarely has tornados that damage anything. No other risk of natural disaster. Cold but not ridiculous cold in winter. Reasonably warm with some 80+ degree weeks in summer. Perfect place. Pretty sure logging and commercial fishing slowing to a crawl froze growth but man it’s hard to imagine a place more fit for human occupancy."
+      },
+      {
+        "comment_id": "nvdhr4w",
+        "comment_text": "Sentinel Island"
+      },
+      {
+        "comment_id": "nvdgqk9",
+        "comment_text": "r/mapswithoutNZ"
+      }
+    ]
+  },
+  {
+    "post_id": "1psw7dp",
+    "post_text": "Where is the most 'geographically perfect' spot on Earth that currently has almost zero people living there? Why hasn't a major city formed there yet?",
+    "comments": [
+      {
+        "comment_id": "nvdfi4p",
+        "comment_text": "Point nemo is the most isolated place in the world"
+      },
+      {
+        "comment_id": "nvdan4r",
+        "comment_text": "Limerick Junction"
+      },
+      {
+        "comment_id": "nvd9cj3",
+        "comment_text": "The Azores or the Canary Islands."
+      },
+      {
+        "comment_id": "nvd5sum",
+        "comment_text": "Anywhere that agriculture will improve under climate change. The Peace River area/ Grand Prairie, AB for one. Mat-su Valley in Alaska."
+      }
+    ]
+  },
+  {
+    "post_id": "1psw7dp",
+    "post_text": "Where is the most 'geographically perfect' spot on Earth that currently has almost zero people living there? Why hasn't a major city formed there yet?",
+    "comments": [
+      {
+        "comment_id": "nvd53ic",
+        "comment_text": "Lot of countryside spain and italy. Many ghost towns/villages and the amount of unharvested fruit trees, abandoned olive orchards is insane!"
+      },
+      {
+        "comment_id": "nvd3sj6",
+        "comment_text": "Northern Maine"
+      },
+      {
+        "comment_id": "nvd2bqc",
+        "comment_text": "A notable amount of places in the Russian Far East, and, to the less degree, Siberia. For example, Olga Bay and Posyet Bay are great natural harbours (first one warmer than Vladivostok, second), located near Japan and China. Both had about 3k population with token ports. A lot of plans for city construction in Siberia were aborted after the Soviet collapse. For example, Bonivur at the Lower Amur, or Elektrograd near Abakan, or expansion of BAM towns. And, considering that every state in the region is actively depopulating, they would never be built."
+      },
+      {
+        "comment_id": "nvcy9l9",
+        "comment_text": "coast of namibia"
+      }
+    ]
+  },
+  {
+    "post_id": "1psw7dp",
+    "post_text": "Where is the most 'geographically perfect' spot on Earth that currently has almost zero people living there? Why hasn't a major city formed there yet?",
+    "comments": [
+      {
+        "comment_id": "nvcxtd6",
+        "comment_text": "Argentina,chile ive even made post"
+      },
+      {
+        "comment_id": "nvcw786",
+        "comment_text": "There are so many quiet places in Canada that are absolutely beautiful 4 months of the year…. And require - um - character, to enjoy the other 8 months."
+      },
+      {
+        "comment_id": "nvct0n9",
+        "comment_text": "Norfolk Island in Australia is quite perfect in my opinion."
+      },
+      {
+        "comment_id": "nvct09w",
+        "comment_text": "geographically perfect That’s not how geography works"
+      }
+    ]
+  },
+  {
+    "post_id": "1psw7dp",
+    "post_text": "Where is the most 'geographically perfect' spot on Earth that currently has almost zero people living there? Why hasn't a major city formed there yet?",
+    "comments": [
+      {
+        "comment_id": "nvcrnrc",
+        "comment_text": "The Morro Bay / Los Osos in California. It’s got a gorgeous Mediterranean climate. Its limiter is water rights - if it got the same water rights as LA it would be bustling, with the bay as a major protected harbor. Or if it had been part of the more developed Eastern Hemisphere, it would have a major city. Fun fact: this is the location of the city in Cyberpunk 2077."
+      },
+      {
+        "comment_id": "nvcrmfl",
+        "comment_text": "New Zealand Island reserves - Used for conservation of endangered species"
+      },
+      {
+        "comment_id": "nvcq204",
+        "comment_text": "Coastal Georgia is pretty great. Granted the soil isn’t good but the climate is amazing and ports are plentiful. Lots of good beaches And yet it’s rather sparsely populated"
+      },
+      {
+        "comment_id": "nvcpovg",
+        "comment_text": "I'd say the coasts of British Columbia, Canada. It's basically the same climate and landscape as Norway (cold but oceanic climate, full of islands & fjords, and heavily forested) but 1000x less populated."
+      }
+    ]
+  },
+  {
+    "post_id": "1psw7dp",
+    "post_text": "Where is the most 'geographically perfect' spot on Earth that currently has almost zero people living there? Why hasn't a major city formed there yet?",
+    "comments": [
+      {
+        "comment_id": "nvcpehs",
+        "comment_text": "Chaco boreal - Paraguay/Bolivia Fertile, flat, massive, no tectonic danger Yet history of disease, and political neglect"
+      },
+      {
+        "comment_id": "nvcp1ud",
+        "comment_text": "The Korean DMZ has some pretty good land, albeit filled to the brim with land mines at the moment. Beyond that, the other reasons it isn't being used are pretty obvious."
+      },
+      {
+        "comment_id": "nvcntqg",
+        "comment_text": "The correct answer to your question would be nothing, everywhere that is good for us to settle is already settled. The best approximate approach to your question in my mind would be New Zealand. Great climate, arable, a little bit larger than the UK in terms of pure land area. Limited in the fact it's in the middle of nowhere and why immigrate to NZ when Australia is right there."
+      },
+      {
+        "comment_id": "nvcnhx2",
+        "comment_text": "Patagonia"
+      }
+    ]
+  },
+  {
+    "post_id": "1psw7dp",
+    "post_text": "Where is the most 'geographically perfect' spot on Earth that currently has almost zero people living there? Why hasn't a major city formed there yet?",
+    "comments": [
+      {
+        "comment_id": "nvcn0ez",
+        "comment_text": "Maguelone Island in France, it is located just next to the Mediterranean Sea, surrounded by water and easy to defend. There's once a medieval town there, but it moved to the continent while the medieval cathedral stayed there."
+      },
+      {
+        "comment_id": "nvcmb97",
+        "comment_text": "everything is pros and cons, perfect would only be possible under a specific set of constraints. what are you trying to achieve? otherwise you're comparing apples to oranges."
+      },
+      {
+        "comment_id": "nvclfm8",
+        "comment_text": "In a couple of decades— Canada and Siberia."
+      },
+      {
+        "comment_id": "nvckz7o",
+        "comment_text": "Northern Australia has a very good climate, if you look it up it's between savannah and monsoon climate, the same climate that you can find in western India (some parts are more arid, others more tropical in both places), which is an extremely densely populated place in India Other places with similar transitions that are very heavily populated include Tanzania, Burkina Faso and Mali... The area with the population density of the southern Sahel would have about 80m people, with the population density of western India 150m, yet it has about 1m in total The reason why is because the soil is bad for crops, and also because it got populated so much later It's crazy to think that Australia SHOULD have about 300-500m people if its land was populated at a similar population density as equivalent climates of Eurasia, new Zealand SHOULD have 50m people, yet they don't"
+      }
+    ]
+  },
+  {
+    "post_id": "1psw7dp",
+    "post_text": "Where is the most 'geographically perfect' spot on Earth that currently has almost zero people living there? Why hasn't a major city formed there yet?",
+    "comments": [
+      {
+        "comment_id": "nvckxji",
+        "comment_text": "[deleted]"
+      },
+      {
+        "comment_id": "nvckrr0",
+        "comment_text": "There isn't that kind of place?"
+      }
+    ]
+  },
+  {
+    "post_id": "1pykjjh",
+    "post_text": "2.3 kg of Caesium in ampoules",
+    "comments": [
+      {
+        "comment_id": "nx2iv8k",
+        "comment_text": "You're this guy from the YouTube video?"
+      },
+      {
+        "comment_id": "nx08b0t",
+        "comment_text": "Why?"
+      },
+      {
+        "comment_id": "nwz4llh",
+        "comment_text": "Does anyone else feel like the first picture was moving?"
+      },
+      {
+        "comment_id": "nwwbx8q",
+        "comment_text": "Wow, this is very impressive!"
+      }
+    ]
+  },
+  {
+    "post_id": "1pykjjh",
+    "post_text": "2.3 kg of Caesium in ampoules",
+    "comments": [
+      {
+        "comment_id": "nwuqzkd",
+        "comment_text": "Listen. I’m not saying you SHOULD throw it in a pound. But if you do, PLEASEEEEE record it."
+      },
+      {
+        "comment_id": "nwugies",
+        "comment_text": "What would happen if one were to drop and break?"
+      },
+      {
+        "comment_id": "nwudwmp",
+        "comment_text": "💥"
+      },
+      {
+        "comment_id": "nwt7u4j",
+        "comment_text": "Hi advanced tinkering! Just saw the short of you filling these the other day!"
+      }
+    ]
+  },
+  {
+    "post_id": "1pykjjh",
+    "post_text": "2.3 kg of Caesium in ampoules",
+    "comments": [
+      {
+        "comment_id": "nws5z1u",
+        "comment_text": "I love Cesium. Did a project on it in high school and idk, I just love it."
+      },
+      {
+        "comment_id": "nwrzsz9",
+        "comment_text": "Love your videos! So cool to see you post on Reddit too!"
+      },
+      {
+        "comment_id": "nwrwcjm",
+        "comment_text": "From someone with an unrefined interest in chemistry…. HOLY SHIT! (It’s dangerous, innit?) Edit: so this is what my research showed. On the official “Can I have a taste?” → “HOLY ARMAGEDDON BATMAN” hazard scale, 2.3 kg of metallic caesium sits at: “THE SUN HAS FALLEN INTO YOUR LOUNGE” Scale calibration: • “Can I have a taste?” Table salt. Minor regret. Mild thirst. • “Probably shouldn’t lick that.” Bleach. Educational suffering. • “That’s a bad idea.” Concentrated acids. Pain, but physics still behaving. • “This is how people lose eyebrows.” Sodium metal. • “WHY IS IT ON FIRE AND SCREAMING?” Potassium. • “THE LAWS OF CHEMISTRY ARE ANGRY.” Caesium (small amount). • “HOLY ARMAGEDDON BATMAN.” 2.3 kg of caesium in glass ampoules. At this level, you are no longer storing a chemical. You are hosting a mythological event that has not yet noticed moisture exists. If one ampoule fails: – Instant violent reaction – Hydrogen generation and ignition – Molten caustic hydroxide – Potential sympathetic failure of neighbouring ampoules – Fire brigade experiencing professional regret In short, this is not “dangerous” so much as dramatically offended by reality. Final rating: “CALL EMERGENCY SERVICES AND APOLOGISE TO PHYSICS”"
+      },
+      {
+        "comment_id": "nwruv3h",
+        "comment_text": "Still waiting for the Rick and Morty reference"
+      }
+    ]
+  },
+  {
+    "post_id": "1pykjjh",
+    "post_text": "2.3 kg of Caesium in ampoules",
+    "comments": [
+      {
+        "comment_id": "nwru0sn",
+        "comment_text": "Cesium enjoyers in Brazil going crazy rn"
+      },
+      {
+        "comment_id": "nwqrw2h",
+        "comment_text": "Just crack them above a lake, from a good distance above it."
+      },
+      {
+        "comment_id": "nwqb5hq",
+        "comment_text": "I seem to remember in your video at Dr Krauss' fluorine lab that he said if one of their small by comparison ampoules broke, the fireball would be something like 3m in diameter? pleeeaasse don't drop it"
+      },
+      {
+        "comment_id": "nwq6hgs",
+        "comment_text": "Wiiiiild."
+      }
+    ]
+  },
+  {
+    "post_id": "1pykjjh",
+    "post_text": "2.3 kg of Caesium in ampoules",
+    "comments": [
+      {
+        "comment_id": "nwq1lgu",
+        "comment_text": "Now put some neutrons through it. Doesnt matter if you drop it irridated or not. You wont see the outcome"
+      },
+      {
+        "comment_id": "nwq0b2r",
+        "comment_text": "Cesium never ceases to amaze me. I like the gold color of that metal. I have cesium too, just 2 microampules of about 20mg each. I collect elements as my hobby."
+      },
+      {
+        "comment_id": "nwptuu8",
+        "comment_text": "I think you should not drink it."
+      },
+      {
+        "comment_id": "nwpisdl",
+        "comment_text": "I saw your video on YT of you transporting it to the ampules a couple days ago. Nice work, almost thought you were just someone posing as a chemist with screenshots from the video"
+      }
+    ]
+  },
+  {
+    "post_id": "1pykjjh",
+    "post_text": "2.3 kg of Caesium in ampoules",
+    "comments": [
+      {
+        "comment_id": "nwpgiga",
+        "comment_text": "The ultimate molotov"
+      },
+      {
+        "comment_id": "nwpbv5p",
+        "comment_text": "\\accidentally opens ampoule\\ \\BOOOOOOOOOOOOOOOOOMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM\\"
+      },
+      {
+        "comment_id": "nwp4wo1",
+        "comment_text": "I just realized it's you. You're insane. Like actually."
+      },
+      {
+        "comment_id": "nwofmw1",
+        "comment_text": "Send it to me!"
+      }
+    ]
+  },
+  {
+    "post_id": "1pykjjh",
+    "post_text": "2.3 kg of Caesium in ampoules",
+    "comments": [
+      {
+        "comment_id": "nwobb80",
+        "comment_text": "...is it bad that I want to drink it?"
+      },
+      {
+        "comment_id": "nwo676l",
+        "comment_text": "Sie I am drooling violently at all of this juicy metal to be licked Jokes aside, god damn I need to get my hands on a good sample of it. I‘ve been meaning to get some for ages but I never get around to do it."
+      },
+      {
+        "comment_id": "nwnwm1z",
+        "comment_text": "That looks vile... It gives me anxiety just to look at that much caesium..."
+      },
+      {
+        "comment_id": "nwn8nlm",
+        "comment_text": "That’s the most Hollywood spy/detective Caesium containment Anyone has ever seen. Totally badass! There’s no /s because I’m being serious. /s for serious not for sarcasm."
+      }
+    ]
+  },
+  {
+    "post_id": "1pykjjh",
+    "post_text": "2.3 kg of Caesium in ampoules",
+    "comments": [
+      {
+        "comment_id": "nwmuaq9",
+        "comment_text": "How much would THAT be worth? Certainly nothing short of a fortune right?"
+      },
+      {
+        "comment_id": "nwmr3u7",
+        "comment_text": "The short for this came across my page a few days ago! Those are so pretty!"
+      },
+      {
+        "comment_id": "nwmlvpk",
+        "comment_text": "1. Are your sure it is a wise idea to combine 2.3 kG of the most reactive metal in a single ampule? If that one breaks it would spell disaster for everything in close proximity. 2. What setup are you going to sue that much Caesium? If you arent careful, you might hurt yourself"
+      },
+      {
+        "comment_id": "nwmknvv",
+        "comment_text": "Just...wondering...how would one even aquire 2.3 kg of Ceasium?! Shouldn't that be around 200.000 Euros?!"
+      }
+    ]
+  }
+]

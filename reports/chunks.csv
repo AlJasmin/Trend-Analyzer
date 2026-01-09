@@ -1,0 +1,35 @@
+topic_id,chunk_id,post_count,near_count,far_count,token_estimate,cluster_token_sum,ctfidf_terms
+noise_1,1,18,18,0,1188,1188,android|devices|tech|durable|audio|boring|old|hardware|game|intrusive|feel fully|hurts
+noise_10,1,11,11,0,3928,3928,hallucination|flash|hallucination rate|judgment|incorrect|91|checking|door|opened|gemini|rate|answer
+noise_11,1,11,11,0,2598,2598,bubble|think|novelty|going|know|presence|shortage|understanding|search|thing|companies|art
+noise_12,1,12,12,0,810,810,tech|president|government|chief|chip|big tech|china|revolution|launches|investments|lifting|tech getting
+noise_13,1,25,20,5,5835,5835,bots|human|person|pull|humans|grok|grammar|authorship|face|think|interaction|users
+noise_14,1,25,20,5,8572,8572,code|software|coding|agents|work|think|engineers|job|jobs|programmer|replacement|companies
+noise_15,1,16,16,0,4630,4630,copyright|music|song|sora|make|video|songs|ask|style|listing|content|images
+noise_2,1,25,20,5,1268,1268,reaction|lab|instruments|elements|turn|table|books|technician|strike|synthesis|radioactive|periodic table
+noise_3,1,9,9,0,1230,1230,methanol|water|carbon|production|scale|plant|water cycle|drank|babies|environment|emissions|mixture
+noise_4,1,25,20,5,2288,2288,study|depression|cognitive|psychological|social|stress|women|violence|anxiety|videos|percent|sexual
+noise_5,1,24,20,4,3425,3425,weight|foods|eat|food|rice|fentanyl|grains|lifestyle|patients|nutrients|medicine|diets
+noise_6,1,25,20,5,4259,4259,biology|animals|dna|humans|evolution|eyes|species|selection|pressure|sciences|chemical|biological
+noise_7,1,12,12,0,1435,1435,2026|candidates|proved|bell|papers|2025|labs|conjecture|year|fields|fields medal|acceptance rate
+noise_8,1,14,14,0,847,847,tiktok|warner|warner bros|bros|billion|deal|sale|launch|nvidia|investor|groq|limbo
+noise_9,1,8,8,0,865,865,games|rockstar|gta|union|founder|killed|says|xbox|ministers|minister|firing|halo
+topic_1,1,25,20,5,1862,1862,cities|city|countries|chicago|country|south|world|border|islands|population|la|area
+topic_10,1,25,20,5,2304,2304,disease|cancer|intake|fat|risk|study|mice|alcohol|cardiovascular|new study|cell|heart
+topic_11,1,23,20,3,6726,6726,architecture|real|thinking|questions|math|understand|work|language|different|structure|text|data
+topic_12,1,25,20,5,1234,1234,tesla|sales|electric|driving|car|truck|self driving|miles|vehicles|twin|waymo|cars
+topic_13,1,25,20,5,2135,2135,data centers|centers|data|heat|water|data center|space|earth|center|solar|usage|nuclear
+topic_14,1,25,20,5,1371,1371,images|videos|grok|generated|children|minors|image|media|ban|social media|instagram|safety
+topic_15,1,25,20,5,5312,5312,gemini|therapy|real|cognitive|time|chat|using|structured|text|documented|way|claude
+topic_16,1,22,20,2,1454,1454,ram|chip|pc|price|memory|warns|2026|happened|week|revolutionary|micron|entire internet
+topic_17,1,25,20,5,5126,5126,thinking|faster|feel|think|feels|cognitive|instead|work|thinking partner|making|answers|awareness
+topic_18,1,25,20,5,9405,9405,recipient|human|information|entropy|intelligence|jobs|bubble|humans|work|agi|companies|time
+topic_19,1,16,16,0,1207,1207,invest|amazon|billion|sam altman|altman|sam|company|talks|altman says|burn|bubble|ecosystem
+topic_2,1,25,20,5,6462,6462,job|work|cs|tech|team|time|company|years|working|career|degree|know
+topic_3,1,25,20,5,5252,5252,math|physics|algebra|mathematics|calculus|quantum|analysis|maths|mathematical|chemistry|theory|know
+topic_4,1,11,11,0,987,987,firefox|browser|switch|kill|ceo|anthony|pushback|web|able make|officially|admitted|evolve
+topic_5,1,13,13,0,713,713,really going|mean really|explain hell|fried|behaviour|explain|phenomenon|naive|does make|clarification|confused|does
+topic_6,1,25,20,5,7967,7967,patient|patients|hospital|dr|care|medical|insurance|hospitals|heart|cancer|blood|procedure
+topic_7,1,25,20,5,2806,2806,water|bleach|chemicals|balls|smell|energy|heat|ice|cooking|glass|plastic|methanol
+topic_8,1,21,20,1,2132,2132,men|women|mother|suggests|likely|relationships|stress|stronger|fathers|attractiveness|father|perceived
+topic_9,1,25,20,5,3132,3132,pain|sleep|adhd|symptoms|drug|chronic|review|disorder|activity|patients|brain|effects

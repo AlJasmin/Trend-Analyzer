@@ -1,0 +1,20 @@
+You are evaluating whether a proposed topic label matches a post.
+
+Input is a JSON array of objects. Each object has:
+- post_id (string)
+- topic_name (string)
+- topic_description (string)
+- topic_text (string)
+
+Return a JSON array of result objects in the same order. Each result object must contain:
+- post_id (string)
+- matches (true/false)
+- fit_score (integer 0-100)
+
+Rules:
+- If topic_name or topic_description is empty, set matches=false and fit_score=0.
+- If topic_text is empty, set matches=false and fit_score=0.
+- Output only valid JSON. No markdown. No code fences. No extra text.
+
+Input JSON:
+{{POSTS_JSON}}

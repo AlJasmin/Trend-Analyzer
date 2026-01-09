@@ -7,6 +7,7 @@ from pathlib import Path
 from typing import Any, Dict, Iterable, List, Optional, Tuple
 
 import numpy as np
+from pymongo import UpdateOne
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 if str(REPO_ROOT) not in sys.path:
@@ -48,6 +49,12 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--sample", type=int, default=0, help="Random sample size (overrides limit)")
     parser.add_argument("--plot-output", default="plots/noise_clusters.png", help="Output plot path")
     parser.add_argument("--plot-seed", type=int, default=42, help="Random seed")
+    parser.add_argument(
+        "--umap-cluster-dim",
+        type=int,
+        default=50,
+        help="UMAP n_components for clustering",
+    )
     parser.add_argument("--umap-n-neighbors", type=int, default=30, help="UMAP n_neighbors")
     parser.add_argument("--umap-min-dist", type=float, default=0.1, help="UMAP min_dist")
     parser.add_argument("--umap-metric", default="cosine", help="UMAP distance metric")
@@ -127,6 +134,7 @@ def fit_umap(
     matrix: np.ndarray,
     *,
     seed: int,
+    n_components: int,
     n_neighbors: int,
     min_dist: float,
     metric: str,
@@ -142,7 +150,7 @@ def fit_umap(
     adjusted_neighbors = max(2, min(int(n_neighbors), n_samples - 1))
 
     reducer = umap.UMAP(
-        n_components=2,
+        n_components=int(n_components),
         n_neighbors=adjusted_neighbors,
         min_dist=min_dist,
         metric=metric,
@@ -174,6 +182,78 @@ def fit_hdbscan(
     return clusterer.fit_predict(coords)
 
 
+def compute_centroids(coords: np.ndarray, labels: np.ndarray) -> Dict[int, np.ndarray]:
+    centroids: Dict[int, np.ndarray] = {}
+    for label in sorted({int(value) for value in labels}):
+        mask = labels == label
+        if not np.any(mask):
+            continue
+        centroids[int(label)] = coords[mask].mean(axis=0)
+    return centroids
+
+
+def compute_distance(vec: np.ndarray, centroid: np.ndarray, metric: str) -> float:
+    if metric == "cosine":
+        denom = np.linalg.norm(vec) * np.linalg.norm(centroid)
+        if denom == 0:
+            return 1.0
+        return float(1.0 - float(np.dot(vec, centroid) / denom))
+    if metric == "manhattan":
+        return float(np.sum(np.abs(vec - centroid)))
+    return float(np.linalg.norm(vec - centroid))
+
+
+def compute_distances(coords: np.ndarray, labels: np.ndarray, metric: str) -> np.ndarray:
+    centroids = compute_centroids(coords, labels)
+    distances = np.full(len(labels), np.nan, dtype=np.float64)
+    for idx, (label, vec) in enumerate(zip(labels, coords)):
+        centroid = centroids.get(int(label))
+        if centroid is None:
+            continue
+        distances[idx] = compute_distance(vec, centroid, metric)
+    return distances
+
+
+def update_center_distances(
+    collection,
+    post_ids: List[str],
+    distances: np.ndarray,
+) -> None:
+    updates: List[UpdateOne] = []
+    for post_id, distance in zip(post_ids, distances):
+        if not np.isfinite(distance):
+            continue
+        updates.append(
+            UpdateOne(
+                {"post_id": post_id},
+                {"$set": {"center_distance": float(distance)}},
+            )
+        )
+    if not updates:
+        return
+    collection.bulk_write(updates, ordered=False)
+    logger.info("Stored center_distance for %s posts.", len(updates))
+
+
+def log_cluster_medians(
+    labels: np.ndarray,
+    distances: np.ndarray,
+    topic_map: Dict[int, str],
+    noise_topic_id: str,
+) -> None:
+    unique_labels = sorted({int(value) for value in labels})
+    for label in unique_labels:
+        mask = (labels == label) & np.isfinite(distances)
+        if not np.any(mask):
+            continue
+        median_distance = float(np.median(distances[mask]))
+        if int(label) == -1:
+            topic_id = noise_topic_id
+        else:
+            topic_id = topic_map.get(int(label), str(label))
+        logger.info("Median center_distance for %s: %.6f", topic_id, median_distance)
+
+
 def build_noise_id_map(labels: np.ndarray) -> Dict[int, str]:
     unique_labels = sorted({int(label) for label in labels if int(label) != -1})
     return {label: f"noise_{idx + 1}" for idx, label in enumerate(unique_labels)}
@@ -197,8 +277,10 @@ def update_topic_ids(
         cluster_posts.setdefault(topic_id, []).append(post_id)
 
     for topic_id, ids in cluster_posts.items():
-        result = collection.update_many({"post_id": {"$in": ids}}, {"$set": {"topic_id": topic_id}})
-        logger.info("Assigned topic_id %s to %s posts.", topic_id, result.modified_count)
+        if not ids:
+            continue
+        collection.update_many({"post_id": {"$in": ids}}, {"$set": {"topic_id": topic_id}})
+        logger.info("Assigned topic_id %s to %s posts.", topic_id, len(ids))
 
 
 def plot_clusters(
@@ -277,15 +359,16 @@ def main() -> None:
         logger.info("No noise embeddings found to cluster.")
         return
 
-    coords = fit_umap(
+    cluster_coords = fit_umap(
         matrix,
         seed=args.plot_seed,
+        n_components=args.umap_cluster_dim,
         n_neighbors=args.umap_n_neighbors,
         min_dist=args.umap_min_dist,
         metric=args.umap_metric,
     )
     labels = fit_hdbscan(
-        coords,
+        cluster_coords,
         min_cluster_size=args.hdbscan_min_cluster_size,
         min_samples=args.hdbscan_min_samples,
         metric=args.hdbscan_metric,
@@ -300,6 +383,8 @@ def main() -> None:
         for label in labels
     ]
 
+    distances = compute_distances(cluster_coords, labels, args.hdbscan_metric)
+
     if args.save_db:
         store = connect_from_config(Path(args.config))
         try:
@@ -309,12 +394,27 @@ def main() -> None:
                 labels,
                 topic_map=topic_map,
             )
+            update_center_distances(
+                store.posts,
+                post_ids,
+                distances,
+            )
         finally:
             store.close()
     else:
         logger.info("Skipping DB updates (use --save-db to persist).")
 
-    plot_clusters(coords, mapped_labels, output_path=Path(args.plot_output))
+    log_cluster_medians(labels, distances, topic_map, "noise")
+
+    plot_coords = fit_umap(
+        matrix,
+        seed=args.plot_seed,
+        n_components=2,
+        n_neighbors=args.umap_n_neighbors,
+        min_dist=args.umap_min_dist,
+        metric=args.umap_metric,
+    )
+    plot_clusters(plot_coords, mapped_labels, output_path=Path(args.plot_output))
 
 
 if __name__ == "__main__":

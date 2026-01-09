@@ -1,3 +1,16 @@
+- warten bis LLM limits restarten damit ich weiter die topics durchs llm bewerten lassen kann
+- falls es noch nicht gut aussieht BERTopic austesten
+
+- beide grock und local LLM versagen wegen rate limits usw
+
 - LLM erst nach dem Clustering: pro Cluster einige repräsentative Posts nehmen → Topic‑Name + Description.
 - sentiment + stance angucken (modell trainieren ? LLM benutzen ? LLM benutzen um daten zu labeln und damit modell trainieren ? modell für beide oder nur eins davon ?)
 - aggregationene definieren stance_dist_weighted, polarization_score usw usw
+
+
+grock und lokal LLM kommen raus (lösch die beiden nicht aber vergiss die)
+implementier aber bitte was ähnliches in /llm der auf open router zugreift (also ganz normal API key und meta infos aus setting.yaml unter openrouter) 
+kommentare und posts sollen zusammen geschickt werden bis ein token limi erreicht wird (faLLS NICHT alles kommentare mit dem posts unter den token grenze bleiben in 2 aufteilen sodass der post zweimal geschickt wird also ein batch zugeordnet wird mit allen kommentaren in 2 aufgeteilt oder mehr jenachdem)
+1 batch soll NICHT mehr als ein paar haben
+batches anzahl pro anfrage soll auch anpasbar sein per flag
+
