@@ -26,7 +26,9 @@ def parse_args() -> argparse.Namespace:
             "into JSONL for stance_sentiment_batch.py."
         )
     )
-    parser.add_argument("--config", default=str(CONFIG_PATH), help="Path to settings.yaml")
+    parser.add_argument(
+        "--config", default=str(CONFIG_PATH), help="Path to settings.yaml"
+    )
     parser.add_argument(
         "--output",
         default=str(REPO_ROOT / "llm" / "stance_sentiment_missing.jsonl"),
@@ -225,7 +227,10 @@ def export_missing() -> None:
 
                 if skip_post:
                     continue
-                if max_comments_per_post and len(current_comments) >= max_comments_per_post:
+                if (
+                    max_comments_per_post
+                    and len(current_comments) >= max_comments_per_post
+                ):
                     skipped_overflow += 1
                     continue
 
@@ -275,5 +280,8 @@ def export_missing() -> None:
 
 
 if __name__ == "__main__":
-    logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(name)s - %(levelname)s - %(message)s")
+    logging.basicConfig(
+        level=logging.INFO,
+        format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
+    )
     export_missing()

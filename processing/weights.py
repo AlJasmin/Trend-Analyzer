@@ -19,6 +19,7 @@ from db.store import CONFIG_PATH, connect_from_config  # noqa: E402
 try:
     from tqdm import tqdm
 except ImportError:  # pragma: no cover - optional progress
+
     class _NullTqdm:
         def __init__(self, iterable=None, *args, **kwargs):
             self._iterable = iterable or []
@@ -68,15 +69,23 @@ def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
         description="Compute comment weights and weighted stance/sentiment distributions."
     )
-    parser.add_argument("--config", default=str(CONFIG_PATH), help="Path to settings.yaml")
+    parser.add_argument(
+        "--config", default=str(CONFIG_PATH), help="Path to settings.yaml"
+    )
     parser.add_argument(
         "--save-db",
         action="store_true",
         help="Persist computed weights and post metrics to MongoDB.",
     )
-    parser.add_argument("--dry-run", action="store_true", help="Compute without writing to MongoDB.")
-    parser.add_argument("--batch-size", type=int, default=1000, help="Bulk write batch size")
-    parser.add_argument("--limit", type=int, default=None, help="Max number of comments to process")
+    parser.add_argument(
+        "--dry-run", action="store_true", help="Compute without writing to MongoDB."
+    )
+    parser.add_argument(
+        "--batch-size", type=int, default=1000, help="Bulk write batch size"
+    )
+    parser.add_argument(
+        "--limit", type=int, default=None, help="Max number of comments to process"
+    )
     parser.add_argument("--skip", type=int, default=0, help="Skip N comments")
     parser.add_argument(
         "--unknown-mode",
@@ -195,7 +204,9 @@ def compute_polarization(dist: Dict[str, float]) -> float:
     return clamp(value, 0.0, 1.0)
 
 
-def flush_updates(collection, updates: List[UpdateOne], *, save_db: bool) -> tuple[int, int]:
+def flush_updates(
+    collection, updates: List[UpdateOne], *, save_db: bool
+) -> tuple[int, int]:
     if not updates:
         return 0, 0
     if not save_db:
@@ -283,7 +294,9 @@ def main() -> None:
                 stats["sentiment_count"] += 1
 
             if len(updates) >= batch_size:
-                matched, modified = flush_updates(store.comments, updates, save_db=save_db)
+                matched, modified = flush_updates(
+                    store.comments, updates, save_db=save_db
+                )
                 comment_matched += matched
                 comment_modified += modified
                 updates = []
@@ -306,7 +319,9 @@ def main() -> None:
 
             stance_total = stats["stance_weight_sum"]
             if stance_total > 0:
-                stance_dist = build_distribution(stats["stance_sums"], stance_total, STANCE_LABELS)
+                stance_dist = build_distribution(
+                    stats["stance_sums"], stance_total, STANCE_LABELS
+                )
                 update["stance_dist_weighted"] = stance_dist
                 if stats["stance_count"] >= min_comments:
                     update["polarization_score"] = compute_polarization(stance_dist)
@@ -332,13 +347,17 @@ def main() -> None:
             post_update_count += 1
 
             if len(post_updates) >= batch_size:
-                matched, modified = flush_updates(store.posts, post_updates, save_db=save_db)
+                matched, modified = flush_updates(
+                    store.posts, post_updates, save_db=save_db
+                )
                 post_matched += matched
                 post_modified += modified
                 post_updates = []
 
         if post_updates:
-            matched, modified = flush_updates(store.posts, post_updates, save_db=save_db)
+            matched, modified = flush_updates(
+                store.posts, post_updates, save_db=save_db
+            )
             post_matched += matched
             post_modified += modified
 
@@ -363,5 +382,8 @@ def main() -> None:
 
 
 if __name__ == "__main__":
-    logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(name)s - %(levelname)s - %(message)s")
+    logging.basicConfig(
+        level=logging.INFO,
+        format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
+    )
     main()

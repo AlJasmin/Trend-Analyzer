@@ -22,6 +22,7 @@ except ImportError:
 try:
     from tqdm import tqdm
 except ImportError:  # pragma: no cover - optional progress
+
     class _NullTqdm:
         def __init__(self, iterable=None, *args, **kwargs):
             self._iterable = iterable or []
@@ -43,16 +44,35 @@ logger = logging.getLogger(__name__)
 
 
 def parse_args() -> argparse.Namespace:
-    parser = argparse.ArgumentParser(description="Embed topic_text and store embeddings in MongoDB.")
-    parser.add_argument("--config", default=str(CONFIG_PATH), help="Path to settings.yaml")
+    parser = argparse.ArgumentParser(
+        description="Embed topic_text and store embeddings in MongoDB."
+    )
+    parser.add_argument(
+        "--config", default=str(CONFIG_PATH), help="Path to settings.yaml"
+    )
     parser.add_argument("--model", default=None, help="SentenceTransformer model name")
-    parser.add_argument("--batch-size", type=int, default=None, help="Batch size for embedding")
-    parser.add_argument("--max-tokens", type=int, default=None, help="Max tokens per chunk (model limit)")
-    parser.add_argument("--overlap", type=int, default=None, help="Token overlap for chunking")
-    parser.add_argument("--limit", type=int, default=None, help="Max number of posts to process")
+    parser.add_argument(
+        "--batch-size", type=int, default=None, help="Batch size for embedding"
+    )
+    parser.add_argument(
+        "--max-tokens",
+        type=int,
+        default=None,
+        help="Max tokens per chunk (model limit)",
+    )
+    parser.add_argument(
+        "--overlap", type=int, default=None, help="Token overlap for chunking"
+    )
+    parser.add_argument(
+        "--limit", type=int, default=None, help="Max number of posts to process"
+    )
     parser.add_argument("--skip", type=int, default=0, help="Skip N posts")
-    parser.add_argument("--force", action="store_true", help="Recompute embeddings even if present")
-    parser.add_argument("--no-normalize", action="store_true", help="Disable L2 normalization")
+    parser.add_argument(
+        "--force", action="store_true", help="Recompute embeddings even if present"
+    )
+    parser.add_argument(
+        "--no-normalize", action="store_true", help="Disable L2 normalization"
+    )
     parser.add_argument(
         "--test-run",
         type=int,
@@ -65,13 +85,23 @@ def parse_args() -> argparse.Namespace:
         default="pca",
         help="Dimensionality reduction method for plotting",
     )
-    parser.add_argument("--plot-seed", type=int, default=42, help="Random seed for plot projection")
-    parser.add_argument("--umap-n-neighbors", type=int, default=30, help="UMAP n_neighbors")
-    parser.add_argument("--umap-min-dist", type=float, default=0.1, help="UMAP min_dist")
+    parser.add_argument(
+        "--plot-seed", type=int, default=42, help="Random seed for plot projection"
+    )
+    parser.add_argument(
+        "--umap-n-neighbors", type=int, default=30, help="UMAP n_neighbors"
+    )
+    parser.add_argument(
+        "--umap-min-dist", type=float, default=0.1, help="UMAP min_dist"
+    )
     parser.add_argument("--umap-metric", default="cosine", help="UMAP distance metric")
-    parser.add_argument("--tsne-perplexity", type=float, default=30.0, help="t-SNE perplexity")
+    parser.add_argument(
+        "--tsne-perplexity", type=float, default=30.0, help="t-SNE perplexity"
+    )
     parser.add_argument("--tsne-metric", default="cosine", help="t-SNE distance metric")
-    parser.add_argument("--plot-output", default=None, help="Optional path to save plot image")
+    parser.add_argument(
+        "--plot-output", default=None, help="Optional path to save plot image"
+    )
     return parser.parse_args()
 
 
@@ -147,7 +177,9 @@ def embed_long_text(
 
     chunk_texts = [tokenizer.decode(chunk) for chunk in chunks]
     chunk_lengths = np.array([len(chunk) for chunk in chunks], dtype=np.float32)
-    vectors = embed_short_texts(model, chunk_texts, batch_size=batch_size, normalize=False)
+    vectors = embed_short_texts(
+        model, chunk_texts, batch_size=batch_size, normalize=False
+    )
     weights = chunk_lengths / max(chunk_lengths.sum(), 1.0)
     weighted = (vectors * weights[:, None]).sum(axis=0)
     return l2_normalize(weighted) if normalize else weighted
@@ -191,7 +223,9 @@ def plot_embeddings(
     try:
         import matplotlib.pyplot as plt
     except ImportError as exc:
-        raise SystemExit("matplotlib is required for plotting. Install it first.") from exc
+        raise SystemExit(
+            "matplotlib is required for plotting. Install it first."
+        ) from exc
 
     if not embeddings:
         logger.info("No embeddings to plot.")
@@ -205,13 +239,17 @@ def plot_embeddings(
             try:
                 from sklearn.decomposition import PCA
             except ImportError as exc:
-                raise SystemExit("scikit-learn is required for plotting. Install it first.") from exc
+                raise SystemExit(
+                    "scikit-learn is required for plotting. Install it first."
+                ) from exc
             coords = PCA(n_components=2).fit_transform(matrix)
         elif method == "umap":
             try:
                 import umap
             except ImportError as exc:
-                raise SystemExit("umap-learn is required for plotting. Install it first.") from exc
+                raise SystemExit(
+                    "umap-learn is required for plotting. Install it first."
+                ) from exc
             reducer = umap.UMAP(
                 n_components=2,
                 n_neighbors=umap_n_neighbors,
@@ -224,7 +262,9 @@ def plot_embeddings(
             try:
                 from sklearn.manifold import TSNE
             except ImportError as exc:
-                raise SystemExit("scikit-learn is required for plotting. Install it first.") from exc
+                raise SystemExit(
+                    "scikit-learn is required for plotting. Install it first."
+                ) from exc
             perplexity = min(tsne_perplexity, max(2.0, matrix.shape[0] - 1))
             coords = TSNE(
                 n_components=2,
@@ -242,10 +282,20 @@ def plot_embeddings(
     plt.figure(figsize=(9, 6))
     plt.scatter(coords[:, 0], coords[:, 1], c=colors, alpha=0.7, s=18)
     handles = [
-        plt.Line2D([], [], marker="o", linestyle="", color=color_map[label], label=label, markersize=6)
+        plt.Line2D(
+            [],
+            [],
+            marker="o",
+            linestyle="",
+            color=color_map[label],
+            label=label,
+            markersize=6,
+        )
         for label in unique_labels
     ]
-    plt.legend(handles=handles, title="subreddit", bbox_to_anchor=(1.02, 1), loc="upper left")
+    plt.legend(
+        handles=handles, title="subreddit", bbox_to_anchor=(1.02, 1), loc="upper left"
+    )
     plt.title(f"Topic text embeddings ({method.upper()})")
     plt.tight_layout()
 
@@ -311,7 +361,9 @@ def run_test_plot(
         progress.update(1)
 
     if short_texts:
-        vectors = embed_short_texts(model, short_texts, batch_size=batch_size, normalize=normalize)
+        vectors = embed_short_texts(
+            model, short_texts, batch_size=batch_size, normalize=normalize
+        )
         for label, vec in zip(short_labels, vectors):
             embeddings.append(vec)
             labels.append(label)
@@ -351,7 +403,9 @@ def main() -> None:
     settings = load_settings(Path(args.config))
     emb_cfg = settings.get("embeddings") or {}
 
-    model_name = args.model or emb_cfg.get("model") or "sentence-transformers/all-mpnet-base-v2"
+    model_name = (
+        args.model or emb_cfg.get("model") or "sentence-transformers/all-mpnet-base-v2"
+    )
     batch_size = int(args.batch_size or emb_cfg.get("batch_size") or 32)
     max_tokens = int(args.max_tokens or emb_cfg.get("max_tokens") or 512)
     overlap = int(args.overlap or emb_cfg.get("chunk_overlap") or 50)
@@ -360,7 +414,9 @@ def main() -> None:
     try:
         from sentence_transformers import SentenceTransformer
     except ImportError as exc:
-        raise SystemExit("sentence-transformers is required. Install it first.") from exc
+        raise SystemExit(
+            "sentence-transformers is required. Install it first."
+        ) from exc
 
     logger.info("Loading model: %s", model_name)
     model = SentenceTransformer(model_name)
@@ -506,7 +562,9 @@ def process_batch(
             long_items.append((str(post_id), tokens))
 
     if texts:
-        vectors = embed_short_texts(model, texts, batch_size=batch_size, normalize=normalize)
+        vectors = embed_short_texts(
+            model, texts, batch_size=batch_size, normalize=normalize
+        )
         for post_id, vec in zip(ids, vectors):
             collection.update_one(
                 {"post_id": post_id},
@@ -554,5 +612,8 @@ def process_batch(
 
 
 if __name__ == "__main__":
-    logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(name)s - %(levelname)s - %(message)s")
+    logging.basicConfig(
+        level=logging.INFO,
+        format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
+    )
     main()

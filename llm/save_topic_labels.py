@@ -20,13 +20,17 @@ def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
         description="Store topic labels from topic_label_results.csv into MongoDB."
     )
-    parser.add_argument("--config", default=str(CONFIG_PATH), help="Path to settings.yaml")
+    parser.add_argument(
+        "--config", default=str(CONFIG_PATH), help="Path to settings.yaml"
+    )
     parser.add_argument(
         "--results-csv",
         default="reports/topic_label_results.csv",
         help="Path to topic_label_results.csv",
     )
-    parser.add_argument("--topic-id", default=None, help="Only update a single topic_id")
+    parser.add_argument(
+        "--topic-id", default=None, help="Only update a single topic_id"
+    )
     parser.add_argument(
         "--topic-ids",
         nargs="+",
@@ -38,7 +42,9 @@ def parse_args() -> argparse.Namespace:
         action="store_true",
         help="Allow empty topic_name/topic_description updates",
     )
-    parser.add_argument("--dry-run", action="store_true", help="Show planned updates only")
+    parser.add_argument(
+        "--dry-run", action="store_true", help="Show planned updates only"
+    )
     return parser.parse_args()
 
 
@@ -150,5 +156,8 @@ def main() -> None:
 
 
 if __name__ == "__main__":
-    logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(name)s - %(levelname)s - %(message)s")
+    logging.basicConfig(
+        level=logging.INFO,
+        format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
+    )
     main()

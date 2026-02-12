@@ -6,7 +6,9 @@ from processing.text_cleaning import clean_text
 
 try:
     from reddit.models import RedditPost, RedditComment
-except ImportError:  # pragma: no cover - avoids circular issues when module path changes
+except (
+    ImportError
+):  # pragma: no cover - avoids circular issues when module path changes
     RedditPost = None
     RedditComment = None
 
@@ -78,5 +80,6 @@ def clean_comments(comments: Iterable[CommentLike]) -> list:
     """Attach cleaned fields for comments."""
     return [clean_comment(c) for c in comments]
 
-if __name__ == '__main__':
-    print('reddit_cleaner stub')
+
+if __name__ == "__main__":
+    print("reddit_cleaner stub")

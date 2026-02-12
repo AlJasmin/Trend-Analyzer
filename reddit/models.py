@@ -34,7 +34,7 @@ class RedditComment:
     dropped_from_top: Optional[datetime] = None
 
     @classmethod
-    def from_praw(cls, comment, post_id: str = "") -> 'RedditComment':
+    def from_praw(cls, comment, post_id: str = "") -> "RedditComment":
         """
         Create a RedditComment from a PRAW comment object.
 
@@ -76,7 +76,7 @@ class RedditComment:
             "last_updated": self.last_updated,
             "score_history": self.score_history,
             "historical": self.historical,
-            "dropped_from_top": self.dropped_from_top
+            "dropped_from_top": self.dropped_from_top,
         }
 
 
@@ -119,7 +119,7 @@ class RedditPost:
     last_updated: Optional[datetime] = None
 
     @classmethod
-    def from_praw(cls, post, category: str = "general") -> 'RedditPost':
+    def from_praw(cls, post, category: str = "general") -> "RedditPost":
         """
         Create a RedditPost from a PRAW submission object.
 
@@ -144,7 +144,7 @@ class RedditPost:
             selftext=post.selftext if post.is_self else "",
             subreddit=post.subreddit.display_name,
             link_flair_text=post.link_flair_text,
-            category=category
+            category=category,
         )
 
     def to_dict(self) -> Dict[str, Any]:
@@ -182,11 +182,11 @@ class RedditPost:
             "comments": self.comments,
             "photo_parse": self.photo_parse,
             "historical_metrics": self.historical_metrics,
-            "last_updated": self.last_updated
+            "last_updated": self.last_updated,
         }
 
     @classmethod
-    def from_dict(cls, data: Dict[str, Any]) -> 'RedditPost':
+    def from_dict(cls, data: Dict[str, Any]) -> "RedditPost":
         """
         Create a RedditPost from a dictionary (e.g., from database).
 
@@ -224,7 +224,7 @@ class RedditPost:
             comments=data.get("comments", []),
             photo_parse=data.get("photo_parse"),
             historical_metrics=data.get("historical_metrics", []),
-            last_updated=data.get("last_updated")
+            last_updated=data.get("last_updated"),
         )
 
     def should_fetch_comments(self, min_selftext_length: int = 100) -> bool:

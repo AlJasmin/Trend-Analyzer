@@ -49,10 +49,18 @@ def parse_args() -> argparse.Namespace:
         default=str(REPO_ROOT / "llm" / "prompts" / "topic_label_batch.j2"),
         help="Prompt template path",
     )
-    parser.add_argument("--max-input-tokens", type=int, default=20000, help="Token budget per call")
-    parser.add_argument("--max-chunks-per-call", type=int, default=3, help="Max chunks per LLM call")
-    parser.add_argument("--max-output-tokens", type=int, default=None, help="Max output tokens override")
-    parser.add_argument("--topic-id", default=None, help="Only process a single topic_id")
+    parser.add_argument(
+        "--max-input-tokens", type=int, default=20000, help="Token budget per call"
+    )
+    parser.add_argument(
+        "--max-chunks-per-call", type=int, default=3, help="Max chunks per LLM call"
+    )
+    parser.add_argument(
+        "--max-output-tokens", type=int, default=None, help="Max output tokens override"
+    )
+    parser.add_argument(
+        "--topic-id", default=None, help="Only process a single topic_id"
+    )
     parser.add_argument(
         "--topic-ids",
         nargs="+",
@@ -60,7 +68,9 @@ def parse_args() -> argparse.Namespace:
         help="Only process the specified topic_ids (space-separated)",
     )
     parser.add_argument("--limit", type=int, default=0, help="Limit number of chunks")
-    parser.add_argument("--dry-run", action="store_true", help="Only show planned batches")
+    parser.add_argument(
+        "--dry-run", action="store_true", help="Only show planned batches"
+    )
     parser.add_argument(
         "--append",
         action="store_true",
@@ -89,7 +99,9 @@ def render_prompt(template_path: Path, chunks_text: str) -> str:
     try:
         from jinja2 import Template
     except ImportError as exc:
-        raise SystemExit("jinja2 is required to render prompts. Install it first.") from exc
+        raise SystemExit(
+            "jinja2 is required to render prompts. Install it first."
+        ) from exc
 
     raw = template_path.read_text(encoding="utf-8").strip()
     if not raw:
@@ -218,7 +230,9 @@ def build_items_for_keys(
         meta = chunks_meta.get(key)
         entries = posts_by_chunk.get(key)
         if not meta or not entries:
-            logger.warning("Missing chunk data for %s/%s; skipping retry.", key[0], key[1])
+            logger.warning(
+                "Missing chunk data for %s/%s; skipping retry.", key[0], key[1]
+            )
             continue
         block = build_chunk_block(
             topic_id=key[0],
@@ -318,7 +332,9 @@ def build_batches(
                 batches.append(
                     {
                         "chunks": current,
-                        "prompt": render_prompt(prompt_path, "\n\n---\n\n".join(current_blocks)),
+                        "prompt": render_prompt(
+                            prompt_path, "\n\n---\n\n".join(current_blocks)
+                        ),
                         "tokens": current_tokens,
                     }
                 )
@@ -335,7 +351,9 @@ def build_batches(
                 batches.append(
                     {
                         "chunks": current,
-                        "prompt": render_prompt(prompt_path, "\n\n---\n\n".join(current_blocks)),
+                        "prompt": render_prompt(
+                            prompt_path, "\n\n---\n\n".join(current_blocks)
+                        ),
                         "tokens": current_tokens,
                     }
                 )
@@ -371,7 +389,9 @@ def build_batches(
         batches.append(
             {
                 "chunks": current,
-                "prompt": render_prompt(prompt_path, "\n\n---\n\n".join(current_blocks)),
+                "prompt": render_prompt(
+                    prompt_path, "\n\n---\n\n".join(current_blocks)
+                ),
                 "tokens": current_tokens,
             }
         )
@@ -452,12 +472,7 @@ def prune_resolved_missing(path: Path) -> int:
             except ValueError:
                 key = None
 
-        if (
-            key
-            and status == "error"
-            and error == "missing_result"
-            and key in ok_keys
-        ):
+        if key and status == "error" and error == "missing_result" and key in ok_keys:
             removed += 1
             continue
         kept.append(row)
@@ -533,9 +548,11 @@ def process_batches(
                     "topic_name": str(item.get("topic_name") or ""),
                     "topic_description": str(item.get("topic_description") or ""),
                     "confidence": str(item.get("confidence") or ""),
-                    "representative_indices": json.dumps(rep_indices)
-                    if isinstance(rep_indices, list)
-                    else str(rep_indices or ""),
+                    "representative_indices": (
+                        json.dumps(rep_indices)
+                        if isinstance(rep_indices, list)
+                        else str(rep_indices or "")
+                    ),
                     "status": "ok",
                     "error": "",
                 }
@@ -611,7 +628,9 @@ def main() -> None:
                 logger.info("No missing_result rows found for retry.")
                 break
 
-            retry_items = build_items_for_keys(missing_keys, chunks_meta, posts_by_chunk)
+            retry_items = build_items_for_keys(
+                missing_keys, chunks_meta, posts_by_chunk
+            )
             if not retry_items:
                 logger.info("No retryable chunks found.")
                 break
@@ -652,5 +671,8 @@ def main() -> None:
 
 
 if __name__ == "__main__":
-    logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(name)s - %(levelname)s - %(message)s")
+    logging.basicConfig(
+        level=logging.INFO,
+        format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
+    )
     main()

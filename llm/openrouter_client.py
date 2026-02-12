@@ -48,13 +48,23 @@ class OpenRouterClient:
 
         key = api_key or os.getenv("OPENROUTER_API_KEY") or cfg.get("api_key")
         if not key:
-            raise ValueError("OpenRouter API key missing (OPENROUTER_API_KEY or openrouter.api_key).")
+            raise ValueError(
+                "OpenRouter API key missing (OPENROUTER_API_KEY or openrouter.api_key)."
+            )
 
         self.model = model or cfg.get("model") or "openai/gpt-4o-mini"
-        self.temperature = temperature if temperature is not None else float(cfg.get("temperature", 0.3))
-        self.max_tokens = max_tokens if max_tokens is not None else int(cfg.get("max_tokens", 512))
+        self.temperature = (
+            temperature
+            if temperature is not None
+            else float(cfg.get("temperature", 0.3))
+        )
+        self.max_tokens = (
+            max_tokens if max_tokens is not None else int(cfg.get("max_tokens", 512))
+        )
         self.timeout = timeout if timeout is not None else float(cfg.get("timeout", 60))
-        self.max_retries = max_retries if max_retries is not None else int(cfg.get("max_retries", 2))
+        self.max_retries = (
+            max_retries if max_retries is not None else int(cfg.get("max_retries", 2))
+        )
 
         headers: Dict[str, str] = {}
         referer = cfg.get("referer") or os.getenv("OPENROUTER_HTTP_REFERER")

@@ -18,7 +18,9 @@ logger = logging.getLogger(__name__)
 
 
 def parse_args() -> argparse.Namespace:
-    parser = argparse.ArgumentParser(description="Label topics using stored topic_text values.")
+    parser = argparse.ArgumentParser(
+        description="Label topics using stored topic_text values."
+    )
     parser.add_argument("--config", default=None, help="Path to settings.yaml")
     parser.add_argument(
         "--prompt",
@@ -57,7 +59,9 @@ def render_prompt(template_path: Path, payload: str) -> str:
     try:
         from jinja2 import Template
     except ImportError as exc:
-        raise SystemExit("jinja2 is required to render prompts. Install it first.") from exc
+        raise SystemExit(
+            "jinja2 is required to render prompts. Install it first."
+        ) from exc
 
     raw = template_path.read_text(encoding="utf-8").strip()
     if not raw:
@@ -141,7 +145,9 @@ def main() -> None:
         for topic_id in topic_ids:
             texts = fetch_topic_texts(store.posts, topic_id, args.posts_per_topic)
             if len(texts) < args.min_topic_posts:
-                logger.info("Skipping topic_id %s (only %s posts).", topic_id, len(texts))
+                logger.info(
+                    "Skipping topic_id %s (only %s posts).", topic_id, len(texts)
+                )
                 continue
 
             payload = build_payload(texts, args.max_chars)
@@ -157,24 +163,38 @@ def main() -> None:
 
             data = parse_response(response)
             if not data:
-                logger.warning("Failed to parse JSON for topic_id %s: %s", topic_id, response[:200])
+                logger.warning(
+                    "Failed to parse JSON for topic_id %s: %s", topic_id, response[:200]
+                )
                 continue
 
             topic_name = data.get("topic_name")
             topic_description = data.get("topic_description")
             if not topic_name or not topic_description:
-                logger.warning("Missing topic_name/topic_description for topic_id %s.", topic_id)
+                logger.warning(
+                    "Missing topic_name/topic_description for topic_id %s.", topic_id
+                )
                 continue
 
             result = store.posts.update_many(
                 {"topic_id": topic_id},
-                {"$set": {"topic_name": topic_name, "topic_description": topic_description}},
+                {
+                    "$set": {
+                        "topic_name": topic_name,
+                        "topic_description": topic_description,
+                    }
+                },
             )
-            logger.info("Updated %s posts for topic_id %s.", result.modified_count, topic_id)
+            logger.info(
+                "Updated %s posts for topic_id %s.", result.modified_count, topic_id
+            )
     finally:
         store.close()
 
 
 if __name__ == "__main__":
-    logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(name)s - %(levelname)s - %(message)s")
+    logging.basicConfig(
+        level=logging.INFO,
+        format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
+    )
     main()

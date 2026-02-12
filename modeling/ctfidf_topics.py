@@ -19,6 +19,7 @@ from reddit.reddit_cleaner import build_topic_text  # noqa: E402
 try:
     from tqdm import tqdm
 except ImportError:  # pragma: no cover - optional progress
+
     class _NullTqdm:
         def __init__(self, iterable=None, *args, **kwargs):
             self._iterable = iterable or []
@@ -40,17 +41,35 @@ logger = logging.getLogger(__name__)
 
 
 def parse_args() -> argparse.Namespace:
-    parser = argparse.ArgumentParser(description="Compute c-TF-IDF keywords per topic_id.")
-    parser.add_argument("--config", default=str(CONFIG_PATH), help="Path to settings.yaml")
-    parser.add_argument("--output", default="reports/ctfidf_topics.csv", help="Output CSV path")
+    parser = argparse.ArgumentParser(
+        description="Compute c-TF-IDF keywords per topic_id."
+    )
+    parser.add_argument(
+        "--config", default=str(CONFIG_PATH), help="Path to settings.yaml"
+    )
+    parser.add_argument(
+        "--output", default="reports/ctfidf_topics.csv", help="Output CSV path"
+    )
     parser.add_argument("--top-n", type=int, default=12, help="Top terms per topic")
-    parser.add_argument("--min-posts", type=int, default=5, help="Minimum posts per topic")
-    parser.add_argument("--include-noise", action="store_true", help="Include noise topic_id")
+    parser.add_argument(
+        "--min-posts", type=int, default=5, help="Minimum posts per topic"
+    )
+    parser.add_argument(
+        "--include-noise", action="store_true", help="Include noise topic_id"
+    )
     parser.add_argument("--min-df", type=int, default=2, help="Min document frequency")
-    parser.add_argument("--max-df", type=float, default=0.95, help="Max document frequency")
+    parser.add_argument(
+        "--max-df", type=float, default=0.95, help="Max document frequency"
+    )
     parser.add_argument("--ngram-max", type=int, default=2, help="Max n-gram size")
-    parser.add_argument("--stopwords-file", default=None, help="Optional stopwords file (one term per line)")
-    parser.add_argument("--limit", type=int, default=None, help="Max number of posts to read")
+    parser.add_argument(
+        "--stopwords-file",
+        default=None,
+        help="Optional stopwords file (one term per line)",
+    )
+    parser.add_argument(
+        "--limit", type=int, default=None, help="Max number of posts to read"
+    )
     parser.add_argument("--skip", type=int, default=0, help="Skip N posts")
     return parser.parse_args()
 
@@ -164,7 +183,9 @@ def compute_ctfidf(
     return ctfidf, list(terms)
 
 
-def top_terms_for_topic(row, terms: List[str], top_n: int) -> Tuple[List[str], List[float]]:
+def top_terms_for_topic(
+    row, terms: List[str], top_n: int
+) -> Tuple[List[str], List[float]]:
     if row.nnz == 0:
         return [], []
     indices = row.indices
@@ -239,7 +260,9 @@ def main() -> None:
         try:
             from sklearn.feature_extraction.text import ENGLISH_STOP_WORDS
         except ImportError as exc:
-            raise SystemExit("scikit-learn is required for stopwords. Install it first.") from exc
+            raise SystemExit(
+                "scikit-learn is required for stopwords. Install it first."
+            ) from exc
         custom = load_stopwords(Path(args.stopwords_file))
         merged = set(ENGLISH_STOP_WORDS)
         merged.update(custom)
@@ -269,5 +292,8 @@ def main() -> None:
 
 
 if __name__ == "__main__":
-    logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(name)s - %(levelname)s - %(message)s")
+    logging.basicConfig(
+        level=logging.INFO,
+        format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
+    )
     main()

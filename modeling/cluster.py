@@ -18,6 +18,7 @@ from db.store import CONFIG_PATH, connect_from_config  # noqa: E402
 try:
     from tqdm import tqdm
 except ImportError:  # pragma: no cover - optional progress
+
     class _NullTqdm:
         def __init__(self, iterable=None, *args, **kwargs):
             self._iterable = iterable or []
@@ -42,12 +43,22 @@ logger = logging.getLogger(__name__)
 
 
 def parse_args() -> argparse.Namespace:
-    parser = argparse.ArgumentParser(description="Cluster stored embeddings with UMAP + DBSCAN/HDBSCAN.")
-    parser.add_argument("--config", default=str(CONFIG_PATH), help="Path to settings.yaml")
-    parser.add_argument("--limit", type=int, default=None, help="Max number of posts to cluster")
+    parser = argparse.ArgumentParser(
+        description="Cluster stored embeddings with UMAP + DBSCAN/HDBSCAN."
+    )
+    parser.add_argument(
+        "--config", default=str(CONFIG_PATH), help="Path to settings.yaml"
+    )
+    parser.add_argument(
+        "--limit", type=int, default=None, help="Max number of posts to cluster"
+    )
     parser.add_argument("--skip", type=int, default=0, help="Skip N posts")
-    parser.add_argument("--sample", type=int, default=0, help="Random sample size (overrides limit)")
-    parser.add_argument("--plot-output", default="plots/clusters.png", help="Output plot path")
+    parser.add_argument(
+        "--sample", type=int, default=0, help="Random sample size (overrides limit)"
+    )
+    parser.add_argument(
+        "--plot-output", default="plots/clusters.png", help="Output plot path"
+    )
     parser.add_argument("--plot-seed", type=int, default=42, help="Random seed")
     parser.add_argument(
         "--umap-cluster-dim",
@@ -55,8 +66,12 @@ def parse_args() -> argparse.Namespace:
         default=50,
         help="UMAP n_components for clustering",
     )
-    parser.add_argument("--umap-n-neighbors", type=int, default=30, help="UMAP n_neighbors")
-    parser.add_argument("--umap-min-dist", type=float, default=0.1, help="UMAP min_dist")
+    parser.add_argument(
+        "--umap-n-neighbors", type=int, default=30, help="UMAP n_neighbors"
+    )
+    parser.add_argument(
+        "--umap-min-dist", type=float, default=0.1, help="UMAP min_dist"
+    )
     parser.add_argument("--umap-metric", default="cosine", help="UMAP distance metric")
     parser.add_argument(
         "--clusterer",
@@ -65,14 +80,33 @@ def parse_args() -> argparse.Namespace:
         help="Clustering algorithm",
     )
     parser.add_argument("--dbscan-eps", type=float, default=0.5, help="DBSCAN eps")
-    parser.add_argument("--dbscan-min-samples", type=int, default=5, help="DBSCAN min_samples")
-    parser.add_argument("--dbscan-metric", default="euclidean", help="DBSCAN distance metric")
-    parser.add_argument("--hdbscan-min-cluster-size", type=int, default=8, help="HDBSCAN min_cluster_size")
-    parser.add_argument("--hdbscan-min-samples", type=int, default=None, help="HDBSCAN min_samples")
-    parser.add_argument("--hdbscan-metric", default="euclidean", help="HDBSCAN distance metric")
-    parser.add_argument("--only-missing", action="store_true", help="Only assign topic_id if missing")
-    parser.add_argument("--noise-topic-id", default="noise", help="Topic_id label for noise points")
-    parser.add_argument("--save-db", action="store_true", help="Persist topic_id assignments to DB")
+    parser.add_argument(
+        "--dbscan-min-samples", type=int, default=5, help="DBSCAN min_samples"
+    )
+    parser.add_argument(
+        "--dbscan-metric", default="euclidean", help="DBSCAN distance metric"
+    )
+    parser.add_argument(
+        "--hdbscan-min-cluster-size",
+        type=int,
+        default=8,
+        help="HDBSCAN min_cluster_size",
+    )
+    parser.add_argument(
+        "--hdbscan-min-samples", type=int, default=None, help="HDBSCAN min_samples"
+    )
+    parser.add_argument(
+        "--hdbscan-metric", default="euclidean", help="HDBSCAN distance metric"
+    )
+    parser.add_argument(
+        "--only-missing", action="store_true", help="Only assign topic_id if missing"
+    )
+    parser.add_argument(
+        "--noise-topic-id", default="noise", help="Topic_id label for noise points"
+    )
+    parser.add_argument(
+        "--save-db", action="store_true", help="Persist topic_id assignments to DB"
+    )
     return parser.parse_args()
 
 
@@ -115,7 +149,9 @@ def load_embeddings(
     skip: int,
     sample: int,
 ) -> Tuple[List[str], np.ndarray]:
-    docs = list(iter_embeddings(collection, query, limit=limit, skip=skip, sample=sample))
+    docs = list(
+        iter_embeddings(collection, query, limit=limit, skip=skip, sample=sample)
+    )
     if not docs:
         return [], np.empty((0, 0), dtype=np.float32)
 
@@ -153,7 +189,9 @@ def fit_umap(
     try:
         import umap
     except ImportError as exc:
-        raise SystemExit("umap-learn is required for clustering. Install it first.") from exc
+        raise SystemExit(
+            "umap-learn is required for clustering. Install it first."
+        ) from exc
 
     n_samples = matrix.shape[0]
     if n_samples <= 1:
@@ -180,7 +218,9 @@ def fit_dbscan(
     try:
         from sklearn.cluster import DBSCAN
     except ImportError as exc:
-        raise SystemExit("scikit-learn is required for clustering. Install it first.") from exc
+        raise SystemExit(
+            "scikit-learn is required for clustering. Install it first."
+        ) from exc
 
     if coords.shape[0] == 0:
         return np.array([], dtype=int)
@@ -198,7 +238,9 @@ def fit_hdbscan(
     try:
         import hdbscan
     except ImportError as exc:
-        raise SystemExit("hdbscan is required for HDBSCAN clustering. Install it first.") from exc
+        raise SystemExit(
+            "hdbscan is required for HDBSCAN clustering. Install it first."
+        ) from exc
 
     if coords.shape[0] == 0:
         return np.array([], dtype=int)
@@ -232,7 +274,9 @@ def compute_distance(vec: np.ndarray, centroid: np.ndarray, metric: str) -> floa
     return float(np.linalg.norm(vec - centroid))
 
 
-def compute_distances(coords: np.ndarray, labels: np.ndarray, metric: str) -> np.ndarray:
+def compute_distances(
+    coords: np.ndarray, labels: np.ndarray, metric: str
+) -> np.ndarray:
     centroids = compute_centroids(coords, labels)
     distances = np.full(len(labels), np.nan, dtype=np.float64)
     for idx, (label, vec) in enumerate(zip(labels, coords)):
@@ -310,7 +354,9 @@ def update_topic_ids(
     for topic_id, ids in cluster_posts.items():
         if not ids:
             continue
-        collection.update_many({"post_id": {"$in": ids}}, {"$set": {"topic_id": topic_id}})
+        collection.update_many(
+            {"post_id": {"$in": ids}}, {"$set": {"topic_id": topic_id}}
+        )
         logger.info("Assigned topic_id %s to %s posts.", topic_id, len(ids))
 
 
@@ -323,7 +369,9 @@ def plot_clusters(
     try:
         import matplotlib.pyplot as plt
     except ImportError as exc:
-        raise SystemExit("matplotlib is required for plotting. Install it first.") from exc
+        raise SystemExit(
+            "matplotlib is required for plotting. Install it first."
+        ) from exc
 
     if coords.shape[0] == 0:
         logger.info("No coordinates to plot.")
@@ -347,7 +395,15 @@ def plot_clusters(
 
     if 0 < len(cluster_labels) <= 20:
         handles = [
-            plt.Line2D([], [], marker="o", linestyle="", color=color_map[label], label=str(label), markersize=6)
+            plt.Line2D(
+                [],
+                [],
+                marker="o",
+                linestyle="",
+                color=color_map[label],
+                label=str(label),
+                markersize=6,
+            )
             for label in cluster_labels
         ]
         if "noise" in unique_labels:
@@ -362,7 +418,9 @@ def plot_clusters(
                     markersize=6,
                 )
             )
-        plt.legend(handles=handles, title="cluster", bbox_to_anchor=(1.02, 1), loc="upper left")
+        plt.legend(
+            handles=handles, title="cluster", bbox_to_anchor=(1.02, 1), loc="upper left"
+        )
 
     output_path.parent.mkdir(parents=True, exist_ok=True)
     plt.savefig(output_path, dpi=150)
@@ -408,16 +466,20 @@ def main() -> None:
         min_dist=args.umap_min_dist,
         metric=args.umap_metric,
     )
-    labels = fit_dbscan(
-        cluster_coords,
-        eps=args.dbscan_eps,
-        min_samples=args.dbscan_min_samples,
-        metric=args.dbscan_metric,
-    ) if args.clusterer == "dbscan" else fit_hdbscan(
-        cluster_coords,
-        min_cluster_size=args.hdbscan_min_cluster_size,
-        min_samples=args.hdbscan_min_samples,
-        metric=args.hdbscan_metric,
+    labels = (
+        fit_dbscan(
+            cluster_coords,
+            eps=args.dbscan_eps,
+            min_samples=args.dbscan_min_samples,
+            metric=args.dbscan_metric,
+        )
+        if args.clusterer == "dbscan"
+        else fit_hdbscan(
+            cluster_coords,
+            min_cluster_size=args.hdbscan_min_cluster_size,
+            min_samples=args.hdbscan_min_samples,
+            metric=args.hdbscan_metric,
+        )
     )
 
     topic_map = build_topic_id_map(labels)
@@ -425,7 +487,11 @@ def main() -> None:
     logger.info("Found %s clusters (noise=%s).", len(topic_map), noise_count)
 
     mapped_labels = [
-        topic_map.get(int(label), args.noise_topic_id) if int(label) != -1 else args.noise_topic_id
+        (
+            topic_map.get(int(label), args.noise_topic_id)
+            if int(label) != -1
+            else args.noise_topic_id
+        )
         for label in labels
     ]
 
@@ -462,5 +528,8 @@ def main() -> None:
 
 
 if __name__ == "__main__":
-    logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(name)s - %(levelname)s - %(message)s")
+    logging.basicConfig(
+        level=logging.INFO,
+        format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
+    )
     main()

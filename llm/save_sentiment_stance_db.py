@@ -27,9 +27,15 @@ def parse_args() -> argparse.Namespace:
         default=str(REPO_ROOT / "llm" / "stance_sentiment_results.jsonl"),
         help="Path to stance_sentiment_results.jsonl",
     )
-    parser.add_argument("--config", default=str(CONFIG_PATH), help="Path to settings.yaml")
-    parser.add_argument("--batch-size", type=int, default=1000, help="Bulk write batch size")
-    parser.add_argument("--dry-run", action="store_true", help="Only show planned updates")
+    parser.add_argument(
+        "--config", default=str(CONFIG_PATH), help="Path to settings.yaml"
+    )
+    parser.add_argument(
+        "--batch-size", type=int, default=1000, help="Bulk write batch size"
+    )
+    parser.add_argument(
+        "--dry-run", action="store_true", help="Only show planned updates"
+    )
     parser.add_argument(
         "--only-missing",
         action="store_true",
@@ -123,7 +129,9 @@ def build_update(row: Dict[str, Any], *, only_missing: bool) -> Optional[UpdateO
     return UpdateOne(query, {"$set": update}, upsert=False)
 
 
-def flush_batch(collection, batch: list[UpdateOne], *, dry_run: bool) -> tuple[int, int]:
+def flush_batch(
+    collection, batch: list[UpdateOne], *, dry_run: bool
+) -> tuple[int, int]:
     if not batch:
         return 0, 0
     if dry_run:
@@ -149,7 +157,9 @@ def find_missing_comment_ids(
 
     found: set[str] = set()
     for chunk in iter_chunks(unique_ids, chunk_size):
-        for doc in collection.find({"comment_id": {"$in": chunk}}, {"comment_id": 1, "_id": 0}):
+        for doc in collection.find(
+            {"comment_id": {"$in": chunk}}, {"comment_id": 1, "_id": 0}
+        ):
             found.add(doc["comment_id"])
 
     return [cid for cid in unique_ids if cid not in found]
@@ -215,7 +225,9 @@ def main() -> None:
         missing_ids = missing_ids or []
         missing_output.parent.mkdir(parents=True, exist_ok=True)
         missing_output.write_text("\n".join(missing_ids), encoding="utf-8")
-        logger.info("Missing comment_ids: %s (written to %s).", len(missing_ids), missing_output)
+        logger.info(
+            "Missing comment_ids: %s (written to %s).", len(missing_ids), missing_output
+        )
 
     if args.dry_run:
         logger.info("Scanned %s rows, prepared %s updates.", total_rows, total_updates)
@@ -231,5 +243,8 @@ def main() -> None:
 
 
 if __name__ == "__main__":
-    logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(name)s - %(levelname)s - %(message)s")
+    logging.basicConfig(
+        level=logging.INFO,
+        format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
+    )
     main()

@@ -22,7 +22,9 @@ def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
         description="Prepare topic-label chunks with centroid sampling and token estimates."
     )
-    parser.add_argument("--config", default=str(CONFIG_PATH), help="Path to settings.yaml")
+    parser.add_argument(
+        "--config", default=str(CONFIG_PATH), help="Path to settings.yaml"
+    )
     parser.add_argument(
         "--prompt",
         default=str(REPO_ROOT / "llm" / "prompts" / "topic_label.j2"),
@@ -43,11 +45,24 @@ def parse_args() -> argparse.Namespace:
         default="",
         help="Output CSV for per-post rows (default: derived from --output)",
     )
-    parser.add_argument("--max-input-tokens", type=int, default=20000, help="Token budget per chunk")
-    parser.add_argument("--near-count", type=int, default=20, help="Posts nearest to centroid per topic")
-    parser.add_argument("--far-count", type=int, default=5, help="Posts farthest from centroid per topic")
-    parser.add_argument("--min-posts", type=int, default=1, help="Minimum posts per topic")
-    parser.add_argument("--limit", type=int, default=None, help="Max number of posts to read")
+    parser.add_argument(
+        "--max-input-tokens", type=int, default=20000, help="Token budget per chunk"
+    )
+    parser.add_argument(
+        "--near-count", type=int, default=20, help="Posts nearest to centroid per topic"
+    )
+    parser.add_argument(
+        "--far-count",
+        type=int,
+        default=5,
+        help="Posts farthest from centroid per topic",
+    )
+    parser.add_argument(
+        "--min-posts", type=int, default=1, help="Minimum posts per topic"
+    )
+    parser.add_argument(
+        "--limit", type=int, default=None, help="Max number of posts to read"
+    )
     parser.add_argument("--skip", type=int, default=0, help="Skip N posts")
     return parser.parse_args()
 
@@ -56,7 +71,9 @@ def render_prompt(template_path: Path, payload: str) -> str:
     try:
         from jinja2 import Template
     except ImportError as exc:
-        raise SystemExit("jinja2 is required to render prompts. Install it first.") from exc
+        raise SystemExit(
+            "jinja2 is required to render prompts. Install it first."
+        ) from exc
 
     raw = template_path.read_text(encoding="utf-8").strip()
     if not raw:
@@ -200,9 +217,12 @@ def build_payload(
     sections: List[str] = []
     if header:
         sections.append(header)
-    post_lines = [build_entry(tag, item, idx) for idx, (tag, item) in enumerate(entries)]
+    post_lines = [
+        build_entry(tag, item, idx) for idx, (tag, item) in enumerate(entries)
+    ]
     sections.append(
-        "POSTS (tagged NEAR/FAR; lower distance = more central):\n" + "\n\n".join(post_lines)
+        "POSTS (tagged NEAR/FAR; lower distance = more central):\n"
+        + "\n\n".join(post_lines)
     )
     return "\n\n".join(sections).strip()
 
@@ -388,7 +408,11 @@ def main() -> None:
         row["cluster_token_sum"] = token_sums.get(str(row["topic_id"]), 0)
 
     chunks_output = Path(args.output)
-    posts_output = Path(args.posts_output) if args.posts_output else derive_posts_output(chunks_output)
+    posts_output = (
+        Path(args.posts_output)
+        if args.posts_output
+        else derive_posts_output(chunks_output)
+    )
     write_chunks_csv(chunks_output, chunk_rows)
     write_posts_csv(posts_output, post_rows)
     logger.info("Wrote %s chunks to %s", len(chunk_rows), chunks_output)
@@ -396,5 +420,8 @@ def main() -> None:
 
 
 if __name__ == "__main__":
-    logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(name)s - %(levelname)s - %(message)s")
+    logging.basicConfig(
+        level=logging.INFO,
+        format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
+    )
     main()

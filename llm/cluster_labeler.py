@@ -21,6 +21,7 @@ logger = logging.getLogger(__name__)
 try:
     from tqdm import tqdm
 except ImportError:  # pragma: no cover - optional progress
+
     class _NullTqdm:
         def __init__(self, iterable=None, *args, **kwargs):
             self._iterable = iterable or []
@@ -39,29 +40,66 @@ except ImportError:  # pragma: no cover - optional progress
 
 
 def parse_args() -> argparse.Namespace:
-    parser = argparse.ArgumentParser(description="Label clusters with LLM using sampled posts.")
-    parser.add_argument("--config", default=str(CONFIG_PATH), help="Path to settings.yaml")
+    parser = argparse.ArgumentParser(
+        description="Label clusters with LLM using sampled posts."
+    )
+    parser.add_argument(
+        "--config", default=str(CONFIG_PATH), help="Path to settings.yaml"
+    )
     parser.add_argument(
         "--prompt",
         default=str(REPO_ROOT / "llm" / "prompts" / "topic_label.j2"),
         help="Prompt template path",
     )
     parser.add_argument("--seed", type=int, default=42, help="Random seed for sampling")
-    parser.add_argument("--max-chars", type=int, default=0, help="Max chars per topic_text (0 = no trim)")
-    parser.add_argument("--max-input-tokens", type=int, default=20000, help="Max input tokens per LLM call")
-    parser.add_argument("--min-words", type=int, default=20, help="Minimum words per post")
+    parser.add_argument(
+        "--max-chars",
+        type=int,
+        default=0,
+        help="Max chars per topic_text (0 = no trim)",
+    )
+    parser.add_argument(
+        "--max-input-tokens",
+        type=int,
+        default=20000,
+        help="Max input tokens per LLM call",
+    )
+    parser.add_argument(
+        "--min-words", type=int, default=20, help="Minimum words per post"
+    )
     parser.add_argument(
         "--max-words-trim-percent",
         type=float,
         default=5.0,
         help="Drop longest X%% of posts per topic based on word count",
     )
-    parser.add_argument("--dominant-threshold", type=float, default=0.25, help="Dominant ratio threshold")
-    parser.add_argument("--dominant-sample-ratio", type=float, default=0.1, help="Sample ratio for dominant")
-    parser.add_argument("--dominant-cap", type=int, default=80, help="Max samples for dominant cluster")
-    parser.add_argument("--non-dominant-sample", type=int, default=50, help="Sample size for non-dominant")
-    parser.add_argument("--topic-id", default=None, help="Only process a single topic_id")
-    parser.add_argument("--limit-topics", type=int, default=0, help="Limit number of topics processed")
+    parser.add_argument(
+        "--dominant-threshold",
+        type=float,
+        default=0.25,
+        help="Dominant ratio threshold",
+    )
+    parser.add_argument(
+        "--dominant-sample-ratio",
+        type=float,
+        default=0.1,
+        help="Sample ratio for dominant",
+    )
+    parser.add_argument(
+        "--dominant-cap", type=int, default=80, help="Max samples for dominant cluster"
+    )
+    parser.add_argument(
+        "--non-dominant-sample",
+        type=int,
+        default=50,
+        help="Sample size for non-dominant",
+    )
+    parser.add_argument(
+        "--topic-id", default=None, help="Only process a single topic_id"
+    )
+    parser.add_argument(
+        "--limit-topics", type=int, default=0, help="Limit number of topics processed"
+    )
     return parser.parse_args()
 
 
@@ -69,7 +107,9 @@ def render_prompt(template_path: Path, payload: str) -> str:
     try:
         from jinja2 import Template
     except ImportError as exc:
-        raise SystemExit("jinja2 is required to render prompts. Install it first.") from exc
+        raise SystemExit(
+            "jinja2 is required to render prompts. Install it first."
+        ) from exc
 
     raw = template_path.read_text(encoding="utf-8").strip()
     if not raw:
@@ -105,7 +145,9 @@ def annotate_tokens(docs: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
     return docs
 
 
-def filter_too_large(docs: List[Dict[str, Any]], max_input_tokens: int) -> Tuple[List[Dict[str, Any]], int]:
+def filter_too_large(
+    docs: List[Dict[str, Any]], max_input_tokens: int
+) -> Tuple[List[Dict[str, Any]], int]:
     filtered: List[Dict[str, Any]] = []
     skipped = 0
     for doc in docs:
@@ -162,7 +204,12 @@ def is_noise_cluster(topic_id: Any) -> bool:
 
 def fetch_topic_counts(posts) -> Dict[Any, int]:
     pipeline = [
-        {"$match": {"topic_id": {"$nin": [None, ""]}, "topic_text": {"$nin": [None, ""]}}},
+        {
+            "$match": {
+                "topic_id": {"$nin": [None, ""]},
+                "topic_text": {"$nin": [None, ""]},
+            }
+        },
         {"$group": {"_id": "$topic_id", "count": {"$sum": 1}}},
     ]
     counts: Dict[Any, int] = {}
@@ -193,14 +240,18 @@ def percentile(values: List[int], pct: float) -> float:
     return float(lower + (upper - lower) * (k - f))
 
 
-def fetch_posts(posts, topic_id: Any, min_words: int, max_words_trim_percent: float) -> List[Dict[str, Any]]:
+def fetch_posts(
+    posts, topic_id: Any, min_words: int, max_words_trim_percent: float
+) -> List[Dict[str, Any]]:
     query = {"topic_id": topic_id, "topic_text": {"$nin": [None, ""]}}
     projection = {"_id": 0, "post_id": 1, "topic_text": 1, "score": 1, "created_utc": 1}
     docs = list(posts.find(query, projection))
     if min_words <= 0:
         filtered = docs
     else:
-        filtered = [doc for doc in docs if word_count(doc.get("topic_text") or "") >= min_words]
+        filtered = [
+            doc for doc in docs if word_count(doc.get("topic_text") or "") >= min_words
+        ]
 
     trim_percent = min(max(max_words_trim_percent, 0.0), 99.0)
     if trim_percent <= 0 or not filtered:
@@ -209,11 +260,15 @@ def fetch_posts(posts, topic_id: Any, min_words: int, max_words_trim_percent: fl
     counts = [word_count(doc.get("topic_text") or "") for doc in filtered]
     cutoff_pct = 100.0 - trim_percent
     cutoff = percentile(counts, cutoff_pct)
-    trimmed = [doc for doc in filtered if word_count(doc.get("topic_text") or "") <= cutoff]
+    trimmed = [
+        doc for doc in filtered if word_count(doc.get("topic_text") or "") <= cutoff
+    ]
     return trimmed or filtered
 
 
-def take_top_score(docs: List[Dict[str, Any]], n: int, taken: set[str]) -> List[Dict[str, Any]]:
+def take_top_score(
+    docs: List[Dict[str, Any]], n: int, taken: set[str]
+) -> List[Dict[str, Any]]:
     selected: List[Dict[str, Any]] = []
     for doc in sorted(docs, key=lambda d: int(d.get("score") or 0), reverse=True):
         if len(selected) >= n:
@@ -226,7 +281,9 @@ def take_top_score(docs: List[Dict[str, Any]], n: int, taken: set[str]) -> List[
     return selected
 
 
-def take_time_split(docs: List[Dict[str, Any]], n: int, taken: set[str]) -> List[Dict[str, Any]]:
+def take_time_split(
+    docs: List[Dict[str, Any]], n: int, taken: set[str]
+) -> List[Dict[str, Any]]:
     if n <= 0:
         return []
     ordered = sorted(docs, key=lambda d: int(d.get("created_utc") or 0))
@@ -350,7 +407,12 @@ def label_topic(
         prompt = render_prompt(prompt_path, payload)
         response = client.generate_text(prompt)
         if not response:
-            logger.warning("Empty response for topic_id %s (attempt %s/%s).", topic_id, attempt + 1, max_attempts)
+            logger.warning(
+                "Empty response for topic_id %s (attempt %s/%s).",
+                topic_id,
+                attempt + 1,
+                max_attempts,
+            )
         else:
             data = parse_response(response)
             if data:
@@ -365,7 +427,12 @@ def label_topic(
                     max_attempts,
                 )
             else:
-                logger.warning("Failed to parse JSON for topic_id %s (attempt %s/%s).", topic_id, attempt + 1, max_attempts)
+                logger.warning(
+                    "Failed to parse JSON for topic_id %s (attempt %s/%s).",
+                    topic_id,
+                    attempt + 1,
+                    max_attempts,
+                )
 
         attempt += 1
         if len(packed) <= 1:
@@ -403,12 +470,18 @@ def main() -> None:
             logger.info("No topic_id values found to label.")
             return
 
-        normal_topics = [tid for tid in counts if not is_noise_topic(tid) and not is_noise_cluster(tid)]
+        normal_topics = [
+            tid
+            for tid in counts
+            if not is_noise_topic(tid) and not is_noise_cluster(tid)
+        ]
         noise_topics = [tid for tid in counts if is_noise_cluster(tid)]
 
         if args.topic_id:
             if args.topic_id in counts:
-                normal_topics = [args.topic_id] if args.topic_id in normal_topics else []
+                normal_topics = (
+                    [args.topic_id] if args.topic_id in normal_topics else []
+                )
                 noise_topics = [args.topic_id] if args.topic_id in noise_topics else []
             else:
                 logger.info("topic_id %s not found.", args.topic_id)
@@ -430,7 +503,9 @@ def main() -> None:
 
         for topic_id in tqdm(normal_topics, desc="Label topics", unit="topic"):
             count = counts[topic_id]
-            docs = fetch_posts(store.posts, topic_id, args.min_words, args.max_words_trim_percent)
+            docs = fetch_posts(
+                store.posts, topic_id, args.min_words, args.max_words_trim_percent
+            )
             if not docs:
                 continue
 
@@ -474,7 +549,9 @@ def main() -> None:
         if noise_topics:
             min_noise = min(counts[tid] for tid in noise_topics)
             for topic_id in tqdm(noise_topics, desc="Label noise topics", unit="topic"):
-                docs = fetch_posts(store.posts, topic_id, args.min_words, args.max_words_trim_percent)
+                docs = fetch_posts(
+                    store.posts, topic_id, args.min_words, args.max_words_trim_percent
+                )
                 if not docs:
                     continue
                 sample = sample_non_dominant(docs, min_noise, rng)
@@ -512,5 +589,8 @@ def main() -> None:
 
 
 if __name__ == "__main__":
-    logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(name)s - %(levelname)s - %(message)s")
+    logging.basicConfig(
+        level=logging.INFO,
+        format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
+    )
     main()

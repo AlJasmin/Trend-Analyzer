@@ -21,15 +21,23 @@ class Step:
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Run the full pipeline in order.")
-    parser.add_argument("--python", default=sys.executable, help="Python executable to use")
-    parser.add_argument("--dry-run", action="store_true", help="Print commands without running")
+    parser.add_argument(
+        "--python", default=sys.executable, help="Python executable to use"
+    )
+    parser.add_argument(
+        "--dry-run", action="store_true", help="Print commands without running"
+    )
     parser.add_argument(
         "--continue-on-error",
         action="store_true",
         help="Continue after a failed step",
     )
-    parser.add_argument("--max-input-tokens", type=int, default=100000, help="LLM max input tokens")
-    parser.add_argument("--max-output-tokens", type=int, default=40000, help="LLM max output tokens")
+    parser.add_argument(
+        "--max-input-tokens", type=int, default=100000, help="LLM max input tokens"
+    )
+    parser.add_argument(
+        "--max-output-tokens", type=int, default=40000, help="LLM max output tokens"
+    )
     parser.add_argument(
         "--max-batches-per-request",
         type=int,
@@ -41,7 +49,10 @@ def parse_args() -> argparse.Namespace:
 
 def build_steps(args: argparse.Namespace) -> List[Step]:
     steps = [
-        Step("fetch", ["reddit/reddit_to_db.py", "--skip-existing", "--refresh-days", "7"]),
+        Step(
+            "fetch",
+            ["reddit/reddit_to_db.py", "--skip-existing", "--refresh-days", "7"],
+        ),
         Step("embeddings", ["processing/embeddings.py", "--force"]),
         Step(
             "plot_embeddings",
@@ -62,7 +73,7 @@ def build_steps(args: argparse.Namespace) -> List[Step]:
                 "modeling/ctfidf_topics.py",
                 "--output",
                 "reports/ctfidf_topics.csv",
-                "--top-n", 
+                "--top-n",
                 "12",
                 "--min-posts",
                 "5",
@@ -146,5 +157,8 @@ def main() -> None:
 
 
 if __name__ == "__main__":
-    logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(name)s - %(levelname)s - %(message)s")
+    logging.basicConfig(
+        level=logging.INFO,
+        format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
+    )
     main()

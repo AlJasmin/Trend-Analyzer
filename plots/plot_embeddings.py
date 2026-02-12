@@ -21,6 +21,7 @@ except ImportError:
 try:
     from tqdm import tqdm
 except ImportError:  # pragma: no cover - optional progress
+
     class _NullTqdm:
         def __init__(self, iterable=None, *args, **kwargs):
             self._iterable = iterable or []
@@ -43,14 +44,26 @@ logger = logging.getLogger(__name__)
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Plot stored embeddings with UMAP.")
-    parser.add_argument("--config", default=str(CONFIG_PATH), help="Path to settings.yaml")
-    parser.add_argument("--limit", type=int, default=None, help="Max number of posts to plot")
+    parser.add_argument(
+        "--config", default=str(CONFIG_PATH), help="Path to settings.yaml"
+    )
+    parser.add_argument(
+        "--limit", type=int, default=None, help="Max number of posts to plot"
+    )
     parser.add_argument("--skip", type=int, default=0, help="Skip N posts")
-    parser.add_argument("--sample", type=int, default=0, help="Random sample size (overrides limit)")
-    parser.add_argument("--plot-output", default="plots/embeddings.png", help="Output image path")
+    parser.add_argument(
+        "--sample", type=int, default=0, help="Random sample size (overrides limit)"
+    )
+    parser.add_argument(
+        "--plot-output", default="plots/embeddings.png", help="Output image path"
+    )
     parser.add_argument("--plot-seed", type=int, default=42, help="Random seed")
-    parser.add_argument("--umap-n-neighbors", type=int, default=30, help="UMAP n_neighbors")
-    parser.add_argument("--umap-min-dist", type=float, default=0.1, help="UMAP min_dist")
+    parser.add_argument(
+        "--umap-n-neighbors", type=int, default=30, help="UMAP n_neighbors"
+    )
+    parser.add_argument(
+        "--umap-min-dist", type=float, default=0.1, help="UMAP min_dist"
+    )
     parser.add_argument("--umap-metric", default="cosine", help="UMAP distance metric")
     parser.add_argument(
         "--umap-cluster-dim",
@@ -63,7 +76,9 @@ def parse_args() -> argparse.Namespace:
         action="store_true",
         help="Store UMAP coordinates (2D + cluster dim) in MongoDB",
     )
-    parser.add_argument("--batch-size", type=int, default=1000, help="Bulk write batch size")
+    parser.add_argument(
+        "--batch-size", type=int, default=1000, help="Bulk write batch size"
+    )
     return parser.parse_args()
 
 
@@ -111,7 +126,9 @@ def compute_umap(
     try:
         import umap
     except ImportError as exc:
-        raise SystemExit("umap-learn is required for plotting. Install it first.") from exc
+        raise SystemExit(
+            "umap-learn is required for plotting. Install it first."
+        ) from exc
 
     reducer = umap.UMAP(
         n_components=n_components,
@@ -132,7 +149,9 @@ def plot_umap(
     try:
         import matplotlib.pyplot as plt
     except ImportError as exc:
-        raise SystemExit("matplotlib is required for plotting. Install it first.") from exc
+        raise SystemExit(
+            "matplotlib is required for plotting. Install it first."
+        ) from exc
 
     unique_labels = sorted({label or "unknown" for label in labels})
     cmap = plt.get_cmap("tab10", max(len(unique_labels), 1))
@@ -142,10 +161,20 @@ def plot_umap(
     plt.figure(figsize=(9, 6))
     plt.scatter(coords[:, 0], coords[:, 1], c=colors, alpha=0.7, s=18)
     handles = [
-        plt.Line2D([], [], marker="o", linestyle="", color=color_map[label], label=label, markersize=6)
+        plt.Line2D(
+            [],
+            [],
+            marker="o",
+            linestyle="",
+            color=color_map[label],
+            label=label,
+            markersize=6,
+        )
         for label in unique_labels
     ]
-    plt.legend(handles=handles, title="subreddit", bbox_to_anchor=(1.02, 1), loc="upper left")
+    plt.legend(
+        handles=handles, title="subreddit", bbox_to_anchor=(1.02, 1), loc="upper left"
+    )
     plt.title("Topic text embeddings (UMAP)")
     plt.tight_layout()
 
@@ -252,11 +281,19 @@ def main() -> None:
             result = store.posts.bulk_write(updates, ordered=False)
             matched += result.matched_count
             modified += result.modified_count
-        logger.info("Stored UMAP coordinates for %s posts (matched=%s, modified=%s).", len(post_ids), matched, modified)
+        logger.info(
+            "Stored UMAP coordinates for %s posts (matched=%s, modified=%s).",
+            len(post_ids),
+            matched,
+            modified,
+        )
 
     store.close()
 
 
 if __name__ == "__main__":
-    logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(name)s - %(levelname)s - %(message)s")
+    logging.basicConfig(
+        level=logging.INFO,
+        format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
+    )
     main()

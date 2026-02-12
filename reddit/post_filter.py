@@ -3,10 +3,12 @@ Reddit post filters.
 
 This module contains classes for filtering and sorting Reddit posts.
 """
+
 import logging
 from datetime import datetime, timedelta
 from typing import List
 from .models import RedditPost
+
 
 class PostFilter:
     """Filters and processes Reddit posts based on various criteria."""
@@ -15,7 +17,9 @@ class PostFilter:
         """Initialize the post filter."""
         self.logger = logger_instance or logging.getLogger(__name__)
 
-    def filter_by_score(self, posts: List[RedditPost], min_score: int = 0) -> List[RedditPost]:
+    def filter_by_score(
+        self, posts: List[RedditPost], min_score: int = 0
+    ) -> List[RedditPost]:
         """
         Filter posts by minimum score.
 
@@ -27,10 +31,17 @@ class PostFilter:
             Filtered list of posts
         """
         filtered = [post for post in posts if post.score >= min_score]
-        self.logger.info("Filtered %s posts to %s with score >= %s", len(posts), len(filtered), min_score)
+        self.logger.info(
+            "Filtered %s posts to %s with score >= %s",
+            len(posts),
+            len(filtered),
+            min_score,
+        )
         return filtered
 
-    def filter_by_recency(self, posts: List[RedditPost], days: int = 7) -> List[RedditPost]:
+    def filter_by_recency(
+        self, posts: List[RedditPost], days: int = 7
+    ) -> List[RedditPost]:
         """
         Filter posts by recency.
 
@@ -43,10 +54,14 @@ class PostFilter:
         """
         cutoff = datetime.utcnow() - timedelta(days=days)
         filtered = [post for post in posts if post.created_utc >= cutoff]
-        self.logger.info("Filtered %s posts to %s from last %s days", len(posts), len(filtered), days)
+        self.logger.info(
+            "Filtered %s posts to %s from last %s days", len(posts), len(filtered), days
+        )
         return filtered
 
-    def filter_by_num_comments(self, posts: List[RedditPost], min_comments: int = 0) -> List[RedditPost]:
+    def filter_by_num_comments(
+        self, posts: List[RedditPost], min_comments: int = 0
+    ) -> List[RedditPost]:
         """
         Filter posts by minimum comment count.
 
@@ -66,7 +81,9 @@ class PostFilter:
         )
         return filtered
 
-    def filter_by_category(self, posts: List[RedditPost], categories: List[str]) -> List[RedditPost]:
+    def filter_by_category(
+        self, posts: List[RedditPost], categories: List[str]
+    ) -> List[RedditPost]:
         """
         Filter posts by category.
 
@@ -78,10 +95,17 @@ class PostFilter:
             Filtered list of posts
         """
         filtered = [post for post in posts if post.category in categories]
-        self.logger.info("Filtered %s posts to %s with categories %s", len(posts), len(filtered), categories)
+        self.logger.info(
+            "Filtered %s posts to %s with categories %s",
+            len(posts),
+            len(filtered),
+            categories,
+        )
         return filtered
 
-    def exclude_by_category(self, posts: List[RedditPost], excluded_categories: List[str]) -> List[RedditPost]:
+    def exclude_by_category(
+        self, posts: List[RedditPost], excluded_categories: List[str]
+    ) -> List[RedditPost]:
         """
         Exclude posts by category.
 
@@ -93,7 +117,12 @@ class PostFilter:
             Filtered list of posts
         """
         filtered = [post for post in posts if post.category not in excluded_categories]
-        self.logger.info("Filtered %s posts to %s excluding %s", len(posts), len(filtered), excluded_categories)
+        self.logger.info(
+            "Filtered %s posts to %s excluding %s",
+            len(posts),
+            len(filtered),
+            excluded_categories,
+        )
         return filtered
 
     def deduplicate(self, posts: List[RedditPost]) -> List[RedditPost]:
@@ -115,11 +144,15 @@ class PostFilter:
                 unique_posts.append(post)
 
         if len(posts) != len(unique_posts):
-            self.logger.info("Removed %s duplicate posts", len(posts) - len(unique_posts))
+            self.logger.info(
+                "Removed %s duplicate posts", len(posts) - len(unique_posts)
+            )
 
         return unique_posts
 
-    def sort_by_score(self, posts: List[RedditPost], descending: bool = True) -> List[RedditPost]:
+    def sort_by_score(
+        self, posts: List[RedditPost], descending: bool = True
+    ) -> List[RedditPost]:
         """
         Sort posts by score.
 
@@ -131,10 +164,14 @@ class PostFilter:
             Sorted list of posts
         """
         sorted_posts = sorted(posts, key=lambda p: p.score, reverse=descending)
-        self.logger.debug("Sorted %s posts by score (descending=%s)", len(posts), descending)
+        self.logger.debug(
+            "Sorted %s posts by score (descending=%s)", len(posts), descending
+        )
         return sorted_posts
 
-    def sort_by_recency(self, posts: List[RedditPost], descending: bool = True) -> List[RedditPost]:
+    def sort_by_recency(
+        self, posts: List[RedditPost], descending: bool = True
+    ) -> List[RedditPost]:
         """
         Sort posts by creation time.
 
@@ -146,7 +183,9 @@ class PostFilter:
             Sorted list of posts
         """
         sorted_posts = sorted(posts, key=lambda p: p.created_utc, reverse=descending)
-        self.logger.debug("Sorted %s posts by recency (descending=%s)", len(posts), descending)
+        self.logger.debug(
+            "Sorted %s posts by recency (descending=%s)", len(posts), descending
+        )
         return sorted_posts
 
     def get_top_n(self, posts: List[RedditPost], n: int) -> List[RedditPost]:

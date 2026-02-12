@@ -3,6 +3,7 @@ Reddit data fetchers.
 
 This module contains classes for fetching different types of Reddit data.
 """
+
 from typing import List, Optional
 import logging
 import re
@@ -43,6 +44,7 @@ def _filter_bot_comments(comments: List[dict]) -> List[dict]:
         logger.debug("Filtered %s suspected bot comments", removed)
     return filtered
 
+
 class PostFetcher:
     """Fetches Reddit posts and converts them to RedditPost objects."""
 
@@ -78,17 +80,16 @@ class PostFetcher:
             elif feed == "new":
                 submissions = self.client.get_new_posts(subreddit, limit)
             else:
-                raise ValueError(f"Unsupported feed '{feed}'. Use 'top', 'hot', or 'new'.")
+                raise ValueError(
+                    f"Unsupported feed '{feed}'. Use 'top', 'hot', or 'new'."
+                )
             return [RedditPost.from_praw(submission) for submission in submissions]
         except Exception as e:
             logger.error(f"Error fetching {feed} posts from r/{subreddit}: {e}")
             return []
 
     def fetch_top_posts(
-        self,
-        subreddit: str,
-        time_filter: str = "week",
-        limit: int = 100
+        self, subreddit: str, time_filter: str = "week", limit: int = 100
     ) -> List[RedditPost]:
         """Compatibility wrapper for legacy codepaths."""
         return self.fetch_posts(
@@ -125,24 +126,26 @@ class CommentFetcher:
         try:
             submission = self.client.get_submission(post_id)
             comments = []
-            
+
             # Ensure comments are loaded
             submission.comments.replace_more(limit=0)
-            
+
             # Get top-level comments
-            comment_iter = submission.comments if limit is None else submission.comments[:limit]
+            comment_iter = (
+                submission.comments if limit is None else submission.comments[:limit]
+            )
             for comment in comment_iter:
                 comment_dict = {
-                    'id': comment.id,
-                    'post_id': post_id,
-                    'author': str(comment.author),
-                    'body': comment.body,
-                    'score': comment.score,
-                    'created_utc': comment.created_utc
+                    "id": comment.id,
+                    "post_id": post_id,
+                    "author": str(comment.author),
+                    "body": comment.body,
+                    "score": comment.score,
+                    "created_utc": comment.created_utc,
                 }
                 comments.append(comment_dict)
                 self.stats["fetched"] += 1
-            
+
             comments = _filter_bot_comments(comments)
             if min_count is not None and len(comments) < min_count:
                 self.stats["skipped"] += 1

@@ -58,10 +58,18 @@ ARRAY_FIELDS = {
 
 
 def parse_args() -> argparse.Namespace:
-    parser = argparse.ArgumentParser(description="Report missing/null/empty field counts.")
-    parser.add_argument("--config", default=str(CONFIG_PATH), help="Path to settings.yaml")
-    parser.add_argument("--posts-only", action="store_true", help="Report only posts collection.")
-    parser.add_argument("--comments-only", action="store_true", help="Report only comments collection.")
+    parser = argparse.ArgumentParser(
+        description="Report missing/null/empty field counts."
+    )
+    parser.add_argument(
+        "--config", default=str(CONFIG_PATH), help="Path to settings.yaml"
+    )
+    parser.add_argument(
+        "--posts-only", action="store_true", help="Report only posts collection."
+    )
+    parser.add_argument(
+        "--comments-only", action="store_true", help="Report only comments collection."
+    )
     parser.add_argument(
         "--fields-posts",
         default="",
@@ -122,7 +130,9 @@ def _print_report(
         )
 
 
-def _run_report(store, collection_name: str, fields: List[str]) -> Optional[Dict[str, int]]:
+def _run_report(
+    store, collection_name: str, fields: List[str]
+) -> Optional[Dict[str, int]]:
     if not fields:
         return None
     array_fields = ARRAY_FIELDS.get(collection_name, set())
@@ -152,11 +162,16 @@ def main() -> None:
         if not args.posts_only:
             stats = _run_report(store, "comments", comments_fields)
             if stats:
-                _print_report("comments", comments_fields, stats, ARRAY_FIELDS["comments"])
+                _print_report(
+                    "comments", comments_fields, stats, ARRAY_FIELDS["comments"]
+                )
     finally:
         store.close()
 
 
 if __name__ == "__main__":
-    logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(name)s - %(levelname)s - %(message)s")
+    logging.basicConfig(
+        level=logging.INFO,
+        format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
+    )
     main()

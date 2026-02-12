@@ -15,8 +15,12 @@ from llm.openrouter_client import OpenRouterClient  # noqa: E402
 
 
 def parse_args() -> argparse.Namespace:
-    parser = argparse.ArgumentParser(description="Manual test for check_topics.j2 prompt.")
-    parser.add_argument("--config", default=str(CONFIG_PATH), help="Path to settings.yaml")
+    parser = argparse.ArgumentParser(
+        description="Manual test for check_topics.j2 prompt."
+    )
+    parser.add_argument(
+        "--config", default=str(CONFIG_PATH), help="Path to settings.yaml"
+    )
     parser.add_argument(
         "--prompt",
         default=str(REPO_ROOT / "llm" / "prompts" / "check_topics.j2"),
@@ -27,12 +31,18 @@ def parse_args() -> argparse.Namespace:
         action="store_true",
         help="Use compact prompt (post_id, matches, fit_score only)",
     )
-    parser.add_argument("--post-id", default=None, help="Load topic fields from DB by post_id")
+    parser.add_argument(
+        "--post-id", default=None, help="Load topic fields from DB by post_id"
+    )
     parser.add_argument("--topic-name", default=None, help="Topic name override")
-    parser.add_argument("--topic-description", default=None, help="Topic description override")
+    parser.add_argument(
+        "--topic-description", default=None, help="Topic description override"
+    )
     parser.add_argument("--topic-text", default=None, help="Topic text override")
     parser.add_argument("--text-file", default=None, help="Read topic_text from file")
-    parser.add_argument("--print-prompt", action="store_true", help="Print rendered prompt")
+    parser.add_argument(
+        "--print-prompt", action="store_true", help="Print rendered prompt"
+    )
     return parser.parse_args()
 
 
@@ -40,7 +50,9 @@ def render_prompt(template_path: Path, context: Dict[str, str]) -> str:
     try:
         from jinja2 import Template
     except ImportError as exc:
-        raise SystemExit("jinja2 is required to render prompts. Install it first.") from exc
+        raise SystemExit(
+            "jinja2 is required to render prompts. Install it first."
+        ) from exc
 
     raw = template_path.read_text(encoding="utf-8").strip()
     if not raw:
@@ -49,7 +61,9 @@ def render_prompt(template_path: Path, context: Dict[str, str]) -> str:
     return Template(raw).render(**context).strip()
 
 
-def build_entry(post_id: str, topic_name: str, topic_description: str, topic_text: str) -> Dict[str, str]:
+def build_entry(
+    post_id: str, topic_name: str, topic_description: str, topic_text: str
+) -> Dict[str, str]:
     return {
         "post_id": str(post_id),
         "topic_name": str(topic_name),
@@ -99,11 +113,15 @@ def main() -> None:
             raise SystemExit(f"post_id not found: {args.post_id}")
         post_id = str(doc.get("post_id") or args.post_id)
         topic_name = args.topic_name or str(doc.get("topic_name") or "")
-        topic_description = args.topic_description or str(doc.get("topic_description") or "")
+        topic_description = args.topic_description or str(
+            doc.get("topic_description") or ""
+        )
         topic_text = args.topic_text or str(doc.get("topic_text") or "")
 
     if not topic_text:
-        raise SystemExit("topic_text is required (use --topic-text, --text-file, or --post-id)")
+        raise SystemExit(
+            "topic_text is required (use --topic-text, --text-file, or --post-id)"
+        )
 
     entry = build_entry(post_id, topic_name, topic_description, topic_text)
     payload = dump_entries([entry])

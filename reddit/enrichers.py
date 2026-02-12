@@ -3,6 +3,7 @@ Reddit data enrichers.
 
 This module contains classes for enriching Reddit posts with additional data.
 """
+
 from typing import Optional, Dict, Any
 import logging
 from .models import RedditPost
@@ -14,12 +15,15 @@ logger = logging.getLogger(__name__)
 class ImageEnricher:
     """Enriches posts with image analysis."""
 
-    def __init__(self, db_client=None, embedder_model='clip'):
+    def __init__(self, db_client=None, embedder_model="clip"):
         from processing.no_meme_VLM import ImageEmbedder
         from modeling.image_topic_model import ImageTopicModeler
         from database.image_analysis import ImageAnalysisDB
+
         self.embedder = ImageEmbedder(model_name=embedder_model)
-        self.model_id = getattr(self.embedder, "model_id", None) or getattr(self.embedder, "model_name", "clip")
+        self.model_id = getattr(self.embedder, "model_id", None) or getattr(
+            self.embedder, "model_name", "clip"
+        )
         self.topic_modeler = ImageTopicModeler()
         self.db = db_client or ImageAnalysisDB()
         self.stats = {"analyzed": 0, "cached": 0}
@@ -30,7 +34,9 @@ class ImageEnricher:
             return False
         if url in self._processed_urls:
             return True
-        if hasattr(self.db, "has_embedding") and self.db.has_embedding(url, model=self.model_id):
+        if hasattr(self.db, "has_embedding") and self.db.has_embedding(
+            url, model=self.model_id
+        ):
             self._processed_urls.add(url)
             return True
         return False
@@ -40,15 +46,15 @@ class ImageEnricher:
             self._processed_urls.add(url)
 
     def enrich_post(
-        self,
-        post: RedditPost,
-        existing_post: Optional[Dict] = None
+        self, post: RedditPost, existing_post: Optional[Dict] = None
     ) -> RedditPost:
         """
         Enrich a post with image embedding and topic assignment.
         """
         # Only process image posts
-        if not hasattr(post, 'url') or not post.url.lower().endswith(('.jpg', '.png', '.gif', '.jpeg', '.webp')):
+        if not hasattr(post, "url") or not post.url.lower().endswith(
+            (".jpg", ".png", ".gif", ".jpeg", ".webp")
+        ):
             return post
 
         # Check cache first
@@ -87,10 +93,7 @@ class CommentEnricher:
         self.comment_fetcher = comment_fetcher
 
     def enrich_post(
-        self,
-        post: RedditPost,
-        fetch_mode: str,
-        limit: Optional[int] = None
+        self, post: RedditPost, fetch_mode: str, limit: Optional[int] = None
     ) -> RedditPost:
         """
         Enrich a post with comments based on fetch mode.

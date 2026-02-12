@@ -13,11 +13,13 @@ from llm.openrouter_client import OpenRouterClient  # noqa: E402
 
 logger = logging.getLogger(__name__)
 
-DEFAULT_TEXT = ("")
+DEFAULT_TEXT = ""
 
 
 def parse_args() -> argparse.Namespace:
-    parser = argparse.ArgumentParser(description="Test OpenRouter topic labeling prompt.")
+    parser = argparse.ArgumentParser(
+        description="Test OpenRouter topic labeling prompt."
+    )
     parser.add_argument("--text", default=None, help="Input text for the prompt")
     parser.add_argument("--text-file", default=None, help="Read input text from file")
     parser.add_argument(
@@ -32,7 +34,9 @@ def render_prompt(template_path: Path, context: dict) -> str:
     try:
         from jinja2 import Template
     except ImportError as exc:
-        raise SystemExit("jinja2 is required to render prompts. Install it first.") from exc
+        raise SystemExit(
+            "jinja2 is required to render prompts. Install it first."
+        ) from exc
 
     raw = template_path.read_text(encoding="utf-8").strip()
     if not raw:
@@ -63,5 +67,8 @@ def main() -> None:
 
 
 if __name__ == "__main__":
-    logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(name)s - %(levelname)s - %(message)s")
+    logging.basicConfig(
+        level=logging.INFO,
+        format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
+    )
     main()

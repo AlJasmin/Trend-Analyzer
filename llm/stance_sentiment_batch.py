@@ -19,6 +19,7 @@ from llm.openrouter_client import OpenRouterClient  # noqa: E402
 try:
     from tqdm import tqdm
 except ImportError:  # pragma: no cover - optional progress
+
     class _NullTqdm:
         def __init__(self, *args, **kwargs):
             return None
@@ -35,6 +36,7 @@ except ImportError:  # pragma: no cover - optional progress
     def tqdm(*args, **kwargs):
         return _NullTqdm()
 
+
 logger = logging.getLogger(__name__)
 
 DEFAULT_PROMPT = REPO_ROOT / "llm" / "prompts" / "stance_sentiment.txt"
@@ -46,11 +48,17 @@ def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
         description="Run stance and sentiment classification via OpenRouter."
     )
-    parser.add_argument("--input", help="JSONL/JSON input path with posts + comment lists")
+    parser.add_argument(
+        "--input", help="JSONL/JSON input path with posts + comment lists"
+    )
     parser.add_argument("--post", help="Single post text (with --comment)")
     parser.add_argument("--comment", help="Single comment text (with --post)")
-    parser.add_argument("--prompt", default=str(DEFAULT_PROMPT), help="Prompt template path")
-    parser.add_argument("--output", default=str(DEFAULT_OUTPUT), help="Output JSONL path")
+    parser.add_argument(
+        "--prompt", default=str(DEFAULT_PROMPT), help="Prompt template path"
+    )
+    parser.add_argument(
+        "--output", default=str(DEFAULT_OUTPUT), help="Output JSONL path"
+    )
     parser.add_argument(
         "--config",
         default=str(REPO_ROOT / "config" / "settings.yaml"),
@@ -58,12 +66,22 @@ def parse_args() -> argparse.Namespace:
     )
     parser.add_argument("--api-key", default=None, help="OpenRouter API key override")
     parser.add_argument("--model", default=None, help="OpenRouter model override")
-    parser.add_argument("--temperature", type=float, default=None, help="Sampling temperature override")
-    parser.add_argument("--max-output-tokens", type=int, default=None, help="Max output tokens override")
-    parser.add_argument("--timeout", type=float, default=None, help="Request timeout override")
-    parser.add_argument("--max-retries", type=int, default=None, help="Max retry count override")
+    parser.add_argument(
+        "--temperature", type=float, default=None, help="Sampling temperature override"
+    )
+    parser.add_argument(
+        "--max-output-tokens", type=int, default=None, help="Max output tokens override"
+    )
+    parser.add_argument(
+        "--timeout", type=float, default=None, help="Request timeout override"
+    )
+    parser.add_argument(
+        "--max-retries", type=int, default=None, help="Max retry count override"
+    )
     parser.add_argument("--system", default=DEFAULT_SYSTEM, help="System prompt")
-    parser.add_argument("--max-input-tokens", type=int, default=12000, help="Token budget per request")
+    parser.add_argument(
+        "--max-input-tokens", type=int, default=12000, help="Token budget per request"
+    )
     parser.add_argument(
         "--max-comments-per-batch",
         "--max-pairs-per-batch",
@@ -78,16 +96,26 @@ def parse_args() -> argparse.Namespace:
         default=1,
         help="Max post batches per request (0 = no limit)",
     )
-    parser.add_argument("--batch-delay-ms", type=int, default=0, help="Delay between requests in ms")
+    parser.add_argument(
+        "--batch-delay-ms", type=int, default=0, help="Delay between requests in ms"
+    )
     parser.add_argument(
         "--batch-delay-every",
         type=int,
         default=0,
         help="Apply delay every N requests (0 = every request)",
     )
-    parser.add_argument("--dry-run", action="store_true", help="Only show planned batches")
-    parser.add_argument("--append", action="store_true", help="Append to output JSONL instead of overwrite")
-    parser.add_argument("--debug-dir", default="", help="Optional dir for raw responses")
+    parser.add_argument(
+        "--dry-run", action="store_true", help="Only show planned batches"
+    )
+    parser.add_argument(
+        "--append",
+        action="store_true",
+        help="Append to output JSONL instead of overwrite",
+    )
+    parser.add_argument(
+        "--debug-dir", default="", help="Optional dir for raw responses"
+    )
     parser.add_argument(
         "--re-run",
         action="store_true",
@@ -474,7 +502,9 @@ def load_debug_posts(debug_dir: Path) -> List[Dict[str, Any]]:
             if isinstance(item, dict):
                 batches.append(item)
 
-    logger.info("Loaded %s debug batches from %s files.", len(batches), len(input_files))
+    logger.info(
+        "Loaded %s debug batches from %s files.", len(batches), len(input_files)
+    )
     return merge_post_batches(batches)
 
 
@@ -668,11 +698,18 @@ def main() -> None:
                 remaining_comments=remaining_comments,
             )
             progress.update(1)
-            maybe_sleep(batch_idx, int(args.batch_delay_ms or 0), int(args.batch_delay_every or 0))
+            maybe_sleep(
+                batch_idx,
+                int(args.batch_delay_ms or 0),
+                int(args.batch_delay_every or 0),
+            )
     finally:
         progress.close()
 
 
 if __name__ == "__main__":
-    logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(name)s - %(levelname)s - %(message)s")
+    logging.basicConfig(
+        level=logging.INFO,
+        format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
+    )
     main()

@@ -14,6 +14,7 @@ CONFIG_PATH = Path(__file__).resolve().parents[1] / "config" / "settings.yaml"
 try:
     from tqdm import tqdm
 except ImportError:  # pragma: no cover - optional progress
+
     class _NullTqdm:
         def __init__(self, iterable=None, *args, **kwargs):
             self._iterable = iterable or []
@@ -94,7 +95,9 @@ class MongoStore:
         self.posts.create_index([("snapshot_week", ASCENDING)])
 
         self.comments.create_index([("comment_id", ASCENDING)], unique=True)
-        self.comments.create_index([("post_id", ASCENDING), ("created_utc", DESCENDING)])
+        self.comments.create_index(
+            [("post_id", ASCENDING), ("created_utc", DESCENDING)]
+        )
         self.comments.create_index([("snapshot_week", ASCENDING)])
 
     def close(self) -> None:
@@ -108,7 +111,9 @@ class MongoStore:
             return False
 
         created_utc = to_epoch_seconds(doc.get("created_utc"))
-        snapshot_week = doc.get("snapshot_week") or snapshot_week_from_created_utc(created_utc)
+        snapshot_week = doc.get("snapshot_week") or snapshot_week_from_created_utc(
+            created_utc
+        )
 
         data = {
             "post_id": str(post_id),
@@ -144,7 +149,9 @@ class MongoStore:
             return False
 
         created_utc = to_epoch_seconds(doc.get("created_utc"))
-        snapshot_week = doc.get("snapshot_week") or snapshot_week_from_created_utc(created_utc)
+        snapshot_week = doc.get("snapshot_week") or snapshot_week_from_created_utc(
+            created_utc
+        )
 
         comment_text = doc.get("comment_text") or doc.get("body", "")
         comment_text_clean = doc.get("comment_text_clean") or doc.get("body_clean", "")
@@ -170,7 +177,9 @@ class MongoStore:
         self.comments.update_one({"comment_id": str(comment_id)}, update, upsert=True)
         return True
 
-    def upsert_posts_and_comments(self, posts: Iterable[Any], show_progress: bool = True) -> tuple[int, int]:
+    def upsert_posts_and_comments(
+        self, posts: Iterable[Any], show_progress: bool = True
+    ) -> tuple[int, int]:
         post_count = 0
         comment_count = 0
 

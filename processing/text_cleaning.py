@@ -11,14 +11,14 @@ MD_SYMBOLS_RE = re.compile(r"[*_~]")
 LINE_PREFIX_RE = re.compile(r"(?m)^[>\s#*\-\+]+\s*")
 EMOJI_RE = re.compile(
     "["
-    "\U0001F600-\U0001F64F"
-    "\U0001F300-\U0001F5FF"
-    "\U0001F680-\U0001F6FF"
-    "\U0001F1E0-\U0001F1FF"
-    "\U00002700-\U000027BF"
-    "\U0001F900-\U0001F9FF"
-    "\U0001FA70-\U0001FAFF"
-    "\U00002600-\U000026FF"
+    "\U0001f600-\U0001f64f"
+    "\U0001f300-\U0001f5ff"
+    "\U0001f680-\U0001f6ff"
+    "\U0001f1e0-\U0001f1ff"
+    "\U00002700-\U000027bf"
+    "\U0001f900-\U0001f9ff"
+    "\U0001fa70-\U0001faff"
+    "\U00002600-\U000026ff"
     "]+",
     flags=re.UNICODE,
 )

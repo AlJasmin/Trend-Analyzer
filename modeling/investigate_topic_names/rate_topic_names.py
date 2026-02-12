@@ -21,6 +21,7 @@ logger = logging.getLogger(__name__)
 try:
     from tqdm import tqdm
 except ImportError:  # pragma: no cover - optional progress
+
     class _NullTqdm:
         def __init__(self, iterable=None, *args, **kwargs):
             self._iterable = iterable or []
@@ -39,8 +40,12 @@ except ImportError:  # pragma: no cover - optional progress
 
 
 def parse_args() -> argparse.Namespace:
-    parser = argparse.ArgumentParser(description="Rate topic_name/description fit per post.")
-    parser.add_argument("--config", default=str(CONFIG_PATH), help="Path to settings.yaml")
+    parser = argparse.ArgumentParser(
+        description="Rate topic_name/description fit per post."
+    )
+    parser.add_argument(
+        "--config", default=str(CONFIG_PATH), help="Path to settings.yaml"
+    )
     parser.add_argument(
         "--prompt",
         default=str(REPO_ROOT / "llm" / "prompts" / "check_topics.j2"),
@@ -51,21 +56,38 @@ def parse_args() -> argparse.Namespace:
         action="store_true",
         help="Use compact prompt (post_id, matches, fit_score only)",
     )
-    parser.add_argument("--plot-output", default="plots/topic_name_ratings.png", help="Output plot path")
-    parser.add_argument("--dry-run", action="store_true", help="Do not store ratings in DB")
-    parser.add_argument("--max-input-tokens", type=int, default=20000, help="Max input tokens per LLM call")
+    parser.add_argument(
+        "--plot-output", default="plots/topic_name_ratings.png", help="Output plot path"
+    )
+    parser.add_argument(
+        "--dry-run", action="store_true", help="Do not store ratings in DB"
+    )
+    parser.add_argument(
+        "--max-input-tokens",
+        type=int,
+        default=20000,
+        help="Max input tokens per LLM call",
+    )
     parser.add_argument(
         "--batch-size",
         type=int,
         default=0,
         help="Max posts per LLM call (0 = no cap, only token budget)",
     )
-    parser.add_argument("--single-topic", default=None, help="Only rate posts from one topic_id")
-    parser.add_argument("--debug-output", default=None, help="Optional directory for raw LLM responses")
-    parser.add_argument("--max-retries", type=int, default=2, help="Retry splits when a batch fails")
+    parser.add_argument(
+        "--single-topic", default=None, help="Only rate posts from one topic_id"
+    )
+    parser.add_argument(
+        "--debug-output", default=None, help="Optional directory for raw LLM responses"
+    )
+    parser.add_argument(
+        "--max-retries", type=int, default=2, help="Retry splits when a batch fails"
+    )
     parser.add_argument("--limit", type=int, default=None, help="Max number of posts")
     parser.add_argument("--skip", type=int, default=0, help="Skip N posts")
-    parser.add_argument("--sample", type=int, default=0, help="Random sample size (overrides limit)")
+    parser.add_argument(
+        "--sample", type=int, default=0, help="Random sample size (overrides limit)"
+    )
     return parser.parse_args()
 
 
@@ -73,7 +95,9 @@ def render_prompt(template_path: Path, context: Dict[str, str]) -> str:
     try:
         from jinja2 import Template
     except ImportError as exc:
-        raise SystemExit("jinja2 is required to render prompts. Install it first.") from exc
+        raise SystemExit(
+            "jinja2 is required to render prompts. Install it first."
+        ) from exc
 
     raw = template_path.read_text(encoding="utf-8").strip()
     if not raw:
@@ -151,11 +175,14 @@ def pack_batches(
             continue
         candidate_docs = current + [doc]
         candidate_entries = [build_entry(item) for item in candidate_docs]
-        candidate_tokens = prompt_base_tokens - empty_payload_tokens + estimate_tokens(
-            dump_entries(candidate_entries)
+        candidate_tokens = (
+            prompt_base_tokens
+            - empty_payload_tokens
+            + estimate_tokens(dump_entries(candidate_entries))
         )
         if current and (
-            candidate_tokens > max_input_tokens or (batch_cap and len(candidate_docs) > batch_cap)
+            candidate_tokens > max_input_tokens
+            or (batch_cap and len(candidate_docs) > batch_cap)
         ):
             batches.append(current)
             current = [doc]
@@ -245,10 +272,16 @@ def main() -> None:
         }
         if args.single_topic:
             query["topic_id"] = args.single_topic
-        docs = list(iter_posts(store.posts, query, limit=args.limit, skip=args.skip, sample=args.sample))
+        docs = list(
+            iter_posts(
+                store.posts, query, limit=args.limit, skip=args.skip, sample=args.sample
+            )
+        )
         client = OpenRouterClient(config_path=Path(args.config))
         empty_payload = dump_entries([])
-        prompt_base_tokens = estimate_tokens(render_prompt(prompt_path, {"POSTS_JSON": empty_payload}))
+        prompt_base_tokens = estimate_tokens(
+            render_prompt(prompt_path, {"POSTS_JSON": empty_payload})
+        )
         empty_payload_tokens = estimate_tokens(empty_payload)
         scores: List[float] = []
         failures = 0
@@ -258,7 +291,9 @@ def main() -> None:
             for index, doc in enumerate(progress, start=1):
                 entry = build_entry(doc)
                 payload = dump_entries([entry])
-                prompt_tokens = prompt_base_tokens - empty_payload_tokens + estimate_tokens(payload)
+                prompt_tokens = (
+                    prompt_base_tokens - empty_payload_tokens + estimate_tokens(payload)
+                )
                 if prompt_tokens > args.max_input_tokens:
                     failures += 1
                     continue
@@ -266,11 +301,15 @@ def main() -> None:
                 response = client.generate_text(prompt)
                 if not response:
                     if debug_dir:
-                        (debug_dir / f"post_{index}_empty.txt").write_text("", encoding="utf-8")
+                        (debug_dir / f"post_{index}_empty.txt").write_text(
+                            "", encoding="utf-8"
+                        )
                     failures += 1
                     continue
                 if debug_dir:
-                    (debug_dir / f"post_{index}.txt").write_text(response, encoding="utf-8")
+                    (debug_dir / f"post_{index}.txt").write_text(
+                        response, encoding="utf-8"
+                    )
 
                 results = parse_batch_response(response)
                 if not results:
@@ -313,7 +352,9 @@ def main() -> None:
                 empty_payload_tokens=empty_payload_tokens,
                 batch_size=args.batch_size,
             )
-            queue: List[tuple[List[Dict[str, Any]], int]] = [(batch, 0) for batch in batches]
+            queue: List[tuple[List[Dict[str, Any]], int]] = [
+                (batch, 0) for batch in batches
+            ]
             progress = tqdm(total=len(queue), desc="Rate topics", unit="batch")
             batch_index = 0
             while queue:
@@ -325,7 +366,9 @@ def main() -> None:
                 response = client.generate_text(prompt)
                 if not response:
                     if debug_dir:
-                        (debug_dir / f"batch_{batch_index}_empty.txt").write_text("", encoding="utf-8")
+                        (debug_dir / f"batch_{batch_index}_empty.txt").write_text(
+                            "", encoding="utf-8"
+                        )
                     if depth < args.max_retries and len(batch) > 1:
                         mid = max(1, len(batch) // 2)
                         queue.append((batch[:mid], depth + 1))
@@ -337,11 +380,17 @@ def main() -> None:
                     progress.update(1)
                     continue
                 if debug_dir:
-                    (debug_dir / f"batch_{batch_index}.txt").write_text(response, encoding="utf-8")
+                    (debug_dir / f"batch_{batch_index}.txt").write_text(
+                        response, encoding="utf-8"
+                    )
 
                 results = parse_batch_response(response)
                 if not results:
-                    logger.warning("Empty parse for batch %s (first 200 chars): %s", batch_index, response[:200])
+                    logger.warning(
+                        "Empty parse for batch %s (first 200 chars): %s",
+                        batch_index,
+                        response[:200],
+                    )
                     if depth < args.max_retries and len(batch) > 1:
                         mid = max(1, len(batch) // 2)
                         queue.append((batch[:mid], depth + 1))
@@ -428,11 +477,15 @@ def main() -> None:
     try:
         import matplotlib.pyplot as plt
     except ImportError as exc:
-        raise SystemExit("matplotlib is required for plotting. Install it first.") from exc
+        raise SystemExit(
+            "matplotlib is required for plotting. Install it first."
+        ) from exc
 
     plt.figure(figsize=(9, 6))
     plt.hist(scores, bins=30, color="#4c72b0", alpha=0.8)
-    plt.axvline(avg_score, color="#c0392b", linestyle="--", label=f"mean={avg_score:.1f}")
+    plt.axvline(
+        avg_score, color="#c0392b", linestyle="--", label=f"mean={avg_score:.1f}"
+    )
     plt.xlabel("Topic name fit score")
     plt.ylabel("Post count")
     plt.title("Topic name rating distribution")
@@ -445,5 +498,8 @@ def main() -> None:
 
 
 if __name__ == "__main__":
-    logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(name)s - %(levelname)s - %(message)s")
+    logging.basicConfig(
+        level=logging.INFO,
+        format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
+    )
     main()

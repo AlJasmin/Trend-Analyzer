@@ -13,6 +13,7 @@ from typing import Any, Dict, List, Optional
 try:
     from tqdm import tqdm
 except ImportError:  # pragma: no cover - optional progress
+
     class _NullTqdm:
         def __init__(self, iterable=None, *args, **kwargs):
             self._iterable = iterable or []
@@ -31,6 +32,7 @@ except ImportError:  # pragma: no cover - optional progress
 
     def tqdm(iterable=None, **kwargs):
         return _NullTqdm(iterable, **kwargs)
+
 
 CONFIG = Path(__file__).resolve().parent.parent / "config" / "settings.yaml"
 REPO_ROOT = Path(__file__).resolve().parents[1]
@@ -103,7 +105,9 @@ def load_config() -> Dict[str, Any]:
     return {}
 
 
-def _load_subreddits_from_file(file_path: Optional[str], default_category: str = "general") -> List[Dict[str, str]]:
+def _load_subreddits_from_file(
+    file_path: Optional[str], default_category: str = "general"
+) -> List[Dict[str, str]]:
     if not file_path:
         return []
     path = Path(file_path)
@@ -140,7 +144,11 @@ def _normalize_subreddits(
     normalized: List[Dict[str, Any]] = []
     seen = set()
 
-    def _add_entry(name: Optional[str], category: Optional[str], fetch_override: Optional[Dict[str, Any]] = None):
+    def _add_entry(
+        name: Optional[str],
+        category: Optional[str],
+        fetch_override: Optional[Dict[str, Any]] = None,
+    ):
         if not name:
             return
         key = name.lower()
@@ -185,7 +193,9 @@ def _normalize_subreddits(
     return fallback
 
 
-def _merge_section(user_cfg: Optional[Dict[str, Any]], defaults: Dict[str, Any]) -> Dict[str, Any]:
+def _merge_section(
+    user_cfg: Optional[Dict[str, Any]], defaults: Dict[str, Any]
+) -> Dict[str, Any]:
     merged = defaults.copy()
     if not user_cfg:
         return merged
@@ -214,15 +224,27 @@ def _format_timestamp(value) -> str:
 
 def build_pipeline_config(cfg: Dict[str, Any]) -> Dict[str, Any]:
     pipeline_cfg = cfg.get("reddit_pipeline") or {}
-    fetch_defaults = _merge_section(pipeline_cfg.get("fetch_defaults"), DEFAULT_PIPELINE["fetch_defaults"])
-    subreddit_list_file = pipeline_cfg.get("subreddit_list_file") or DEFAULT_PIPELINE.get("subreddit_list_file")
+    fetch_defaults = _merge_section(
+        pipeline_cfg.get("fetch_defaults"), DEFAULT_PIPELINE["fetch_defaults"]
+    )
+    subreddit_list_file = pipeline_cfg.get(
+        "subreddit_list_file"
+    ) or DEFAULT_PIPELINE.get("subreddit_list_file")
     file_entries = _load_subreddits_from_file(subreddit_list_file)
-    subreddits = _normalize_subreddits(pipeline_cfg.get("subreddits"), file_entries, fetch_defaults)
+    subreddits = _normalize_subreddits(
+        pipeline_cfg.get("subreddits"), file_entries, fetch_defaults
+    )
     return {
         "subreddits": subreddits,
-        "filters": _merge_section(pipeline_cfg.get("filters"), DEFAULT_PIPELINE["filters"]),
-        "comments": _merge_section(pipeline_cfg.get("comments"), DEFAULT_PIPELINE["comments"]),
-        "logging": _merge_section(pipeline_cfg.get("logging"), DEFAULT_PIPELINE["logging"]),
+        "filters": _merge_section(
+            pipeline_cfg.get("filters"), DEFAULT_PIPELINE["filters"]
+        ),
+        "comments": _merge_section(
+            pipeline_cfg.get("comments"), DEFAULT_PIPELINE["comments"]
+        ),
+        "logging": _merge_section(
+            pipeline_cfg.get("logging"), DEFAULT_PIPELINE["logging"]
+        ),
         "fetch_defaults": fetch_defaults,
         "subreddit_list_file": subreddit_list_file,
     }
@@ -233,7 +255,9 @@ def apply_filters(posts, filters_cfg):
     if filters_cfg.get("min_score") is not None:
         posts = post_filter.filter_by_score(posts, int(filters_cfg["min_score"]))
     if filters_cfg.get("min_num_comments") is not None:
-        posts = post_filter.filter_by_num_comments(posts, int(filters_cfg["min_num_comments"]))
+        posts = post_filter.filter_by_num_comments(
+            posts, int(filters_cfg["min_num_comments"])
+        )
     if filters_cfg.get("recent_days"):
         posts = post_filter.filter_by_recency(posts, int(filters_cfg["recent_days"]))
     allowed = filters_cfg.get("allowed_categories") or []
@@ -261,7 +285,9 @@ def _get_attr(obj, key: str, default=None):
     return getattr(obj, key, default)
 
 
-def _filter_existing_posts(posts: List[Any], refresh_days: Optional[int] = None) -> List[Any]:
+def _filter_existing_posts(
+    posts: List[Any], refresh_days: Optional[int] = None
+) -> List[Any]:
     if not posts:
         return posts
 
@@ -422,7 +448,9 @@ def enrich_posts(posts, pipeline_cfg, comment_fetcher):
     return enriched
 
 
-def run_pipeline(skip_existing: bool = False, refresh_days: Optional[int] = None) -> tuple[List[Any], Dict[str, Any]]:
+def run_pipeline(
+    skip_existing: bool = False, refresh_days: Optional[int] = None
+) -> tuple[List[Any], Dict[str, Any]]:
     if refresh_days is not None and refresh_days <= 0:
         refresh_days = None
     if refresh_days is not None and not skip_existing:
@@ -497,9 +525,17 @@ def main():
     comment_preview_count = int(logging_cfg.get("comment_preview_count") or 0)
 
     for post in posts:
-        logger.info("r/%s [%s]: %s (score=%s)", post.subreddit, post.category, post.title, post.score)
+        logger.info(
+            "r/%s [%s]: %s (score=%s)",
+            post.subreddit,
+            post.category,
+            post.title,
+            post.score,
+        )
         if show_post_ts:
-            logger.info("  created_at=%s", _format_timestamp(getattr(post, "created_utc", None)))
+            logger.info(
+                "  created_at=%s", _format_timestamp(getattr(post, "created_utc", None))
+            )
 
         comments = getattr(post, "comments", []) or []
         if log_comment_count:
@@ -520,5 +556,8 @@ def main():
 
 
 if __name__ == "__main__":
-    logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(name)s - %(levelname)s - %(message)s")
+    logging.basicConfig(
+        level=logging.INFO,
+        format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
+    )
     main()
