@@ -362,6 +362,20 @@ graph LR
 
 ---
 
+## Dashboard Snippets
+
+![1770921624337](image/README/1770921624337.png)![1770921634410](image/README/1770921634410.png)
+
+![1770921651870](image/README/1770921651870.png)
+
+---
+
+## Poster
+
+![1770921430867](image/README/1770921430867.png)
+
+---
+
 ## License
 
-No license file is included yet.
+MIT License. See `LICENSE`.
