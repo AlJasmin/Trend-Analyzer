@@ -370,10 +370,33 @@ graph LR
 
 ---
 
-## Project Developers
 
-- @moeAimesh
-- @AlJasmin
+## Developers
+
+<table>
+  <tr>
+    <td align="center">
+      <a href="https://github.com/moeAimesh">
+        <img src="https://github.com/moeAimesh.png" width="80" alt="moeAimesh"/><br/>
+        <sub><b>moeAimesh</b></sub>
+      </a><br/>
+      <a href="https://github.com/moeAimesh">
+        <img src="https://img.shields.io/badge/GitHub-moeAimesh-black?logo=github" alt="GitHub badge"/>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/AlJasmin">
+        <img src="https://github.com/AlJasmin.png" width="80" alt="AlJasmin"/><br/>
+        <sub><b>AlJasmin</b></sub>
+      </a><br/>
+      <a href="https://github.com/AlJasmin">
+        <img src="https://img.shields.io/badge/GitHub-AlJasmin-black?logo=github" alt="GitHub badge"/>
+      </a>
+    </td>
+  </tr>
+</table>
+
+
 
 ## License
 
