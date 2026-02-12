@@ -280,43 +280,30 @@ Dashboard environment variables:
 ## Architecture / Data Flow
 
 ```mermaid
-flowchart LR
+graph LR
   A[Reddit API] --> B[reddit/reddit_to_db.py]
-  B --> C[(MongoDB<br/>posts + comments)]
-
+  B --> C[MongoDB posts and comments]
   C --> D[processing/embeddings.py]
   D --> C
-
   C --> E[plots/plot_embeddings.py]
   E --> P[plots/embeddings.png]
-
   C --> F[modeling/cluster.py]
   F --> C
-
   C --> G[modeling/cluster_noise.py]
   G --> C
-
   C --> H[modeling/ctfidf_topics.py]
   H --> I[reports/ctfidf_topics.csv]
-
   I --> J[llm/topic_label_batch.py]
   J --> K[reports/topic_label_results.csv]
-
   C --> L[llm/export_missing_stance_sentiment_jsonl.py]
   L --> M[llm/stance_sentiment_missing.jsonl]
-
   M --> N[llm/stance_sentiment_batch.py]
   N --> O[llm/stance_sentiment_results.jsonl]
-
   O --> Q[llm/save_sentiment_stance_db.py]
   Q --> C
-
   C --> R[processing/weights.py]
   R --> C
-
-  C --> S[dashboard (Next.js)]
-
-
+  C --> S[dashboard Nextjs]
 ```
 
 ---
