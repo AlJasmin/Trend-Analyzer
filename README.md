@@ -370,11 +370,10 @@ graph LR
 
 ---
 
-## Poster
+## Project Developers
 
-![1770921430867](image/README/1770921430867.png)
-
----
+- @moeAimesh
+- @AlJasmin
 
 ## License
 
