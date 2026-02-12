@@ -1,0 +1,73 @@
+# API Credentials
+reddit:
+  client_id: XCnVe87cDVFbnkuHo1GIKQ
+  client_secret: y7jV9PpsvZksT26-Oe71-oS5DA_-Kw
+  user_agent: global_trend_analyzer by u/No-Biscotti8980
+
+# Database
+mongodb:
+  uri: mongodb://localhost:27017
+  database: reddit_analyzer
+
+# Processing
+embeddings:
+  model: sentence-transformers/all-mpnet-base-v2
+  batch_size: 32
+  max_tokens: 512
+  chunk_overlap: 50
+
+openrouter:
+  api_key: "" #openrouter API KEYS 
+  model: xiaomi/mimo-v2-flash:free
+  temperature: 0.3
+  max_tokens: 40000
+  timeout: 60
+  referer: ""
+  app_name: TrendAnalyse
+
+# Paths
+data_dir: data
+raw_dir: data/raw
+processed_dir: data/processed
+reports_dir: reports
+
+# Scheduling
+update_interval: 3600  # seconds
+max_items_per_source: 100
+
+
+# Reddit ingestion
+#hot means 
+#Score: upvotes minus downvotes (with some weighting). Recency: newer posts get a boost so hot stays fresh. Activity/engagement: fast-growing vote counts or comment bursts help. Anti-spam adjustments: automod flags, duplicate detection, etc.
+
+
+
+reddit_pipeline:
+  subreddit_list_file: config/subreddits.txt
+  fetch_defaults:
+    feed: hot          # top, hot, new
+    time_filter: month
+    limit: 1000
+  subreddits: []
+
+  filters:
+    min_score: 0
+    min_num_comments: 10
+    recent_days: 30
+    allowed_categories: []
+    excluded_categories: []
+    sort_by: score        # score, recency, none
+    descending: true
+    top_n: 0
+
+  comments:
+    enabled: true
+    fetch_mode: true     # true, false, smart
+    limit: null
+    log_count: true
+
+  logging:
+    show_post_timestamp: true
+    show_comment_timestamp: true
+    comment_preview_count: 2
+
