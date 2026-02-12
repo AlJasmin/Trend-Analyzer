@@ -1,0 +1,13 @@
+{
+  "/page": "app/page.js",
+  "/api/overview/route": "app/api/overview/route.js",
+  "/api/umap-landscape/route": "app/api/umap-landscape/route.js",
+  "/api/trends/route": "app/api/trends/route.js",
+  "/api/topics/route": "app/api/topics/route.js",
+  "/api/stance-sentiment/route": "app/api/stance-sentiment/route.js",
+  "/api/leaderboard/route": "app/api/leaderboard/route.js",
+  "/api/topic-insights/route": "app/api/topic-insights/route.js",
+  "/api/polarization-timeline/route": "app/api/polarization-timeline/route.js",
+  "/api/sankey/route": "app/api/sankey/route.js",
+  "/api/subreddits/route": "app/api/subreddits/route.js"
+}

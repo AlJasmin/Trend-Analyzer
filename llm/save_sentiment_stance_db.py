@@ -5,7 +5,7 @@ import json
 import logging
 import sys
 from pathlib import Path
-from typing import Any, Dict, Iterable, Optional
+from typing import Any, Dict, Iterable, List, Optional
 
 from pymongo import UpdateOne
 
@@ -30,6 +30,21 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--config", default=str(CONFIG_PATH), help="Path to settings.yaml")
     parser.add_argument("--batch-size", type=int, default=1000, help="Bulk write batch size")
     parser.add_argument("--dry-run", action="store_true", help="Only show planned updates")
+    parser.add_argument(
+        "--only-missing",
+        action="store_true",
+        help="Only update comments where sentiment_label and stance_label are missing/empty.",
+    )
+    parser.add_argument(
+        "--report-missing",
+        action="store_true",
+        help="Write comment_ids from input that are missing in the DB",
+    )
+    parser.add_argument(
+        "--missing-output",
+        default="",
+        help="Output path for missing comment_ids (default: llm/missing_comment_ids.txt)",
+    )
     return parser.parse_args()
 
 
@@ -62,7 +77,7 @@ def parse_float(value: Any) -> Optional[float]:
         return None
 
 
-def build_update(row: Dict[str, Any]) -> Optional[UpdateOne]:
+def build_update(row: Dict[str, Any], *, only_missing: bool) -> Optional[UpdateOne]:
     comment_id = str(row.get("comment_id") or "").strip()
     if not comment_id:
         return None
@@ -86,7 +101,26 @@ def build_update(row: Dict[str, Any]) -> Optional[UpdateOne]:
     if not update:
         return None
 
-    return UpdateOne({"comment_id": comment_id}, {"$set": update}, upsert=False)
+    query: Dict[str, Any] = {"comment_id": comment_id}
+    if only_missing:
+        query["$and"] = [
+            {
+                "$or": [
+                    {"sentiment_label": {"$exists": False}},
+                    {"sentiment_label": None},
+                    {"sentiment_label": ""},
+                ]
+            },
+            {
+                "$or": [
+                    {"stance_label": {"$exists": False}},
+                    {"stance_label": None},
+                    {"stance_label": ""},
+                ]
+            },
+        ]
+
+    return UpdateOne(query, {"$set": update}, upsert=False)
 
 
 def flush_batch(collection, batch: list[UpdateOne], *, dry_run: bool) -> tuple[int, int]:
@@ -96,6 +130,29 @@ def flush_batch(collection, batch: list[UpdateOne], *, dry_run: bool) -> tuple[i
         return len(batch), 0
     result = collection.bulk_write(batch, ordered=False)
     return result.matched_count, result.modified_count
+
+
+def iter_chunks(items: List[str], size: int) -> Iterable[List[str]]:
+    for i in range(0, len(items), size):
+        yield items[i : i + size]
+
+
+def find_missing_comment_ids(
+    collection,
+    comment_ids: Iterable[str],
+    *,
+    chunk_size: int = 5000,
+) -> List[str]:
+    unique_ids = sorted({cid for cid in comment_ids if cid})
+    if not unique_ids:
+        return []
+
+    found: set[str] = set()
+    for chunk in iter_chunks(unique_ids, chunk_size):
+        for doc in collection.find({"comment_id": {"$in": chunk}}, {"comment_id": 1, "_id": 0}):
+            found.add(doc["comment_id"])
+
+    return [cid for cid in unique_ids if cid not in found]
 
 
 def main() -> None:
@@ -110,12 +167,17 @@ def main() -> None:
     total_updates = 0
     matched = 0
     modified = 0
+    seen_comment_ids: List[str] = []
 
     store = connect_from_config(Path(args.config))
+    missing_ids: Optional[List[str]] = None
     try:
         for row in iter_rows(input_path):
             total_rows += 1
-            update = build_update(row)
+            comment_id = str(row.get("comment_id") or "").strip()
+            if comment_id:
+                seen_comment_ids.append(comment_id)
+            update = build_update(row, only_missing=args.only_missing)
             if update is None:
                 continue
             updates.append(update)
@@ -139,8 +201,21 @@ def main() -> None:
             )
             matched += batch_matched
             modified += batch_modified
+        if args.report_missing:
+            missing_ids = find_missing_comment_ids(store.comments, seen_comment_ids)
     finally:
         store.close()
+
+    if args.report_missing:
+        missing_output = (
+            Path(args.missing_output)
+            if args.missing_output
+            else REPO_ROOT / "llm" / "missing_comment_ids.txt"
+        )
+        missing_ids = missing_ids or []
+        missing_output.parent.mkdir(parents=True, exist_ok=True)
+        missing_output.write_text("\n".join(missing_ids), encoding="utf-8")
+        logger.info("Missing comment_ids: %s (written to %s).", len(missing_ids), missing_output)
 
     if args.dry_run:
         logger.info("Scanned %s rows, prepared %s updates.", total_rows, total_updates)

@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import argparse
 import logging
 import re
 import sys
@@ -260,6 +261,83 @@ def _get_attr(obj, key: str, default=None):
     return getattr(obj, key, default)
 
 
+def _filter_existing_posts(posts: List[Any], refresh_days: Optional[int] = None) -> List[Any]:
+    if not posts:
+        return posts
+
+    try:
+        from db.store import connect_from_config, to_epoch_seconds  # type: ignore
+    except ImportError:
+        if str(REPO_ROOT) not in sys.path:
+            sys.path.append(str(REPO_ROOT))
+        from db.store import connect_from_config, to_epoch_seconds  # type: ignore
+
+    try:
+        store = connect_from_config()
+    except Exception as exc:
+        logger.warning("Skipping existing-post filter (db connect failed): %s", exc)
+        return posts
+
+    try:
+        post_ids = []
+        for post in posts:
+            post_id = _get_attr(post, "post_id") or _get_attr(post, "id")
+            if post_id:
+                post_ids.append(str(post_id))
+
+        if not post_ids:
+            return posts
+
+        existing = set(store.posts.distinct("post_id", {"post_id": {"$in": post_ids}}))
+        if not existing:
+            return posts
+
+        cutoff = None
+        if refresh_days is not None and refresh_days > 0:
+            cutoff = int(datetime.utcnow().timestamp()) - int(refresh_days) * 86400
+
+        kept = []
+        skipped = 0
+        refreshed = 0
+        for post in posts:
+            post_id = _get_attr(post, "post_id") or _get_attr(post, "id")
+            if not post_id:
+                kept.append(post)
+                continue
+            pid = str(post_id)
+            if pid not in existing:
+                kept.append(post)
+                continue
+            if cutoff is not None:
+                created = to_epoch_seconds(_get_attr(post, "created_utc"))
+                if created >= cutoff:
+                    kept.append(post)
+                    refreshed += 1
+                    continue
+            skipped += 1
+
+        if skipped:
+            if cutoff is not None:
+                logger.info(
+                    "Skipped %s existing posts (kept %s within %s day refresh window).",
+                    skipped,
+                    refreshed,
+                    refresh_days,
+                )
+            else:
+                logger.info("Skipped %s existing posts already in MongoDB.", skipped)
+
+        return kept
+    except Exception as exc:
+        logger.warning("Failed to filter existing posts: %s", exc)
+        return posts
+    finally:
+        try:
+            store.close()
+        except Exception:
+            pass
+
+
 def _normalize_comment_for_json(comment: Any) -> Dict[str, Any]:
     def fmt_ts(val):
         return _format_timestamp(val) if val else ""
@@ -344,7 +422,13 @@ def enrich_posts(posts, pipeline_cfg, comment_fetcher):
     return enriched
 
 
-def run_pipeline() -> tuple[List[Any], Dict[str, Any]]:
+def run_pipeline(skip_existing: bool = False, refresh_days: Optional[int] = None) -> tuple[List[Any], Dict[str, Any]]:
+    if refresh_days is not None and refresh_days <= 0:
+        refresh_days = None
+    if refresh_days is not None and not skip_existing:
+        skip_existing = True
+        logger.info("refresh_days set without skip_existing; enabling skip_existing.")
+
     cfg = load_config()
     pipeline_cfg = build_pipeline_config(cfg)
     client = RedditClient(config=cfg)
@@ -372,13 +456,38 @@ def run_pipeline() -> tuple[List[Any], Dict[str, Any]]:
         return [], pipeline_cfg
 
     posts = apply_filters(posts, pipeline_cfg["filters"])
+    if skip_existing:
+        posts = _filter_existing_posts(posts, refresh_days=refresh_days)
+        if not posts:
+            logger.info("No new posts to process after filtering existing posts.")
+            return [], pipeline_cfg
     posts = enrich_posts(posts, pipeline_cfg, comment_fetcher)
     posts = clean_posts(tqdm(posts, desc="Clean posts", unit="post"))
     return posts, pipeline_cfg
 
 
+def parse_args() -> argparse.Namespace:
+    parser = argparse.ArgumentParser(description="Run the Reddit scraping pipeline.")
+    parser.add_argument(
+        "--skip-existing",
+        action="store_true",
+        help="Skip posts that already exist in MongoDB.",
+    )
+    parser.add_argument(
+        "--refresh-days",
+        type=int,
+        default=None,
+        help="Allow re-fetch for posts newer than N days even if they exist in MongoDB.",
+    )
+    return parser.parse_args()
+
+
 def main():
-    posts, pipeline_cfg = run_pipeline()
+    args = parse_args()
+    posts, pipeline_cfg = run_pipeline(
+        skip_existing=args.skip_existing,
+        refresh_days=args.refresh_days,
+    )
     logger.info("Pipeline completed with %s posts.", len(posts))
     comments_cfg = pipeline_cfg.get("comments", {})
     log_comment_count = bool(comments_cfg.get("log_count"))

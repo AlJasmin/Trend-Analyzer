@@ -1,5 +1,6 @@
 ﻿from __future__ import annotations
 
+import argparse
 import logging
 import sys
 from pathlib import Path
@@ -18,8 +19,28 @@ except ImportError:
 logger = logging.getLogger(__name__)
 
 
+def parse_args() -> argparse.Namespace:
+    parser = argparse.ArgumentParser(description="Fetch Reddit posts and store them in MongoDB.")
+    parser.add_argument(
+        "--skip-existing",
+        action="store_true",
+        help="Skip posts that already exist in MongoDB.",
+    )
+    parser.add_argument(
+        "--refresh-days",
+        type=int,
+        default=None,
+        help="Allow re-fetch for posts newer than N days even if they exist in MongoDB.",
+    )
+    return parser.parse_args()
+
+
 def main() -> None:
-    posts, _ = run_pipeline()
+    args = parse_args()
+    posts, _ = run_pipeline(
+        skip_existing=args.skip_existing,
+        refresh_days=args.refresh_days,
+    )
     if not posts:
         logger.info("No posts fetched.")
         return

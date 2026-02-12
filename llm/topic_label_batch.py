@@ -17,6 +17,18 @@ from llm.openrouter_client import OpenRouterClient  # noqa: E402
 
 logger = logging.getLogger(__name__)
 
+RESULT_FIELDS = [
+    "batch_id",
+    "topic_id",
+    "chunk_id",
+    "topic_name",
+    "topic_description",
+    "confidence",
+    "representative_indices",
+    "status",
+    "error",
+]
+
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
@@ -63,6 +75,12 @@ def parse_args() -> argparse.Namespace:
         "--debug-dir",
         default="",
         help="Optional directory to write raw LLM responses",
+    )
+    parser.add_argument(
+        "--retry-missing",
+        type=int,
+        default=0,
+        help="Retry missing_result rows from the output CSV N times after the initial run.",
     )
     return parser.parse_args()
 
@@ -136,6 +154,86 @@ def load_posts(path: Path) -> Dict[Tuple[str, int], List[Dict[str, Any]]]:
     for key, entries in grouped.items():
         entries.sort(key=lambda item: item["post_index"])
     return grouped
+
+
+def load_results(path: Path) -> List[Dict[str, str]]:
+    if not path.exists():
+        return []
+    with path.open("r", encoding="utf-8", newline="") as fp:
+        reader = csv.DictReader(fp)
+        return [row for row in reader]
+
+
+def get_max_batch_id(path: Path) -> int:
+    rows = load_results(path)
+    max_id = 0
+    for row in rows:
+        raw = (row.get("batch_id") or "").strip()
+        try:
+            value = int(raw)
+        except ValueError:
+            continue
+        max_id = max(max_id, value)
+    return max_id
+
+
+def find_missing_keys(
+    rows: List[Dict[str, str]],
+    *,
+    topic_id_filter: Optional[str],
+    topic_ids_filter: Optional[List[str]],
+) -> List[Tuple[str, int]]:
+    ok_keys: set[Tuple[str, int]] = set()
+    missing_keys: set[Tuple[str, int]] = set()
+    for row in rows:
+        topic_id = (row.get("topic_id") or "").strip()
+        chunk_id_raw = (row.get("chunk_id") or "").strip()
+        if not topic_id or not chunk_id_raw:
+            continue
+        if topic_id_filter and topic_id != topic_id_filter:
+            continue
+        if topic_ids_filter and topic_id not in topic_ids_filter:
+            continue
+        try:
+            chunk_id = int(chunk_id_raw)
+        except ValueError:
+            continue
+        status = (row.get("status") or "").strip().lower()
+        error = (row.get("error") or "").strip().lower()
+        key = (topic_id, chunk_id)
+        if status == "ok":
+            ok_keys.add(key)
+        elif error == "missing_result":
+            missing_keys.add(key)
+    return sorted(missing_keys - ok_keys, key=lambda item: (item[0], item[1]))
+
+
+def build_items_for_keys(
+    keys: List[Tuple[str, int]],
+    chunks_meta: Dict[Tuple[str, int], Dict[str, Any]],
+    posts_by_chunk: Dict[Tuple[str, int], List[Dict[str, Any]]],
+) -> List[Dict[str, Any]]:
+    items: List[Dict[str, Any]] = []
+    for key in keys:
+        meta = chunks_meta.get(key)
+        entries = posts_by_chunk.get(key)
+        if not meta or not entries:
+            logger.warning("Missing chunk data for %s/%s; skipping retry.", key[0], key[1])
+            continue
+        block = build_chunk_block(
+            topic_id=key[0],
+            chunk_id=key[1],
+            ctfidf_terms=meta.get("ctfidf_terms", ""),
+            entries=entries,
+        )
+        items.append(
+            {
+                "topic_id": key[0],
+                "chunk_id": key[1],
+                "block": block,
+            }
+        )
+    return items
 
 
 def build_entry(entry: Dict[str, Any]) -> str:
@@ -312,24 +410,137 @@ def write_results(path: Path, rows: List[Dict[str, Any]], *, append: bool) -> No
     mode = "a" if append else "w"
     write_header = not append or not path.exists() or path.stat().st_size == 0
     with path.open(mode, encoding="utf-8", newline="") as fp:
-        writer = csv.DictWriter(
-            fp,
-            fieldnames=[
-                "batch_id",
-                "topic_id",
-                "chunk_id",
-                "topic_name",
-                "topic_description",
-                "confidence",
-                "representative_indices",
-                "status",
-                "error",
-            ],
-        )
+        writer = csv.DictWriter(fp, fieldnames=RESULT_FIELDS)
         if write_header:
             writer.writeheader()
         for row in rows:
             writer.writerow(row)
+
+
+def prune_resolved_missing(path: Path) -> int:
+    rows = load_results(path)
+    if not rows:
+        return 0
+    ok_keys: set[Tuple[str, int]] = set()
+    for row in rows:
+        topic_id = (row.get("topic_id") or "").strip()
+        chunk_id_raw = (row.get("chunk_id") or "").strip()
+        if not topic_id or not chunk_id_raw:
+            continue
+        try:
+            chunk_id = int(chunk_id_raw)
+        except ValueError:
+            continue
+        status = (row.get("status") or "").strip().lower()
+        if status == "ok":
+            ok_keys.add((topic_id, chunk_id))
+
+    if not ok_keys:
+        return 0
+
+    kept: List[Dict[str, str]] = []
+    removed = 0
+    for row in rows:
+        topic_id = (row.get("topic_id") or "").strip()
+        chunk_id_raw = (row.get("chunk_id") or "").strip()
+        status = (row.get("status") or "").strip().lower()
+        error = (row.get("error") or "").strip().lower()
+        key: Optional[Tuple[str, int]] = None
+        if topic_id and chunk_id_raw:
+            try:
+                key = (topic_id, int(chunk_id_raw))
+            except ValueError:
+                key = None
+
+        if (
+            key
+            and status == "error"
+            and error == "missing_result"
+            and key in ok_keys
+        ):
+            removed += 1
+            continue
+        kept.append(row)
+
+    if removed:
+        with path.open("w", encoding="utf-8", newline="") as fp:
+            writer = csv.DictWriter(fp, fieldnames=RESULT_FIELDS)
+            writer.writeheader()
+            for row in kept:
+                writer.writerow(row)
+    return removed
+
+
+def process_batches(
+    batches: List[Dict[str, Any]],
+    *,
+    client: OpenRouterClient,
+    debug_dir: Optional[Path],
+    max_output_tokens: Optional[int],
+    batch_offset: int = 0,
+) -> List[Dict[str, Any]]:
+    results: List[Dict[str, Any]] = []
+    for batch_idx, batch in enumerate(batches, start=1):
+        batch_id = batch_offset + batch_idx
+        prompt = batch["prompt"]
+        response = client.generate_text(
+            prompt,
+            system="You are an expert topic labeler.",
+            max_tokens=max_output_tokens,
+        )
+        if debug_dir:
+            debug_path = debug_dir / f"batch_{batch_id}.txt"
+            debug_path.write_text(response or "", encoding="utf-8")
+
+        parsed = parse_response(response)
+        parsed_map: Dict[Tuple[str, int], Dict[str, Any]] = {}
+        for item in parsed:
+            topic_id = str(item.get("topic_id") or "").strip()
+            chunk_id_raw = str(item.get("chunk_id") or "").strip()
+            if not topic_id or not chunk_id_raw:
+                continue
+            try:
+                chunk_id = int(chunk_id_raw)
+            except ValueError:
+                continue
+            parsed_map[(topic_id, chunk_id)] = item
+
+        for chunk in batch["chunks"]:
+            key = (chunk["topic_id"], int(chunk["chunk_id"]))
+            item = parsed_map.get(key)
+            if not item:
+                results.append(
+                    {
+                        "batch_id": batch_id,
+                        "topic_id": key[0],
+                        "chunk_id": key[1],
+                        "topic_name": "",
+                        "topic_description": "",
+                        "confidence": "",
+                        "representative_indices": "",
+                        "status": "error",
+                        "error": "missing_result",
+                    }
+                )
+                continue
+
+            rep_indices = item.get("representative_indices")
+            results.append(
+                {
+                    "batch_id": batch_id,
+                    "topic_id": key[0],
+                    "chunk_id": key[1],
+                    "topic_name": str(item.get("topic_name") or ""),
+                    "topic_description": str(item.get("topic_description") or ""),
+                    "confidence": str(item.get("confidence") or ""),
+                    "representative_indices": json.dumps(rep_indices)
+                    if isinstance(rep_indices, list)
+                    else str(rep_indices or ""),
+                    "status": "ok",
+                    "error": "",
+                }
+            )
+    return results
 
 
 def main() -> None:
@@ -376,71 +587,68 @@ def main() -> None:
     if debug_dir:
         debug_dir.mkdir(parents=True, exist_ok=True)
 
-    results: List[Dict[str, Any]] = []
-    for batch_idx, batch in enumerate(batches, start=1):
-        prompt = batch["prompt"]
-        response = client.generate_text(
-            prompt,
-            system="You are an expert topic labeler.",
-            max_tokens=args.max_output_tokens,
-        )
-        if debug_dir:
-            debug_path = debug_dir / f"batch_{batch_idx}.txt"
-            debug_path.write_text(response or "", encoding="utf-8")
-
-        parsed = parse_response(response)
-        parsed_map: Dict[Tuple[str, int], Dict[str, Any]] = {}
-        for item in parsed:
-            topic_id = str(item.get("topic_id") or "").strip()
-            chunk_id_raw = str(item.get("chunk_id") or "").strip()
-            if not topic_id or not chunk_id_raw:
-                continue
-            try:
-                chunk_id = int(chunk_id_raw)
-            except ValueError:
-                continue
-            parsed_map[(topic_id, chunk_id)] = item
-
-        for chunk in batch["chunks"]:
-            key = (chunk["topic_id"], int(chunk["chunk_id"]))
-            item = parsed_map.get(key)
-            if not item:
-                results.append(
-                    {
-                        "batch_id": batch_idx,
-                        "topic_id": key[0],
-                        "chunk_id": key[1],
-                        "topic_name": "",
-                        "topic_description": "",
-                        "confidence": "",
-                        "representative_indices": "",
-                        "status": "error",
-                        "error": "missing_result",
-                    }
-                )
-                continue
-
-            rep_indices = item.get("representative_indices")
-            results.append(
-                {
-                    "batch_id": batch_idx,
-                    "topic_id": key[0],
-                    "chunk_id": key[1],
-                    "topic_name": str(item.get("topic_name") or ""),
-                    "topic_description": str(item.get("topic_description") or ""),
-                    "confidence": str(item.get("confidence") or ""),
-                    "representative_indices": json.dumps(rep_indices)
-                    if isinstance(rep_indices, list)
-                    else str(rep_indices or ""),
-                    "status": "ok",
-                    "error": "",
-                }
-            )
-
+    results = process_batches(
+        batches,
+        client=client,
+        debug_dir=debug_dir,
+        max_output_tokens=args.max_output_tokens,
+        batch_offset=0,
+    )
     output_path = Path(args.output)
     append = args.append or bool(args.topic_id) or bool(args.topic_ids)
     write_results(output_path, results, append=append)
     logger.info("Wrote %s results to %s", len(results), output_path)
+
+    if args.retry_missing and args.retry_missing > 0:
+        for attempt in range(1, args.retry_missing + 1):
+            rows = load_results(output_path)
+            missing_keys = find_missing_keys(
+                rows,
+                topic_id_filter=args.topic_id,
+                topic_ids_filter=args.topic_ids,
+            )
+            if not missing_keys:
+                logger.info("No missing_result rows found for retry.")
+                break
+
+            retry_items = build_items_for_keys(missing_keys, chunks_meta, posts_by_chunk)
+            if not retry_items:
+                logger.info("No retryable chunks found.")
+                break
+
+            retry_batches = build_batches(
+                retry_items,
+                prompt_path=prompt_path,
+                max_input_tokens=args.max_input_tokens,
+                max_chunks_per_call=args.max_chunks_per_call,
+            )
+            if not retry_batches:
+                logger.info("No retry batches created.")
+                break
+
+            batch_offset = get_max_batch_id(output_path)
+            retry_results = process_batches(
+                retry_batches,
+                client=client,
+                debug_dir=debug_dir,
+                max_output_tokens=args.max_output_tokens,
+                batch_offset=batch_offset,
+            )
+            write_results(output_path, retry_results, append=True)
+            logger.info(
+                "Retry pass %s wrote %s results to %s.",
+                attempt,
+                len(retry_results),
+                output_path,
+            )
+
+    removed = prune_resolved_missing(output_path)
+    if removed:
+        logger.info(
+            "Removed %s resolved missing_result rows from %s.",
+            removed,
+            output_path,
+        )
 
 
 if __name__ == "__main__":

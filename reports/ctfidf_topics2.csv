@@ -1,0 +1,26 @@
+topic_id,post_count,top_terms,top_scores
+noise_1,22,water|carbon|methanol|emissions|environment|production|footprint|pollution|new|diets|plant|meat,0.037243|0.024725|0.022120|0.020106|0.018087|0.016833|0.016755|0.016188|0.011789|0.011060|0.010792|0.010053
+noise_3,699,think|time|work|know|human|data|things|does|humans|new|make|real,0.007552|0.007166|0.006421|0.005837|0.004931|0.004546|0.004012|0.003955|0.003900|0.003863|0.003844|0.003801
+topic_1,437,cities|city|countries|country|chicago|island|islands|south|region|world|coast|north,0.034000|0.033678|0.025447|0.019932|0.018197|0.014752|0.013887|0.011483|0.010537|0.010523|0.010010|0.009717
+topic_10,261,math|physics|algebra|mathematics|analysis|calculus|mathematical|chemistry|book|know|maths|number,0.030476|0.020114|0.014190|0.012903|0.010479|0.009993|0.009194|0.008850|0.008689|0.008446|0.008394|0.008225
+topic_12,32,hallucination|memory|architecture|language|context|questions|judgment|answer|hallucination rate|incorrect|know|flash,0.027844|0.019107|0.009115|0.008737|0.008147|0.007922|0.007778|0.007120|0.006643|0.006482|0.006379|0.006265
+topic_13,43,tesla|electric|car|sales|battery|self driving|vehicles|truck|driving|waymo|robotaxis|china,0.174553|0.053125|0.049941|0.045536|0.036212|0.032915|0.032915|0.030357|0.028016|0.027159|0.027159|0.024970
+topic_14,39,data centers|centers|data|heat|data center|space|center|water|earth|solar|energy|dissipate,0.085523|0.076228|0.072271|0.048926|0.038488|0.035136|0.025766|0.021082|0.020666|0.017494|0.017110|0.016695
+topic_16,40,gemini|cognitive|therapy|emotional|functioning|time|documented|structured|health|using|clinician|psychosis,0.027692|0.015408|0.014518|0.010593|0.009569|0.009114|0.009074|0.009074|0.008522|0.008412|0.007895|0.007895
+topic_17,80,nvidia|chip|pc|ces|samsung|windows|smart|2026|devices|ram|intel|price,0.032569|0.026647|0.023686|0.022757|0.022757|0.017765|0.016433|0.016261|0.015898|0.015898|0.015172|0.014844
+topic_18,20,laser|china|drones|defense|russian|iron|pentagon|ukrainian|troops|drone|cyber|government,0.057185|0.039433|0.038984|0.038984|0.033480|0.028593|0.028593|0.028593|0.028593|0.025989|0.025989|0.025252
+topic_19,35,generated|images|videos|slop|youtube|children|minors|safety|child|fake|line|black box,0.020415|0.019496|0.017499|0.016553|0.015259|0.013872|0.013826|0.013281|0.013124|0.010345|0.009710|0.009424
+topic_2,107,patient|patients|hospital|care|correction|dr|medical|article|health|medicine|blood|insurance,0.026622|0.021457|0.012802|0.012602|0.009671|0.009451|0.009136|0.008965|0.008391|0.008073|0.007450|0.007371
+topic_20,122,jobs|job|work|company|human|companies|bubble|ceo|need|labor|automation|humans,0.016558|0.010137|0.009337|0.008633|0.008525|0.008143|0.007622|0.007502|0.007485|0.007406|0.006396|0.006385
+topic_21,28,grok|images|generating|women|sexual|musk|users|xai|content|victims|porn|deepfakes,0.252324|0.100399|0.056983|0.050199|0.045462|0.042621|0.039013|0.036617|0.027383|0.026468|0.026468|0.026468
+topic_22,17,foreign|trump|order|executive order|states|eu|executive|corrupt|1b|fcc|visa|threatens,0.052880|0.050021|0.043039|0.041822|0.040017|0.033673|0.031728|0.030675|0.030675|0.027882|0.025715|0.025715
+topic_23,24,data|epstein|breach|brokers|shooting|brown|files|premium|million|hackers|epstein files|white,0.085483|0.065823|0.065823|0.049367|0.044872|0.041385|0.038537|0.038537|0.033730|0.032911|0.032911|0.032201
+topic_24,22,ban|social media|australia|phone|media|social|school|florida|france|teens|verification|gun,0.082041|0.073639|0.066098|0.063810|0.063759|0.058370|0.044515|0.036048|0.036048|0.036048|0.036048|0.029023
+topic_26,26,good|best|news|visibility|real|paper|cases|workflow|work|need|writing|curious,0.012085|0.010065|0.010009|0.008548|0.008530|0.008252|0.008246|0.008008|0.007819|0.007710|0.007407|0.007401
+topic_27,24,recipient|information|entropy|intelligence|consciousness|conscious|human|artificial intelligence|artificial|humans|behavior|does,0.033612|0.028508|0.028444|0.027216|0.025575|0.018095|0.013493|0.011988|0.010918|0.009931|0.009107|0.008674
+topic_28,32,slop|things|human|maybe|time|agi|pro|writing|word|jobs|way|think,0.013817|0.011176|0.010303|0.008382|0.007662|0.007419|0.007121|0.006573|0.006350|0.006350|0.006119|0.006011
+topic_3,161,study|risk|symptoms|women|adhd|men|weight|sleep|fat|cancer|disease|new,0.020042|0.013689|0.012950|0.012895|0.010905|0.010905|0.010652|0.010607|0.010570|0.010076|0.009520|0.009244
+topic_30,22,thinking|think|faster|trap|work|feels|feel|lately|saves time|changing|things|curious,0.023325|0.022299|0.021906|0.015884|0.014181|0.013120|0.012892|0.012828|0.012402|0.011514|0.011187|0.010738
+topic_5,101,water|bleach|crystals|pan|smell|energy|chemicals|balls|chemical|heat|plastic|cooking,0.036825|0.015907|0.015907|0.015907|0.015002|0.014265|0.013969|0.011930|0.011641|0.010969|0.010001|0.009942
+topic_6,36,dna|animals|eyes|humans|selection|pressure|biology|evolution|hair|know|biological|species,0.025471|0.024154|0.022216|0.021063|0.016980|0.013709|0.013703|0.012760|0.012760|0.012557|0.011963|0.011963
+topic_7,299,job|work|cs|time|tech|company|years|team|software|career|experience|swe,0.022124|0.012917|0.011739|0.010698|0.009814|0.009522|0.009356|0.009211|0.008594|0.008367|0.007736|0.007649
