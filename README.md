@@ -1,4 +1,4 @@
-# Trend-Analyzer (Reddit Discourse & Topic Pipeline)
+# Reddit Analyser
 
 ## Motivation
 
