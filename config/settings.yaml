@@ -1,8 +1,8 @@
 # API Credentials
 reddit:
-  client_id: XCnVe87cDVFbnkuHo1GIKQ
-  client_secret: y7jV9PpsvZksT26-Oe71-oS5DA_-Kw
-  user_agent: global_trend_analyzer by u/No-Biscotti8980
+  client_id: 
+  client_secret: 
+  user_agent: 
 
 # Database
 mongodb:
