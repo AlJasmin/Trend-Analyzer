@@ -17,8 +17,7 @@ load_dotenv()
 
 # Configure logging
 logging.basicConfig(
-    level=logging.INFO,
-    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+    level=logging.INFO, format="%(asctime)s - %(name)s - %(levelname)s - %(message)s"
 )
 logger = logging.getLogger(__name__)
 
@@ -36,12 +35,24 @@ class RedditClient:
     ):
         """Initialize the Reddit API client using provided credentials or fallbacks."""
         config_creds = (config or {}).get("reddit", {}) if config else {}
-        client_id = client_id or config_creds.get("client_id") or os.getenv("REDDIT_CLIENT_ID")
-        client_secret = client_secret or config_creds.get("client_secret") or os.getenv("REDDIT_CLIENT_SECRET")
-        user_agent = user_agent or config_creds.get("user_agent") or os.getenv("REDDIT_USER_AGENT")
+        client_id = (
+            client_id or config_creds.get("client_id") or os.getenv("REDDIT_CLIENT_ID")
+        )
+        client_secret = (
+            client_secret
+            or config_creds.get("client_secret")
+            or os.getenv("REDDIT_CLIENT_SECRET")
+        )
+        user_agent = (
+            user_agent
+            or config_creds.get("user_agent")
+            or os.getenv("REDDIT_USER_AGENT")
+        )
 
         if not all([client_id, client_secret, user_agent]):
-            raise ValueError("Reddit API credentials not found in environment variables or config settings.")
+            raise ValueError(
+                "Reddit API credentials not found in environment variables or config settings."
+            )
 
         # Initialize PRAW Reddit instance
         self.reddit = praw.Reddit(
@@ -81,7 +92,9 @@ class RedditClient:
         """
         return self.reddit.submission(id=post_id)
 
-    def get_top_posts(self, subreddit_name: str, time_filter: str = "week", limit: int = 30):
+    def get_top_posts(
+        self, subreddit_name: str, time_filter: str = "week", limit: int = 30
+    ):
         """
         Get top posts from a subreddit.
 

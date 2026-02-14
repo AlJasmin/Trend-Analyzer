@@ -1,0 +1,34 @@
+topic_id,chunk_id,post_count,near_count,far_count,token_estimate,cluster_token_sum,ctfidf_terms
+noise_1,1,22,20,2,3182,3182,water|carbon|methanol|emissions|environment|production|footprint|pollution|new|diets|plant|meat
+noise_2,1,11,11,0,2328,2328,
+noise_3,1,25,20,5,2483,2483,think|time|work|know|human|data|things|does|humans|new|make|real
+topic_1,1,25,20,5,1645,1645,cities|city|countries|country|chicago|island|islands|south|region|world|coast|north
+topic_10,1,25,20,5,5042,5042,math|physics|algebra|mathematics|analysis|calculus|mathematical|chemistry|book|know|maths|number
+topic_11,1,8,8,0,701,701,
+topic_12,1,25,20,5,10059,10059,hallucination|memory|architecture|language|context|questions|judgment|answer|hallucination rate|incorrect|know|flash
+topic_13,1,25,20,5,1193,1193,tesla|electric|car|sales|battery|self driving|vehicles|truck|driving|waymo|robotaxis|china
+topic_14,1,25,20,5,2058,2058,data centers|centers|data|heat|data center|space|center|water|earth|solar|energy|dissipate
+topic_15,1,10,10,0,760,760,
+topic_16,1,25,20,5,4357,4357,gemini|cognitive|therapy|emotional|functioning|time|documented|structured|health|using|clinician|psychosis
+topic_17,1,25,20,5,1495,1495,nvidia|chip|pc|ces|samsung|windows|smart|2026|devices|ram|intel|price
+topic_18,1,20,20,0,1269,1269,laser|china|drones|defense|russian|iron|pentagon|ukrainian|troops|drone|cyber|government
+topic_19,1,25,20,5,1686,1686,generated|images|videos|slop|youtube|children|minors|safety|child|fake|line|black box
+topic_2,1,25,20,5,4766,4766,patient|patients|hospital|care|correction|dr|medical|article|health|medicine|blood|insurance
+topic_20,1,25,20,5,2315,2315,jobs|job|work|company|human|companies|bubble|ceo|need|labor|automation|humans
+topic_21,1,25,20,5,1291,1291,grok|images|generating|women|sexual|musk|users|xai|content|victims|porn|deepfakes
+topic_22,1,17,17,0,1185,1185,foreign|trump|order|executive order|states|eu|executive|corrupt|1b|fcc|visa|threatens
+topic_23,1,24,20,4,1282,1282,data|epstein|breach|brokers|shooting|brown|files|premium|million|hackers|epstein files|white
+topic_24,1,22,20,2,1271,1271,ban|social media|australia|phone|media|social|school|florida|france|teens|verification|gun
+topic_25,1,9,9,0,1881,1881,
+topic_26,1,25,20,5,6317,6317,good|best|news|visibility|real|paper|cases|workflow|work|need|writing|curious
+topic_27,1,24,20,4,9828,9828,recipient|information|entropy|intelligence|consciousness|conscious|human|artificial intelligence|artificial|humans|behavior|does
+topic_28,1,25,20,5,8831,8831,slop|things|human|maybe|time|agi|pro|writing|word|jobs|way|think
+topic_29,1,10,10,0,2227,2227,
+topic_3,1,25,20,5,2195,2195,study|risk|symptoms|women|adhd|men|weight|sleep|fat|cancer|disease|new
+topic_30,1,22,20,2,3877,3877,thinking|think|faster|trap|work|feels|feel|lately|saves time|changing|things|curious
+topic_4,1,9,9,0,860,860,
+topic_5,1,25,20,5,2246,2246,water|bleach|crystals|pan|smell|energy|chemicals|balls|chemical|heat|plastic|cooking
+topic_6,1,25,20,5,4365,4365,dna|animals|eyes|humans|selection|pressure|biology|evolution|hair|know|biological|species
+topic_7,1,25,20,5,7416,7416,job|work|cs|time|tech|company|years|team|software|career|experience|swe
+topic_8,1,14,14,0,1067,1067,
+topic_9,1,10,10,0,2096,2096,

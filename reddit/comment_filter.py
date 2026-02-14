@@ -66,7 +66,7 @@ class CommentFilter:
         """
         filtered = []
         for comment in comments:
-            body = comment.get('body', '')
+            body = comment.get("body", "")
             if not CommentFilter.is_bot_comment(body):
                 filtered.append(comment)
         removed = len(comments) - len(filtered)
@@ -86,7 +86,7 @@ class CommentFilter:
         Returns:
             Filtered list of comments
         """
-        filtered = [c for c in comments if len(c.get('body', '')) >= min_length]
+        filtered = [c for c in comments if len(c.get("body", "")) >= min_length]
         removed = len(comments) - len(filtered)
         if removed:
             logger.debug("Dropped %s short comments (< %s chars)", removed, min_length)

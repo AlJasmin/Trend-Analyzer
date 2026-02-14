@@ -1,0 +1,2444 @@
+```json
+[
+  {
+    "post_id": "1q4mcyx",
+    "comment_id": "nxttbzr",
+    "sentiment": "negative",
+    "stance": "disagree",
+    "confidence": 0.95,
+    "rationale": "Calls product claims bullshit"
+  },
+  {
+    "post_id": "1q4mcyx",
+    "comment_id": "nxtrdhg",
+    "sentiment": "negative",
+    "stance": "disagree",
+    "confidence": 0.95,
+    "rationale": "Dislikes wearables and biometrics"
+  },
+  {
+    "post_id": "1q4mcyx",
+    "comment_id": "nxtmavn",
+    "sentiment": "neutral",
+    "stance": "unclear",
+    "confidence": 0.5,
+    "rationale": "Off-topic joke comment"
+  },
+  {
+    "post_id": "1q4mcyx",
+    "comment_id": "nxtk42g",
+    "sentiment": "positive",
+    "stance": "partial",
+    "confidence": 0.85,
+    "rationale": "Likes wearables but not smart rings"
+  },
+  {
+    "post_id": "1q4mcyx",
+    "comment_id": "nxtjgjz",
+    "sentiment": "negative",
+    "stance": "disagree",
+    "confidence": 0.95,
+    "rationale": "Explicitly rejects the post"
+  },
+  {
+    "post_id": "1q4mcyx",
+    "comment_id": "nxtj6kw",
+    "sentiment": "positive",
+    "stance": "agree",
+    "confidence": 0.9,
+    "rationale": "Shares positive experience with smart rings"
+  },
+  {
+    "post_id": "1q4mcyx",
+    "comment_id": "nxtie1t",
+    "sentiment": "neutral",
+    "stance": "unclear",
+    "confidence": 0.4,
+    "rationale": "Vague comment, unclear stance"
+  },
+  {
+    "post_id": "1q4mcyx",
+    "comment_id": "nxti8jf",
+    "sentiment": "negative",
+    "stance": "disagree",
+    "confidence": 0.9,
+    "rationale": "Sarcastic, dismisses trend as annoying slop"
+  },
+  {
+    "post_id": "1q4mcyx",
+    "comment_id": "nxth4c4",
+    "sentiment": "negative",
+    "stance": "disagree",
+    "confidence": 0.95,
+    "rationale": "Cites costs as reasons to reject"
+  },
+  {
+    "post_id": "1q4mcyx",
+    "comment_id": "nxtgdin",
+    "sentiment": "negative",
+    "stance": "disagree",
+    "confidence": 0.95,
+    "rationale": "Rejects need for smart devices"
+  },
+  {
+    "post_id": "1pmv7os",
+    "comment_id": "nuxhal0",
+    "sentiment": "neutral",
+    "stance": "agree",
+    "confidence": 0.8,
+    "rationale": "Explains proof mechanics, supports logic"
+  },
+  {
+    "post_id": "1pmv7os",
+    "comment_id": "nuw3z48",
+    "sentiment": "neutral",
+    "stance": "agree",
+    "confidence": 0.9,
+    "rationale": "Directly addresses and refutes OP's errors"
+  },
+  {
+    "post_id": "1pmv7os",
+    "comment_id": "nugstbj",
+    "sentiment": "neutral",
+    "stance": "agree",
+    "confidence": 0.9,
+    "rationale": "Corrects OP's rotation mapping error"
+  },
+  {
+    "post_id": "1pmv7os",
+    "comment_id": "nu91ayb",
+    "sentiment": "neutral",
+    "stance": "agree",
+    "confidence": 0.9,
+    "rationale": "Clarifies proof applies to any enumeration"
+  },
+  {
+    "post_id": "1pmv7os",
+    "comment_id": "nu8zcie",
+    "sentiment": "neutral",
+    "stance": "agree",
+    "confidence": 0.9,
+    "rationale": "Directly answers OP's specific questions"
+  },
+  {
+    "post_id": "1pmv7os",
+    "comment_id": "nu8ohae",
+    "sentiment": "neutral",
+    "stance": "agree",
+    "confidence": 0.7,
+    "rationale": "Abstract proof supports Cantor's conclusion"
+  },
+  {
+    "post_id": "1pmv7os",
+    "comment_id": "nu8du3b",
+    "sentiment": "neutral",
+    "stance": "agree",
+    "confidence": 0.9,
+    "rationale": "Identifies flaw in OP's decimal rotation idea"
+  },
+  {
+    "post_id": "1pmv7os",
+    "comment_id": "nu87anv",
+    "sentiment": "neutral",
+    "stance": "agree",
+    "confidence": 0.9,
+    "rationale": "Explains why OP's list doesn't exhaust reals"
+  },
+  {
+    "post_id": "1pmv7os",
+    "comment_id": "nu72nk2",
+    "sentiment": "neutral",
+    "stance": "agree",
+    "confidence": 0.85,
+    "rationale": "Explains nuances of Cantor's actual proof"
+  },
+  {
+    "post_id": "1pmv7os",
+    "comment_id": "nu5o3bm",
+    "sentiment": "neutral",
+    "stance": "unclear",
+    "confidence": 0.4,
+    "rationale": "Suggestion, not a stance on the proof"
+  },
+  {
+    "post_id": "1pmv7os",
+    "comment_id": "nu5aegx",
+    "sentiment": "neutral",
+    "stance": "agree",
+    "confidence": 0.8,
+    "rationale": "Rephrases proof to show non-surjectivity"
+  },
+  {
+    "post_id": "1pmv7os",
+    "comment_id": "nu4cbgn",
+    "sentiment": "neutral",
+    "stance": "unclear",
+    "confidence": 0.3,
+    "rationale": "Meta request for clarification, no stance"
+  },
+  {
+    "post_id": "1pmv7os",
+    "comment_id": "nu3miwn",
+    "sentiment": "neutral",
+    "stance": "agree",
+    "confidence": 0.9,
+    "rationale": "Explains OP's misunderstanding of enumeration"
+  },
+  {
+    "post_id": "1pmv7os",
+    "comment_id": "nu3b3bm",
+    "sentiment": "neutral",
+    "stance": "agree",
+    "confidence": 0.8,
+    "rationale": "Corrects OP's dynamic thinking error"
+  },
+  {
+    "post_id": "1pmv7os",
+    "comment_id": "nu38trt",
+    "sentiment": "neutral",
+    "stance": "agree",
+    "confidence": 0.8,
+    "rationale": "Uses finite analogy to explain proof"
+  },
+  {
+    "post_id": "1pmv7os",
+    "comment_id": "nu37zpb",
+    "sentiment": "neutral",
+    "stance": "agree",
+    "confidence": 0.9,
+    "rationale": "Detailed explanation of infinite decimals"
+  },
+  {
+    "post_id": "1pmv7os",
+    "comment_id": "nu36ptf",
+    "sentiment": "negative",
+    "stance": "disagree",
+    "confidence": 0.9,
+    "rationale": "Explicitly rejects the proof's validity"
+  },
+  {
+    "post_id": "1pmv7os",
+    "comment_id": "nu33gai",
+    "sentiment": "negative",
+    "stance": "disagree",
+    "confidence": 0.9,
+    "rationale": "Rejects proof based on impossibility of infinite tasks"
+  },
+  {
+    "post_id": "1pmv7os",
+    "comment_id": "nu33biu",
+    "sentiment": "neutral",
+    "stance": "agree",
+    "confidence": 0.9,
+    "rationale": "Explains proof as contradiction of countability"
+  },
+  {
+    "post_id": "1pmv7os",
+    "comment_id": "nu32re9",
+    "sentiment": "neutral",
+    "stance": "agree",
+    "confidence": 0.9,
+    "rationale": "Clarifies difference between countable and uncountable"
+  },
+  {
+    "post_id": "1pmv7os",
+    "comment_id": "nu326pg",
+    "sentiment": "neutral",
+    "stance": "agree",
+    "confidence": 0.95,
+    "rationale": "Summarizes proof by contradiction"
+  },
+  {
+    "post_id": "1pmv7os",
+    "comment_id": "nu323xe",
+    "sentiment": "neutral",
+    "stance": "agree",
+    "confidence": 0.95,
+    "rationale": "Confirms OP's logic proves impossibility"
+  },
+  {
+    "post_id": "1pmv7os",
+    "comment_id": "nu32234",
+    "sentiment": "neutral",
+    "stance": "agree",
+    "confidence": 0.95,
+    "rationale": "Clarifies proof is a contradiction of assumption"
+  },
+  {
+    "post_id": "1pmv7os",
+    "comment_id": "nu31v3w",
+    "sentiment": "neutral",
+    "stance": "agree",
+    "confidence": 0.9,
+    "rationale": "Explains construction guarantees exclusion"
+  },
+  {
+    "post_id": "1pklt92",
+    "comment_id": "nub458b",
+    "sentiment": "positive",
+    "stance": "agree",
+    "confidence": 0.8,
+    "rationale": "Confirms user uses AI for deep thinking"
+  },
+  {
+    "post_id": "1pklt92",
+    "comment_id": "nu3yuvs",
+    "sentiment": "neutral",
+    "stance": "unclear",
+    "confidence": 0.5,
+    "rationale": "Gives prompt advice, stance unclear"
+  },
+  {
+    "post_id": "1pklt92",
+    "comment_id": "nts04z5",
+    "sentiment": "positive",
+    "stance": "agree",
+    "confidence": 0.9,
+    "rationale": "Directly agrees with using AI as partner"
+  },
+  {
+    "post_id": "1pklt92",
+    "comment_id": "ntrqnya",
+    "sentiment": "neutral",
+    "stance": "partial",
+    "confidence": 0.7,
+    "rationale": "Agrees for basics, disagrees for outliers"
+  },
+  {
+    "post_id": "1pklt92",
+    "comment_id": "ntrps2q",
+    "sentiment": "positive",
+    "stance": "agree",
+    "confidence": 0.9,
+    "rationale": "Describes using AI for high-level strategy"
+  },
+  {
+    "post_id": "1pklt92",
+    "comment_id": "ntro950",
+    "sentiment": "negative",
+    "stance": "disagree",
+    "confidence": 0.8,
+    "rationale": "Warns against trusting AI for facts"
+  },
+  {
+    "post_id": "1pklt92",
+    "comment_id": "ntqrgjy",
+    "sentiment": "neutral",
+    "stance": "unclear",
+    "confidence": 0.4,
+    "rationale": "Vague, unclear stance on deep thinking"
+  },
+  {
+    "post_id": "1pklt92",
+    "comment_id": "ntq66ul",
+    "sentiment": "neutral",
+    "stance": "unclear",
+    "confidence": 0.4,
+    "rationale": "Technical advice, no clear stance"
+  },
+  {
+    "post_id": "1pklt92",
+    "comment_id": "ntp8gei",
+    "sentiment": "positive",
+    "stance": "agree",
+    "confidence": 0.9,
+    "rationale": "Shares successful use case for deep thinking"
+  },
+  {
+    "post_id": "1pklt92",
+    "comment_id": "ntp2jsf",
+    "sentiment": "neutral",
+    "stance": "unclear",
+    "confidence": 0.5,
+    "rationale": "Provides prompt engineering advice"
+  },
+  {
+    "post_id": "1pklt92",
+    "comment_id": "ntok3w1",
+    "sentiment": "negative",
+    "stance": "disagree",
+    "confidence": 0.9,
+    "rationale": "States no use for AI, disagrees with premise"
+  },
+  {
+    "post_id": "1pklt92",
+    "comment_id": "nto9dxt",
+    "sentiment": "positive",
+    "stance": "agree",
+    "confidence": 0.8,
+    "rationale": "Supports collaborating with AI"
+  },
+  {
+    "post_id": "1pklt92",
+    "comment_id": "nto2whj",
+    "sentiment": "negative",
+    "stance": "partial",
+    "confidence": 0.7,
+    "rationale": "Agrees with use but disagrees with generic output"
+  },
+  {
+    "post_id": "1pklt92",
+    "comment_id": "ntnynvb",
+    "sentiment": "neutral",
+    "stance": "unclear",
+    "confidence": 0.1,
+    "rationale": "Single period, no content"
+  },
+  {
+    "post_id": "1pklt92",
+    "comment_id": "ntnrc9q",
+    "sentiment": "negative",
+    "stance": "disagree",
+    "confidence": 0.8,
+    "rationale": "Frustrated with AI's limitations"
+  },
+  {
+    "post_id": "1pklt92",
+    "comment_id": "ntnogx0",
+    "sentiment": "neutral",
+    "stance": "unclear",
+    "confidence": 0.6,
+    "rationale": "Long rambling comment, stance is vague"
+  },
+  {
+    "post_id": "1pklt92",
+    "comment_id": "ntnidon",
+    "sentiment": "neutral",
+    "stance": "unclear",
+    "confidence": 0.5,
+    "rationale": "Prompt advice, no stance on topic"
+  },
+  {
+    "post_id": "1pklt92",
+    "comment_id": "ntne4u7",
+    "sentiment": "positive",
+    "stance": "agree",
+    "confidence": 0.9,
+    "rationale": "Praises AI's capability for complex reasoning"
+  },
+  {
+    "post_id": "1pklt92",
+    "comment_id": "ntn4tsl",
+    "sentiment": "negative",
+    "stance": "disagree",
+    "confidence": 0.95,
+    "rationale": "Explicitly denies AI can think deeply"
+  },
+  {
+    "post_id": "1pklt92",
+    "comment_id": "ntmw0w4",
+    "sentiment": "positive",
+    "stance": "agree",
+    "confidence": 0.9,
+    "rationale": "Praises AI's insight and empathy"
+  },
+  {
+    "post_id": "1pklt92",
+    "comment_id": "ntmt0uk",
+    "sentiment": "neutral",
+    "stance": "unclear",
+    "confidence": 0.5,
+    "rationale": "Advice on prompt generation"
+  },
+  {
+    "post_id": "1pklt92",
+    "comment_id": "ntmmmu4",
+    "sentiment": "positive",
+    "stance": "agree",
+    "confidence": 0.9,
+    "rationale": "Describes using AI for strategic decisions"
+  },
+  {
+    "post_id": "1pklt92",
+    "comment_id": "ntmmb4n",
+    "sentiment": "neutral",
+    "stance": "unclear",
+    "confidence": 0.5,
+    "rationale": "Tool recommendation, no stance"
+  },
+  {
+    "post_id": "1pklt92",
+    "comment_id": "ntml3nj",
+    "sentiment": "positive",
+    "stance": "agree",
+    "confidence": 0.95,
+    "rationale": "Directly states exclusive use as partner"
+  },
+  {
+    "post_id": "1pklt92",
+    "comment_id": "ntmj4db",
+    "sentiment": "positive",
+    "stance": "agree",
+    "confidence": 0.9,
+    "rationale": "Describes successful partnership method"
+  },
+  {
+    "post_id": "1pklt92",
+    "comment_id": "ntmf3qi",
+    "sentiment": "positive",
+    "stance": "agree",
+    "confidence": 0.8,
+    "rationale": "Claims impressive results in research"
+  },
+  {
+    "post_id": "1pklt92",
+    "comment_id": "ntm903m",
+    "sentiment": "negative",
+    "stance": "disagree",
+    "confidence": 0.9,
+    "rationale": "States AI cannot think, only regurgitate"
+  },
+  {
+    "post_id": "1pklt92",
+    "comment_id": "ntlzkuv",
+    "sentiment": "positive",
+    "stance": "agree",
+    "confidence": 0.9,
+    "rationale": "Detailed method for deep thinking partnership"
+  },
+  {
+    "post_id": "1pklt92",
+    "comment_id": "ntlzkcz",
+    "sentiment": "neutral",
+    "stance": "unclear",
+    "confidence": 0.5,
+    "rationale": "Promotes a tool, no stance on topic"
+  },
+  {
+    "post_id": "1pklt92",
+    "comment_id": "ntlzh55",
+    "sentiment": "positive",
+    "stance": "agree",
+    "confidence": 0.9,
+    "rationale": "Describes method for non-generic replies"
+  },
+  {
+    "post_id": "1pklt92",
+    "comment_id": "ntlz0px",
+    "sentiment": "positive",
+    "stance": "agree",
+    "confidence": 0.9,
+    "rationale": "Advocates for iterative, human-like dialogue"
+  },
+  {
+    "post_id": "1pklt92",
+    "comment_id": "ntly3cb",
+    "sentiment": "positive",
+    "stance": "agree",
+    "confidence": 0.9,
+    "rationale": "Describes using AI as a bounce-off partner"
+  },
+  {
+    "post_id": "1pklt92",
+    "comment_id": "ntly0as",
+    "sentiment": "neutral",
+    "stance": "unclear",
+    "confidence": 0.5,
+    "rationale": "Prompt advice, no stance"
+  },
+  {
+    "post_id": "1q2heym",
+    "comment_id": "nxlhvwf",
+    "sentiment": "neutral",
+    "stance": "unclear",
+    "confidence": 0.3,
+    "rationale": "Sarcastic, unclear stance"
+  },
+  {
+    "post_id": "1q2heym",
+    "comment_id": "nxgn0i2",
+    "sentiment": "neutral",
+    "stance": "unclear",
+    "confidence": 0.4,
+    "rationale": "Pop culture reference, no stance"
+  },
+  {
+    "post_id": "1q2heym",
+    "comment_id": "nxg9ytf",
+    "sentiment": "neutral",
+    "stance": "unclear",
+    "confidence": 0.4,
+    "rationale": "Adds context, no clear stance"
+  },
+  {
+    "post_id": "1q2heym",
+    "comment_id": "nxfzlzk",
+    "sentiment": "negative",
+    "stance": "unclear",
+    "confidence": 0.5,
+    "rationale": "Criticizes writing style, not content"
+  },
+  {
+    "post_id": "1q2heym",
+    "comment_id": "nxfouqz",
+    "sentiment": "negative",
+    "stance": "unclear",
+    "confidence": 0.6,
+    "rationale": "Criticizes platforms, not the event"
+  },
+  {
+    "post_id": "1q2heym",
+    "comment_id": "nxfcib1",
+    "sentiment": "negative",
+    "stance": "unclear",
+    "confidence": 0.7,
+    "rationale": "Interprets event as a dangerous test"
+  },
+  {
+    "post_id": "1q2heym",
+    "comment_id": "nxfa2i4",
+    "sentiment": "negative",
+    "stance": "unclear",
+    "confidence": 0.6,
+    "rationale": "Sarcastic comment on gullibility"
+  },
+  {
+    "post_id": "1q2heym",
+    "comment_id": "nxf6jfu",
+    "sentiment": "negative",
+    "stance": "unclear",
+    "confidence": 0.7,
+    "rationale": "Insults the crowd, not the event"
+  },
+  {
+    "post_id": "1q2heym",
+    "comment_id": "nxeqj0u",
+    "sentiment": "positive",
+    "stance": "unclear",
+    "confidence": 0.8,
+    "rationale": "Expresses relief, not a stance on the prank"
+  },
+  {
+    "post_id": "1q2heym",
+    "comment_id": "nxenzl9",
+    "sentiment": "neutral",
+    "stance": "unclear",
+    "confidence": 0.3,
+    "rationale": "Simple question, no stance"
+  },
+  {
+    "post_id": "1q2heym",
+    "comment_id": "nxecadr",
+    "sentiment": "negative",
+    "stance": "unclear",
+    "confidence": 0.7,
+    "rationale": "Speculates on malicious intent"
+  },
+  {
+    "post_id": "1q2heym",
+    "comment_id": "nxdy26u",
+    "sentiment": "negative",
+    "stance": "unclear",
+    "confidence": 0.8,
+    "rationale": "Warns about implications, not the event itself"
+  },
+  {
+    "post_id": "1q2heym",
+    "comment_id": "nxd2u5j",
+    "sentiment": "negative",
+    "stance": "unclear",
+    "confidence": 0.6,
+    "rationale": "Hopes for negative outcome for victims"
+  },
+  {
+    "post_id": "1q1g8s3",
+    "comment_id": "nxenss7",
+    "sentiment": "neutral",
+    "stance": "unclear",
+    "confidence": 0.5,
+    "rationale": "Suggests escalation, no direct stance"
+  },
+  {
+    "post_id": "1q1g8s3",
+    "comment_id": "nxcjyh5",
+    "sentiment": "negative",
+    "stance": "unclear",
+    "confidence": 0.6,
+    "rationale": "Shares negative personal anecdote"
+  },
+  {
+    "post_id": "1q1g8s3",
+    "comment_id": "nx9lc9q",
+    "sentiment": "neutral",
+    "stance": "unclear",
+    "confidence": 0.4,
+    "rationale": "Asks a question, no stance"
+  },
+  {
+    "post_id": "1q1g8s3",
+    "comment_id": "nx94rrd",
+    "sentiment": "positive",
+    "stance": "unclear",
+    "confidence": 0.3,
+    "rationale": "Off-topic comment"
+  },
+  {
+    "post_id": "1q1g8s3",
+    "comment_id": "nx8ykwy",
+    "sentiment": "neutral",
+    "stance": "unclear",
+    "confidence": 0.5,
+    "rationale": "Asks a question about authority"
+  },
+  {
+    "post_id": "1q1g8s3",
+    "comment_id": "nx8y3gf",
+    "sentiment": "neutral",
+    "stance": "unclear",
+    "confidence": 0.5,
+    "rationale": "Suggests a strategy, no direct stance"
+  },
+  {
+    "post_id": "1q1g8s3",
+    "comment_id": "nx8wcu3",
+    "sentiment": "neutral",
+    "stance": "unclear",
+    "confidence": 0.5,
+    "rationale": "Gives management advice"
+  },
+  {
+    "post_id": "1q1g8s3",
+    "comment_id": "nx8qcrf",
+    "sentiment": "negative",
+    "stance": "unclear",
+    "confidence": 0.6,
+    "rationale": "Criticizes upper management"
+  },
+  {
+    "post_id": "1q1g8s3",
+    "comment_id": "nx8jwy2",
+    "sentiment": "neutral",
+    "stance": "unclear",
+    "confidence": 0.5,
+    "rationale": "States a plan, no stance on OP's dilemma"
+  },
+  {
+    "post_id": "1q1g8s3",
+    "comment_id": "nx80ihb",
+    "sentiment": "negative",
+    "stance": "unclear",
+    "confidence": 0.7,
+    "rationale": "Expresses disbelief at coworker's behavior"
+  },
+  {
+    "post_id": "1q1g8s3",
+    "comment_id": "nx7y0kq",
+    "sentiment": "negative",
+    "stance": "unclear",
+    "confidence": 0.8,
+    "rationale": "Criticizes OP's perspective and experience"
+  },
+  {
+    "post_id": "1q1g8s3",
+    "comment_id": "nx7w40f",
+    "sentiment": "neutral",
+    "stance": "unclear",
+    "confidence": 0.5,
+    "rationale": "Recommends firing the coworker"
+  },
+  {
+    "post_id": "1q1g8s3",
+    "comment_id": "nx7khio",
+    "sentiment": "neutral",
+    "stance": "unclear",
+    "confidence": 0.6,
+    "rationale": "Advises clarifying authority before accepting"
+  },
+  {
+    "post_id": "1q1g8s3",
+    "comment_id": "nx7d0hp",
+    "sentiment": "neutral",
+    "stance": "unclear",
+    "confidence": 0.3,
+    "rationale": "Vague question, no stance"
+  },
+  {
+    "post_id": "1q1g8s3",
+    "comment_id": "nx72xuc",
+    "sentiment": "neutral",
+    "stance": "unclear",
+    "confidence": 0.5,
+    "rationale": "Asks about HR involvement"
+  },
+  {
+    "post_id": "1q1g8s3",
+    "comment_id": "nx71wjo",
+    "sentiment": "neutral",
+    "stance": "unclear",
+    "confidence": 0.4,
+    "rationale": "Questions a detail in the story"
+  },
+  {
+    "post_id": "1q1g8s3",
+    "comment_id": "nx6xdfu",
+    "sentiment": "negative",
+    "stance": "unclear",
+    "confidence": 0.7,
+    "rationale": "Expresses shock at coworker's actions"
+  },
+  {
+    "post_id": "1q1g8s3",
+    "comment_id": "nx6teee",
+    "sentiment": "negative",
+    "stance": "unclear",
+    "confidence": 0.6,
+    "rationale": "Aggressive suggestion to fire"
+  },
+  {
+    "post_id": "1q1g8s3",
+    "comment_id": "nx6pdl9",
+    "sentiment": "neutral",
+    "stance": "unclear",
+    "confidence": 0.6,
+    "rationale": "Questions manager's motives"
+  },
+  {
+    "post_id": "1q1g8s3",
+    "comment_id": "nx6ghb3",
+    "sentiment": "neutral",
+    "stance": "unclear",
+    "confidence": 0.6,
+    "rationale": "Advises taking role only with authority"
+  },
+  {
+    "post_id": "1q1g8s3",
+    "comment_id": "nx6eb6o",
+    "sentiment": "negative",
+    "stance": "unclear",
+    "confidence": 0.8,
+    "rationale": "Criticizes manager's inaction"
+  },
+  {
+    "post_id": "1q1g8s3",
+    "comment_id": "nx69qct",
+    "sentiment": "negative",
+    "stance": "unclear",
+    "confidence": 0.8,
+    "rationale": "Calls manager weak"
+  },
+  {
+    "post_id": "1q1g8s3",
+    "comment_id": "nx65xar",
+    "sentiment": "negative",
+    "stance": "unclear",
+    "confidence": 0.7,
+    "rationale": "Identifies manager as the core problem"
+  },
+  {
+    "post_id": "1q1g8s3",
+    "comment_id": "nx658cj",
+    "sentiment": "neutral",
+    "stance": "unclear",
+    "confidence": 0.6,
+    "rationale": "Suggests escalating to skip-level"
+  },
+  {
+    "post_id": "1q1g8s3",
+    "comment_id": "nx5zt56",
+    "sentiment": "negative",
+    "stance": "unclear",
+    "confidence": 0.8,
+    "rationale": "Expresses disbelief at inaction"
+  },
+  {
+    "post_id": "1q1g8s3",
+    "comment_id": "nx5rofu",
+    "sentiment": "negative",
+    "stance": "unclear",
+    "confidence": 0.7,
+    "rationale": "Criticizes leadership and OP's readiness"
+  },
+  {
+    "post_id": "1q1g8s3",
+    "comment_id": "nx5ozco",
+    "sentiment": "negative",
+    "stance": "unclear",
+    "confidence": 0.7,
+    "rationale": "Suggests nepotism, advises leaving"
+  },
+  {
+    "post_id": "1q1g8s3",
+    "comment_id": "nx5oyda",
+    "sentiment": "neutral",
+    "stance": "unclear",
+    "confidence": 0.6,
+    "rationale": "Gives nuanced management advice"
+  },
+  {
+    "post_id": "1q1g8s3",
+    "comment_id": "nx5o8u8",
+    "sentiment": "negative",
+    "stance": "unclear",
+    "confidence": 0.5,
+    "rationale": "Sarcastic dig at manager's tech skills"
+  },
+  {
+    "post_id": "1q1g8s3",
+    "comment_id": "nx5mtx6",
+    "sentiment": "neutral",
+    "stance": "unclear",
+    "confidence": 0.6,
+    "rationale": "Tells OP to take responsibility"
+  },
+  {
+    "post_id": "1q1g8s3",
+    "comment_id": "nx5kjb8",
+    "sentiment": "negative",
+    "stance": "unclear",
+    "confidence": 0.7,
+    "rationale": "Expresses shock at situation"
+  },
+  {
+    "post_id": "1q1g8s3",
+    "comment_id": "nx5jsqi",
+    "sentiment": "negative",
+    "stance": "unclear",
+    "confidence": 0.8,
+    "rationale": "Calls manager weak, advises escalation"
+  },
+  {
+    "post_id": "1q1g8s3",
+    "comment_id": "nx5j4jm",
+    "sentiment": "negative",
+    "stance": "unclear",
+    "confidence": 0.6,
+    "rationale": "Expresses cynicism about the situation"
+  },
+  {
+    "post_id": "1q1g8s3",
+    "comment_id": "nx5izwb",
+    "sentiment": "neutral",
+    "stance": "unclear",
+    "confidence": 0.5,
+    "rationale": "Advises taking the role and pushing back"
+  },
+  {
+    "post_id": "1q1g8s3",
+    "comment_id": "nx5is68",
+    "sentiment": "neutral",
+    "stance": "unclear",
+    "confidence": 0.4,
+    "rationale": "Asks a question"
+  },
+  {
+    "post_id": "1q1g8s3",
+    "comment_id": "nx5id5u",
+    "sentiment": "neutral",
+    "stance": "unclear",
+    "confidence": 0.3,
+    "rationale": "Expression of shock, no stance"
+  },
+  {
+    "post_id": "1q1g8s3",
+    "comment_id": "nx5i12b",
+    "sentiment": "neutral",
+    "stance": "unclear",
+    "confidence": 0.6,
+    "rationale": "Advises taking role for career growth"
+  },
+  {
+    "post_id": "1q1g8s3",
+    "comment_id": "nx5gx5w",
+    "sentiment": "negative",
+    "stance": "unclear",
+    "confidence": 0.7,
+    "rationale": "Expresses disbelief at core process failure"
+  },
+  {
+    "post_id": "1q1g8s3",
+    "comment_id": "nx5f4dh",
+    "sentiment": "neutral",
+    "stance": "unclear",
+    "confidence": 0.6,
+    "rationale": "Gives detailed advice on taking the role"
+  },
+  {
+    "post_id": "1q1g8s3",
+    "comment_id": "nx5eo0o",
+    "sentiment": "neutral",
+    "stance": "unclear",
+    "confidence": 0.4,
+    "rationale": "Rhetorical question about nepotism"
+  },
+  {
+    "post_id": "1q1g8s3",
+    "comment_id": "nx5ec5o",
+    "sentiment": "neutral",
+    "stance": "unclear",
+    "confidence": 0.5,
+    "rationale": "Asks questions about the situation"
+  },
+  {
+    "post_id": "1q1g8s3",
+    "comment_id": "nx5eaw8",
+    "sentiment": "neutral",
+    "stance": "unclear",
+    "confidence": 0.4,
+    "rationale": "Questions the plausibility of the story"
+  },
+  {
+    "post_id": "1q1g8s3",
+    "comment_id": "nx5dyua",
+    "sentiment": "negative",
+    "stance": "unclear",
+    "confidence": 0.8,
+    "rationale": "Criticizes OP for not firing the coworker"
+  },
+  {
+    "post_id": "1q1g8s3",
+    "comment_id": "nx5d9i9",
+    "sentiment": "neutral",
+    "stance": "unclear",
+    "confidence": 0.1,
+    "rationale": "Deleted comment"
+  },
+  {
+    "post_id": "1q1g8s3",
+    "comment_id": "nx5d5ft",
+    "sentiment": "neutral",
+    "stance": "unclear",
+    "confidence": 0.6,
+    "rationale": "Advises taking role to fire coworker"
+  },
+  {
+    "post_id": "1q1g8s3",
+    "comment_id": "nx5d3iw",
+    "sentiment": "neutral",
+    "stance": "unclear",
+    "confidence": 0.4,
+    "rationale": "Asks a question about authority"
+  },
+  {
+    "post_id": "1q2jj10",
+    "comment_id": "nxs0ijl",
+    "sentiment": "positive",
+    "stance": "agree",
+    "confidence": 0.9,
+    "rationale": "States math brings incredible joy"
+  },
+  {
+    "post_id": "1q2jj10",
+    "comment_id": "nxrdpab",
+    "sentiment": "positive",
+    "stance": "agree",
+    "confidence": 0.9,
+    "rationale": "Describes math as limitless and connecting"
+  },
+  {
+    "post_id": "1q2jj10",
+    "comment_id": "nxrbelx",
+    "sentiment": "positive",
+    "stance": "agree",
+    "confidence": 0.8,
+    "rationale": "Finds satisfaction and beauty in math"
+  },
+  {
+    "post_id": "1q2jj10",
+    "comment_id": "nxp8frh",
+    "sentiment": "negative",
+    "stance": "disagree",
+    "confidence": 0.9,
+    "rationale": "States math brings pain, not joy"
+  },
+  {
+    "post_id": "1q2jj10",
+    "comment_id": "nxp4r7m",
+    "sentiment": "negative",
+    "stance": "disagree",
+    "confidence": 0.9,
+    "rationale": "States math brings despair"
+  },
+  {
+    "post_id": "1q2jj10",
+    "comment_id": "nxootuq",
+    "sentiment": "neutral",
+    "stance": "unclear",
+    "confidence": 0.1,
+    "rationale": "Single character, no content"
+  },
+  {
+    "post_id": "1q2jj10",
+    "comment_id": "nxo3oho",
+    "sentiment": "positive",
+    "stance": "agree",
+    "confidence": 0.9,
+    "rationale": "Wishes they pursued math professionally"
+  },
+  {
+    "post_id": "1q2jj10",
+    "comment_id": "nxmddhl",
+    "sentiment": "negative",
+    "stance": "partial",
+    "confidence": 0.8,
+    "rationale": "States joy but also extreme frustration"
+  },
+  {
+    "post_id": "1q2jj10",
+    "comment_id": "nxkxias",
+    "sentiment": "positive",
+    "stance": "agree",
+    "confidence": 0.95,
+    "rationale": "States math brings great joy"
+  },
+  {
+    "post_id": "1q2jj10",
+    "comment_id": "nxkksjm",
+    "sentiment": "positive",
+    "stance": "agree",
+    "confidence": 0.9,
+    "rationale": "Simple affirmative answer"
+  },
+  {
+    "post_id": "1q2jj10",
+    "comment_id": "nxk8x5c",
+    "sentiment": "positive",
+    "stance": "agree",
+    "confidence": 0.95,
+    "rationale": "Describes obsession and joy"
+  },
+  {
+    "post_id": "1q2jj10",
+    "comment_id": "nxjnfh9",
+    "sentiment": "positive",
+    "stance": "agree",
+    "confidence": 0.9,
+    "rationale": "Finds satisfaction in difficulty"
+  },
+  {
+    "post_id": "1q2jj10",
+    "comment_id": "nxjlsvk",
+    "sentiment": "positive",
+    "stance": "agree",
+    "confidence": 0.9,
+    "rationale": "Joy from understanding truth"
+  },
+  {
+    "post_id": "1q2jj10",
+    "comment_id": "nxizf51",
+    "sentiment": "neutral",
+    "stance": "unclear",
+    "confidence": 0.5,
+    "rationale": "Vague, 'complicated' answer"
+  },
+  {
+    "post_id": "1q2jj10",
+    "comment_id": "nxiy0u5",
+    "sentiment": "positive",
+    "stance": "agree",
+    "confidence": 0.9,
+    "rationale": "Connects math to deep personal joy and purpose"
+  },
+  {
+    "post_id": "1q2jj10",
+    "comment_id": "nxi7696",
+    "sentiment": "positive",
+    "stance": "agree",
+    "confidence": 0.8,
+    "rationale": "Joy from moments of improved understanding"
+  },
+  {
+    "post_id": "1q2jj10",
+    "comment_id": "nxhyq7g",
+    "sentiment": "positive",
+    "stance": "agree",
+    "confidence": 0.9,
+    "rationale": "States math changes worldview"
+  },
+  {
+    "post_id": "1q2jj10",
+    "comment_id": "nxhkbzt",
+    "sentiment": "positive",
+    "stance": "agree",
+    "confidence": 0.8,
+    "rationale": "Finds joy in learning and adaptation"
+  },
+  {
+    "post_id": "1q2jj10",
+    "comment_id": "nxhk65g",
+    "sentiment": "positive",
+    "stance": "agree",
+    "confidence": 0.9,
+    "rationale": "Describes math as intellectually intoxicating"
+  },
+  {
+    "post_id": "1q2jj10",
+    "comment_id": "nxhiaxg",
+    "sentiment": "positive",
+    "stance": "agree",
+    "confidence": 0.8,
+    "rationale": "Shares anecdote of math's utility and joy"
+  },
+  {
+    "post_id": "1q2jj10",
+    "comment_id": "nxgp1ep",
+    "sentiment": "neutral",
+    "stance": "unclear",
+    "confidence": 0.1,
+    "rationale": "Deleted comment"
+  },
+  {
+    "post_id": "1q2jj10",
+    "comment_id": "nxgh80v",
+    "sentiment": "positive",
+    "stance": "agree",
+    "confidence": 0.8,
+    "rationale": "States math is a universal language"
+  },
+  {
+    "post_id": "1q2jj10",
+    "comment_id": "nxg9tq3",
+    "sentiment": "negative",
+    "stance": "disagree",
+    "confidence": 0.9,
+    "rationale": "States they are not a math person"
+  },
+  {
+    "post_id": "1q2jj10",
+    "comment_id": "nxfv1df",
+    "sentiment": "neutral",
+    "stance": "partial",
+    "confidence": 0.8,
+    "rationale": "Equal joy and frustration"
+  },
+  {
+    "post_id": "1q2jj10",
+    "comment_id": "nxfmin3",
+    "sentiment": "positive",
+    "stance": "agree",
+    "confidence": 0.95,
+    "rationale": "States math is the only way to make sense of world"
+  },
+  {
+    "post_id": "1q2jj10",
+    "comment_id": "nxfj1a0",
+    "sentiment": "positive",
+    "stance": "agree",
+    "confidence": 0.9,
+    "rationale": "Finds joy in complexity"
+  },
+  {
+    "post_id": "1q2jj10",
+    "comment_id": "nxfhaax",
+    "sentiment": "positive",
+    "stance": "agree",
+    "confidence": 0.8,
+    "rationale": "Describes it as a labor of love"
+  },
+  {
+    "post_id": "1q2jj10",
+    "comment_id": "nxffftk",
+    "sentiment": "positive",
+    "stance": "agree",
+    "confidence": 0.9,
+    "rationale": "Would choose math again"
+  },
+  {
+    "post_id": "1q2jj10",
+    "comment_id": "nxffbwi",
+    "sentiment": "positive",
+    "stance": "agree",
+    "confidence": 0.95,
+    "rationale": "Extreme enthusiasm and love for math"
+  },
+  {
+    "post_id": "1q2jj10",
+    "comment_id": "nxfet6q",
+    "sentiment": "positive",
+    "stance": "agree",
+    "confidence": 0.9,
+    "rationale": "Finds joy in human endeavor and history"
+  },
+  {
+    "post_id": "1q2jj10",
+    "comment_id": "nxfcmsk",
+    "sentiment": "positive",
+    "stance": "agree",
+    "confidence": 0.9,
+    "rationale": "Likes math and makes money from it"
+  },
+  {
+    "post_id": "1q2jj10",
+    "comment_id": "nxfamno",
+    "sentiment": "positive",
+    "stance": "agree",
+    "confidence": 0.9,
+    "rationale": "Finds satisfaction in pure thinking"
+  },
+  {
+    "post_id": "1q1jhxf",
+    "comment_id": "nxoof6z",
+    "sentiment": "neutral",
+    "stance": "unclear",
+    "confidence": 0.3,
+    "rationale": "Suggests a book, no engagement with ideas"
+  },
+  {
+    "post_id": "1q1jhxf",
+    "comment_id": "nxc8eef",
+    "sentiment": "neutral",
+    "stance": "agree",
+    "confidence": 0.7,
+    "rationale": "Points to relevant existing terminology"
+  },
+  {
+    "post_id": "1q1jhxf",
+    "comment_id": "nx8jr2f",
+    "sentiment": "neutral",
+    "stance": "agree",
+    "confidence": 0.8,
+    "rationale": "Provides specific literature references"
+  },
+  {
+    "post_id": "1q1jhxf",
+    "comment_id": "nx81olp",
+    "sentiment": "neutral",
+    "stance": "agree",
+    "confidence": 0.6,
+    "rationale": "Suggests a related field of study"
+  },
+  {
+    "post_id": "1q1jhxf",
+    "comment_id": "nx6998c",
+    "sentiment": "neutral",
+    "stance": "agree",
+    "confidence": 0.7,
+    "rationale": "Provides field name for the topic"
+  },
+  {
+    "post_id": "1q1jhxf",
+    "comment_id": "nx68q3r",
+    "sentiment": "neutral",
+    "stance": "agree",
+    "confidence": 0.8,
+    "rationale": "Provides specific survey references"
+  },
+  {
+    "post_id": "1q1jhxf",
+    "comment_id": "nx66h4j",
+    "sentiment": "neutral",
+    "stance": "agree",
+    "confidence": 0.7,
+    "rationale": "Adds mathematical rigor to the idea"
+  },
+  {
+    "post_id": "1q1jhxf",
+    "comment_id": "nx62is5",
+    "sentiment": "neutral",
+    "stance": "agree",
+    "confidence": 0.7,
+    "rationale": "Points to fluid dynamics literature"
+  },
+  {
+    "post_id": "1q1jhxf",
+    "comment_id": "nx62hi7",
+    "sentiment": "neutral",
+    "stance": "agree",
+    "confidence": 0.8,
+    "rationale": "Identifies the field as ergodic theory"
+  },
+  {
+    "post_id": "1q1jhxf",
+    "comment_id": "nx61p3t",
+    "sentiment": "neutral",
+    "stance": "agree",
+    "confidence": 0.6,
+    "rationale": "Suggests physical chemistry"
+  },
+  {
+    "post_id": "1psw7dp",
+    "comment_id": "nw1xy66",
+    "sentiment": "negative",
+    "stance": "disagree",
+    "confidence": 0.8,
+    "rationale": "Rejects premise, says everywhere is populated"
+  },
+  {
+    "post_id": "1psw7dp",
+    "comment_id": "nvzpu7k",
+    "sentiment": "neutral",
+    "stance": "unclear",
+    "confidence": 0.3,
+    "rationale": "Off-topic meme reference"
+  },
+  {
+    "post_id": "1psw7dp",
+    "comment_id": "nvxy6uy",
+    "sentiment": "neutral",
+    "stance": "unclear",
+    "confidence": 0.4,
+    "rationale": "Circular logic, no clear stance"
+  },
+  {
+    "post_id": "1psw7dp",
+    "comment_id": "nvxw9x5",
+    "sentiment": "neutral",
+    "stance": "unclear",
+    "confidence": 0.5,
+    "rationale": "Suggests a location, no stance on 'perfect'"
+  },
+  {
+    "post_id": "1psw7dp",
+    "comment_id": "nvv0vi6",
+    "sentiment": "neutral",
+    "stance": "unclear",
+    "confidence": 0.5,
+    "rationale": "Suggests a location with reason for emptiness"
+  },
+  {
+    "post_id": "1psw7dp",
+    "comment_id": "nvuyxxo",
+    "sentiment": "neutral",
+    "stance": "unclear",
+    "confidence": 0.5,
+    "rationale": "Suggests locations with historical context"
+  },
+  {
+    "post_id": "1psw7dp",
+    "comment_id": "nvty6ua",
+    "sentiment": "positive",
+    "stance": "unclear",
+    "confidence": 0.6,
+    "rationale": "Praises a location, not addressing population"
+  },
+  {
+    "post_id": "1psw7dp",
+    "comment_id": "nvp7bzs",
+    "sentiment": "neutral",
+    "stance": "unclear",
+    "confidence": 0.3,
+    "rationale": "Joke, no stance"
+  },
+  {
+    "post_id": "1psw7dp",
+    "comment_id": "nvojrbc",
+    "sentiment": "positive",
+    "stance": "unclear",
+    "confidence": 0.6,
+    "rationale": "Suggests a location as potentially perfect"
+  },
+  {
+    "post_id": "1psw7dp",
+    "comment_id": "nvo8p9q",
+    "sentiment": "neutral",
+    "stance": "unclear",
+    "confidence": 0.5,
+    "rationale": "Explains why a place is empty"
+  },
+  {
+    "post_id": "1psw7dp",
+    "comment_id": "nvn9k4v",
+    "sentiment": "neutral",
+    "stance": "unclear",
+    "confidence": 0.5,
+    "rationale": "Suggests a location with historical what-if"
+  },
+  {
+    "post_id": "1psw7dp",
+    "comment_id": "nvlriwj",
+    "sentiment": "neutral",
+    "stance": "unclear",
+    "confidence": 0.5,
+    "rationale": "Suggests a location as a good spot"
+  },
+  {
+    "post_id": "1psw7dp",
+    "comment_id": "nvlcovk",
+    "sentiment": "neutral",
+    "stance": "unclear",
+    "confidence": 0.5,
+    "rationale": "Analyzes economic reasons for emptiness"
+  },
+  {
+    "post_id": "1psw7dp",
+    "comment_id": "nvk12qk",
+    "sentiment": "neutral",
+    "stance": "unclear",
+    "confidence": 0.5,
+    "rationale": "Suggests a location, explains why empty"
+  },
+  {
+    "post_id": "1psw7dp",
+    "comment_id": "nvirhsn",
+    "sentiment": "neutral",
+    "stance": "unclear",
+    "confidence": 0.5,
+    "rationale": "Suggests a location, describes land"
+  },
+  {
+    "post_id": "1psw7dp",
+    "comment_id": "nvifq3u",
+    "sentiment": "neutral",
+    "stance": "unclear",
+    "confidence": 0.5,
+    "rationale": "Explains why a specific spot is empty"
+  },
+  {
+    "post_id": "1psw7dp",
+    "comment_id": "nvi9d2z",
+    "sentiment": "negative",
+    "stance": "unclear",
+    "confidence": 0.6,
+    "rationale": "Praises beauty but says people don't want to live there"
+  },
+  {
+    "post_id": "1psw7dp",
+    "comment_id": "nvhwexo",
+    "sentiment": "neutral",
+    "stance": "unclear",
+    "confidence": 0.3,
+    "rationale": "Rhetorical question, no stance"
+  },
+  {
+    "post_id": "1psw7dp",
+    "comment_id": "nvhtu9l",
+    "sentiment": "neutral",
+    "stance": "unclear",
+    "confidence": 0.5,
+    "rationale": "Lists locations and speculates on reasons"
+  },
+  {
+    "post_id": "1psw7dp",
+    "comment_id": "nvhluno",
+    "sentiment": "neutral",
+    "stance": "unclear",
+    "confidence": 0.5,
+    "rationale": "Suggests a location, describes climate"
+  },
+  {
+    "post_id": "1psw7dp",
+    "comment_id": "nvhkg9l",
+    "sentiment": "negative",
+    "stance": "disagree",
+    "confidence": 0.8,
+    "rationale": "Directly rejects the premise of the question"
+  },
+  {
+    "post_id": "1psw7dp",
+    "comment_id": "nvhax6t",
+    "sentiment": "neutral",
+    "stance": "unclear",
+    "confidence": 0.5,
+    "rationale": "Suggests a location, speculates on why not a city"
+  },
+  {
+    "post_id": "1psw7dp",
+    "comment_id": "nvh8ynu",
+    "sentiment": "positive",
+    "stance": "unclear",
+    "confidence": 0.4,
+    "rationale": "Expresses preference for equator, asks for spots"
+  },
+  {
+    "post_id": "1psw7dp",
+    "comment_id": "nvh88fv",
+    "sentiment": "positive",
+    "stance": "unclear",
+    "confidence": 0.5,
+    "rationale": "Suggests a location as near paradise"
+  },
+  {
+    "post_id": "1psw7dp",
+    "comment_id": "nvh12p7",
+    "sentiment": "neutral",
+    "stance": "unclear",
+    "confidence": 0.3,
+    "rationale": "One-word question"
+  },
+  {
+    "post_id": "1psw7dp",
+    "comment_id": "nvgxu1y",
+    "sentiment": "neutral",
+    "stance": "unclear",
+    "confidence": 0.3,
+    "rationale": "One-word suggestion"
+  },
+  {
+    "post_id": "1psw7dp",
+    "comment_id": "nvguz58",
+    "sentiment": "negative",
+    "stance": "unclear",
+    "confidence": 0.4,
+    "rationale": "Dark joke, not a serious answer"
+  },
+  {
+    "post_id": "1psw7dp",
+    "comment_id": "nvgrms5",
+    "sentiment": "neutral",
+    "stance": "unclear",
+    "confidence": 0.4,
+    "rationale": "Vague statement"
+  },
+  {
+    "post_id": "1psw7dp",
+    "comment_id": "nvgm726",
+    "sentiment": "neutral",
+    "stance": "unclear",
+    "confidence": 0.4,
+    "rationale": "Refers to a specific place, unclear stance"
+  },
+  {
+    "post_id": "1psw7dp",
+    "comment_id": "nvggzop",
+    "sentiment": "neutral",
+    "stance": "unclear",
+    "confidence": 0.5,
+    "rationale": "Suggests a location with pros and cons"
+  },
+  {
+    "post_id": "1psw7dp",
+    "comment_id": "nvgfwr9",
+    "sentiment": "neutral",
+    "stance": "unclear",
+    "confidence": 0.5,
+    "rationale": "Suggests a location"
+  },
+  {
+    "post_id": "1psw7dp",
+    "comment_id": "nvgewgk",
+    "sentiment": "neutral",
+    "stance": "unclear",
+    "confidence": 0.3,
+    "rationale": "One-word negation"
+  },
+  {
+    "post_id": "1psw7dp",
+    "comment_id": "nvg4tj9",
+    "sentiment": "positive",
+    "stance": "unclear",
+    "confidence": 0.5,
+    "rationale": "Suggests a location as perfect"
+  },
+  {
+    "post_id": "1psw7dp",
+    "comment_id": "nvg2tee",
+    "sentiment": "neutral",
+    "stance": "unclear",
+    "confidence": 0.3,
+    "rationale": "One-word suggestion"
+  },
+  {
+    "post_id": "1psw7dp",
+    "comment_id": "nvg1s4p",
+    "sentiment": "neutral",
+    "stance": "unclear",
+    "confidence": 0.3,
+    "rationale": "One-word suggestion"
+  },
+  {
+    "post_id": "1psw7dp",
+    "comment_id": "nvg0lna",
+    "sentiment": "neutral",
+    "stance": "unclear",
+    "confidence": 0.5,
+    "rationale": "Suggests a location with historical context"
+  },
+  {
+    "post_id": "1psw7dp",
+    "comment_id": "nvfzgti",
+    "sentiment": "positive",
+    "stance": "unclear",
+    "confidence": 0.5,
+    "rationale": "Predicts future development"
+  },
+  {
+    "post_id": "1psw7dp",
+    "comment_id": "nvfxaat",
+    "sentiment": "neutral",
+    "stance": "unclear",
+    "confidence": 0.4,
+    "rationale": "Suggests a location, explains why empty"
+  },
+  {
+    "post_id": "1psw7dp",
+    "comment_id": "nvft8ip",
+    "sentiment": "neutral",
+    "stance": "unclear",
+    "confidence": 0.6,
+    "rationale": "Explains economic reasons for city formation"
+  },
+  {
+    "post_id": "1psw7dp",
+    "comment_id": "nvfos9d",
+    "sentiment": "neutral",
+    "stance": "unclear",
+    "confidence": 0.5,
+    "rationale": "Suggests a location, explains why not a city"
+  },
+  {
+    "post_id": "1psw7dp",
+    "comment_id": "nvfmbcr",
+    "sentiment": "neutral",
+    "stance": "unclear",
+    "confidence": 0.3,
+    "rationale": "One-word suggestion"
+  },
+  {
+    "post_id": "1psw7dp",
+    "comment_id": "nvflm64",
+    "sentiment": "neutral",
+    "stance": "unclear",
+    "confidence": 0.5,
+    "rationale": "Suggests a location, explains why it failed"
+  },
+  {
+    "post_id": "1psw7dp",
+    "comment_id": "nvfek82",
+    "sentiment": "positive",
+    "stance": "unclear",
+    "confidence": 0.5,
+    "rationale": "Describes a location as perfect but populated"
+  },
+  {
+    "post_id": "1psw7dp",
+    "comment_id": "nvfbqv0",
+    "sentiment": "neutral",
+    "stance": "unclear",
+    "confidence": 0.3,
+    "rationale": "One-word suggestion"
+  },
+  {
+    "post_id": "1psw7dp",
+    "comment_id": "nvf29xw",
+    "sentiment": "neutral",
+    "stance": "unclear",
+    "confidence": 0.6,
+    "rationale": "States there's always a reason for emptiness"
+  },
+  {
+    "post_id": "1psw7dp",
+    "comment_id": "nvf10gf",
+    "sentiment": "neutral",
+    "stance": "unclear",
+    "confidence": 0.5,
+    "rationale": "Suggests locations in Eastern Europe"
+  },
+  {
+    "post_id": "1psw7dp",
+    "comment_id": "nveqxcu",
+    "sentiment": "neutral",
+    "stance": "unclear",
+    "confidence": 0.3,
+    "rationale": "Meme reference"
+  },
+  {
+    "post_id": "1psw7dp",
+    "comment_id": "nveqgup",
+    "sentiment": "neutral",
+    "stance": "unclear",
+    "confidence": 0.3,
+    "rationale": "Off-topic joke"
+  },
+  {
+    "post_id": "1psw7dp",
+    "comment_id": "nvejv3y",
+    "sentiment": "neutral",
+    "stance": "unclear",
+    "confidence": 0.4,
+    "rationale": "Suggests a location"
+  },
+  {
+    "post_id": "1psw7dp",
+    "comment_id": "nvee9fu",
+    "sentiment": "neutral",
+    "stance": "unclear",
+    "confidence": 0.5,
+    "rationale": "Anecdote about a location"
+  },
+  {
+    "post_id": "1psw7dp",
+    "comment_id": "nvebt0m",
+    "sentiment": "neutral",
+    "stance": "unclear",
+    "confidence": 0.5,
+    "rationale": "Suggests a location with reasons for emptiness"
+  },
+  {
+    "post_id": "1psw7dp",
+    "comment_id": "nve6vyv",
+    "sentiment": "neutral",
+    "stance": "unclear",
+    "confidence": 0.5,
+    "rationale": "Speculates on why a location isn't populated"
+  },
+  {
+    "post_id": "1psw7dp",
+    "comment_id": "nve68qk",
+    "sentiment": "neutral",
+    "stance": "unclear",
+    "confidence": 0.5,
+    "rationale": "Explains why a perfect spot is undeveloped"
+  },
+  {
+    "post_id": "1psw7dp",
+    "comment_id": "nve59da",
+    "sentiment": "neutral",
+    "stance": "unclear",
+    "confidence": 0.5,
+    "rationale": "Speculates on historical/political reasons"
+  },
+  {
+    "post_id": "1psw7dp",
+    "comment_id": "nve536e",
+    "sentiment": "neutral",
+    "stance": "unclear",
+    "confidence": 0.5,
+    "rationale": "Anecdote about a near-perfect spot"
+  },
+  {
+    "post_id": "1psw7dp",
+    "comment_id": "nve4fj7",
+    "sentiment": "neutral",
+    "stance": "unclear",
+    "confidence": 0.5,
+    "rationale": "States fact about uninhabited islands"
+  },
+  {
+    "post_id": "1psw7dp",
+    "comment_id": "nve43mk",
+    "sentiment": "neutral",
+    "stance": "unclear",
+    "confidence": 0.4,
+    "rationale": "Vague suggestion"
+  },
+  {
+    "post_id": "1psw7dp",
+    "comment_id": "nve3drt",
+    "sentiment": "neutral",
+    "stance": "unclear",
+    "confidence": 0.5,
+    "rationale": "Explains demographic reasons for emptiness"
+  },
+  {
+    "post_id": "1psw7dp",
+    "comment_id": "nve3562",
+    "sentiment": "negative",
+    "stance": "unclear",
+    "confidence": 0.5,
+    "rationale": "Personal opinion on a location"
+  },
+  {
+    "post_id": "1psw7dp",
+    "comment_id": "nve2y14",
+    "sentiment": "positive",
+    "stance": "unclear",
+    "confidence": 0.5,
+    "rationale": "Praises a location"
+  },
+  {
+    "post_id": "1psw7dp",
+    "comment_id": "nve0zih",
+    "sentiment": "neutral",
+    "stance": "unclear",
+    "confidence": 0.2,
+    "rationale": "Off-topic joke"
+  },
+  {
+    "post_id": "1psw7dp",
+    "comment_id": "nve0my2",
+    "sentiment": "neutral",
+    "stance": "unclear",
+    "confidence": 0.5,
+    "rationale": "Suggests a location, notes development"
+  },
+  {
+    "post_id": "1psw7dp",
+    "comment_id": "nvdztvw",
+    "sentiment": "neutral",
+    "stance": "unclear",
+    "confidence": 0.6,
+    "rationale": "States that good places are already taken"
+  },
+  {
+    "post_id": "1psw7dp",
+    "comment_id": "nvdyna7",
+    "sentiment": "neutral",
+    "stance": "unclear",
+    "confidence": 0.4,
+    "rationale": "Meta-comment on the thread"
+  },
+  {
+    "post_id": "1psw7dp",
+    "comment_id": "nvdvkc2",
+    "sentiment": "neutral",
+    "stance": "unclear",
+    "confidence": 0.5,
+    "rationale": "Speculates on reasons for low population"
+  },
+  {
+    "post_id": "1psw7dp",
+    "comment_id": "nvdv7r0",
+    "sentiment": "neutral",
+    "stance": "unclear",
+    "confidence": 0.5,
+    "rationale": "Suggests a climate type to look for"
+  },
+  {
+    "post_id": "1psw7dp",
+    "comment_id": "nvdv1ad",
+    "sentiment": "neutral",
+    "stance": "unclear",
+    "confidence": 0.5,
+    "rationale": "Observes a populated area feels empty"
+  },
+  {
+    "post_id": "1psw7dp",
+    "comment_id": "nvduowm",
+    "sentiment": "neutral",
+    "stance": "unclear",
+    "confidence": 0.5,
+    "rationale": "Praises a location, questions its population"
+  },
+  {
+    "post_id": "1psw7dp",
+    "comment_id": "nvdsel0",
+    "sentiment": "neutral",
+    "stance": "unclear",
+    "confidence": 0.3,
+    "rationale": "One-word joke"
+  },
+  {
+    "post_id": "1psw7dp",
+    "comment_id": "nvdr6ly",
+    "sentiment": "neutral",
+    "stance": "unclear",
+    "confidence": 0.4,
+    "rationale": "States a fact about uninhabited islands"
+  },
+  {
+    "post_id": "1psw7dp",
+    "comment_id": "nvdr5i6",
+    "sentiment": "neutral",
+    "stance": "unclear",
+    "confidence": 0.5,
+    "rationale": "Suggests a location, notes it's rural"
+  },
+  {
+    "post_id": "1psw7dp",
+    "comment_id": "nvdo27f",
+    "sentiment": "neutral",
+    "stance": "unclear",
+    "confidence": 0.6,
+    "rationale": "Asks for clarification on 'perfect'"
+  },
+  {
+    "post_id": "1psw7dp",
+    "comment_id": "nvdm6yt",
+    "sentiment": "neutral",
+    "stance": "unclear",
+    "confidence": 0.5,
+    "rationale": "Expresses surprise at lack of city"
+  },
+  {
+    "post_id": "1psw7dp",
+    "comment_id": "nvdm6zi",
+    "sentiment": "neutral",
+    "stance": "unclear",
+    "confidence": 0.3,
+    "rationale": "Two-word suggestion"
+  },
+  {
+    "post_id": "1psw7dp",
+    "comment_id": "nvdkb5o",
+    "sentiment": "neutral",
+    "stance": "unclear",
+    "confidence": 0.3,
+    "rationale": "Two-word suggestion"
+  },
+  {
+    "post_id": "1psw7dp",
+    "comment_id": "nvdk5fv",
+    "sentiment": "neutral",
+    "stance": "unclear",
+    "confidence": 0.3,
+    "rationale": "Two-word suggestion"
+  },
+  {
+    "post_id": "1psw7dp",
+    "comment_id": "nvdjbai",
+    "sentiment": "neutral",
+    "stance": "unclear",
+    "confidence": 0.5,
+    "rationale": "Speculates on cultural reasons for emptiness"
+  },
+  {
+    "post_id": "1psw7dp",
+    "comment_id": "nvdj22l",
+    "sentiment": "positive",
+    "stance": "unclear",
+    "confidence": 0.6,
+    "rationale": "Praises a location as fit for humans"
+  },
+  {
+    "post_id": "1psw7dp",
+    "comment_id": "nvdhr4w",
+    "sentiment": "neutral",
+    "stance": "unclear",
+    "confidence": 0.3,
+    "rationale": "One-word suggestion"
+  },
+  {
+    "post_id": "1psw7dp",
+    "comment_id": "nvdgqk9",
+    "sentiment": "neutral",
+    "stance": "unclear",
+    "confidence": 0.3,
+    "rationale": "Meme reference"
+  },
+  {
+    "post_id": "1psw7dp",
+    "comment_id": "nvdfi4p",
+    "sentiment": "neutral",
+    "stance": "unclear",
+    "confidence": 0.4,
+    "rationale": "Suggests a location as isolated"
+  },
+  {
+    "post_id": "1psw7dp",
+    "comment_id": "nvdan4r",
+    "sentiment": "neutral",
+    "stance": "unclear",
+    "confidence": 0.3,
+    "rationale": "One-word suggestion"
+  },
+  {
+    "post_id": "1psw7dp",
+    "comment_id": "nvd9cj3",
+    "sentiment": "neutral",
+    "stance": "unclear",
+    "confidence": 0.3,
+    "rationale": "Two-word suggestion"
+  },
+  {
+    "post_id": "1psw7dp",
+    "comment_id": "nvd5sum",
+    "sentiment": "neutral",
+    "stance": "unclear",
+    "confidence": 0.5,
+    "rationale": "Suggests locations based on climate change"
+  },
+  {
+    "post_id": "1psw7dp",
+    "comment_id": "nvd53ic",
+    "sentiment": "neutral",
+    "stance": "unclear",
+    "confidence": 0.5,
+    "rationale": "Suggests locations with abandoned infrastructure"
+  },
+  {
+    "post_id": "1psw7dp",
+    "comment_id": "nvd3sj6",
+    "sentiment": "neutral",
+    "stance": "unclear",
+    "confidence": 0.3,
+    "rationale": "Two-word suggestion"
+  },
+  {
+    "post_id": "1psw7dp",
+    "comment_id": "nvd2bqc",
+    "sentiment": "neutral",
+    "stance": "unclear",
+    "confidence": 0.5,
+    "rationale": "Suggests locations with historical context"
+  },
+  {
+    "post_id": "1psw7dp",
+    "comment_id": "nvcy9l9",
+    "sentiment": "neutral",
+    "stance": "unclear",
+    "confidence": 0.3,
+    "rationale": "Two-word suggestion"
+  },
+  {
+    "post_id": "1psw7dp",
+    "comment_id": "nvcxtd6",
+    "sentiment": "neutral",
+    "stance": "unclear",
+    "confidence": 0.3,
+    "rationale": "Two-word suggestion"
+  },
+  {
+    "post_id": "1psw7dp",
+    "comment_id": "nvcw786",
+    "sentiment": "neutral",
+    "stance": "unclear",
+    "confidence": 0.5,
+    "rationale": "Describes a location with pros and cons"
+  },
+  {
+    "post_id": "1psw7dp",
+    "comment_id": "nvct0n9",
+    "sentiment": "positive",
+    "stance": "unclear",
+    "confidence": 0.5,
+    "rationale": "Praises a specific location"
+  },
+  {
+    "post_id": "1psw7dp",
+    "comment_id": "nvct09w",
+    "sentiment": "neutral",
+    "stance": "disagree",
+    "confidence": 0.7,
+    "rationale": "Criticizes the premise of the question"
+  },
+  {
+    "post_id": "1psw7dp",
+    "comment_id": "nvcrnrc",
+    "sentiment": "neutral",
+    "stance": "unclear",
+    "confidence": 0.5,
+    "rationale": "Suggests a location with reasons for low population"
+  },
+  {
+    "post_id": "1psw7dp",
+    "comment_id": "nvcrmfl",
+    "sentiment": "neutral",
+    "stance": "unclear",
+    "confidence": 0.4,
+    "rationale": "Explains why a location is empty"
+  },
+  {
+    "post_id": "1psw7dp",
+    "comment_id": "nvcq204",
+    "sentiment": "neutral",
+    "stance": "unclear",
+    "confidence": 0.5,
+    "rationale": "Suggests a location, notes it's sparsely populated"
+  },
+  {
+    "post_id": "1psw7dp",
+    "comment_id": "nvcpovg",
+    "sentiment": "neutral",
+    "stance": "unclear",
+    "confidence": 0.5,
+    "rationale": "Suggests a location, compares to another"
+  },
+  {
+    "post_id": "1psw7dp",
+    "comment_id": "nvcpehs",
+    "sentiment": "neutral",
+    "stance": "unclear",
+    "confidence": 0.5,
+    "rationale": "Suggests a location with reasons for emptiness"
+  },
+  {
+    "post_id": "1psw7dp",
+    "comment_id": "nvcp1ud",
+    "sentiment": "neutral",
+    "stance": "unclear",
+    "confidence": 0.5,
+    "rationale": "Suggests a location, explains why empty"
+  },
+  {
+    "post_id": "1psw7dp",
+    "comment_id": "nvcntqg",
+    "sentiment": "neutral",
+    "stance": "unclear",
+    "confidence": 0.6,
+    "rationale": "States that all good places are settled"
+  },
+  {
+    "post_id": "1psw7dp",
+    "comment_id": "nvcnhx2",
+    "sentiment": "neutral",
+    "stance": "unclear",
+    "confidence": 0.3,
+    "rationale": "One-word suggestion"
+  },
+  {
+    "post_id": "1psw7dp",
+    "comment_id": "nvcn0ez",
+    "sentiment": "neutral",
+    "stance": "unclear",
+    "confidence": 0.5,
+    "rationale": "Suggests a location with historical context"
+  },
+  {
+    "post_id": "1psw7dp",
+    "comment_id": "nvcmb97",
+    "sentiment": "neutral",
+    "stance": "unclear",
+    "confidence": 0.6,
+    "rationale": "Questions the definition of 'perfect'"
+  },
+  {
+    "post_id": "1psw7dp",
+    "comment_id": "nvclfm8",
+    "sentiment": "neutral",
+    "stance": "unclear",
+    "confidence": 0.4,
+    "rationale": "Predicts future population shifts"
+  },
+  {
+    "post_id": "1psw7dp",
+    "comment_id": "nvckz7o",
+    "sentiment": "neutral",
+    "stance": "unclear",
+    "confidence": 0.6,
+    "rationale": "Analyzes a specific region's potential and history"
+  },
+  {
+    "post_id": "1psw7dp",
+    "comment_id": "nvckxji",
+    "sentiment": "neutral",
+    "stance": "unclear",
+    "confidence": 0.1,
+    "rationale": "Deleted comment"
+  },
+  {
+    "post_id": "1psw7dp",
+    "comment_id": "nvckrr0",
+    "sentiment": "negative",
+    "stance": "disagree",
+    "confidence": 0.8,
+    "rationale": "Directly rejects the premise"
+  },
+  {
+    "post_id": "1pykjjh",
+    "comment_id": "nx2iv8k",
+    "sentiment": "neutral",
+    "stance": "unclear",
+    "confidence": 0.4,
+    "rationale": "Asks for identification, no stance"
+  },
+  {
+    "post_id": "1pykjjh",
+    "comment_id": "nx08b0t",
+    "sentiment": "neutral",
+    "stance": "unclear",
+    "confidence": 0.3,
+    "rationale": "Simple question, no stance"
+  },
+  {
+    "post_id": "1pykjjh",
+    "comment_id": "nwz4llh",
+    "sentiment": "neutral",
+    "stance": "unclear",
+    "confidence": 0.3,
+    "rationale": "Comment on photo, no stance"
+  },
+  {
+    "post_id": "1pykjjh",
+    "comment_id": "nwwbx8q",
+    "sentiment": "positive",
+    "stance": "unclear",
+    "confidence": 0.6,
+    "rationale": "Expresses awe, not a stance on the substance"
+  },
+  {
+    "post_id": "1pykjjh",
+    "comment_id": "nwuqzkd",
+    "sentiment": "neutral",
+    "stance": "unclear",
+    "confidence": 0.4,
+    "rationale": "Joke about dangerous action"
+  },
+  {
+    "post_id": "1pykjjh",
+    "comment_id": "nwugies",
+    "sentiment": "neutral",
+    "stance": "unclear",
+    "confidence": 0.4,
+    "rationale": "Question about consequences"
+  },
+  {
+    "post_id": "1pykjjh",
+    "comment_id": "nwudwmp",
+    "sentiment": "neutral",
+    "stance": "unclear",
+    "confidence": 0.2,
+    "rationale": "Emoji, no content"
+  },
+  {
+    "post_id": "1pykjjh",
+    "comment_id": "nwt7u4j",
+    "sentiment": "positive",
+    "stance": "unclear",
+    "confidence": 0.5,
+    "rationale": "Fan recognition, no stance"
+  },
+  {
+    "post_id": "1pykjjh",
+    "comment_id": "nws5z1u",
+    "sentiment": "positive",
+    "stance": "unclear",
+    "confidence": 0.6,
+    "rationale": "Expresses personal liking for the element"
+  },
+  {
+    "post_id": "1pykjjh",
+    "comment_id": "nwrzsz9",
+    "sentiment": "positive",
+    "stance": "unclear",
+    "confidence": 0.5,
+    "rationale": "Fan comment, no stance"
+  },
+  {
+    "post_id": "1pykjjh",
+    "comment_id": "nwrwcjm",
+    "sentiment": "negative",
+    "stance": "unclear",
+    "confidence": 0.7,
+    "rationale": "Expresses fear/awe of the danger"
+  },
+  {
+    "post_id": "1pykjjh",
+    "comment_id": "nwruv3h",
+    "sentiment": "neutral",
+    "stance": "unclear",
+    "confidence": 0.3,
+    "rationale": "Pop culture reference, no stance"
+  },
+  {
+    "post_id": "1pykjjh",
+    "comment_id": "nwqrw2h",
+    "sentiment": "neutral",
+    "stance": "unclear",
+    "confidence": 0.4,
+    "rationale": "Joke about handling the substance"
+  },
+  {
+    "post_id": "1pykjjh",
+    "comment_id": "nwqb5hq",
+    "sentiment": "negative",
+    "stance": "unclear",
+    "confidence": 0.7,
+    "rationale": "Warns about the danger"
+  },
+  {
+    "post_id": "1pykjjh",
+    "comment_id": "nwq6hgs",
+    "sentiment": "positive",
+    "stance": "unclear",
+    "confidence": 0.5,
+    "rationale": "Expression of awe"
+  },
+  {
+    "post_id": "1pykjjh",
+    "comment_id": "nwq1lgu",
+    "sentiment": "neutral",
+    "stance": "unclear",
+    "confidence": 0.4,
+    "rationale": "Joke about irradiating it"
+  },
+  {
+    "post_id": "1pykjjh",
+    "comment_id": "nwq0b2r",
+    "sentiment": "positive",
+    "stance": "unclear",
+    "confidence": 0.6,
+    "rationale": "Relates with personal hobby"
+  },
+  {
+    "post_id": "1pykjjh",
+    "comment_id": "nwptuu8",
+    "sentiment": "neutral",
+    "stance": "unclear",
+    "confidence": 0.3,
+    "rationale": "Joke about drinking it"
+  },
+  {
+    "post_id": "1pykjjh",
+    "comment_id": "nwpisdl",
+    "sentiment": "positive",
+    "stance": "unclear",
+    "confidence": 0.5,
+    "rationale": "Recognizes OP from YouTube"
+  },
+  {
+    "post_id": "1pykjjh",
+    "comment_id": "nwpgiga",
+    "sentiment": "neutral",
+    "stance": "unclear",
+    "confidence": 0.4,
+    "rationale": "Joke about weaponizing it"
+  },
+  {
+    "post_id": "1pykjjh",
+    "comment_id": "nwpbv5p",
+    "sentiment": "neutral",
+    "stance": "unclear",
+    "confidence": 0.4,
+    "rationale": "Joke about dropping it"
+  },
+  {
+    "post_id": "1pykjjh",
+    "comment_id": "nwp4wo1",
+    "sentiment": "positive",
+    "stance": "unclear",
+    "confidence": 0.5,
+    "rationale": "Calls OP 'insane' in an admiring way"
+  },
+  {
+    "post_id": "1pykjjh",
+    "comment_id": "nwofmw1",
+    "sentiment": "neutral",
+    "stance": "unclear",
+    "confidence": 0.3,
+    "rationale": "Joke request for the substance"
+  },
+  {
+    "post_id": "1pykjjh",
+    "comment_id": "nwobb80",
+    "sentiment": "neutral",
+    "stance": "unclear",
+    "confidence": 0.3,
+    "rationale": "Joke about drinking it"
+  },
+  {
+    "post_id": "1pykjjh",
+    "comment_id": "nwo676l",
+    "sentiment": "positive",
+    "stance": "unclear",
+    "confidence": 0.5,
+    "rationale": "Expresses desire to own the substance"
+  },
+  {
+    "post_id": "1pykjjh",
+    "comment_id": "nwnwm1z",
+    "sentiment": "negative",
+    "stance": "unclear",
+    "confidence": 0.6,
+    "rationale": "Expresses anxiety looking at it"
+  },
+  {
+    "post_id": "1pykjjh",
+    "comment_id": "nwn8nlm",
+    "sentiment": "positive",
+    "stance": "unclear",
+    "confidence": 0.6,
+    "rationale": "Praises the aesthetic of the containment"
+  },
+  {
+    "post_id": "1pykjjh",
+    "comment_id": "nwmuaq9",
+    "sentiment": "neutral",
+    "stance": "unclear",
+    "confidence": 0.4,
+    "rationale": "Asks about the monetary value"
+  },
+  {
+    "post_id": "1pykjjh",
+    "comment_id": "nwmr3u7",
+    "sentiment": "positive",
+    "stance": "unclear",
+    "confidence": 0.5,
+    "rationale": "Recognizes OP from another platform"
+  },
+  {
+    "post_id": "1pykjjh",
+    "comment_id": "nwmlvpk",
+    "sentiment": "negative",
+    "stance": "unclear",
+    "confidence": 0.7,
+    "rationale": "Questions safety and setup"
+  },
+  {
+    "post_id": "1pykjjh",
+    "comment_id": "nwmknvv",
+    "sentiment": "neutral",
+    "stance": "unclear",
+    "confidence": 0.5,
+    "rationale": "Asks about acquisition and cost"
+  }
+]
+```

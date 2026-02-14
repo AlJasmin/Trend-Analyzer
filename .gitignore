@@ -11,3 +11,12 @@ venv/
 
 # IDE files
 .vscode/
+TODO.txt
+
+.\config\settings.yaml
+
+node_modules/
+dashboard/node_modules/
+
+image/README
+image/
