@@ -1,0 +1,17 @@
+hdbscan==0.8.40
+Jinja2==3.1.6
+matplotlib==3.10.8
+numpy==2.3.4
+openai==2.7.1
+pandas==2.3.3
+praw==7.8.1
+pymongo==4.15.3
+python-dotenv==1.2.1
+PyYAML==6.0.2
+ruamel.yaml==0.18.16
+scikit-learn==1.7.2
+sentence-transformers==5.2.0
+torch==2.7.1+cu118
+tqdm==4.67.1
+transformers @ git+https://github.com/huggingface/transformers.git@d08b98b965176ea9cf8c8e8b24995c955b7e2ec9
+umap-learn==0.5.9.post2
